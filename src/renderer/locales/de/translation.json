@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "Secret Access Service"
+  },
+  "unlock": {
+    "createTitle": "Tresor erstellen",
+    "createSubtitle": "Wählen Sie ein starkes Master-Passwort. Es verlässt dieses Gerät nie und kann nicht wiederhergestellt werden.",
+    "unlockTitle": "Tresor entsperren",
+    "masterPassword": "Master-Passwort",
+    "confirmPassword": "Master-Passwort bestätigen",
+    "create": "Tresor erstellen",
+    "unlock": "Entsperren",
+    "mismatch": "Passwörter stimmen nicht überein.",
+    "wrong": "Falsches Master-Passwort oder beschädigter Tresor.",
+    "working": "Wird verarbeitet…"
+  },
+  "sidebar": {
+    "allItems": "Alle Einträge",
+    "favorites": "Favoriten",
+    "categories": "Kategorien",
+    "addCategory": "Kategorie hinzufügen",
+    "uncategorized": "Ohne Kategorie"
+  },
+  "topbar": {
+    "search": "Tresor durchsuchen…",
+    "generator": "Passwortgenerator",
+    "settings": "Einstellungen",
+    "lock": "Sperren",
+    "health": "Sicherheitsübersicht",
+    "language": "Sprache",
+    "theme": "Design wechseln"
+  },
+  "items": {
+    "empty": "Noch keine Einträge. Erstellen Sie Ihren ersten Eintrag.",
+    "add": "Eintrag hinzufügen",
+    "kind": {
+      "login": "Login",
+      "note": "Sichere Notiz",
+      "card": "Kreditkarte",
+      "identity": "Identität",
+      "totp": "Authentifikator"
+    }
+  },
+  "generator": {
+    "title": "Passwortgenerator",
+    "length": "Länge",
+    "uppercase": "Großbuchstaben (A-Z)",
+    "lowercase": "Kleinbuchstaben (a-z)",
+    "digits": "Ziffern (0-9)",
+    "symbols": "Symbole",
+    "excludeAmbiguous": "Mehrdeutige Zeichen ausschließen",
+    "mode": "Modus",
+    "characters": "Zeichen",
+    "passphrase": "Passphrase",
+    "words": "Wörter",
+    "generate": "Generieren",
+    "copy": "Kopieren"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "theme": "Design",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System",
+    "language": "Sprache",
+    "autoLock": "Automatisch sperren nach (Minuten)",
+    "clipboardClear": "Zwischenablage leeren nach (Sekunden)",
+    "accent": "Akzentfarbe"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "close": "Schließen"
+  }
+}

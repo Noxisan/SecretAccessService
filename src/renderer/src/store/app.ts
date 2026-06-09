@@ -1,0 +1,42 @@
+import { create } from 'zustand'
+import type { AppSettings, VaultData, VaultStatus } from '@shared/types'
+
+/**
+ * Renderer state. CRITICAL: decrypted vault data lives here ONLY in transient
+ * memory while unlocked — it is NEVER persisted (no zustand persist middleware,
+ * no localStorage). On lock we drop it entirely.
+ */
+interface AppState {
+  status: VaultStatus
+  vault: VaultData | null
+  settings: AppSettings | null
+  selectedCategoryId: string | null
+  showFavoritesOnly: boolean
+  search: string
+
+  setStatus: (status: VaultStatus) => void
+  setVault: (vault: VaultData | null) => void
+  setSettings: (settings: AppSettings) => void
+  setSelectedCategory: (id: string | null) => void
+  setShowFavoritesOnly: (v: boolean) => void
+  setSearch: (q: string) => void
+  /** Wipe all decrypted state from renderer memory. */
+  clearSecrets: () => void
+}
+
+export const useAppStore = create<AppState>((set) => ({
+  status: 'absent',
+  vault: null,
+  settings: null,
+  selectedCategoryId: null,
+  showFavoritesOnly: false,
+  search: '',
+
+  setStatus: (status) => set({ status }),
+  setVault: (vault) => set({ vault }),
+  setSettings: (settings) => set({ settings }),
+  setSelectedCategory: (selectedCategoryId) => set({ selectedCategoryId, showFavoritesOnly: false }),
+  setShowFavoritesOnly: (showFavoritesOnly) => set({ showFavoritesOnly, selectedCategoryId: null }),
+  setSearch: (search) => set({ search }),
+  clearSecrets: () => set({ vault: null, status: 'locked', search: '' })
+}))

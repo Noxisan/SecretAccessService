@@ -1,0 +1,65 @@
+{
+  "name": "sas",
+  "version": "0.1.0",
+  "description": "S.A.S — Secret Access Service: a cross-platform, offline-first, zero-knowledge password manager.",
+  "author": "Noxisan",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "main": "./out/main/index.js",
+  "type": "module",
+  "//": [
+    "DEPENDENCY PIN RATIONALE (kept here because npm parses comment keys inside dependencies{} as package names):",
+    "vite: pinned to 7.x — electron-vite@5 peerDependency is 'vite: ^5 || ^6 || ^7'. Vite 8 is published but NOT yet supported by electron-vite 5; bumping it breaks the install. This cascades: @vitejs/plugin-react is held at 5.2.0 (last line supporting Vite 7; v6 requires Vite 8). Revisit all three together when electron-vite ships Vite 8 support.",
+    "typescript-eslint / react-i18next: bumped past the CLAUDE.md baseline to versions whose TypeScript peer range includes TS 6 (8.61.0 and 17.0.8 respectively).",
+    "libsodium-wrappers-sumo: the '-sumo' build is required — the standard build omits crypto_pwhash (Argon2id), which the KDF in src/main/crypto depends on."
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "preview": "electron-vite preview",
+    "start": "electron-vite preview",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "test": "vitest run",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:linux": "npm run build && electron-builder --linux"
+  },
+  "dependencies": {
+    "libsodium-wrappers-sumo": "0.8.4",
+    "otpauth": "9.5.1",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.18.0",
+    "@tailwindcss/vite": "4.3.0",
+    "@types/libsodium-wrappers-sumo": "0.7.8",
+    "@types/node": "20.19.42",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "@zxcvbn-ts/core": "3.0.4",
+    "electron": "42.3.3",
+    "electron-builder": "26.15.2",
+    "electron-vite": "5.0.0",
+    "eslint": "9.18.0",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "i18next": "26.3.1",
+    "lucide-react": "1.17.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.0",
+    "react-i18next": "17.0.8",
+    "react-router": "7.17.0",
+    "tailwindcss": "4.3.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.61.0",
+    "vite": "7.3.5",
+    "vitest": "3.0.5",
+    "zustand": "5.0.14"
+  }
+}

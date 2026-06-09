@@ -1,0 +1,77 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "Secret Access Service"
+  },
+  "unlock": {
+    "createTitle": "Create your vault",
+    "createSubtitle": "Choose a strong master password. It never leaves this device and cannot be recovered.",
+    "unlockTitle": "Unlock your vault",
+    "masterPassword": "Master password",
+    "confirmPassword": "Confirm master password",
+    "create": "Create vault",
+    "unlock": "Unlock",
+    "mismatch": "Passwords do not match.",
+    "wrong": "Wrong master password or corrupted vault.",
+    "working": "Working…"
+  },
+  "sidebar": {
+    "allItems": "All items",
+    "favorites": "Favorites",
+    "categories": "Categories",
+    "addCategory": "Add category",
+    "uncategorized": "Uncategorized"
+  },
+  "topbar": {
+    "search": "Search vault…",
+    "generator": "Password generator",
+    "settings": "Settings",
+    "lock": "Lock",
+    "health": "Health dashboard",
+    "language": "Language",
+    "theme": "Toggle theme"
+  },
+  "items": {
+    "empty": "No items yet. Create your first entry.",
+    "add": "Add item",
+    "kind": {
+      "login": "Login",
+      "note": "Secure note",
+      "card": "Credit card",
+      "identity": "Identity",
+      "totp": "Authenticator"
+    }
+  },
+  "generator": {
+    "title": "Password generator",
+    "length": "Length",
+    "uppercase": "Uppercase (A-Z)",
+    "lowercase": "Lowercase (a-z)",
+    "digits": "Digits (0-9)",
+    "symbols": "Symbols",
+    "excludeAmbiguous": "Exclude ambiguous characters",
+    "mode": "Mode",
+    "characters": "Characters",
+    "passphrase": "Passphrase",
+    "words": "Words",
+    "generate": "Generate",
+    "copy": "Copy"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "language": "Language",
+    "autoLock": "Auto-lock after (minutes)",
+    "clipboardClear": "Clear clipboard after (seconds)",
+    "accent": "Accent color"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "close": "Close"
+  }
+}
