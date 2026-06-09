@@ -7,6 +7,7 @@
 **A cross-platform, offline-first, zero-knowledge password manager for Windows & Linux.**
 
 [![release](https://img.shields.io/github/v/tag/Noxisan/sas?label=release&color=7c3aed)](https://github.com/Noxisan/sas/releases/latest)
+[![CI](https://github.com/Noxisan/sas/actions/workflows/ci.yml/badge.svg)](https://github.com/Noxisan/sas/actions/workflows/ci.yml)
 ![status](https://img.shields.io/badge/status-alpha-7c3aed)
 ![platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux-7c3aed)
 ![license](https://img.shields.io/badge/license-GPL--3.0-7c3aed)

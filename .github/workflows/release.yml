@@ -1,0 +1,73 @@
+name: Release
+
+# On a version tag (e.g. v0.3.0), build the installers on each target OS, then
+# publish them to the matching GitHub Release in a single step. Pushing the tag
+# is the only trigger — matching the Gitflow release flow in CLAUDE.md §10.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write # create/update the Release and upload assets
+
+jobs:
+  build:
+    name: Build ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            dist: npm run dist:win
+          - os: ubuntu-latest
+            dist: npm run dist:linux
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # dist scripts run `npm run build` (type-check + bundle) first, then
+      # electron-builder. publish is null in electron-builder.yml, so the build
+      # never auto-publishes — the publish job below attaches the artifacts.
+      - name: Build installers
+        run: ${{ matrix.dist }}
+
+      - name: Upload installers
+        uses: actions/upload-artifact@v4
+        with:
+          name: installers-${{ matrix.os }}
+          path: |
+            dist/*.exe
+            dist/*.AppImage
+            dist/*.deb
+          if-no-files-found: ignore
+          retention-days: 5
+
+  publish:
+    name: Publish release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Collect installers
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Attach installers to the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.exe
+            dist/*.AppImage
+            dist/*.deb
+          fail_on_unmatched_files: false
+          generate_release_notes: true
