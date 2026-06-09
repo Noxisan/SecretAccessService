@@ -39,7 +39,20 @@
   },
   "items": {
     "empty": "No items yet. Create your first entry.",
-    "add": "Add item",
+    "add": "Add",
+    "edit": "Edit item",
+    "show": "Show",
+    "hide": "Hide",
+    "noColor": "No color",
+    "confirmDelete": "Delete this item?",
+    "field": {
+      "title": "Title",
+      "username": "Username",
+      "password": "Password",
+      "url": "Website",
+      "notes": "Notes",
+      "color": "Color"
+    },
     "kind": {
       "login": "Login",
       "note": "Secure note",

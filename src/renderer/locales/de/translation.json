@@ -39,7 +39,20 @@
   },
   "items": {
     "empty": "Noch keine Einträge. Erstellen Sie Ihren ersten Eintrag.",
-    "add": "Eintrag hinzufügen",
+    "add": "Hinzufügen",
+    "edit": "Eintrag bearbeiten",
+    "show": "Anzeigen",
+    "hide": "Verbergen",
+    "noColor": "Keine Farbe",
+    "confirmDelete": "Diesen Eintrag löschen?",
+    "field": {
+      "title": "Titel",
+      "username": "Benutzername",
+      "password": "Passwort",
+      "url": "Website",
+      "notes": "Notizen",
+      "color": "Farbe"
+    },
     "kind": {
       "login": "Login",
       "note": "Sichere Notiz",

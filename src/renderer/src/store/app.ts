@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { AppSettings, VaultData, VaultStatus } from '@shared/types'
+import type { AppSettings, VaultData, VaultStatus, VaultItem, VaultItemKind } from '@shared/types'
 
 /**
  * Renderer state. CRITICAL: decrypted vault data lives here ONLY in transient
@@ -14,6 +14,10 @@ interface AppState {
   showFavoritesOnly: boolean
   search: string
   generatorOpen: boolean
+  /** Item editor: open + the item being edited (null = creating a new one). */
+  editorOpen: boolean
+  editorItem: VaultItem | null
+  editorCreateKind: VaultItemKind
 
   setStatus: (status: VaultStatus) => void
   setVault: (vault: VaultData | null) => void
@@ -22,6 +26,8 @@ interface AppState {
   setShowFavoritesOnly: (v: boolean) => void
   setSearch: (q: string) => void
   setGeneratorOpen: (open: boolean) => void
+  openItemEditor: (item: VaultItem | null, kind?: VaultItemKind) => void
+  closeItemEditor: () => void
   /** Wipe all decrypted state from renderer memory. */
   clearSecrets: () => void
 }
@@ -34,6 +40,9 @@ export const useAppStore = create<AppState>((set) => ({
   showFavoritesOnly: false,
   search: '',
   generatorOpen: false,
+  editorOpen: false,
+  editorItem: null,
+  editorCreateKind: 'login',
 
   setStatus: (status) => set({ status }),
   setVault: (vault) => set({ vault }),
@@ -42,5 +51,16 @@ export const useAppStore = create<AppState>((set) => ({
   setShowFavoritesOnly: (showFavoritesOnly) => set({ showFavoritesOnly, selectedCategoryId: null }),
   setSearch: (search) => set({ search }),
   setGeneratorOpen: (generatorOpen) => set({ generatorOpen }),
-  clearSecrets: () => set({ vault: null, status: 'locked', search: '', generatorOpen: false })
+  openItemEditor: (item, kind = 'login') =>
+    set({ editorOpen: true, editorItem: item, editorCreateKind: item?.kind ?? kind }),
+  closeItemEditor: () => set({ editorOpen: false, editorItem: null }),
+  clearSecrets: () =>
+    set({
+      vault: null,
+      status: 'locked',
+      search: '',
+      generatorOpen: false,
+      editorOpen: false,
+      editorItem: null
+    })
 }))
