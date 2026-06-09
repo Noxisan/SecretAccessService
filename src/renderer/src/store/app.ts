@@ -13,6 +13,7 @@ interface AppState {
   selectedCategoryId: string | null
   showFavoritesOnly: boolean
   search: string
+  generatorOpen: boolean
 
   setStatus: (status: VaultStatus) => void
   setVault: (vault: VaultData | null) => void
@@ -20,6 +21,7 @@ interface AppState {
   setSelectedCategory: (id: string | null) => void
   setShowFavoritesOnly: (v: boolean) => void
   setSearch: (q: string) => void
+  setGeneratorOpen: (open: boolean) => void
   /** Wipe all decrypted state from renderer memory. */
   clearSecrets: () => void
 }
@@ -31,6 +33,7 @@ export const useAppStore = create<AppState>((set) => ({
   selectedCategoryId: null,
   showFavoritesOnly: false,
   search: '',
+  generatorOpen: false,
 
   setStatus: (status) => set({ status }),
   setVault: (vault) => set({ vault }),
@@ -38,5 +41,6 @@ export const useAppStore = create<AppState>((set) => ({
   setSelectedCategory: (selectedCategoryId) => set({ selectedCategoryId, showFavoritesOnly: false }),
   setShowFavoritesOnly: (showFavoritesOnly) => set({ showFavoritesOnly, selectedCategoryId: null }),
   setSearch: (search) => set({ search }),
-  clearSecrets: () => set({ vault: null, status: 'locked', search: '' })
+  setGeneratorOpen: (generatorOpen) => set({ generatorOpen }),
+  clearSecrets: () => set({ vault: null, status: 'locked', search: '', generatorOpen: false })
 }))

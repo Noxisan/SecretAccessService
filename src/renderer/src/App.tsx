@@ -8,6 +8,7 @@ import UnlockScreen from './features/unlock/UnlockScreen'
 import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
 import ItemList from './features/vault/ItemList'
+import GeneratorModal from './features/generator/GeneratorModal'
 
 /** Apply theme tokens, accent, language, and text direction from settings. */
 function applyPresentation(settings: AppSettings, setLang: (l: string) => void): void {
@@ -64,6 +65,7 @@ export default function App(): JSX.Element {
           <ItemList />
         </main>
       </div>
+      <GeneratorModal />
     </div>
   )
 }
