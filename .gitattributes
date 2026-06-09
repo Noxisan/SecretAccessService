@@ -1,0 +1,15 @@
+# Normalize line endings to LF in the repo for all text files, so the same
+# vault/crypto code byte-for-byte matches across Windows and Linux contributors
+# and Git stops warning about CRLF conversion on every commit.
+* text=auto eol=lf
+
+# Explicitly treat known binary assets as binary (never EOL-converted).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.icns binary
+*.woff binary
+*.woff2 binary
+*.db binary
