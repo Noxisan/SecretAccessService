@@ -1,9 +1,12 @@
 <div align="center">
 
+<img src="readme_logo.png" alt="S.A.S — Secret Access Service" width="360" />
+
 # S.A.S — Secret Access Service
 
 **A cross-platform, offline-first, zero-knowledge password manager for Windows & Linux.**
 
+[![release](https://img.shields.io/github/v/tag/Noxisan/sas?label=release&color=7c3aed)](https://github.com/Noxisan/sas/releases/latest)
 ![status](https://img.shields.io/badge/status-alpha-7c3aed)
 ![platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux-7c3aed)
 ![license](https://img.shields.io/badge/license-GPL--3.0-7c3aed)
@@ -11,10 +14,27 @@
 
 </div>
 
-> Your secrets are encrypted locally with state-of-the-art cryptography. Nothing
-> leaves your machine unless you explicitly export it.
+> Your secrets are encrypted locally with state-of-the-art cryptography.
+> Nothing leaves your machine unless you explicitly export it.
 
 ---
+
+## ⬇️ Download
+
+Grab the latest build from the **[Releases](https://github.com/Noxisan/sas/releases/latest)** page:
+
+[![Windows Release](https://img.shields.io/badge/Windows-Download-0078D6?logo=windows&logoColor=white)](https://github.com/Noxisan/sas/releases/latest)
+&nbsp;
+[![Linux Release](https://img.shields.io/badge/Linux-Download-FCC624?logo=linux&logoColor=black)](https://github.com/Noxisan/sas/releases/latest)
+
+| Platform | Artifact | Notes |
+|---|---|---|
+| **Windows** | `S.A.S-<version>-x64.exe` | NSIS installer |
+| **Windows** | `S.A.S-<version>-portable.exe` | Portable — no install, runs in place |
+| **Linux** | `S.A.S-<version>-x86_64.AppImage` | `chmod +x` then run |
+| **Linux** | `S.A.S-<version>-amd64.deb` | `sudo apt install ./<file>.deb` |
+
+> Prefer to build it yourself? See [Build from source](#-build-from-source).
 
 ## 🔐 Security highlights
 
@@ -53,16 +73,6 @@ See the [threat model](#-threat-model-summary) for scope and assumptions.
 
 _Coming soon — left sidebar (categories, favorites, color dots) + narrow top bar (search, generator, health, lock)._
 
-## 📦 Install
-
-### Windows
-- **Installer:** download `S.A.S-<version>-x64.exe` (NSIS) and run it.
-- **Portable:** download `S.A.S-<version>-portable.exe` — no installation, runs in place.
-
-### Linux
-- **AppImage:** `chmod +x S.A.S-<version>-x86_64.AppImage && ./S.A.S-<version>-x86_64.AppImage`
-- **Debian/Ubuntu:** `sudo apt install ./S.A.S-<version>-amd64.deb`
-
 ## 🛠️ Build from source
 
 Requires **Node 20 LTS or newer**.
@@ -73,7 +83,7 @@ npm run dev        # launch in development (electron-vite)
 npm run build      # type-check + build to out/
 npm run lint       # eslint
 npm run typecheck  # tsc --noEmit (strict)
-npm test           # vitest (crypto + vault unit tests)
+npm test           # vitest (crypto + vault + UI-logic tests)
 npm run dist       # package installers/portables via electron-builder
 ```
 
