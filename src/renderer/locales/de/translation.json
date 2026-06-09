@@ -13,7 +13,13 @@
     "unlock": "Entsperren",
     "mismatch": "Passwörter stimmen nicht überein.",
     "wrong": "Falsches Master-Passwort oder beschädigter Tresor.",
-    "working": "Wird verarbeitet…"
+    "working": "Wird verarbeitet…",
+    "resetCta": "Kein Tresor oder Passwort vergessen? Neuen erstellen",
+    "resetTitle": "Neuen Tresor erstellen",
+    "resetConfirmTitle": "Löschen und neu beginnen?",
+    "resetWarning": "Dies löscht den vorhandenen Tresor und alle darin gespeicherten Daten unwiderruflich. Eine Wiederherstellung ist nicht möglich — stellen Sie sicher, dass Sie die Inhalte nicht mehr benötigen.",
+    "resetContinue": "Ich habe verstanden — fortfahren",
+    "back": "Zurück"
   },
   "sidebar": {
     "allItems": "Alle Einträge",
