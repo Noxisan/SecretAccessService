@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **CI/CD via GitHub Actions** — `ci.yml` runs lint, strict type-check, tests,
+  and build on every push/PR to `main`/`develop`; `release.yml` builds the
+  Windows and Linux installers on a version tag and attaches them to the
+  matching GitHub Release.
+
 ## [0.2.0] - 2026-06-09
 
 First feature release on top of the secure foundation: the vault is now usable
