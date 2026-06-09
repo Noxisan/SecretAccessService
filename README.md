@@ -33,10 +33,12 @@ See the [threat model](#-threat-model-summary) for scope and assumptions.
 
 | Area | Status |
 |---|---|
-| Encrypted vault (logins, notes, cards, identities) | 🟡 core model in place |
-| Categories · favorites · color tags | 🟡 sidebar + model |
-| Password generator (chars + passphrase) | 🟢 main-process generator |
-| Global fuzzy search | 🟡 basic title search |
+| Encrypted vault — logins & secure notes (create/edit/delete) | 🟢 working |
+| Encrypted vault — cards & identities | 🟡 model in place, no editor yet |
+| Create / recover vault (incl. forgotten-password reset) | 🟢 working |
+| Categories · favorites · color tags | 🟡 favorites + color tags work; category management pending |
+| Password generator (chars + passphrase) | 🟢 working |
+| Global search | 🟡 title, username & URL |
 | Auto-lock · clipboard auto-clear | 🟢 implemented |
 | Built-in TOTP authenticator (RFC 6238) | ⚪ planned |
 | Password health dashboard (`zxcvbn`) | ⚪ planned |
