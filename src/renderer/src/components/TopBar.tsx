@@ -8,6 +8,7 @@ export default function TopBar(): JSX.Element {
   const { t } = useTranslation()
   const search = useAppStore((s) => s.search)
   const setSearch = useAppStore((s) => s.setSearch)
+  const setGeneratorOpen = useAppStore((s) => s.setGeneratorOpen)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
 
   async function lock(): Promise<void> {
@@ -36,7 +37,12 @@ export default function TopBar(): JSX.Element {
       </div>
 
       <div className="ml-auto flex items-center gap-1">
-        <button className={iconBtn} title={t('topbar.generator')} aria-label={t('topbar.generator')}>
+        <button
+          className={iconBtn}
+          onClick={() => setGeneratorOpen(true)}
+          title={t('topbar.generator')}
+          aria-label={t('topbar.generator')}
+        >
           <KeyRound size={18} />
         </button>
         <button className={iconBtn} title={t('topbar.health')} aria-label={t('topbar.health')}>

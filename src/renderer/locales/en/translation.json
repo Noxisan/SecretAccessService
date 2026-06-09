@@ -54,8 +54,21 @@
     "characters": "Characters",
     "passphrase": "Passphrase",
     "words": "Words",
+    "separator": "Separator",
     "generate": "Generate",
-    "copy": "Copy"
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Copied",
+    "strength": "Strength",
+    "entropyBits": "{{bits}} bits of entropy",
+    "noClass": "Select at least one character class.",
+    "level": {
+      "veryWeak": "Very weak",
+      "weak": "Weak",
+      "fair": "Fair",
+      "strong": "Strong",
+      "veryStrong": "Very strong"
+    }
   },
   "settings": {
     "title": "Settings",
