@@ -8,6 +8,7 @@ export const IPC = {
   vaultStatus: 'vault:status',
   vaultExists: 'vault:exists',
   vaultCreate: 'vault:create',
+  vaultRecreate: 'vault:recreate',
   vaultUnlock: 'vault:unlock',
   vaultLock: 'vault:lock',
   vaultRead: 'vault:read',

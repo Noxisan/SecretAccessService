@@ -55,6 +55,13 @@ export function registerIpcHandlers(opts: {
     await vault.create(masterPassword)
   })
 
+  // Irreversible: discards any existing vault and creates a fresh one. The
+  // renderer gates this behind an explicit destructive confirmation.
+  handle<void>(IPC.vaultRecreate, async (arg) => {
+    const { masterPassword } = parse(masterPasswordSchema, arg)
+    await vault.recreate(masterPassword)
+  })
+
   handle<void>(IPC.vaultUnlock, async (arg) => {
     const { masterPassword } = parse(masterPasswordSchema, arg)
     await vault.unlock(masterPassword)

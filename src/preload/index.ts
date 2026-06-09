@@ -21,6 +21,8 @@ const api = {
     exists: (): Promise<boolean> => ipcRenderer.invoke(IPC.vaultExists),
     create: (masterPassword: string): Promise<void> =>
       ipcRenderer.invoke(IPC.vaultCreate, { masterPassword }),
+    recreate: (masterPassword: string): Promise<void> =>
+      ipcRenderer.invoke(IPC.vaultRecreate, { masterPassword }),
     unlock: (masterPassword: string): Promise<void> =>
       ipcRenderer.invoke(IPC.vaultUnlock, { masterPassword }),
     lock: (): Promise<void> => ipcRenderer.invoke(IPC.vaultLock),

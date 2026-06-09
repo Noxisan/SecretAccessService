@@ -13,7 +13,13 @@
     "unlock": "Unlock",
     "mismatch": "Passwords do not match.",
     "wrong": "Wrong master password or corrupted vault.",
-    "working": "Working…"
+    "working": "Working…",
+    "resetCta": "No vault, or forgot your password? Create a new one",
+    "resetTitle": "Create a new vault",
+    "resetConfirmTitle": "Erase and start over?",
+    "resetWarning": "This permanently erases the existing vault and everything stored in it. There is no recovery — make sure you don't need its contents.",
+    "resetContinue": "I understand — continue",
+    "back": "Back"
   },
   "sidebar": {
     "allItems": "All items",
