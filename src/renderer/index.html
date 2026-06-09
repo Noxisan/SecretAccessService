@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Defense in depth: a CSP meta tag in addition to the header set in main. -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'"
-    />
+    <!--
+      The strict CSP <meta> is injected at BUILD time only (see the inject-csp
+      plugin in electron.vite.config.ts). It is intentionally absent in dev so
+      the Vite HMR bootstrap can run; dev security comes from the relaxed header
+      in the main process.
+    -->
     <title>S.A.S — Secret Access Service</title>
   </head>
   <body>

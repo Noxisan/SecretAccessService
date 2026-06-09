@@ -29,9 +29,11 @@ function resetIdleTimer(): void {
 }
 
 function applySecurityHeaders(): void {
-  // Strict CSP: no remote code, no eval, no remote connections. Styles need
-  // 'unsafe-inline' for the CSS-variable theming injected at runtime.
-  const csp = [
+  // Production CSP: no remote code, no eval, no remote connections. Styles need
+  // 'unsafe-inline' for the CSS-variable theming injected at runtime. This same
+  // policy is also injected as a <meta> tag into the production HTML at build
+  // time (see electron.vite.config.ts) so it holds even for file:// loads.
+  const prodCsp = [
     "default-src 'self'",
     "script-src 'self'",
     "style-src 'self' 'unsafe-inline'",
@@ -43,6 +45,23 @@ function applySecurityHeaders(): void {
     "form-action 'none'",
     "frame-ancestors 'none'"
   ].join('; ')
+
+  // Dev CSP: the Vite dev server needs an inline bootstrap script (React Fast
+  // Refresh preamble) and a websocket for HMR. These relaxations apply ONLY to
+  // the dev server on localhost and never ship in the packaged app.
+  const devCsp = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data:",
+    "font-src 'self' data:",
+    "connect-src 'self' ws://localhost:* http://localhost:*",
+    "object-src 'none'",
+    "base-uri 'none'",
+    "frame-ancestors 'none'"
+  ].join('; ')
+
+  const csp = isDev ? devCsp : prodCsp
 
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     callback({
@@ -67,7 +86,9 @@ function createWindow(): void {
     backgroundColor: '#0e0e11',
     autoHideMenuBar: true,
     webPreferences: {
-      preload: join(import.meta.dirname, '../preload/index.js'),
+      // Preload is built as CommonJS (.cjs) because a sandboxed renderer cannot
+      // load an ESM preload (see electron.vite.config.ts).
+      preload: join(import.meta.dirname, '../preload/index.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
@@ -78,6 +99,17 @@ function createWindow(): void {
   })
 
   mainWindow.once('ready-to-show', () => mainWindow?.show())
+
+  // Dev-only diagnostics: surface renderer console + load failures in the
+  // terminal (the renderer must never log secrets, so this stays safe).
+  if (isDev) {
+    mainWindow.webContents.on('console-message', (_e, level, message, line, source) => {
+      console.warn(`[renderer:${level}] ${message} (${source}:${line})`)
+    })
+    mainWindow.webContents.on('did-fail-load', (_e, code, desc, url) => {
+      console.error(`[renderer] did-fail-load ${code} ${desc} ${url}`)
+    })
+  }
 
   // Open external links in the system browser; never inside the app window.
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
