@@ -82,6 +82,33 @@ describe('VaultManager', () => {
     await expect(v2.unlock(PW)).rejects.toThrow()
   })
 
+  it('recreate() discards the old vault and creates a fresh one', async () => {
+    const v = new VaultManager(vaultPath)
+    await v.create(PW, FAST)
+    await v.update((d) => ({ ...d, items: [login('1', 'OldEntry')] }))
+    await v.lock()
+
+    // Forgot the password / corrupt file → start over with a new password.
+    const v2 = new VaultManager(vaultPath)
+    await v2.recreate('brand-new-password', FAST)
+    expect(v2.isUnlocked).toBe(true)
+    expect(v2.read().items).toHaveLength(0) // old contents are gone
+
+    await v2.lock()
+    const v3 = new VaultManager(vaultPath)
+    await expect(v3.unlock(PW)).rejects.toThrow() // old password no longer works
+    const v4 = new VaultManager(vaultPath)
+    await v4.unlock('brand-new-password')
+    expect(v4.read().items).toHaveLength(0)
+  })
+
+  it('recreate() works even when no vault exists yet', async () => {
+    const v = new VaultManager(vaultPath)
+    expect(await v.exists()).toBe(false)
+    await v.recreate(PW, FAST)
+    expect(v.isUnlocked).toBe(true)
+  })
+
   it('changes the master password and re-encrypts', async () => {
     const v = new VaultManager(vaultPath)
     await v.create(PW, FAST)

@@ -1,6 +1,6 @@
 {
   "name": "sas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "S.A.S — Secret Access Service: a cross-platform, offline-first, zero-knowledge password manager.",
   "author": "Noxisan",
   "license": "GPL-3.0-or-later",
@@ -52,7 +52,7 @@
     "i18next": "26.3.1",
     "lucide-react": "1.17.0",
     "react": "19.2.7",
-    "react-dom": "19.2.0",
+    "react-dom": "19.2.7",
     "react-i18next": "17.0.8",
     "react-router": "7.17.0",
     "tailwindcss": "4.3.0",

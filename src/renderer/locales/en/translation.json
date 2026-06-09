@@ -13,7 +13,13 @@
     "unlock": "Unlock",
     "mismatch": "Passwords do not match.",
     "wrong": "Wrong master password or corrupted vault.",
-    "working": "Working…"
+    "working": "Working…",
+    "resetCta": "No vault, or forgot your password? Create a new one",
+    "resetTitle": "Create a new vault",
+    "resetConfirmTitle": "Erase and start over?",
+    "resetWarning": "This permanently erases the existing vault and everything stored in it. There is no recovery — make sure you don't need its contents.",
+    "resetContinue": "I understand — continue",
+    "back": "Back"
   },
   "sidebar": {
     "allItems": "All items",
@@ -33,7 +39,20 @@
   },
   "items": {
     "empty": "No items yet. Create your first entry.",
-    "add": "Add item",
+    "add": "Add",
+    "edit": "Edit item",
+    "show": "Show",
+    "hide": "Hide",
+    "noColor": "No color",
+    "confirmDelete": "Delete this item?",
+    "field": {
+      "title": "Title",
+      "username": "Username",
+      "password": "Password",
+      "url": "Website",
+      "notes": "Notes",
+      "color": "Color"
+    },
     "kind": {
       "login": "Login",
       "note": "Secure note",
@@ -54,8 +73,21 @@
     "characters": "Characters",
     "passphrase": "Passphrase",
     "words": "Words",
+    "separator": "Separator",
     "generate": "Generate",
-    "copy": "Copy"
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Copied",
+    "strength": "Strength",
+    "entropyBits": "{{bits}} bits of entropy",
+    "noClass": "Select at least one character class.",
+    "level": {
+      "veryWeak": "Very weak",
+      "weak": "Weak",
+      "fair": "Fair",
+      "strong": "Strong",
+      "veryStrong": "Very strong"
+    }
   },
   "settings": {
     "title": "Settings",

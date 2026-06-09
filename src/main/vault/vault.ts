@@ -1,4 +1,4 @@
-import { readFile, writeFile, rename, mkdir, access } from 'node:fs/promises'
+import { readFile, writeFile, rename, mkdir, access, rm } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import type { VaultData } from '../../shared/types.js'
 import {
@@ -74,6 +74,18 @@ export class VaultManager {
     this.#header = header
     this.#data = emptyVaultData()
     await this.#persist()
+  }
+
+  /**
+   * Destroy any existing vault file and create a fresh one. Used by the
+   * "create a new vault" / reset flow when the user can't (or doesn't want to)
+   * unlock the current vault — e.g. a forgotten master password or a corrupt
+   * file. This is irreversible: the previous ciphertext is deleted.
+   */
+  async recreate(masterPassword: string, kdfParams: KdfParams = DEFAULT_KDF_PARAMS): Promise<void> {
+    await this.lock()
+    await rm(this.#path, { force: true })
+    await this.create(masterPassword, kdfParams)
   }
 
   /** Derive the key, decrypt, and hold the unlocked state. Throws on bad password. */

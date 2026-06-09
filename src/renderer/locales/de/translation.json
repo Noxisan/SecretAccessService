@@ -13,7 +13,13 @@
     "unlock": "Entsperren",
     "mismatch": "Passwörter stimmen nicht überein.",
     "wrong": "Falsches Master-Passwort oder beschädigter Tresor.",
-    "working": "Wird verarbeitet…"
+    "working": "Wird verarbeitet…",
+    "resetCta": "Kein Tresor oder Passwort vergessen? Neuen erstellen",
+    "resetTitle": "Neuen Tresor erstellen",
+    "resetConfirmTitle": "Löschen und neu beginnen?",
+    "resetWarning": "Dies löscht den vorhandenen Tresor und alle darin gespeicherten Daten unwiderruflich. Eine Wiederherstellung ist nicht möglich — stellen Sie sicher, dass Sie die Inhalte nicht mehr benötigen.",
+    "resetContinue": "Ich habe verstanden — fortfahren",
+    "back": "Zurück"
   },
   "sidebar": {
     "allItems": "Alle Einträge",
@@ -33,7 +39,20 @@
   },
   "items": {
     "empty": "Noch keine Einträge. Erstellen Sie Ihren ersten Eintrag.",
-    "add": "Eintrag hinzufügen",
+    "add": "Hinzufügen",
+    "edit": "Eintrag bearbeiten",
+    "show": "Anzeigen",
+    "hide": "Verbergen",
+    "noColor": "Keine Farbe",
+    "confirmDelete": "Diesen Eintrag löschen?",
+    "field": {
+      "title": "Titel",
+      "username": "Benutzername",
+      "password": "Passwort",
+      "url": "Website",
+      "notes": "Notizen",
+      "color": "Farbe"
+    },
     "kind": {
       "login": "Login",
       "note": "Sichere Notiz",
@@ -54,8 +73,21 @@
     "characters": "Zeichen",
     "passphrase": "Passphrase",
     "words": "Wörter",
+    "separator": "Trennzeichen",
     "generate": "Generieren",
-    "copy": "Kopieren"
+    "regenerate": "Neu generieren",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "strength": "Stärke",
+    "entropyBits": "{{bits}} Bit Entropie",
+    "noClass": "Wählen Sie mindestens eine Zeichenklasse.",
+    "level": {
+      "veryWeak": "Sehr schwach",
+      "weak": "Schwach",
+      "fair": "Mittel",
+      "strong": "Stark",
+      "veryStrong": "Sehr stark"
+    }
   },
   "settings": {
     "title": "Einstellungen",
