@@ -10,6 +10,7 @@ import ItemList from './features/vault/ItemList'
 import ItemEditor from './features/vault/ItemEditor'
 import GeneratorModal from './features/generator/GeneratorModal'
 import SettingsModal from './features/settings/SettingsModal'
+import HealthDashboard from './features/health/HealthDashboard'
 
 export default function App(): JSX.Element {
   const { i18n } = useTranslation()
@@ -72,6 +73,7 @@ export default function App(): JSX.Element {
       <ItemEditor />
       <GeneratorModal />
       <SettingsModal />
+      <HealthDashboard />
     </div>
   )
 }

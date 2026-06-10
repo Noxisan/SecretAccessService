@@ -125,5 +125,18 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "close": "Close"
+  },
+  "health": {
+    "title": "Password health",
+    "totalLogins": "Total logins",
+    "safe": "Healthy",
+    "issues": "Issues",
+    "allGood": "All good",
+    "allGoodDetail": "All your passwords look healthy.",
+    "reason": {
+      "weak": "Weak password",
+      "reused": "Reused",
+      "old": "Over 180 days old"
+    }
   }
 }

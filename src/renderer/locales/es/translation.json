@@ -125,5 +125,18 @@
     "cancel": "Cancelar",
     "delete": "Eliminar",
     "close": "Cerrar"
+  },
+  "health": {
+    "title": "Seguridad de contraseñas",
+    "totalLogins": "Logins totales",
+    "safe": "Seguros",
+    "issues": "Problemas",
+    "allGood": "Todo bien",
+    "allGoodDetail": "Todas tus contraseñas tienen buen aspecto.",
+    "reason": {
+      "weak": "Contraseña débil",
+      "reused": "Reutilizada",
+      "old": "Más de 180 días"
+    }
   }
 }

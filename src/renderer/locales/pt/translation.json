@@ -125,5 +125,18 @@
     "cancel": "Cancelar",
     "delete": "Excluir",
     "close": "Fechar"
+  },
+  "health": {
+    "title": "Segurança de senhas",
+    "totalLogins": "Logins totais",
+    "safe": "Seguros",
+    "issues": "Problemas",
+    "allGood": "Tudo certo",
+    "allGoodDetail": "Todas as suas senhas parecem saudáveis.",
+    "reason": {
+      "weak": "Senha fraca",
+      "reused": "Reutilizada",
+      "old": "Mais de 180 dias"
+    }
   }
 }

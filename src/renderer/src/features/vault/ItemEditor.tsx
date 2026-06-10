@@ -13,6 +13,7 @@ import type {
 } from '@shared/types'
 import { useAppStore } from '../../store/app'
 import { createBlankItem, finalizeItem } from './itemFactory'
+import PasswordStrengthBar from '../../components/PasswordStrengthBar'
 
 type Draft = LoginItem | SecureNoteItem | CardItem | IdentityItem | TotpItem
 
@@ -227,6 +228,7 @@ export default function ItemEditor(): JSX.Element | null {
                     {copied ? <Check size={16} /> : <Copy size={16} />}
                   </button>
                 </div>
+                <PasswordStrengthBar password={draft.password} />
               </div>
               <div>
                 <label className={lbl} htmlFor="it-url">
