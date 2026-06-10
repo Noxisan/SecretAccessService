@@ -139,7 +139,21 @@
     "clipboardClear": "کلپ بورڈ صاف کریں (سیکنڈوں میں)",
     "accent": "لہجے کا رنگ",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "changePassword": "ماسٹر پاسورڈ تبدیل کریں"
+  },
+  "changePw": {
+    "title": "ماسٹر پاسورڈ تبدیل کریں",
+    "hint": "والٹ کو فوری طور پر نئے ماسٹر پاسورڈ سے دوبارہ خفیہ کار کیا جائے گا۔",
+    "currentPassword": "موجودہ ماسٹر پاسورڈ",
+    "newPassword": "نیا ماسٹر پاسورڈ",
+    "confirmPassword": "نئے ماسٹر پاسورڈ کی تصدیق کریں",
+    "mismatch": "پاسورڈ مماثل نہیں ہیں۔",
+    "wrong": "موجودہ ماسٹر پاسورڈ غلط ہے۔",
+    "emptyNew": "نیا ماسٹر پاسورڈ خالی نہیں ہو سکتا۔",
+    "success": "ماسٹر پاسورڈ کامیابی سے تبدیل کر دیا گیا۔",
+    "submit": "پاسورڈ تبدیل کریں",
+    "changing": "تبدیل ہو رہا ہے…"
   },
   "common": {
     "save": "محفوظ کریں",

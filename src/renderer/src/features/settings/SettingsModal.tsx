@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X } from 'lucide-react'
+import { X, KeyRound } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import type { AppSettings, ThemeMode } from '@shared/types'
 import { SUPPORTED_LANGUAGES } from '../../i18n'
@@ -35,6 +35,7 @@ export default function SettingsModal(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.settingsOpen)
   const setOpen = useAppStore((s) => s.setSettingsOpen)
+  const setChangePasswordOpen = useAppStore((s) => s.setChangePasswordOpen)
   const currentSettings = useAppStore((s) => s.settings)
   const setSettings = useAppStore((s) => s.setSettings)
   const [draft, setDraft] = useState<AppSettings | null>(null)
@@ -215,7 +216,18 @@ export default function SettingsModal(): JSX.Element | null {
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end gap-2">
+        {/* Security: change master password */}
+        <div className="mt-2 border-t border-[var(--border)] pt-4">
+          <button
+            onClick={() => { setOpen(false); setChangePasswordOpen(true) }}
+            className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--accent)]"
+          >
+            <KeyRound size={14} />
+            {t('settings.changePassword')}
+          </button>
+        </div>
+
+        <div className="mt-4 flex justify-end gap-2">
           <button
             onClick={() => setOpen(false)}
             className="rounded-[var(--radius)] border border-[var(--border)] px-4 py-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)]"

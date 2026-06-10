@@ -22,6 +22,7 @@ import {
   clipboardCopySchema,
   breachCheckSchema,
   settingsSchema,
+  changePasswordSchema,
   exportSchema,
   importSchema
 } from './schemas.js'
@@ -247,6 +248,16 @@ export function registerIpcHandlers(opts: {
 
   handle<void>(IPC.vaultLock, async () => {
     await vault.lock()
+  })
+
+  handle<void>(IPC.vaultChangePassword, async (arg) => {
+    const { currentPassword, newPassword } = parse(changePasswordSchema, arg)
+    if (!vault.isUnlocked) throw new Error('Vault is not unlocked.')
+    // Re-verify the current password before allowing the change. vault.unlock()
+    // throws without modifying state if the password is wrong, and re-derives the
+    // same key (leaving the vault unlocked) if correct.
+    await vault.unlock(currentPassword)
+    await vault.changeMasterPassword(newPassword)
   })
 
   handle<VaultData>(IPC.vaultRead, () => vault.read())

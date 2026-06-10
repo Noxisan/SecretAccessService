@@ -139,7 +139,21 @@
     "clipboardClear": "Limpiar portapapeles tras (segundos)",
     "accent": "Color de acento",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "changePassword": "Cambiar contraseña maestra"
+  },
+  "changePw": {
+    "title": "Cambiar contraseña maestra",
+    "hint": "El almacén se re-cifrará con la nueva contraseña maestra de inmediato.",
+    "currentPassword": "Contraseña maestra actual",
+    "newPassword": "Nueva contraseña maestra",
+    "confirmPassword": "Confirmar nueva contraseña maestra",
+    "mismatch": "Las contraseñas no coinciden.",
+    "wrong": "La contraseña maestra actual es incorrecta.",
+    "emptyNew": "La nueva contraseña maestra no puede estar vacía.",
+    "success": "Contraseña maestra cambiada con éxito.",
+    "submit": "Cambiar contraseña",
+    "changing": "Cambiando…"
   },
   "common": {
     "save": "Guardar",
