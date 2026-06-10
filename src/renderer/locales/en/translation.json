@@ -48,6 +48,10 @@
     "hide": "Hide",
     "noColor": "No color",
     "confirmDelete": "Delete this item?",
+    "copyPassword": "Copy password",
+    "copyUsername": "Copy username",
+    "copyCardNumber": "Copy card number",
+    "copyEmail": "Copy email",
     "field": {
       "title": "Title",
       "username": "Username",

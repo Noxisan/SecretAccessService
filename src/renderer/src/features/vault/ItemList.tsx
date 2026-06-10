@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { JSX, ComponentType } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer } from 'lucide-react'
+import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Copy, Check } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import type { VaultItem, VaultItemKind } from '@shared/types'
 
@@ -21,7 +21,9 @@ export default function ItemList(): JSX.Element {
   const showFavoritesOnly = useAppStore((s) => s.showFavoritesOnly)
   const search = useAppStore((s) => s.search)
   const openEditor = useAppStore((s) => s.openItemEditor)
+  const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
   const [addMenu, setAddMenu] = useState(false)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
 
   const items = useMemo<VaultItem[]>(() => {
     const all = vault?.items ?? []
@@ -36,6 +38,15 @@ export default function ItemList(): JSX.Element {
   function add(kind: VaultItemKind): void {
     setAddMenu(false)
     openEditor(null, kind)
+  }
+
+  async function quickCopy(e: React.MouseEvent, item: VaultItem): Promise<void> {
+    e.stopPropagation()
+    const text = quickCopyText(item)
+    if (!text) return
+    await window.sas.tools.copyToClipboard(text, clipboardClearSeconds)
+    setCopiedId(item.id)
+    window.setTimeout(() => setCopiedId((prev) => (prev === item.id ? null : prev)), 1500)
   }
 
   return (
@@ -83,29 +94,48 @@ export default function ItemList(): JSX.Element {
         <ul className="flex flex-col gap-1">
           {items.map((item) => {
             const Icon = KIND_ICON[item.kind]
+            const copyable = quickCopyText(item) !== null
+            const isCopied = copiedId === item.id
             return (
               <li key={item.id}>
-                <button
-                  onClick={() => openEditor(item)}
-                  className="flex w-full items-center gap-3 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] px-3 py-2.5 text-left hover:border-[var(--accent)]"
-                >
-                  <span className="grid h-8 w-8 place-items-center rounded-[var(--radius)] bg-[var(--bg)] text-[var(--text-muted)]">
-                    <Icon size={16} />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm text-[var(--text)]">{item.title}</span>
-                    <span className="block truncate text-xs text-[var(--text-muted)]">
-                      {subtitle(item) || t(`items.kind.${item.kind}`)}
+                <div className="group flex w-full items-center gap-3 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] px-3 py-2.5 hover:border-[var(--accent)]">
+                  {/* Main row — click to edit */}
+                  <button
+                    onClick={() => openEditor(item)}
+                    className="flex min-w-0 flex-1 items-center gap-3 text-left"
+                  >
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-[var(--radius)] bg-[var(--bg)] text-[var(--text-muted)]">
+                      <Icon size={16} />
                     </span>
-                  </span>
-                  {item.colorTag && (
-                    <span
-                      className="h-2.5 w-2.5 shrink-0 rounded-full"
-                      style={{ background: item.colorTag }}
-                    />
-                  )}
-                  {item.favorite && <Star size={15} className="text-[var(--warning)]" />}
-                </button>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm text-[var(--text)]">{item.title}</span>
+                      <span className="block truncate text-xs text-[var(--text-muted)]">
+                        {subtitle(item) || t(`items.kind.${item.kind}`)}
+                      </span>
+                    </span>
+                  </button>
+
+                  {/* Right-side indicators + quick-copy */}
+                  <div className="flex shrink-0 items-center gap-1.5">
+                    {item.colorTag && (
+                      <span
+                        className="h-2.5 w-2.5 rounded-full"
+                        style={{ background: item.colorTag }}
+                      />
+                    )}
+                    {item.favorite && <Star size={15} className="text-[var(--warning)]" />}
+                    {copyable && (
+                      <button
+                        onClick={(e) => void quickCopy(e, item)}
+                        className="grid h-7 w-7 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] opacity-0 transition-opacity hover:text-[var(--accent)] group-hover:opacity-100"
+                        aria-label={quickCopyLabel(item, t)}
+                        title={quickCopyLabel(item, t)}
+                      >
+                        {isCopied ? <Check size={14} /> : <Copy size={14} />}
+                      </button>
+                    )}
+                  </div>
+                </div>
               </li>
             )
           })}
@@ -113,6 +143,33 @@ export default function ItemList(): JSX.Element {
       )}
     </div>
   )
+}
+
+/** Returns the text to copy for quick-copy, or null if not applicable. */
+function quickCopyText(item: VaultItem): string | null {
+  switch (item.kind) {
+    case 'login':
+      return item.password || null
+    case 'card':
+      return item.number || null
+    case 'identity':
+      return item.email || null
+    default:
+      return null
+  }
+}
+
+function quickCopyLabel(item: VaultItem, t: (k: string) => string): string {
+  switch (item.kind) {
+    case 'login':
+      return t('items.copyPassword')
+    case 'card':
+      return t('items.copyCardNumber')
+    case 'identity':
+      return t('items.copyEmail')
+    default:
+      return t('generator.copy')
+  }
 }
 
 /** Search across user-visible, non-secret fields of an item. */
