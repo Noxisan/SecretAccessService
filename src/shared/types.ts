@@ -106,6 +106,8 @@ export interface AppSettings {
   clipboardClearSeconds: number
   /** After this many consecutive wrong-password attempts, wipe the vault. 0 = disabled. */
   maxFailedAttempts: number
+  /** Category IDs that are hidden while travel mode is active. */
+  travelHiddenCategoryIds: string[]
 }
 
 export type VaultStatus = 'absent' | 'locked' | 'unlocked'

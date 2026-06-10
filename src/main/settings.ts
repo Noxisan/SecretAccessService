@@ -13,7 +13,8 @@ export const DEFAULT_SETTINGS: AppSettings = {
   accent: '#7c3aed', // electric violet
   autoLockMinutes: 5,
   clipboardClearSeconds: 30,
-  maxFailedAttempts: 10
+  maxFailedAttempts: 10,
+  travelHiddenCategoryIds: []
 }
 
 export class SettingsStore {

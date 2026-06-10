@@ -32,7 +32,8 @@
     "renameCategory": "Umbenennen",
     "deleteCategoryConfirm": "Löschen?",
     "collapse": "Seitenleiste einklappen",
-    "expand": "Seitenleiste ausklappen"
+    "expand": "Seitenleiste ausklappen",
+    "travelHide": "Im Reisemodus verbergen"
   },
   "topbar": {
     "search": "Tresor durchsuchen…",
@@ -42,7 +43,8 @@
     "health": "Sicherheitsübersicht",
     "language": "Sprache",
     "theme": "Design wechseln",
-    "importExport": "Importieren / Exportieren"
+    "importExport": "Importieren / Exportieren",
+    "travelMode": "Reisemodus"
   },
   "items": {
     "empty": "Noch keine Einträge. Erstellen Sie Ihren ersten Eintrag.",

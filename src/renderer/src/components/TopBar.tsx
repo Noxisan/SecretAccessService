@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, type JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight } from 'lucide-react'
+import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight, Plane } from 'lucide-react'
 import { useAppStore } from '../store/app'
 
 /** Narrow top bar: search + app-level tools (CLAUDE.md §7). */
@@ -12,6 +12,8 @@ export default function TopBar(): JSX.Element {
   const setSettingsOpen = useAppStore((s) => s.setSettingsOpen)
   const setHealthOpen = useAppStore((s) => s.setHealthOpen)
   const setImportExportOpen = useAppStore((s) => s.setImportExportOpen)
+  const travelMode = useAppStore((s) => s.travelMode)
+  const setTravelMode = useAppStore((s) => s.setTravelMode)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
   const searchRef = useRef<HTMLInputElement>(null)
 
@@ -98,6 +100,15 @@ export default function TopBar(): JSX.Element {
           aria-label={t('topbar.settings')}
         >
           <Settings size={18} />
+        </button>
+        <button
+          className={`${iconBtn} ${travelMode ? 'text-[var(--accent)]' : ''}`}
+          onClick={() => setTravelMode(!travelMode)}
+          title={t('topbar.travelMode')}
+          aria-label={t('topbar.travelMode')}
+          aria-pressed={travelMode}
+        >
+          <Plane size={18} />
         </button>
         <button
           onClick={() => { void lock() }}
