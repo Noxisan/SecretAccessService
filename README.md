@@ -74,6 +74,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
 | Encrypted vault export (.sasbak) with independent Argon2id + XChaCha20-Poly1305 backup password | Done |
 | CSV import — Bitwarden, LastPass, and generic exports | Done |
+| Bitwarden JSON import — all four item types, custom fields, TOTP seeds | Done |
 | .sasbak encrypted import with merge or replace mode | Done |
 | Collapsible sidebar | Done |
 | Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Escape (clear/dismiss) | Done |
@@ -132,6 +133,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.14.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.14.0) | 2026-06-10 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds |
 | [0.13.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.13.0) | 2026-06-10 | Passkey storage; full i18n coverage for travel mode, panic lock, and breach check |
 | [0.12.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.12.0) | 2026-06-10 | Quick unlock via OS keychain — unlock with saved credentials |
 | [0.11.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.11.0) | 2026-06-10 | Item sort options and category item-count badges |
