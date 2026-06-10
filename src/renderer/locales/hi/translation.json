@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "सुरक्षित पहुँच सेवा"
+  },
+  "unlock": {
+    "createTitle": "अपना वॉल्ट बनाएँ",
+    "createSubtitle": "एक मज़बूत मास्टर पासवर्ड चुनें। यह कभी इस डिवाइस से नहीं जाएगा और इसे पुनर्प्राप्त नहीं किया जा सकता।",
+    "unlockTitle": "अपना वॉल्ट खोलें",
+    "masterPassword": "मास्टर पासवर्ड",
+    "confirmPassword": "मास्टर पासवर्ड की पुष्टि करें",
+    "create": "वॉल्ट बनाएँ",
+    "unlock": "खोलें",
+    "mismatch": "पासवर्ड मेल नहीं खाते।",
+    "wrong": "गलत मास्टर पासवर्ड या दूषित वॉल्ट।",
+    "working": "प्रक्रिया जारी है…",
+    "resetCta": "कोई वॉल्ट नहीं है या पासवर्ड भूल गए? नया बनाएँ",
+    "resetTitle": "नया वॉल्ट बनाएँ",
+    "resetConfirmTitle": "सब मिटाकर नए सिरे से शुरू करें?",
+    "resetWarning": "यह मौजूदा वॉल्ट और उसमें संग्रहीत सभी डेटा को स्थायी रूप से मिटा देगा। कोई पुनर्प्राप्ति नहीं होगी — सुनिश्चित करें कि आपको इसकी ज़रूरत नहीं है।",
+    "resetContinue": "मैं समझता/समझती हूँ — जारी रखें",
+    "back": "वापस"
+  },
+  "sidebar": {
+    "allItems": "सभी आइटम",
+    "favorites": "पसंदीदा",
+    "categories": "श्रेणियाँ",
+    "addCategory": "श्रेणी जोड़ें",
+    "uncategorized": "बिना श्रेणी",
+    "newCategoryPlaceholder": "श्रेणी का नाम…",
+    "renameCategory": "नाम बदलें",
+    "deleteCategoryConfirm": "मिटाएँ?"
+  },
+  "topbar": {
+    "search": "वॉल्ट में खोजें…",
+    "generator": "पासवर्ड जनरेटर",
+    "settings": "सेटिंग्स",
+    "lock": "लॉक करें",
+    "health": "सुरक्षा डैशबोर्ड",
+    "language": "भाषा",
+    "theme": "थीम बदलें"
+  },
+  "items": {
+    "empty": "कोई आइटम नहीं। अपनी पहली प्रविष्टि बनाएँ।",
+    "add": "जोड़ें",
+    "edit": "आइटम संपादित करें",
+    "show": "दिखाएँ",
+    "hide": "छुपाएँ",
+    "noColor": "कोई रंग नहीं",
+    "confirmDelete": "इस आइटम को मिटाएँ?",
+    "copyPassword": "पासवर्ड कॉपी करें",
+    "copyUsername": "उपयोगकर्ता नाम कॉपी करें",
+    "copyCardNumber": "कार्ड नंबर कॉपी करें",
+    "copyEmail": "ईमेल कॉपी करें",
+    "field": {
+      "title": "शीर्षक",
+      "username": "उपयोगकर्ता नाम",
+      "password": "पासवर्ड",
+      "url": "वेबसाइट",
+      "notes": "नोट्स",
+      "color": "रंग",
+      "cardholder": "कार्डधारक का नाम",
+      "cardNumber": "कार्ड नंबर",
+      "brand": "ब्रांड",
+      "expiry": "समाप्ति (MM / YYYY)",
+      "cvv": "CVV",
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "address": "पता",
+      "totpUri": "otpauth URI",
+      "issuer": "जारीकर्ता",
+      "account": "खाता"
+    },
+    "kind": {
+      "login": "लॉगिन",
+      "note": "सुरक्षित नोट",
+      "card": "क्रेडिट कार्ड",
+      "identity": "पहचान",
+      "totp": "प्रमाणक"
+    }
+  },
+  "generator": {
+    "title": "पासवर्ड जनरेटर",
+    "length": "लंबाई",
+    "uppercase": "बड़े अक्षर (A-Z)",
+    "lowercase": "छोटे अक्षर (a-z)",
+    "digits": "अंक (0-9)",
+    "symbols": "प्रतीक",
+    "excludeAmbiguous": "अस्पष्ट वर्ण हटाएँ",
+    "mode": "मोड",
+    "characters": "वर्ण",
+    "passphrase": "पासफ़्रेज़",
+    "words": "शब्द",
+    "separator": "विभाजक",
+    "generate": "बनाएँ",
+    "regenerate": "फिर से बनाएँ",
+    "copy": "कॉपी करें",
+    "copied": "कॉपी हो गया",
+    "strength": "मज़बूती",
+    "entropyBits": "{{bits}} बिट एन्ट्रॉपी",
+    "noClass": "कम से कम एक वर्ण वर्ग चुनें।",
+    "level": {
+      "veryWeak": "बहुत कमज़ोर",
+      "weak": "कमज़ोर",
+      "fair": "ठीक-ठाक",
+      "strong": "मज़बूत",
+      "veryStrong": "बहुत मज़बूत"
+    }
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "theme": "थीम",
+    "light": "हल्का",
+    "dark": "गहरा",
+    "system": "सिस्टम",
+    "language": "भाषा",
+    "autoLock": "स्वतः लॉक (मिनटों में)",
+    "clipboardClear": "क्लिपबोर्ड साफ़ करें (सेकंड में)",
+    "accent": "एक्सेंट रंग"
+  },
+  "common": {
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "delete": "मिटाएँ",
+    "close": "बंद करें"
+  }
+}

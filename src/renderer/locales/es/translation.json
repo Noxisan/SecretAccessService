@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "Servicio de Acceso Seguro"
+  },
+  "unlock": {
+    "createTitle": "Crear tu bóveda",
+    "createSubtitle": "Elige una contraseña maestra segura. Nunca abandona este dispositivo y no puede recuperarse.",
+    "unlockTitle": "Desbloquear tu bóveda",
+    "masterPassword": "Contraseña maestra",
+    "confirmPassword": "Confirmar contraseña maestra",
+    "create": "Crear bóveda",
+    "unlock": "Desbloquear",
+    "mismatch": "Las contraseñas no coinciden.",
+    "wrong": "Contraseña maestra incorrecta o bóveda dañada.",
+    "working": "Procesando…",
+    "resetCta": "¿Sin bóveda o contraseña olvidada? Crear una nueva",
+    "resetTitle": "Crear una nueva bóveda",
+    "resetConfirmTitle": "¿Borrar y empezar de nuevo?",
+    "resetWarning": "Esto elimina permanentemente la bóveda existente y todo lo almacenado. No hay recuperación posible — asegúrate de no necesitar su contenido.",
+    "resetContinue": "Entiendo — continuar",
+    "back": "Atrás"
+  },
+  "sidebar": {
+    "allItems": "Todos los elementos",
+    "favorites": "Favoritos",
+    "categories": "Categorías",
+    "addCategory": "Agregar categoría",
+    "uncategorized": "Sin categoría",
+    "newCategoryPlaceholder": "Nombre de categoría…",
+    "renameCategory": "Renombrar",
+    "deleteCategoryConfirm": "¿Eliminar?"
+  },
+  "topbar": {
+    "search": "Buscar en bóveda…",
+    "generator": "Generador de contraseñas",
+    "settings": "Configuración",
+    "lock": "Bloquear",
+    "health": "Panel de seguridad",
+    "language": "Idioma",
+    "theme": "Cambiar tema"
+  },
+  "items": {
+    "empty": "Sin elementos. Crea tu primera entrada.",
+    "add": "Agregar",
+    "edit": "Editar elemento",
+    "show": "Mostrar",
+    "hide": "Ocultar",
+    "noColor": "Sin color",
+    "confirmDelete": "¿Eliminar este elemento?",
+    "copyPassword": "Copiar contraseña",
+    "copyUsername": "Copiar usuario",
+    "copyCardNumber": "Copiar número de tarjeta",
+    "copyEmail": "Copiar correo",
+    "field": {
+      "title": "Título",
+      "username": "Usuario",
+      "password": "Contraseña",
+      "url": "Sitio web",
+      "notes": "Notas",
+      "color": "Color",
+      "cardholder": "Nombre del titular",
+      "cardNumber": "Número de tarjeta",
+      "brand": "Marca",
+      "expiry": "Vencimiento (MM / AAAA)",
+      "cvv": "CVV",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "totpUri": "URI otpauth",
+      "issuer": "Emisor",
+      "account": "Cuenta"
+    },
+    "kind": {
+      "login": "Inicio de sesión",
+      "note": "Nota segura",
+      "card": "Tarjeta de crédito",
+      "identity": "Identidad",
+      "totp": "Autenticador"
+    }
+  },
+  "generator": {
+    "title": "Generador de contraseñas",
+    "length": "Longitud",
+    "uppercase": "Mayúsculas (A-Z)",
+    "lowercase": "Minúsculas (a-z)",
+    "digits": "Dígitos (0-9)",
+    "symbols": "Símbolos",
+    "excludeAmbiguous": "Excluir caracteres ambiguos",
+    "mode": "Modo",
+    "characters": "Caracteres",
+    "passphrase": "Frase de contraseña",
+    "words": "Palabras",
+    "separator": "Separador",
+    "generate": "Generar",
+    "regenerate": "Regenerar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "strength": "Fortaleza",
+    "entropyBits": "{{bits}} bits de entropía",
+    "noClass": "Selecciona al menos una clase de caracteres.",
+    "level": {
+      "veryWeak": "Muy débil",
+      "weak": "Débil",
+      "fair": "Regular",
+      "strong": "Fuerte",
+      "veryStrong": "Muy fuerte"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "language": "Idioma",
+    "autoLock": "Bloqueo automático tras (minutos)",
+    "clipboardClear": "Limpiar portapapeles tras (segundos)",
+    "accent": "Color de acento"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "close": "Cerrar"
+  }
+}
