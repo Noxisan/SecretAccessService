@@ -54,7 +54,20 @@
       "password": "Passwort",
       "url": "Website",
       "notes": "Notizen",
-      "color": "Farbe"
+      "color": "Farbe",
+      "cardholder": "Karteninhaber",
+      "cardNumber": "Kartennummer",
+      "brand": "Kartenmarke",
+      "expiry": "Ablaufdatum (MM / JJJJ)",
+      "cvv": "CVV",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse",
+      "totpUri": "otpauth-URI",
+      "issuer": "Aussteller",
+      "account": "Konto"
     },
     "kind": {
       "login": "Login",

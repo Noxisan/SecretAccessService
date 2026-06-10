@@ -54,7 +54,20 @@
       "password": "Password",
       "url": "Website",
       "notes": "Notes",
-      "color": "Color"
+      "color": "Color",
+      "cardholder": "Cardholder name",
+      "cardNumber": "Card number",
+      "brand": "Brand",
+      "expiry": "Expiry (MM / YYYY)",
+      "cvv": "CVV",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "totpUri": "otpauth URI",
+      "issuer": "Issuer",
+      "account": "Account"
     },
     "kind": {
       "login": "Login",

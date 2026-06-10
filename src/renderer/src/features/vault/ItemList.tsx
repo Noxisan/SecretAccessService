@@ -58,7 +58,7 @@ export default function ItemList(): JSX.Element {
             <>
               <div className="fixed inset-0 z-10" onClick={() => setAddMenu(false)} />
               <div className="absolute end-0 z-20 mt-1 w-44 overflow-hidden rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] py-1">
-                {(['login', 'note'] as const).map((kind) => {
+                {(['login', 'note', 'card', 'identity', 'totp'] as const).map((kind) => {
                   const Icon = KIND_ICON[kind]
                   return (
                     <button
@@ -115,17 +115,39 @@ export default function ItemList(): JSX.Element {
   )
 }
 
-/** Search across the user-visible, non-secret fields of an item. */
+/** Search across user-visible, non-secret fields of an item. */
 function matches(item: VaultItem, q: string): boolean {
   if (item.title.toLowerCase().includes(q)) return true
-  if (item.kind === 'login') {
-    return item.username.toLowerCase().includes(q) || item.url.toLowerCase().includes(q)
+  switch (item.kind) {
+    case 'login':
+      return item.username.toLowerCase().includes(q) || item.url.toLowerCase().includes(q)
+    case 'note':
+      return item.notes.toLowerCase().includes(q)
+    case 'card':
+      return item.cardholder.toLowerCase().includes(q) || item.brand.toLowerCase().includes(q)
+    case 'identity':
+      return (
+        item.firstName.toLowerCase().includes(q) ||
+        item.lastName.toLowerCase().includes(q) ||
+        item.email.toLowerCase().includes(q)
+      )
+    case 'totp':
+      return item.issuer.toLowerCase().includes(q) || item.account.toLowerCase().includes(q)
   }
-  return false
 }
 
-/** A muted second line: username/url for logins, nothing secret. */
+/** A muted second line — non-secret preview text. */
 function subtitle(item: VaultItem): string {
-  if (item.kind === 'login') return item.username || item.url
-  return ''
+  switch (item.kind) {
+    case 'login':
+      return item.username || item.url
+    case 'card':
+      return item.cardholder
+    case 'identity':
+      return [item.firstName, item.lastName].filter(Boolean).join(' ') || item.email
+    case 'totp':
+      return item.issuer || item.account
+    default:
+      return ''
+  }
 }

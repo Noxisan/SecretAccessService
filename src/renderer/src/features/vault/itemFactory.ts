@@ -1,14 +1,10 @@
-import type { LoginItem, SecureNoteItem, VaultItem } from '@shared/types'
+import type { CardItem, IdentityItem, LoginItem, TotpItem, VaultItem } from '@shared/types'
 
-/** Newly-created items are editor-only kinds for now: login + secure note. */
-export type EditableKind = 'login' | 'note'
+export type EditableKind = 'login' | 'note' | 'card' | 'identity' | 'totp'
 
 const MAX_PASSWORD_HISTORY = 50
 
-export function createBlankItem(
-  kind: EditableKind,
-  categoryId: string | null
-): LoginItem | SecureNoteItem {
+export function createBlankItem(kind: EditableKind, categoryId: string | null): VaultItem {
   const now = Date.now()
   const base = {
     id: crypto.randomUUID(),
@@ -21,17 +17,48 @@ export function createBlankItem(
     notes: '',
     customFields: []
   }
-  if (kind === 'note') {
-    return { ...base, kind: 'note' }
-  }
-  return {
-    ...base,
-    kind: 'login',
-    username: '',
-    password: '',
-    url: '',
-    totp: null,
-    passwordHistory: []
+  switch (kind) {
+    case 'note':
+      return { ...base, kind: 'note' }
+    case 'card':
+      return {
+        ...base,
+        kind: 'card',
+        cardholder: '',
+        number: '',
+        brand: '',
+        expMonth: 1,
+        expYear: new Date().getFullYear(),
+        cvv: ''
+      } satisfies CardItem
+    case 'identity':
+      return {
+        ...base,
+        kind: 'identity',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        address: ''
+      } satisfies IdentityItem
+    case 'totp':
+      return {
+        ...base,
+        kind: 'totp',
+        uri: '',
+        issuer: '',
+        account: ''
+      } satisfies TotpItem
+    default:
+      return {
+        ...base,
+        kind: 'login',
+        username: '',
+        password: '',
+        url: '',
+        totp: null,
+        passwordHistory: []
+      } satisfies LoginItem
   }
 }
 
