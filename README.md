@@ -71,7 +71,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Clipboard auto-clear | Done |
 | Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring | Done |
 | Embedded 2FA — TOTP seed stored directly inside a login entry; live code visible in the editor | Done |
-| Password health dashboard — flags weak, reused, old (>180 days), and breached passwords | Done |
+| Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
 | HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
 | Encrypted vault export (.sasbak) with independent Argon2id + XChaCha20-Poly1305 backup password | Done |
 | CSV import — Bitwarden, LastPass, and generic exports | Done |
@@ -134,6 +134,8 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.18.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.1) | 2026-06-10 | Fix: ItemList white-screen / infinite render loop from an unstable store selector |
+| [0.18.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.0) | 2026-06-10 | Health issue badge on top bar — weak, reused, and old passwords shown at a glance |
 | [0.17.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.17.0) | 2026-06-10 | Persistent generator settings — mode, length, and options restored on every open |
 | [0.16.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.16.0) | 2026-06-10 | Import parsers extracted; test suite grows from 40 to 75 tests |
 | [0.15.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.15.0) | 2026-06-10 | Duplicate entry button in item editor |

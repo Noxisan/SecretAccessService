@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.1] - 2026-06-10
+
+Patch release fixing a crash that could blank the main window.
+
+### Fixed
+- **ItemList white-screen / infinite render loop** — the `travelHiddenIds`
+  Zustand selector constructed a new `Set` on every call, so
+  `useSyncExternalStore` saw a changed snapshot each render and looped until
+  React aborted with "Maximum update depth exceeded", white-screening the main
+  item list. The id array is now selected directly and the `Set` derived via
+  `useMemo`, keeping the reference stable. (Affected 0.18.0.)
+
+### Changed
+- Local agent runtime state (`memory/`) and temporary loop patch files are now
+  git-ignored.
+
 ## [0.18.0] - 2026-06-10
 
 Proactive health awareness: a red count badge appears on the health button
