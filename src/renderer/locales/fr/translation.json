@@ -91,7 +91,11 @@
     "restorePassword": "Restaurer ce mot de passe",
     "customFields": "Champs personnalisés",
     "addField": "Ajouter un champ",
-    "deleteField": "Supprimer le champ"
+    "deleteField": "Supprimer le champ",
+    "addTotp": "Ajouter un code d'authentification",
+    "totpSection": "Authentificateur (2FA)",
+    "removeTotp": "Supprimer le 2FA",
+    "totpLiveCode": "Code en direct — cliquer pour copier"
   },
   "generator": {
     "title": "Générateur de mots de passe",

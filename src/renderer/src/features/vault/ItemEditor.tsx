@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock } from 'lucide-react'
+import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock, ShieldCheck } from 'lucide-react'
 import type {
   CardItem,
   IdentityItem,
@@ -14,6 +14,7 @@ import type {
 import { useAppStore } from '../../store/app'
 import { createBlankItem, finalizeItem } from './itemFactory'
 import PasswordStrengthBar from '../../components/PasswordStrengthBar'
+import TotpCode from './TotpCode'
 
 type Draft = LoginItem | SecureNoteItem | CardItem | IdentityItem | TotpItem
 
@@ -254,6 +255,51 @@ export default function ItemEditor(): JSX.Element | null {
                   className={fld}
                 />
               </div>
+
+              {/* Embedded 2FA / TOTP — shown when draft.totp is set, otherwise an "Add" affordance */}
+              {draft.totp !== null ? (
+                <div className="rounded-[var(--radius)] border border-[var(--border)] p-3">
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-[var(--text-muted)]">
+                      <ShieldCheck size={13} />
+                      {t('items.totpSection')}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => patchLogin({ totp: null })}
+                      className="text-[var(--text-muted)] hover:text-[var(--danger)]"
+                      aria-label={t('items.removeTotp')}
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+                  <input
+                    value={draft.totp}
+                    onChange={(e) => patchLogin({ totp: e.target.value })}
+                    placeholder="otpauth://totp/…"
+                    autoComplete="off"
+                    className={`${fld} font-mono text-xs`}
+                  />
+                  {draft.totp && (
+                    <div className="mt-2 flex items-center gap-2">
+                      <TotpCode
+                        uri={draft.totp}
+                        onCopy={(code) => void copyToClipboard(code)}
+                      />
+                      <span className="text-xs text-[var(--text-muted)]">{t('items.totpLiveCode')}</span>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => patchLogin({ totp: '' })}
+                  className="flex items-center gap-1.5 self-start text-xs text-[var(--text-muted)] hover:text-[var(--accent)]"
+                >
+                  <ShieldCheck size={13} />
+                  {t('items.addTotp')}
+                </button>
+              )}
 
               {/* Password history — only shown when editing and history exists */}
               {isEdit && draft.passwordHistory.length > 0 && (

@@ -91,7 +91,11 @@
     },
     "customFields": "Custom fields",
     "addField": "Add field",
-    "deleteField": "Delete field"
+    "deleteField": "Delete field",
+    "addTotp": "Add authenticator code",
+    "totpSection": "Authenticator (2FA)",
+    "removeTotp": "Remove 2FA",
+    "totpLiveCode": "Live code — click to copy"
   },
   "generator": {
     "title": "Password generator",

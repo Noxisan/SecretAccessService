@@ -91,7 +91,11 @@
     "restorePassword": "এই পাসওয়ার্ড পুনরুদ্ধার করুন",
     "customFields": "কাস্টম ফিল্ড",
     "addField": "ফিল্ড যোগ করুন",
-    "deleteField": "ফিল্ড মুছুন"
+    "deleteField": "ফিল্ড মুছুন",
+    "addTotp": "প্রমাণীকরণ কোড যোগ করুন",
+    "totpSection": "অথেন্টিকেটর (2FA)",
+    "removeTotp": "2FA সরান",
+    "totpLiveCode": "লাইভ কোড — কপি করতে ক্লিক করুন"
   },
   "generator": {
     "title": "পাসওয়ার্ড জেনারেটর",

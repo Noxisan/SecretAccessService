@@ -91,7 +91,11 @@
     "restorePassword": "Восстановить этот пароль",
     "customFields": "Настраиваемые поля",
     "addField": "Добавить поле",
-    "deleteField": "Удалить поле"
+    "deleteField": "Удалить поле",
+    "addTotp": "Добавить код аутентификатора",
+    "totpSection": "Аутентификатор (2FA)",
+    "removeTotp": "Удалить 2FA",
+    "totpLiveCode": "Живой код — нажмите для копирования"
   },
   "generator": {
     "title": "Генератор паролей",
