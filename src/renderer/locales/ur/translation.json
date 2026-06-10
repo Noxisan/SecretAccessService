@@ -86,14 +86,19 @@
       "fieldLabel": "لیبل",
       "fieldValue": "قدر",
       "secretOn": "پوشیدہ کے طور پر نشان زد کریں",
-      "secretOff": "مرئی کے طور پر نشان زد کریں"
+      "secretOff": "مرئی کے طور پر نشان زد کریں",
+      "rpId": "سروس ڈومین",
+      "rpName": "سروس کا نام",
+      "displayName": "ڈسپلے نام",
+      "credentialId": "کریڈنشل آئی ڈی (base64)"
     },
     "kind": {
       "login": "لاگ ان",
       "note": "محفوظ نوٹ",
       "card": "کریڈٹ کارڈ",
       "identity": "شناخت",
-      "totp": "توثیق کار"
+      "totp": "توثیق کار",
+      "passkey": "پاس کی"
     },
     "passwordHistory": "پاس ورڈ کی تاریخ ({{count}})",
     "restorePassword": "یہ پاس ورڈ بحال کریں",
@@ -184,10 +189,16 @@
     "issues": "مسائل",
     "allGood": "سب ٹھیک ہے",
     "allGoodDetail": "آپ کے تمام پاسورڈ محفوظ نظر آتے ہیں۔",
+    "checkBreaches": "ڈیٹا لیک کی جانچ کریں",
+    "checking": "جانچ جاری ہے…",
+    "breachError": "لیک ڈیٹابیس سے رابطہ نہیں ہو سکا۔ اپنا نیٹ ورک جانچیں۔",
+    "breached": "لیک شدہ",
+    "breachCount": "{{count}} لیک میں پایا گیا",
     "reason": {
       "weak": "کمزور پاسورڈ",
       "reused": "دوبارہ استعمال شدہ",
-      "old": "180 دن سے زیادہ پرانا"
+      "old": "180 دن سے زیادہ پرانا",
+      "breached": "ڈیٹا لیک"
     }
   },
   "importExport": {

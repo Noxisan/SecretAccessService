@@ -86,14 +86,19 @@
       "fieldLabel": "标签",
       "fieldValue": "值",
       "secretOn": "标记为隐藏",
-      "secretOff": "标记为可见"
+      "secretOff": "标记为可见",
+      "rpId": "服务域名",
+      "rpName": "服务名称",
+      "displayName": "显示名称",
+      "credentialId": "凭证 ID (base64)"
     },
     "kind": {
       "login": "登录",
       "note": "安全备忘录",
       "card": "银行卡",
       "identity": "身份信息",
-      "totp": "验证器"
+      "totp": "验证器",
+      "passkey": "通行密钥"
     },
     "passwordHistory": "密码历史记录 ({{count}})",
     "restorePassword": "恢复此密码",
@@ -184,10 +189,16 @@
     "issues": "问题",
     "allGood": "一切正常",
     "allGoodDetail": "您的所有密码看起来都很健康。",
+    "checkBreaches": "检查数据泄露",
+    "checking": "检查中…",
+    "breachError": "无法连接到数据泄露数据库。请检查您的网络连接。",
+    "breached": "已泄露",
+    "breachCount": "在 {{count}} 次泄露中发现",
     "reason": {
       "weak": "弱密码",
       "reused": "已复用",
-      "old": "超过180天"
+      "old": "超过180天",
+      "breached": "数据泄露"
     }
   },
   "importExport": {

@@ -86,14 +86,19 @@
       "fieldLabel": "Libellé",
       "fieldValue": "Valeur",
       "secretOn": "Marquer comme masqué",
-      "secretOff": "Marquer comme visible"
+      "secretOff": "Marquer comme visible",
+      "rpId": "Domaine du service",
+      "rpName": "Nom du service",
+      "displayName": "Nom d'affichage",
+      "credentialId": "ID de credential (base64)"
     },
     "kind": {
       "login": "Connexion",
       "note": "Note sécurisée",
       "card": "Carte bancaire",
       "identity": "Identité",
-      "totp": "Authentificateur"
+      "totp": "Authentificateur",
+      "passkey": "Passkey"
     },
     "passwordHistory": "Historique des mots de passe ({{count}})",
     "restorePassword": "Restaurer ce mot de passe",
@@ -184,10 +189,16 @@
     "issues": "Problèmes",
     "allGood": "Tout va bien",
     "allGoodDetail": "Tous vos mots de passe semblent sains.",
+    "checkBreaches": "Vérifier les fuites",
+    "checking": "Vérification…",
+    "breachError": "Impossible de contacter la base de données de fuites. Vérifiez votre connexion.",
+    "breached": "Compromise",
+    "breachCount": "Trouvée dans {{count}} fuite(s)",
     "reason": {
       "weak": "Mot de passe faible",
       "reused": "Réutilisé",
-      "old": "Plus de 180 jours"
+      "old": "Plus de 180 jours",
+      "breached": "Fuite de données"
     }
   },
   "importExport": {

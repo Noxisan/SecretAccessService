@@ -86,14 +86,19 @@
       "fieldLabel": "Rótulo",
       "fieldValue": "Valor",
       "secretOn": "Marcar como oculto",
-      "secretOff": "Marcar como visível"
+      "secretOff": "Marcar como visível",
+      "rpId": "Domínio do serviço",
+      "rpName": "Nome do serviço",
+      "displayName": "Nome de exibição",
+      "credentialId": "ID da credencial (base64)"
     },
     "kind": {
       "login": "Login",
       "note": "Nota segura",
       "card": "Cartão de crédito",
       "identity": "Identidade",
-      "totp": "Autenticador"
+      "totp": "Autenticador",
+      "passkey": "Passkey"
     },
     "passwordHistory": "Histórico de senhas ({{count}})",
     "restorePassword": "Restaurar esta senha",
@@ -184,10 +189,16 @@
     "issues": "Problemas",
     "allGood": "Tudo certo",
     "allGoodDetail": "Todas as suas senhas parecem saudáveis.",
+    "checkBreaches": "Verificar violações",
+    "checking": "Verificando…",
+    "breachError": "Não foi possível contactar a base de dados de violações. Verifique a sua ligação.",
+    "breached": "Violada",
+    "breachCount": "Encontrada em {{count}} violação(ões)",
     "reason": {
       "weak": "Senha fraca",
       "reused": "Reutilizada",
-      "old": "Mais de 180 dias"
+      "old": "Mais de 180 dias",
+      "breached": "Violação de dados"
     }
   },
   "importExport": {

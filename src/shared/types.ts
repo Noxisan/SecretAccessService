@@ -4,7 +4,7 @@
  * the renderer only holds it transiently in memory while the vault is unlocked.
  */
 
-export type VaultItemKind = 'login' | 'note' | 'card' | 'identity' | 'totp'
+export type VaultItemKind = 'login' | 'note' | 'card' | 'identity' | 'totp' | 'passkey'
 
 export interface VaultItemBase {
   id: string
@@ -74,12 +74,27 @@ export interface TotpItem extends VaultItemBase {
   account: string
 }
 
+export interface PasskeyItem extends VaultItemBase {
+  kind: 'passkey'
+  /** Relying Party domain, e.g. "example.com" */
+  rpId: string
+  /** Relying Party display name, e.g. "Example Inc." */
+  rpName: string
+  /** Username / email associated with the passkey credential */
+  userName: string
+  /** Display name shown during authentication prompts */
+  displayName: string
+  /** Credential ID in base64 (opaque reference; the private key stays in the OS/hardware) */
+  credentialId: string
+}
+
 export type VaultItem =
   | LoginItem
   | SecureNoteItem
   | CardItem
   | IdentityItem
   | TotpItem
+  | PasskeyItem
 
 export interface Category {
   id: string

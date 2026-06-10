@@ -88,14 +88,19 @@
       "fieldLabel": "Label",
       "fieldValue": "Value",
       "secretOn": "Mark as hidden",
-      "secretOff": "Mark as visible"
+      "secretOff": "Mark as visible",
+      "rpId": "Relying party domain",
+      "rpName": "Relying party name",
+      "displayName": "Display name",
+      "credentialId": "Credential ID (base64)"
     },
     "kind": {
       "login": "Login",
       "note": "Secure note",
       "card": "Credit card",
       "identity": "Identity",
-      "totp": "Authenticator"
+      "totp": "Authenticator",
+      "passkey": "Passkey"
     },
     "customFields": "Custom fields",
     "addField": "Add field",
