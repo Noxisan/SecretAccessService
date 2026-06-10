@@ -18,6 +18,7 @@ interface AppState {
   editorOpen: boolean
   editorItem: VaultItem | null
   editorCreateKind: VaultItemKind
+  settingsOpen: boolean
 
   setStatus: (status: VaultStatus) => void
   setVault: (vault: VaultData | null) => void
@@ -28,6 +29,7 @@ interface AppState {
   setGeneratorOpen: (open: boolean) => void
   openItemEditor: (item: VaultItem | null, kind?: VaultItemKind) => void
   closeItemEditor: () => void
+  setSettingsOpen: (open: boolean) => void
   /** Wipe all decrypted state from renderer memory. */
   clearSecrets: () => void
 }
@@ -43,6 +45,7 @@ export const useAppStore = create<AppState>((set) => ({
   editorOpen: false,
   editorItem: null,
   editorCreateKind: 'login',
+  settingsOpen: false,
 
   setStatus: (status) => set({ status }),
   setVault: (vault) => set({ vault }),
@@ -54,6 +57,7 @@ export const useAppStore = create<AppState>((set) => ({
   openItemEditor: (item, kind = 'login') =>
     set({ editorOpen: true, editorItem: item, editorCreateKind: item?.kind ?? kind }),
   closeItemEditor: () => set({ editorOpen: false, editorItem: null }),
+  setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
   clearSecrets: () =>
     set({
       vault: null,
