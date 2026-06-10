@@ -27,8 +27,13 @@ export default function ItemList(): JSX.Element {
   const openEditor = useAppStore((s) => s.openItemEditor)
   const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
   const travelMode = useAppStore((s) => s.travelMode)
-  const travelHiddenIds = useAppStore((s) =>
-    travelMode ? new Set(s.settings?.travelHiddenCategoryIds ?? []) : new Set<string>()
+  const travelHiddenCategoryIds = useAppStore((s) => s.settings?.travelHiddenCategoryIds)
+  // Derive the lookup Set with useMemo — building a new Set directly inside the
+  // store selector returns a fresh reference every render, which makes Zustand's
+  // useSyncExternalStore think the store changed every time → infinite re-render.
+  const travelHiddenIds = useMemo(
+    () => (travelMode ? new Set(travelHiddenCategoryIds ?? []) : new Set<string>()),
+    [travelMode, travelHiddenCategoryIds]
   )
   const [addMenu, setAddMenu] = useState(false)
   const [copiedId, setCopiedId] = useState<string | null>(null)
