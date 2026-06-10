@@ -55,6 +55,8 @@
     "empty": "Noch keine Einträge. Erstellen Sie Ihren ersten Eintrag.",
     "add": "Hinzufügen",
     "edit": "Eintrag bearbeiten",
+    "duplicate": "Duplizieren",
+    "copyOf": "Kopie von {{title}}",
     "show": "Anzeigen",
     "hide": "Verbergen",
     "noColor": "Keine Farbe",

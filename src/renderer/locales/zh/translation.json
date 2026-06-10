@@ -55,6 +55,8 @@
     "empty": "暂无项目，创建您的第一条记录。",
     "add": "添加",
     "edit": "编辑项目",
+    "duplicate": "复制",
+    "copyOf": "{{title}} 的副本",
     "show": "显示",
     "hide": "隐藏",
     "noColor": "无颜色",

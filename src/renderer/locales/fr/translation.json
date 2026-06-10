@@ -55,6 +55,8 @@
     "empty": "Aucun élément. Créez votre première entrée.",
     "add": "Ajouter",
     "edit": "Modifier l'élément",
+    "duplicate": "Dupliquer",
+    "copyOf": "Copie de {{title}}",
     "show": "Afficher",
     "hide": "Masquer",
     "noColor": "Pas de couleur",
