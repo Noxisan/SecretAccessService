@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Star, LayoutGrid, Plus, Folder, Check, X, Pencil, Trash2 } from 'lucide-react'
+import { Star, LayoutGrid, Plus, Folder, Check, X, Pencil, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useAppStore } from '../store/app'
 import type { Category } from '@shared/types'
 
@@ -50,6 +50,8 @@ export default function Sidebar(): JSX.Element {
   const showFavoritesOnly = useAppStore((s) => s.showFavoritesOnly)
   const setSelectedCategory = useAppStore((s) => s.setSelectedCategory)
   const setShowFavoritesOnly = useAppStore((s) => s.setShowFavoritesOnly)
+  const collapsed = useAppStore((s) => s.sidebarCollapsed)
+  const setCollapsed = useAppStore((s) => s.setSidebarCollapsed)
 
   const [addingName, setAddingName] = useState('')
   const [addingColor, setAddingColor] = useState<string | null>(null)
@@ -132,8 +134,66 @@ export default function Sidebar(): JSX.Element {
 
   const allActive = !selectedCategoryId && !showFavoritesOnly
 
+  const iconBtn = 'grid h-9 w-9 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text)]'
+
+  if (collapsed) {
+    return (
+      <nav className="flex w-12 shrink-0 flex-col items-center gap-1 border-r border-[var(--border)] bg-[var(--bg-sidebar)] py-2">
+        <button
+          className={iconBtn}
+          onClick={() => setCollapsed(false)}
+          title={t('sidebar.expand')}
+          aria-label={t('sidebar.expand')}
+        >
+          <ChevronRight size={16} />
+        </button>
+        <button
+          className={`${iconBtn} ${allActive ? 'text-[var(--text)]' : ''}`}
+          onClick={() => setSelectedCategory(null)}
+          title={t('sidebar.allItems')}
+        >
+          <LayoutGrid size={16} />
+        </button>
+        <button
+          className={`${iconBtn} ${showFavoritesOnly ? 'text-[var(--text)]' : ''}`}
+          onClick={() => setShowFavoritesOnly(true)}
+          title={t('sidebar.favorites')}
+        >
+          <Star size={16} />
+        </button>
+        <div className="my-1 w-6 border-t border-[var(--border)]" />
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`${iconBtn} ${selectedCategoryId === cat.id ? 'text-[var(--text)]' : ''}`}
+            onClick={() => setSelectedCategory(cat.id)}
+            title={cat.name}
+          >
+            {cat.colorTag ? (
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: cat.colorTag }} />
+            ) : (
+              <Folder size={16} />
+            )}
+          </button>
+        ))}
+      </nav>
+    )
+  }
+
   return (
     <nav className="flex w-60 shrink-0 flex-col gap-1 border-r border-[var(--border)] bg-[var(--bg-sidebar)] p-2">
+      {/* Collapse toggle at top-right */}
+      <div className="mb-0.5 flex justify-end">
+        <button
+          className="grid h-7 w-7 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text)]"
+          onClick={() => setCollapsed(true)}
+          title={t('sidebar.collapse')}
+          aria-label={t('sidebar.collapse')}
+        >
+          <ChevronLeft size={15} />
+        </button>
+      </div>
+
       <button className={row(allActive)} onClick={() => setSelectedCategory(null)}>
         <LayoutGrid size={16} />
         {t('sidebar.allItems')}

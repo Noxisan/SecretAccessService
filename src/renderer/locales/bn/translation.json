@@ -29,7 +29,9 @@
     "uncategorized": "অশ্রেণীবদ্ধ",
     "newCategoryPlaceholder": "বিভাগের নাম…",
     "renameCategory": "নাম পরিবর্তন করুন",
-    "deleteCategoryConfirm": "মুছবেন?"
+    "deleteCategoryConfirm": "মুছবেন?",
+    "collapse": "সাইডবার সংকুচিত করুন",
+    "expand": "সাইডবার প্রসারিত করুন"
   },
   "topbar": {
     "search": "ভল্টে খুঁজুন…",
@@ -80,7 +82,9 @@
       "card": "ক্রেডিট কার্ড",
       "identity": "পরিচয়",
       "totp": "অথেন্টিকেটর"
-    }
+    },
+    "passwordHistory": "পাসওয়ার্ড ইতিহাস ({{count}})",
+    "restorePassword": "এই পাসওয়ার্ড পুনরুদ্ধার করুন"
   },
   "generator": {
     "title": "পাসওয়ার্ড জেনারেটর",

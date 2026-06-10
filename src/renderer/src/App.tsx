@@ -50,6 +50,26 @@ export default function App(): JSX.Element {
     void i18n.changeLanguage(settings.language)
   }, [settings, i18n])
 
+  // Idle auto-lock: send a throttled heartbeat to main on mouse/keyboard events
+  // so the idle timer resets even while the user is just reading their vault.
+  // 30-second throttle: frequent enough for a good UX, cheap enough to ignore.
+  useEffect(() => {
+    if (status !== 'unlocked') return
+    let last = 0
+    const ping = (): void => {
+      const now = Date.now()
+      if (now - last < 30_000) return
+      last = now
+      void window.sas.tools.pingActivity()
+    }
+    window.addEventListener('mousemove', ping, { passive: true })
+    window.addEventListener('keydown', ping, { passive: true })
+    return () => {
+      window.removeEventListener('mousemove', ping)
+      window.removeEventListener('keydown', ping)
+    }
+  }, [status])
+
   async function handleUnlocked(): Promise<void> {
     const data = await window.sas.vault.read()
     setVault(data)

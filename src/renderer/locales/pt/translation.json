@@ -29,7 +29,9 @@
     "uncategorized": "Sem categoria",
     "newCategoryPlaceholder": "Nome da categoria…",
     "renameCategory": "Renomear",
-    "deleteCategoryConfirm": "Excluir?"
+    "deleteCategoryConfirm": "Excluir?",
+    "collapse": "Recolher barra lateral",
+    "expand": "Expandir barra lateral"
   },
   "topbar": {
     "search": "Pesquisar no cofre…",
@@ -80,7 +82,9 @@
       "card": "Cartão de crédito",
       "identity": "Identidade",
       "totp": "Autenticador"
-    }
+    },
+    "passwordHistory": "Histórico de senhas ({{count}})",
+    "restorePassword": "Restaurar esta senha"
   },
   "generator": {
     "title": "Gerador de senhas",
