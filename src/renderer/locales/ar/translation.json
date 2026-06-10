@@ -86,14 +86,19 @@
       "fieldLabel": "التسمية",
       "fieldValue": "القيمة",
       "secretOn": "وضع علامة مخفي",
-      "secretOff": "وضع علامة مرئي"
+      "secretOff": "وضع علامة مرئي",
+      "rpId": "نطاق الخدمة",
+      "rpName": "اسم الخدمة",
+      "displayName": "الاسم المعروض",
+      "credentialId": "معرّف بيانات الاعتماد (base64)"
     },
     "kind": {
       "login": "تسجيل دخول",
       "note": "ملاحظة آمنة",
       "card": "بطاقة ائتمان",
       "identity": "هوية",
-      "totp": "المصادق"
+      "totp": "المصادق",
+      "passkey": "مفتاح المرور"
     },
     "passwordHistory": "سجل كلمات المرور ({{count}})",
     "restorePassword": "استعادة كلمة المرور هذه",

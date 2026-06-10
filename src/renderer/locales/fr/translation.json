@@ -86,14 +86,19 @@
       "fieldLabel": "Libellé",
       "fieldValue": "Valeur",
       "secretOn": "Marquer comme masqué",
-      "secretOff": "Marquer comme visible"
+      "secretOff": "Marquer comme visible",
+      "rpId": "Domaine du service",
+      "rpName": "Nom du service",
+      "displayName": "Nom d'affichage",
+      "credentialId": "ID de credential (base64)"
     },
     "kind": {
       "login": "Connexion",
       "note": "Note sécurisée",
       "card": "Carte bancaire",
       "identity": "Identité",
-      "totp": "Authentificateur"
+      "totp": "Authentificateur",
+      "passkey": "Passkey"
     },
     "passwordHistory": "Historique des mots de passe ({{count}})",
     "restorePassword": "Restaurer ce mot de passe",

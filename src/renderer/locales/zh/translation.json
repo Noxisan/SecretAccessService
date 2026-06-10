@@ -86,14 +86,19 @@
       "fieldLabel": "标签",
       "fieldValue": "值",
       "secretOn": "标记为隐藏",
-      "secretOff": "标记为可见"
+      "secretOff": "标记为可见",
+      "rpId": "服务域名",
+      "rpName": "服务名称",
+      "displayName": "显示名称",
+      "credentialId": "凭证 ID (base64)"
     },
     "kind": {
       "login": "登录",
       "note": "安全备忘录",
       "card": "银行卡",
       "identity": "身份信息",
-      "totp": "验证器"
+      "totp": "验证器",
+      "passkey": "通行密钥"
     },
     "passwordHistory": "密码历史记录 ({{count}})",
     "restorePassword": "恢复此密码",

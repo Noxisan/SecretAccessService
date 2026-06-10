@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { JSX, ComponentType } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Copy, Check } from 'lucide-react'
+import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Fingerprint, Copy, Check } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import type { VaultItem, VaultItemKind } from '@shared/types'
 import TotpCode from './TotpCode'
@@ -13,7 +13,8 @@ const KIND_ICON: Record<VaultItemKind, ComponentType<{ size?: number }>> = {
   note: StickyNote,
   card: CreditCard,
   identity: IdCard,
-  totp: Timer
+  totp: Timer,
+  passkey: Fingerprint
 }
 
 /** Main content: the filtered list of vault items + the add menu. */
@@ -108,7 +109,7 @@ export default function ItemList(): JSX.Element {
             <>
               <div className="fixed inset-0 z-10" onClick={() => setAddMenu(false)} />
               <div className="absolute end-0 z-20 mt-1 w-44 overflow-hidden rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] py-1">
-                {(['login', 'note', 'card', 'identity', 'totp'] as const).map((kind) => {
+                {(['login', 'note', 'card', 'identity', 'totp', 'passkey'] as const).map((kind) => {
                   const Icon = KIND_ICON[kind]
                   return (
                     <button
@@ -236,6 +237,8 @@ function matches(item: VaultItem, q: string): boolean {
       )
     case 'totp':
       return item.issuer.toLowerCase().includes(q) || item.account.toLowerCase().includes(q)
+    case 'passkey':
+      return item.rpId.toLowerCase().includes(q) || item.userName.toLowerCase().includes(q)
   }
 }
 
@@ -250,6 +253,8 @@ function subtitle(item: VaultItem): string {
       return [item.firstName, item.lastName].filter(Boolean).join(' ') || item.email
     case 'totp':
       return item.issuer || item.account
+    case 'passkey':
+      return item.rpId || item.userName
     default:
       return ''
   }

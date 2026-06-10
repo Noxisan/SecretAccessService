@@ -86,14 +86,19 @@
       "fieldLabel": "Bezeichnung",
       "fieldValue": "Wert",
       "secretOn": "Als verborgen markieren",
-      "secretOff": "Als sichtbar markieren"
+      "secretOff": "Als sichtbar markieren",
+      "rpId": "Domain des Diensts",
+      "rpName": "Name des Diensts",
+      "displayName": "Anzeigename",
+      "credentialId": "Credential-ID (base64)"
     },
     "kind": {
       "login": "Login",
       "note": "Sichere Notiz",
       "card": "Kreditkarte",
       "identity": "Identität",
-      "totp": "Authentifikator"
+      "totp": "Authentifikator",
+      "passkey": "Passkey"
     },
     "passwordHistory": "Passwortverlauf ({{count}})",
     "restorePassword": "Dieses Passwort wiederherstellen",

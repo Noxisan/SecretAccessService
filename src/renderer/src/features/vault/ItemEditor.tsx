@@ -6,6 +6,7 @@ import type {
   CardItem,
   IdentityItem,
   LoginItem,
+  PasskeyItem,
   SecureNoteItem,
   TotpItem,
   VaultItem,
@@ -16,7 +17,7 @@ import { createBlankItem, finalizeItem } from './itemFactory'
 import PasswordStrengthBar from '../../components/PasswordStrengthBar'
 import TotpCode from './TotpCode'
 
-type Draft = LoginItem | SecureNoteItem | CardItem | IdentityItem | TotpItem
+type Draft = LoginItem | SecureNoteItem | CardItem | IdentityItem | TotpItem | PasskeyItem
 
 const COLOR_PRESETS = ['#7c3aed', '#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#ec4899']
 const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1)
@@ -83,6 +84,8 @@ export default function ItemEditor(): JSX.Element | null {
     setDraft((prev) => (prev.kind === 'identity' ? { ...prev, ...p } : prev))
   const patchTotp = (p: Partial<Omit<TotpItem, keyof VaultItemBase | 'kind'>>): void =>
     setDraft((prev) => (prev.kind === 'totp' ? { ...prev, ...p } : prev))
+  const patchPasskey = (p: Partial<Omit<PasskeyItem, keyof VaultItemBase | 'kind'>>): void =>
+    setDraft((prev) => (prev.kind === 'passkey' ? { ...prev, ...p } : prev))
 
   async function save(): Promise<void> {
     if (draft.title.trim().length === 0) return
@@ -561,6 +564,79 @@ export default function ItemEditor(): JSX.Element | null {
                     className={fld}
                   />
                 </div>
+              </div>
+            </>
+          )}
+
+          {/* ── Passkey ────────────────────────────────────────────────── */}
+          {draft.kind === 'passkey' && (
+            <>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-pk-rpid">
+                    {t('items.field.rpId')}
+                  </label>
+                  <input
+                    id="it-pk-rpid"
+                    value={draft.rpId}
+                    autoComplete="off"
+                    onChange={(e) => patchPasskey({ rpId: e.target.value })}
+                    className={fld}
+                    placeholder="example.com"
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-pk-rpname">
+                    {t('items.field.rpName')}
+                  </label>
+                  <input
+                    id="it-pk-rpname"
+                    value={draft.rpName}
+                    autoComplete="off"
+                    onChange={(e) => patchPasskey({ rpName: e.target.value })}
+                    className={fld}
+                    placeholder="Example Inc."
+                  />
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-pk-username">
+                    {t('items.field.username')}
+                  </label>
+                  <input
+                    id="it-pk-username"
+                    value={draft.userName}
+                    autoComplete="off"
+                    onChange={(e) => patchPasskey({ userName: e.target.value })}
+                    className={fld}
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-pk-displayname">
+                    {t('items.field.displayName')}
+                  </label>
+                  <input
+                    id="it-pk-displayname"
+                    value={draft.displayName}
+                    autoComplete="off"
+                    onChange={(e) => patchPasskey({ displayName: e.target.value })}
+                    className={fld}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className={lbl} htmlFor="it-pk-credid">
+                  {t('items.field.credentialId')}
+                </label>
+                <input
+                  id="it-pk-credid"
+                  value={draft.credentialId}
+                  autoComplete="off"
+                  onChange={(e) => patchPasskey({ credentialId: e.target.value })}
+                  className={`${fld} font-mono text-xs`}
+                  placeholder="base64…"
+                />
               </div>
             </>
           )}

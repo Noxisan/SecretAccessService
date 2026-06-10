@@ -86,14 +86,19 @@
       "fieldLabel": "Etiqueta",
       "fieldValue": "Valor",
       "secretOn": "Marcar como oculto",
-      "secretOff": "Marcar como visible"
+      "secretOff": "Marcar como visible",
+      "rpId": "Dominio del servicio",
+      "rpName": "Nombre del servicio",
+      "displayName": "Nombre para mostrar",
+      "credentialId": "ID de credencial (base64)"
     },
     "kind": {
       "login": "Inicio de sesión",
       "note": "Nota segura",
       "card": "Tarjeta de crédito",
       "identity": "Identidad",
-      "totp": "Autenticador"
+      "totp": "Autenticador",
+      "passkey": "Passkey"
     },
     "passwordHistory": "Historial de contraseñas ({{count}})",
     "restorePassword": "Restaurar esta contraseña",
