@@ -125,5 +125,18 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "close": "Schließen"
+  },
+  "health": {
+    "title": "Passwort-Sicherheit",
+    "totalLogins": "Logins gesamt",
+    "safe": "Sicher",
+    "issues": "Probleme",
+    "allGood": "Alles in Ordnung",
+    "allGoodDetail": "Alle Ihre Passwörter sehen gut aus.",
+    "reason": {
+      "weak": "Schwaches Passwort",
+      "reused": "Wiederverwendet",
+      "old": "Älter als 180 Tage"
+    }
   }
 }

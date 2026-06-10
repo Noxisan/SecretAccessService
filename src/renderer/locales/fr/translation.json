@@ -125,5 +125,18 @@
     "cancel": "Annuler",
     "delete": "Supprimer",
     "close": "Fermer"
+  },
+  "health": {
+    "title": "Sécurité des mots de passe",
+    "totalLogins": "Connexions totales",
+    "safe": "Sains",
+    "issues": "Problèmes",
+    "allGood": "Tout va bien",
+    "allGoodDetail": "Tous vos mots de passe semblent sains.",
+    "reason": {
+      "weak": "Mot de passe faible",
+      "reused": "Réutilisé",
+      "old": "Plus de 180 jours"
+    }
   }
 }

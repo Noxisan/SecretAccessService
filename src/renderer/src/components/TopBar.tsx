@@ -10,6 +10,7 @@ export default function TopBar(): JSX.Element {
   const setSearch = useAppStore((s) => s.setSearch)
   const setGeneratorOpen = useAppStore((s) => s.setGeneratorOpen)
   const setSettingsOpen = useAppStore((s) => s.setSettingsOpen)
+  const setHealthOpen = useAppStore((s) => s.setHealthOpen)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
 
   async function lock(): Promise<void> {
@@ -46,7 +47,12 @@ export default function TopBar(): JSX.Element {
         >
           <KeyRound size={18} />
         </button>
-        <button className={iconBtn} title={t('topbar.health')} aria-label={t('topbar.health')}>
+        <button
+          className={iconBtn}
+          onClick={() => setHealthOpen(true)}
+          title={t('topbar.health')}
+          aria-label={t('topbar.health')}
+        >
           <Activity size={18} />
         </button>
         <button

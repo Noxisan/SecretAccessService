@@ -125,5 +125,18 @@
     "cancel": "取消",
     "delete": "删除",
     "close": "关闭"
+  },
+  "health": {
+    "title": "密码安全",
+    "totalLogins": "登录总数",
+    "safe": "安全",
+    "issues": "问题",
+    "allGood": "一切正常",
+    "allGoodDetail": "您的所有密码看起来都很健康。",
+    "reason": {
+      "weak": "弱密码",
+      "reused": "已复用",
+      "old": "超过180天"
+    }
   }
 }
