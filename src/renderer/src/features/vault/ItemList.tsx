@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { JSX, ComponentType } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Fingerprint, Copy, Check } from 'lucide-react'
+import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Fingerprint, Copy, Check, ExternalLink } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import type { VaultItem, VaultItemKind } from '@shared/types'
 import TotpCode from './TotpCode'
@@ -63,6 +63,11 @@ export default function ItemList(): JSX.Element {
   function add(kind: VaultItemKind): void {
     setAddMenu(false)
     openEditor(null, kind)
+  }
+
+  async function openUrl(e: React.MouseEvent, url: string): Promise<void> {
+    e.stopPropagation()
+    await window.sas.tools.openExternal(url)
   }
 
   async function quickCopy(e: React.MouseEvent, item: VaultItem): Promise<void> {
@@ -176,6 +181,16 @@ export default function ItemList(): JSX.Element {
                       />
                     )}
                     {item.favorite && <Star size={15} className="text-[var(--warning)]" />}
+                    {item.kind === 'login' && item.url && /^https?:\/\//.test(item.url) && (
+                      <button
+                        onClick={(e) => void openUrl(e, item.url)}
+                        className="grid h-7 w-7 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] opacity-0 transition-opacity hover:text-[var(--accent)] group-hover:opacity-100"
+                        aria-label={t('items.openUrl')}
+                        title={t('items.openUrl')}
+                      >
+                        <ExternalLink size={14} />
+                      </button>
+                    )}
                     {copyable && (
                       <button
                         onClick={(e) => void quickCopy(e, item)}

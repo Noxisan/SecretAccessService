@@ -136,6 +136,10 @@ export const settingsSchema = z.object({
   generatorDefaults: generatePasswordSchema.optional()
 })
 
+export const openExternalSchema = z.object({
+  url: z.string().regex(/^https?:\/\//, 'only http/https URLs are allowed').max(4000)
+})
+
 export const changePasswordSchema = z.object({
   currentPassword: z.string().min(1).max(1024),
   newPassword: z.string().min(1).max(1024)

@@ -22,6 +22,7 @@ export const IPC = {
   vaultExport: 'vault:export',
   vaultImport: 'vault:import',
   activityPing: 'tools:activityPing',
+  openExternal: 'tools:openExternal',
   settingsGet: 'settings:get',
   settingsSet: 'settings:set',
   vaultChangePassword: 'vault:changePassword',

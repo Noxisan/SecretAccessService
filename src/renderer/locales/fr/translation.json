@@ -118,7 +118,8 @@
       "newest": "Modifié récemment",
       "oldest": "Plus ancien d'abord",
       "kind": "Par type"
-    }
+    },
+    "openUrl": "Ouvrir dans le navigateur"
   },
   "generator": {
     "title": "Générateur de mots de passe",

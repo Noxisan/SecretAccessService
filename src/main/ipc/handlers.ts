@@ -1,4 +1,4 @@
-import { ipcMain, clipboard, dialog, app, safeStorage, type BrowserWindow } from 'electron'
+import { ipcMain, clipboard, dialog, app, safeStorage, shell, type BrowserWindow } from 'electron'
 import { createHash } from 'node:crypto'
 import { get as httpsGet } from 'node:https'
 import { readFile, writeFile, unlink, access } from 'node:fs/promises'
@@ -26,7 +26,8 @@ import {
   settingsSchema,
   changePasswordSchema,
   exportSchema,
-  importSchema
+  importSchema,
+  openExternalSchema
 } from './schemas.js'
 import type { SettingsStore } from '../settings.js'
 
@@ -376,4 +377,11 @@ export function registerIpcHandlers(opts: {
   // No payload; no return value. onActivity() is already called by the `handle`
   // wrapper above, so just registering the channel is sufficient.
   handle<void>(IPC.activityPing, () => { /* side-effect via onActivity() wrapper */ })
+
+  // Opens a URL in the system default browser. Only http/https URLs are allowed
+  // (validated by schema) to prevent protocol-handler abuse.
+  handle<void>(IPC.openExternal, async (arg) => {
+    const { url } = parse(openExternalSchema, arg)
+    await shell.openExternal(url)
+  })
 }
