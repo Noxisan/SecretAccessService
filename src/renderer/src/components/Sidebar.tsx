@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Star, LayoutGrid, Plus, Folder, Check, X, Pencil, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Star, LayoutGrid, Plus, Folder, Check, X, Pencil, Trash2, ChevronLeft, ChevronRight, Plane } from 'lucide-react'
 import { useAppStore } from '../store/app'
 import type { Category } from '@shared/types'
 
@@ -52,6 +52,11 @@ export default function Sidebar(): JSX.Element {
   const setShowFavoritesOnly = useAppStore((s) => s.setShowFavoritesOnly)
   const collapsed = useAppStore((s) => s.sidebarCollapsed)
   const setCollapsed = useAppStore((s) => s.setSidebarCollapsed)
+  const travelMode = useAppStore((s) => s.travelMode)
+  const settings = useAppStore((s) => s.settings)
+  const setSettings = useAppStore((s) => s.setSettings)
+
+  const travelHiddenIds = new Set(settings?.travelHiddenCategoryIds ?? [])
 
   const [addingName, setAddingName] = useState('')
   const [addingColor, setAddingColor] = useState<string | null>(null)
@@ -62,7 +67,9 @@ export default function Sidebar(): JSX.Element {
   const addInputRef = useRef<HTMLInputElement>(null)
   const editInputRef = useRef<HTMLInputElement>(null)
 
-  const categories = [...(vault?.categories ?? [])].sort((a, b) => a.order - b.order)
+  const categories = [...(vault?.categories ?? [])]
+    .sort((a, b) => a.order - b.order)
+    .filter((c) => !travelMode || !travelHiddenIds.has(c.id))
 
   useEffect(() => {
     if (isAdding) addInputRef.current?.focus()
@@ -123,6 +130,18 @@ export default function Sidebar(): JSX.Element {
     setVault(data)
     setConfirmDeleteId(null)
     if (selectedCategoryId === id) setSelectedCategory(null)
+  }
+
+  async function toggleTravelHidden(id: string): Promise<void> {
+    if (!settings) return
+    const current = new Set(settings.travelHiddenCategoryIds)
+    if (current.has(id)) current.delete(id)
+    else current.add(id)
+    const updated = await window.sas.settings.set({
+      ...settings,
+      travelHiddenCategoryIds: [...current],
+    })
+    setSettings(updated)
   }
 
   const row = (active: boolean): string =>
@@ -292,6 +311,20 @@ export default function Sidebar(): JSX.Element {
               <span className="truncate">{cat.name}</span>
             </button>
             <div className="mr-1 hidden shrink-0 items-center gap-0.5 group-hover:flex">
+              <button
+                className={`grid h-6 w-6 place-items-center rounded-[var(--radius)] hover:bg-[var(--bg-elevated)] ${
+                  travelHiddenIds.has(cat.id)
+                    ? 'text-[var(--accent)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text)]'
+                }`}
+                title={t('sidebar.travelHide')}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  void toggleTravelHidden(cat.id)
+                }}
+              >
+                <Plane size={12} />
+              </button>
               <button
                 className="grid h-6 w-6 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text)]"
                 title={t('sidebar.renameCategory')}

@@ -32,7 +32,8 @@
     "renameCategory": "नाम बदलें",
     "deleteCategoryConfirm": "मिटाएँ?",
     "collapse": "साइडबार संकुचित करें",
-    "expand": "साइडबार विस्तार करें"
+    "expand": "साइडबार विस्तार करें",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "वॉल्ट में खोजें…",
@@ -42,7 +43,8 @@
     "health": "सुरक्षा डैशबोर्ड",
     "language": "भाषा",
     "theme": "थीम बदलें",
-    "importExport": "आयात / निर्यात"
+    "importExport": "आयात / निर्यात",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "कोई आइटम नहीं। अपनी पहली प्रविष्टि बनाएँ।",

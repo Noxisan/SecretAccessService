@@ -32,7 +32,8 @@
     "renameCategory": "إعادة تسمية",
     "deleteCategoryConfirm": "حذف؟",
     "collapse": "طي الشريط الجانبي",
-    "expand": "توسيع الشريط الجانبي"
+    "expand": "توسيع الشريط الجانبي",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "البحث في الخزينة…",
@@ -42,7 +43,8 @@
     "health": "لوحة الأمان",
     "language": "اللغة",
     "theme": "تبديل السمة",
-    "importExport": "استيراد / تصدير"
+    "importExport": "استيراد / تصدير",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "لا توجد عناصر. أنشئ إدخالك الأول.",

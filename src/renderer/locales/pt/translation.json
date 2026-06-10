@@ -32,7 +32,8 @@
     "renameCategory": "Renomear",
     "deleteCategoryConfirm": "Excluir?",
     "collapse": "Recolher barra lateral",
-    "expand": "Expandir barra lateral"
+    "expand": "Expandir barra lateral",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "Pesquisar no cofre…",
@@ -42,7 +43,8 @@
     "health": "Painel de segurança",
     "language": "Idioma",
     "theme": "Alternar tema",
-    "importExport": "Importar / Exportar"
+    "importExport": "Importar / Exportar",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "Nenhum item. Crie sua primeira entrada.",

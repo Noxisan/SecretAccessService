@@ -32,7 +32,8 @@
     "renameCategory": "Renommer",
     "deleteCategoryConfirm": "Supprimer ?",
     "collapse": "Réduire la barre latérale",
-    "expand": "Développer la barre latérale"
+    "expand": "Développer la barre latérale",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "Rechercher dans le coffre…",
@@ -42,7 +43,8 @@
     "health": "Tableau de bord sécurité",
     "language": "Langue",
     "theme": "Changer de thème",
-    "importExport": "Importer / Exporter"
+    "importExport": "Importer / Exporter",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "Aucun élément. Créez votre première entrée.",

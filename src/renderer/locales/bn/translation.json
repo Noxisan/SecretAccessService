@@ -32,7 +32,8 @@
     "renameCategory": "নাম পরিবর্তন করুন",
     "deleteCategoryConfirm": "মুছবেন?",
     "collapse": "সাইডবার সংকুচিত করুন",
-    "expand": "সাইডবার প্রসারিত করুন"
+    "expand": "সাইডবার প্রসারিত করুন",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "ভল্টে খুঁজুন…",
@@ -42,7 +43,8 @@
     "health": "নিরাপত্তা ড্যাশবোর্ড",
     "language": "ভাষা",
     "theme": "থিম পরিবর্তন করুন",
-    "importExport": "আমদানি / রপ্তানি"
+    "importExport": "আমদানি / রপ্তানি",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "কোনো আইটেম নেই। আপনার প্রথম এন্ট্রি তৈরি করুন।",

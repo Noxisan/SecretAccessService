@@ -31,6 +31,7 @@
     "newCategoryPlaceholder": "Category name…",
     "renameCategory": "Rename",
     "deleteCategoryConfirm": "Delete?",
+    "travelHide": "Hide in travel mode",
     "collapse": "Collapse sidebar",
     "expand": "Expand sidebar"
   },
@@ -42,7 +43,8 @@
     "health": "Health dashboard",
     "importExport": "Import / Export",
     "language": "Language",
-    "theme": "Toggle theme"
+    "theme": "Toggle theme",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "No items yet. Create your first entry.",

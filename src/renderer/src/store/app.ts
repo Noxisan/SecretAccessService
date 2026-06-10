@@ -22,6 +22,8 @@ interface AppState {
   healthOpen: boolean
   importExportOpen: boolean
   sidebarCollapsed: boolean
+  /** Session-only: whether travel mode is currently active. */
+  travelMode: boolean
 
   setStatus: (status: VaultStatus) => void
   setVault: (vault: VaultData | null) => void
@@ -36,6 +38,7 @@ interface AppState {
   setHealthOpen: (open: boolean) => void
   setImportExportOpen: (open: boolean) => void
   setSidebarCollapsed: (collapsed: boolean) => void
+  setTravelMode: (on: boolean) => void
   /** Wipe all decrypted state from renderer memory. */
   clearSecrets: () => void
 }
@@ -55,6 +58,7 @@ export const useAppStore = create<AppState>((set) => ({
   healthOpen: false,
   importExportOpen: false,
   sidebarCollapsed: false,
+  travelMode: false,
 
   setStatus: (status) => set({ status }),
   setVault: (vault) => set({ vault }),
@@ -70,6 +74,7 @@ export const useAppStore = create<AppState>((set) => ({
   setHealthOpen: (healthOpen) => set({ healthOpen }),
   setImportExportOpen: (importExportOpen) => set({ importExportOpen }),
   setSidebarCollapsed: (sidebarCollapsed) => set({ sidebarCollapsed }),
+  setTravelMode: (travelMode) => set({ travelMode }),
   clearSecrets: () =>
     set({
       vault: null,
