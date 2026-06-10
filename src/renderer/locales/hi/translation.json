@@ -38,7 +38,8 @@
     "lock": "लॉक करें",
     "health": "सुरक्षा डैशबोर्ड",
     "language": "भाषा",
-    "theme": "थीम बदलें"
+    "theme": "थीम बदलें",
+    "importExport": "आयात / निर्यात"
   },
   "items": {
     "empty": "कोई आइटम नहीं। अपनी पहली प्रविष्टि बनाएँ।",
@@ -138,5 +139,35 @@
       "reused": "पुनः उपयोग किया",
       "old": "180 दिनों से अधिक पुराना"
     }
+  },
+  "importExport": {
+    "title": "आयात / निर्यात",
+    "exportTab": "निर्यात",
+    "importTab": "आयात",
+    "exportDesc": "अपने वॉल्ट का एन्क्रिप्टेड बैकअप सहेजें।",
+    "exportPassword": "बैकअप पासवर्ड",
+    "exportPasswordPlaceholder": "मजबूत पासवर्ड चुनें…",
+    "confirmPassword": "पासवर्ड की पुष्टि",
+    "confirmPasswordPlaceholder": "पासवर्ड दोहराएं…",
+    "exportButton": "बैकअप निर्यात करें",
+    "exporting": "निर्यात हो रहा है…",
+    "exportSuccess": "{{path}} में सहेजा",
+    "importWarning": "CSV आयात खतरनाक है — आयात के बाद फ़ाइल हटाएं।",
+    "file": "फ़ाइल",
+    "chooseFile": "फ़ाइल चुनें…",
+    "backupPassword": "बैकअप पासवर्ड",
+    "backupPasswordPlaceholder": "निर्यात का पासवर्ड…",
+    "importMode": "मौजूदा आइटम",
+    "mode": {
+      "merge": "मर्ज (नए जोड़ें)",
+      "replace": "बदलें (सभी अधिलेखित करें)"
+    },
+    "modeDesc": {
+      "merge": "मौजूदा रहते हैं, केवल नए जुड़ते हैं।",
+      "replace": "सभी आयातित से बदले जाते हैं।"
+    },
+    "importButton": "आयात करें",
+    "importing": "आयात हो रहा है…",
+    "importSuccess": "{{count}} आइटम आयात हुए।"
   }
 }

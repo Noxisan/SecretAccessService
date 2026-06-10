@@ -38,7 +38,8 @@
     "lock": "Verrouiller",
     "health": "Tableau de bord sécurité",
     "language": "Langue",
-    "theme": "Changer de thème"
+    "theme": "Changer de thème",
+    "importExport": "Importer / Exporter"
   },
   "items": {
     "empty": "Aucun élément. Créez votre première entrée.",
@@ -138,5 +139,35 @@
       "reused": "Réutilisé",
       "old": "Plus de 180 jours"
     }
+  },
+  "importExport": {
+    "title": "Importer / Exporter",
+    "exportTab": "Exporter",
+    "importTab": "Importer",
+    "exportDesc": "Enregistrez une sauvegarde chiffrée de votre coffre.",
+    "exportPassword": "Mot de passe de sauvegarde",
+    "exportPasswordPlaceholder": "Choisissez un mot de passe fort…",
+    "confirmPassword": "Confirmer le mot de passe",
+    "confirmPasswordPlaceholder": "Répétez le mot de passe…",
+    "exportButton": "Exporter la sauvegarde",
+    "exporting": "Export en cours…",
+    "exportSuccess": "Enregistré dans {{path}}",
+    "importWarning": "Les imports CSV sont dangereux — supprimez le fichier après importation.",
+    "file": "Fichier",
+    "chooseFile": "Choisir un fichier…",
+    "backupPassword": "Mot de passe de sauvegarde",
+    "backupPasswordPlaceholder": "Mot de passe de l'export…",
+    "importMode": "Éléments existants",
+    "mode": {
+      "merge": "Fusionner (ajouter nouveaux)",
+      "replace": "Remplacer (écraser tout)"
+    },
+    "modeDesc": {
+      "merge": "Les existants sont conservés. Seuls les nouveaux sont ajoutés.",
+      "replace": "Tous sont remplacés par les importés."
+    },
+    "importButton": "Importer",
+    "importing": "Import en cours…",
+    "importSuccess": "{{count}} élément(s) importé(s)."
   }
 }

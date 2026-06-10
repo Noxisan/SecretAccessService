@@ -38,7 +38,8 @@
     "lock": "锁定",
     "health": "安全仪表板",
     "language": "语言",
-    "theme": "切换主题"
+    "theme": "切换主题",
+    "importExport": "导入 / 导出"
   },
   "items": {
     "empty": "暂无项目，创建您的第一条记录。",
@@ -138,5 +139,35 @@
       "reused": "已复用",
       "old": "超过180天"
     }
+  },
+  "importExport": {
+    "title": "导入 / 导出",
+    "exportTab": "导出",
+    "importTab": "导入",
+    "exportDesc": "保存保险库的加密备份。",
+    "exportPassword": "备份密码",
+    "exportPasswordPlaceholder": "选择强备份密码…",
+    "confirmPassword": "确认备份密码",
+    "confirmPasswordPlaceholder": "重复备份密码…",
+    "exportButton": "导出加密备份",
+    "exporting": "导出中…",
+    "exportSuccess": "已保存至 {{path}}",
+    "importWarning": "CSV 导入很危险——任何获得该文件的人都可以读取密码。",
+    "file": "文件",
+    "chooseFile": "选择文件…",
+    "backupPassword": "备份密码",
+    "backupPasswordPlaceholder": "导出时使用的密码…",
+    "importMode": "处理现有条目",
+    "mode": {
+      "merge": "合并（添加新条目）",
+      "replace": "替换（覆盖所有条目）"
+    },
+    "modeDesc": {
+      "merge": "已有条目不变，只添加新条目。",
+      "replace": "所有当前条目将被导入条目替换。"
+    },
+    "importButton": "导入",
+    "importing": "导入中…",
+    "importSuccess": "成功导入 {{count}} 个条目。"
   }
 }

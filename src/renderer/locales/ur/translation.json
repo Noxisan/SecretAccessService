@@ -38,7 +38,8 @@
     "lock": "لاک کریں",
     "health": "سیکیورٹی ڈیش بورڈ",
     "language": "زبان",
-    "theme": "تھیم تبدیل کریں"
+    "theme": "تھیم تبدیل کریں",
+    "importExport": "درآمد / برآمد"
   },
   "items": {
     "empty": "کوئی آئٹم نہیں۔ اپنی پہلی اندراج بنائیں۔",
@@ -138,5 +139,35 @@
       "reused": "دوبارہ استعمال شدہ",
       "old": "180 دن سے زیادہ پرانا"
     }
+  },
+  "importExport": {
+    "title": "درآمد / برآمد",
+    "exportTab": "برآمد",
+    "importTab": "درآمد",
+    "exportDesc": "اپنے والٹ کا خفیہ کردہ بیک اپ محفوظ کریں۔",
+    "exportPassword": "بیک اپ پاس ورڈ",
+    "exportPasswordPlaceholder": "مضبوط پاس ورڈ چنیں…",
+    "confirmPassword": "پاس ورڈ کی تصدیق",
+    "confirmPasswordPlaceholder": "پاس ورڈ دوبارہ لکھیں…",
+    "exportButton": "بیک اپ برآمد کریں",
+    "exporting": "برآمد ہو رہا ہے…",
+    "exportSuccess": "{{path}} میں محفوظ",
+    "importWarning": "CSV درآمد خطرناک ہے — درآمد کے بعد فائل محفوظ طریقے سے حذف کریں۔",
+    "file": "فائل",
+    "chooseFile": "فائل منتخب کریں…",
+    "backupPassword": "بیک اپ پاس ورڈ",
+    "backupPasswordPlaceholder": "برآمد کا پاس ورڈ…",
+    "importMode": "موجودہ آئٹمز",
+    "mode": {
+      "merge": "ضم کریں (نئے شامل کریں)",
+      "replace": "تبدیل کریں (سب اوور رائٹ کریں)"
+    },
+    "modeDesc": {
+      "merge": "موجودہ رہتے ہیں، صرف نئے شامل ہوتے ہیں۔",
+      "replace": "تمام موجودہ آئٹمز بدل جاتے ہیں۔"
+    },
+    "importButton": "درآمد کریں",
+    "importing": "درآمد ہو رہا ہے…",
+    "importSuccess": "{{count}} آئٹم درآمد ہوئے۔"
   }
 }
