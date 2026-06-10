@@ -18,6 +18,7 @@ export const IPC = {
   categoryDelete: 'vault:category:delete',
   generatePassword: 'tools:generatePassword',
   clipboardCopy: 'tools:clipboardCopy',
+  checkBreached: 'tools:checkBreached',
   settingsGet: 'settings:get',
   settingsSet: 'settings:set',
   // main → renderer (pushed)

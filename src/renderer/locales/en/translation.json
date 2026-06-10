@@ -133,10 +133,16 @@
     "issues": "Issues",
     "allGood": "All good",
     "allGoodDetail": "All your passwords look healthy.",
+    "checkBreaches": "Check for breaches",
+    "checking": "Checking…",
+    "breachError": "Could not reach breach database. Check your connection.",
+    "breached": "Breached",
+    "breachCount": "Found in {{count}} breach(es)",
     "reason": {
       "weak": "Weak password",
       "reused": "Reused",
-      "old": "Over 180 days old"
+      "old": "Over 180 days old",
+      "breached": "Data breach"
     }
   }
 }

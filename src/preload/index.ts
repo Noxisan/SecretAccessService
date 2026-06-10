@@ -39,7 +39,10 @@ const api = {
     generatePassword: (opts: GeneratePasswordOptions): Promise<string> =>
       ipcRenderer.invoke(IPC.generatePassword, opts),
     copyToClipboard: (text: string, clearSeconds?: number): Promise<void> =>
-      ipcRenderer.invoke(IPC.clipboardCopy, { text, clearSeconds })
+      ipcRenderer.invoke(IPC.clipboardCopy, { text, clearSeconds }),
+    /** k-anonymity HIBP check — returns breach count, 0 = clean. */
+    checkBreached: (password: string): Promise<number> =>
+      ipcRenderer.invoke(IPC.checkBreached, { password })
   },
   settings: {
     get: (): Promise<AppSettings> => ipcRenderer.invoke(IPC.settingsGet),
