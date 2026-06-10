@@ -20,7 +20,7 @@
     "resetWarning": "यह मौजूदा वॉल्ट और उसमें संग्रहीत सभी डेटा को स्थायी रूप से मिटा देगा। कोई पुनर्प्राप्ति नहीं होगी — सुनिश्चित करें कि आपको इसकी ज़रूरत नहीं है।",
     "resetContinue": "मैं समझता/समझती हूँ — जारी रखें",
     "back": "वापस",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "चेतावनी: वॉल्ट स्थायी रूप से हटाए जाने से पहले {{remaining}} प्रयास शेष हैं (सीमा: {{max}})।",
     "quickUnlock": "सहेजे गए क्रेडेंशियल से अनलॉक करें",
     "quickUnlockHint": "आपका मास्टर पासवर्ड ओएस कीचेन द्वारा सुरक्षित है।",
     "quickUnlockOutdated": "सहेजे गए क्रेडेंशियल पुराने हैं। कृपया अपने मास्टर पासवर्ड से अनलॉक करें।",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "मिटाएँ?",
     "collapse": "साइडबार संकुचित करें",
     "expand": "साइडबार विस्तार करें",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "यात्रा मोड में छिपाएं"
   },
   "topbar": {
     "search": "वॉल्ट में खोजें…",
@@ -49,7 +49,7 @@
     "language": "भाषा",
     "theme": "थीम बदलें",
     "importExport": "आयात / निर्यात",
-    "travelMode": "Travel mode"
+    "travelMode": "यात्रा मोड"
   },
   "items": {
     "empty": "कोई आइटम नहीं। अपनी पहली प्रविष्टि बनाएँ।",
@@ -86,14 +86,19 @@
       "fieldLabel": "लेबल",
       "fieldValue": "मान",
       "secretOn": "छिपे हुए के रूप में चिह्नित करें",
-      "secretOff": "दृश्यमान के रूप में चिह्नित करें"
+      "secretOff": "दृश्यमान के रूप में चिह्नित करें",
+      "rpId": "सेवा डोमेन",
+      "rpName": "सेवा का नाम",
+      "displayName": "प्रदर्शन नाम",
+      "credentialId": "क्रेडेंशियल ID (base64)"
     },
     "kind": {
       "login": "लॉगिन",
       "note": "सुरक्षित नोट",
       "card": "क्रेडिट कार्ड",
       "identity": "पहचान",
-      "totp": "प्रमाणक"
+      "totp": "प्रमाणक",
+      "passkey": "पासकी"
     },
     "passwordHistory": "पासवर्ड इतिहास ({{count}})",
     "restorePassword": "यह पासवर्ड पुनर्स्थापित करें",
@@ -151,8 +156,8 @@
     "autoLock": "स्वतः लॉक (मिनटों में)",
     "clipboardClear": "क्लिपबोर्ड साफ़ करें (सेकंड में)",
     "accent": "एक्सेंट रंग",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "स्वयं-नष्ट के बाद (असफल प्रयास)",
+    "maxFailedAttemptsHint": "इतने गलत पासवर्ड के बाद वॉल्ट स्थायी रूप से हटा दिया जाएगा। 0 = अक्षम।",
     "changePassword": "मास्टर पासवर्ड बदलें",
     "deviceUnlockSaved": "डिवाइस क्रेडेंशियल ओएस कीचेन में सहेजे गए हैं।",
     "deviceUnlockClear": "सहेजे गए क्रेडेंशियल हटाएं",
@@ -184,10 +189,16 @@
     "issues": "समस्याएँ",
     "allGood": "सब ठीक है",
     "allGoodDetail": "आपके सभी पासवर्ड सुरक्षित दिखते हैं।",
+    "checkBreaches": "डेटा उल्लंघन जांचें",
+    "checking": "जांच जारी…",
+    "breachError": "उल्लंघन डेटाबेस से संपर्क नहीं हो सका। अपना नेटवर्क जांचें।",
+    "breached": "उल्लंघित",
+    "breachCount": "{{count}} उल्लंघन(ों) में पाया गया",
     "reason": {
       "weak": "कमज़ोर पासवर्ड",
       "reused": "पुनः उपयोग किया",
-      "old": "180 दिनों से अधिक पुराना"
+      "old": "180 दिनों से अधिक पुराना",
+      "breached": "डेटा उल्लंघन"
     }
   },
   "importExport": {

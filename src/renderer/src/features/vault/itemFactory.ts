@@ -1,6 +1,6 @@
-import type { CardItem, IdentityItem, LoginItem, TotpItem, VaultItem } from '@shared/types'
+import type { CardItem, IdentityItem, LoginItem, PasskeyItem, TotpItem, VaultItem } from '@shared/types'
 
-export type EditableKind = 'login' | 'note' | 'card' | 'identity' | 'totp'
+export type EditableKind = 'login' | 'note' | 'card' | 'identity' | 'totp' | 'passkey'
 
 const MAX_PASSWORD_HISTORY = 50
 
@@ -49,6 +49,16 @@ export function createBlankItem(kind: EditableKind, categoryId: string | null): 
         issuer: '',
         account: ''
       } satisfies TotpItem
+    case 'passkey':
+      return {
+        ...base,
+        kind: 'passkey',
+        rpId: '',
+        rpName: '',
+        userName: '',
+        displayName: '',
+        credentialId: ''
+      } satisfies PasskeyItem
     default:
       return {
         ...base,

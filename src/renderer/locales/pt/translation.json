@@ -20,7 +20,7 @@
     "resetWarning": "Isso apaga permanentemente o cofre existente e tudo armazenado nele. Não há recuperação — certifique-se de que não precisa do conteúdo.",
     "resetContinue": "Entendo — continuar",
     "back": "Voltar",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "Aviso: {{remaining}} tentativa(s) restante(s) antes de o cofre ser permanentemente eliminado (limite: {{max}}).",
     "quickUnlock": "Desbloquear com credenciais salvas",
     "quickUnlockHint": "Sua senha principal está protegida pelo chaveiro do sistema.",
     "quickUnlockOutdated": "As credenciais salvas estão desatualizadas. Por favor, desbloqueie com sua senha principal.",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "Excluir?",
     "collapse": "Recolher barra lateral",
     "expand": "Expandir barra lateral",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "Ocultar no modo viagem"
   },
   "topbar": {
     "search": "Pesquisar no cofre…",
@@ -49,7 +49,7 @@
     "language": "Idioma",
     "theme": "Alternar tema",
     "importExport": "Importar / Exportar",
-    "travelMode": "Travel mode"
+    "travelMode": "Modo viagem"
   },
   "items": {
     "empty": "Nenhum item. Crie sua primeira entrada.",
@@ -86,14 +86,19 @@
       "fieldLabel": "Rótulo",
       "fieldValue": "Valor",
       "secretOn": "Marcar como oculto",
-      "secretOff": "Marcar como visível"
+      "secretOff": "Marcar como visível",
+      "rpId": "Domínio do serviço",
+      "rpName": "Nome do serviço",
+      "displayName": "Nome de exibição",
+      "credentialId": "ID da credencial (base64)"
     },
     "kind": {
       "login": "Login",
       "note": "Nota segura",
       "card": "Cartão de crédito",
       "identity": "Identidade",
-      "totp": "Autenticador"
+      "totp": "Autenticador",
+      "passkey": "Passkey"
     },
     "passwordHistory": "Histórico de senhas ({{count}})",
     "restorePassword": "Restaurar esta senha",
@@ -151,8 +156,8 @@
     "autoLock": "Bloqueio automático após (minutos)",
     "clipboardClear": "Limpar área de transferência após (segundos)",
     "accent": "Cor de destaque",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "Autodestruição após (tentativas falhadas)",
+    "maxFailedAttemptsHint": "O cofre é permanentemente eliminado após este número de senhas incorretas. 0 = desativado.",
     "changePassword": "Alterar senha principal",
     "deviceUnlockSaved": "As credenciais do dispositivo estão salvas no chaveiro do sistema.",
     "deviceUnlockClear": "Remover credenciais salvas",
@@ -184,10 +189,16 @@
     "issues": "Problemas",
     "allGood": "Tudo certo",
     "allGoodDetail": "Todas as suas senhas parecem saudáveis.",
+    "checkBreaches": "Verificar violações",
+    "checking": "Verificando…",
+    "breachError": "Não foi possível contactar a base de dados de violações. Verifique a sua ligação.",
+    "breached": "Violada",
+    "breachCount": "Encontrada em {{count}} violação(ões)",
     "reason": {
       "weak": "Senha fraca",
       "reused": "Reutilizada",
-      "old": "Mais de 180 dias"
+      "old": "Mais de 180 dias",
+      "breached": "Violação de dados"
     }
   },
   "importExport": {

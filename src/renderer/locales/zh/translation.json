@@ -20,7 +20,7 @@
     "resetWarning": "这将永久删除现有密码库及其所有内容，无法恢复。请确认您不再需要其中的数据。",
     "resetContinue": "我已了解 — 继续",
     "back": "返回",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "警告：还剩 {{remaining}} 次尝试，保险库将被永久删除（限制：{{max}}）。",
     "quickUnlock": "使用已保存的凭据解锁",
     "quickUnlockHint": "您的主密码受操作系统密钥链保护。",
     "quickUnlockOutdated": "已保存的凭据已过期。请使用主密码解锁。",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "删除？",
     "collapse": "折叠侧边栏",
     "expand": "展开侧边栏",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "在旅行模式下隐藏"
   },
   "topbar": {
     "search": "搜索密码库…",
@@ -49,7 +49,7 @@
     "language": "语言",
     "theme": "切换主题",
     "importExport": "导入 / 导出",
-    "travelMode": "Travel mode"
+    "travelMode": "旅行模式"
   },
   "items": {
     "empty": "暂无项目，创建您的第一条记录。",
@@ -86,14 +86,19 @@
       "fieldLabel": "标签",
       "fieldValue": "值",
       "secretOn": "标记为隐藏",
-      "secretOff": "标记为可见"
+      "secretOff": "标记为可见",
+      "rpId": "服务域名",
+      "rpName": "服务名称",
+      "displayName": "显示名称",
+      "credentialId": "凭证 ID (base64)"
     },
     "kind": {
       "login": "登录",
       "note": "安全备忘录",
       "card": "银行卡",
       "identity": "身份信息",
-      "totp": "验证器"
+      "totp": "验证器",
+      "passkey": "通行密钥"
     },
     "passwordHistory": "密码历史记录 ({{count}})",
     "restorePassword": "恢复此密码",
@@ -151,8 +156,8 @@
     "autoLock": "自动锁定（分钟后）",
     "clipboardClear": "清除剪贴板（秒后）",
     "accent": "强调色",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "自毁于（失败尝试次数）",
+    "maxFailedAttemptsHint": "输入此数量的错误密码后，保险库将被永久删除。0 = 禁用。",
     "changePassword": "更改主密码",
     "deviceUnlockSaved": "设备凭据已保存到操作系统密钥链。",
     "deviceUnlockClear": "删除已保存的凭据",
@@ -184,10 +189,16 @@
     "issues": "问题",
     "allGood": "一切正常",
     "allGoodDetail": "您的所有密码看起来都很健康。",
+    "checkBreaches": "检查数据泄露",
+    "checking": "检查中…",
+    "breachError": "无法连接到数据泄露数据库。请检查您的网络连接。",
+    "breached": "已泄露",
+    "breachCount": "在 {{count}} 次泄露中发现",
     "reason": {
       "weak": "弱密码",
       "reused": "已复用",
-      "old": "超过180天"
+      "old": "超过180天",
+      "breached": "数据泄露"
     }
   },
   "importExport": {

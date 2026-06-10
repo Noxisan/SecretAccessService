@@ -76,12 +76,23 @@ export const totpItemSchema = z.object({
   account: z.string().max(400)
 })
 
+export const passkeyItemSchema = z.object({
+  ...itemBaseShape,
+  kind: z.literal('passkey'),
+  rpId: z.string().max(500),
+  rpName: z.string().max(500),
+  userName: z.string().max(500),
+  displayName: z.string().max(500),
+  credentialId: z.string().max(4000)
+})
+
 export const vaultItemSchema = z.discriminatedUnion('kind', [
   loginItemSchema,
   noteItemSchema,
   cardItemSchema,
   identityItemSchema,
-  totpItemSchema
+  totpItemSchema,
+  passkeyItemSchema
 ])
 
 export const categorySchema = z.object({

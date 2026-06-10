@@ -20,7 +20,7 @@
     "resetWarning": "Это безвозвратно удалит существующее хранилище и все данные в нём. Восстановление невозможно — убедитесь, что содержимое вам больше не нужно.",
     "resetContinue": "Я понимаю — продолжить",
     "back": "Назад",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "Предупреждение: осталось {{remaining}} попытка(ок) до безвозвратного удаления хранилища (лимит: {{max}}).",
     "quickUnlock": "Разблокировать с сохранёнными данными",
     "quickUnlockHint": "Ваш мастер-пароль защищён цепочкой ключей ОС.",
     "quickUnlockOutdated": "Сохранённые данные устарели. Пожалуйста, разблокируйте с помощью мастер-пароля.",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "Удалить?",
     "collapse": "Свернуть боковую панель",
     "expand": "Развернуть боковую панель",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "Скрыть в режиме путешествия"
   },
   "topbar": {
     "search": "Поиск в хранилище…",
@@ -49,7 +49,7 @@
     "language": "Язык",
     "theme": "Сменить тему",
     "importExport": "Импорт / Экспорт",
-    "travelMode": "Travel mode"
+    "travelMode": "Режим путешествия"
   },
   "items": {
     "empty": "Нет элементов. Создайте первую запись.",
@@ -86,14 +86,19 @@
       "fieldLabel": "Метка",
       "fieldValue": "Значение",
       "secretOn": "Отметить как скрытое",
-      "secretOff": "Отметить как видимое"
+      "secretOff": "Отметить как видимое",
+      "rpId": "Домен сервиса",
+      "rpName": "Название сервиса",
+      "displayName": "Отображаемое имя",
+      "credentialId": "ID учётной записи (base64)"
     },
     "kind": {
       "login": "Логин",
       "note": "Защищённая заметка",
       "card": "Банковская карта",
       "identity": "Личные данные",
-      "totp": "Аутентификатор"
+      "totp": "Аутентификатор",
+      "passkey": "Пасс-ключ"
     },
     "passwordHistory": "История паролей ({{count}})",
     "restorePassword": "Восстановить этот пароль",
@@ -151,8 +156,8 @@
     "autoLock": "Автоблокировка через (минуты)",
     "clipboardClear": "Очищать буфер через (секунды)",
     "accent": "Цвет акцента",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "Самоуничтожение после (неверных попыток)",
+    "maxFailedAttemptsHint": "Хранилище будет удалено после указанного количества неверных паролей. 0 = отключено.",
     "changePassword": "Изменить мастер-пароль",
     "deviceUnlockSaved": "Данные устройства сохранены в цепочке ключей ОС.",
     "deviceUnlockClear": "Удалить сохранённые данные",
@@ -184,10 +189,16 @@
     "issues": "Проблем",
     "allGood": "Всё в порядке",
     "allGoodDetail": "Все ваши пароли выглядят надёжно.",
+    "checkBreaches": "Проверить утечки",
+    "checking": "Проверяю…",
+    "breachError": "Не удалось связаться с базой данных утечек. Проверьте соединение.",
+    "breached": "Скомпрометирован",
+    "breachCount": "Найдено в {{count}} утечке(ах)",
     "reason": {
       "weak": "Слабый пароль",
       "reused": "Повторно используется",
-      "old": "Старше 180 дней"
+      "old": "Старше 180 дней",
+      "breached": "Утечка данных"
     }
   },
   "importExport": {

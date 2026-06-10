@@ -20,7 +20,7 @@
     "resetWarning": "سيؤدي هذا إلى حذف الخزينة الحالية وجميع ما يحتويها بشكل دائم. لا يمكن الاسترداد — تأكد من أنك لا تحتاج إلى محتواها.",
     "resetContinue": "أفهم — متابعة",
     "back": "رجوع",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "تحذير: تبقّى {{remaining}} محاولة قبل حذف الخزينة نهائياً (الحد: {{max}}).",
     "quickUnlock": "فتح باستخدام البيانات المحفوظة",
     "quickUnlockHint": "كلمة مرورك الرئيسية محمية بواسطة سلسلة مفاتيح النظام.",
     "quickUnlockOutdated": "البيانات المحفوظة قديمة. يرجى فتح القفل بكلمة مرورك الرئيسية.",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "حذف؟",
     "collapse": "طي الشريط الجانبي",
     "expand": "توسيع الشريط الجانبي",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "إخفاء في وضع السفر"
   },
   "topbar": {
     "search": "البحث في الخزينة…",
@@ -49,7 +49,7 @@
     "language": "اللغة",
     "theme": "تبديل السمة",
     "importExport": "استيراد / تصدير",
-    "travelMode": "Travel mode"
+    "travelMode": "وضع السفر"
   },
   "items": {
     "empty": "لا توجد عناصر. أنشئ إدخالك الأول.",
@@ -86,14 +86,19 @@
       "fieldLabel": "التسمية",
       "fieldValue": "القيمة",
       "secretOn": "وضع علامة مخفي",
-      "secretOff": "وضع علامة مرئي"
+      "secretOff": "وضع علامة مرئي",
+      "rpId": "نطاق الخدمة",
+      "rpName": "اسم الخدمة",
+      "displayName": "الاسم المعروض",
+      "credentialId": "معرّف بيانات الاعتماد (base64)"
     },
     "kind": {
       "login": "تسجيل دخول",
       "note": "ملاحظة آمنة",
       "card": "بطاقة ائتمان",
       "identity": "هوية",
-      "totp": "المصادق"
+      "totp": "المصادق",
+      "passkey": "مفتاح المرور"
     },
     "passwordHistory": "سجل كلمات المرور ({{count}})",
     "restorePassword": "استعادة كلمة المرور هذه",
@@ -151,8 +156,8 @@
     "autoLock": "القفل التلقائي بعد (دقائق)",
     "clipboardClear": "مسح الحافظة بعد (ثوانٍ)",
     "accent": "لون التمييز",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "التدمير الذاتي بعد (محاولات فاشلة)",
+    "maxFailedAttemptsHint": "يتم حذف الخزينة نهائياً بعد هذا العدد من كلمات المرور الخاطئة. 0 = معطّل.",
     "changePassword": "تغيير كلمة المرور الرئيسية",
     "deviceUnlockSaved": "بيانات الجهاز محفوظة في سلسلة مفاتيح النظام.",
     "deviceUnlockClear": "إزالة البيانات المحفوظة",
@@ -184,10 +189,16 @@
     "issues": "مشكلات",
     "allGood": "كل شيء على ما يرام",
     "allGoodDetail": "تبدو جميع كلمات مرورك آمنة.",
+    "checkBreaches": "التحقق من تسريبات البيانات",
+    "checking": "جارٍ التحقق…",
+    "breachError": "تعذّر الاتصال بقاعدة بيانات التسريبات. تحقق من اتصالك.",
+    "breached": "مسرَّبة",
+    "breachCount": "موجودة في {{count}} تسريب(ات)",
     "reason": {
       "weak": "كلمة مرور ضعيفة",
       "reused": "معاد استخدامها",
-      "old": "أكثر من 180 يوماً"
+      "old": "أكثر من 180 يوماً",
+      "breached": "تسريب بيانات"
     }
   },
   "importExport": {

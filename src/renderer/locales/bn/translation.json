@@ -20,7 +20,7 @@
     "resetWarning": "এটি বিদ্যমান ভল্ট এবং সংরক্ষিত সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলবে। পুনরুদ্ধার সম্ভব নয় — নিশ্চিত করুন যে আপনার এটির প্রয়োজন নেই।",
     "resetContinue": "আমি বুঝেছি — চালিয়ে যান",
     "back": "ফিরে যান",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "সতর্কতা: ভল্ট স্থায়ীভাবে মুছে যাওয়ার আগে আরও {{remaining}}টি প্রচেষ্টা বাকি (সীমা: {{max}})।",
     "quickUnlock": "সংরক্ষিত শংসাপত্র দিয়ে আনলক করুন",
     "quickUnlockHint": "আপনার মাস্টার পাসওয়ার্ড ওএস কীচেইন দ্বারা সুরক্ষিত।",
     "quickUnlockOutdated": "সংরক্ষিত শংসাপত্র পুরানো হয়ে গেছে। আপনার মাস্টার পাসওয়ার্ড দিয়ে আনলক করুন।",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "মুছবেন?",
     "collapse": "সাইডবার সংকুচিত করুন",
     "expand": "সাইডবার প্রসারিত করুন",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "ভ্রমণ মোডে লুকান"
   },
   "topbar": {
     "search": "ভল্টে খুঁজুন…",
@@ -49,7 +49,7 @@
     "language": "ভাষা",
     "theme": "থিম পরিবর্তন করুন",
     "importExport": "আমদানি / রপ্তানি",
-    "travelMode": "Travel mode"
+    "travelMode": "ভ্রমণ মোড"
   },
   "items": {
     "empty": "কোনো আইটেম নেই। আপনার প্রথম এন্ট্রি তৈরি করুন।",
@@ -86,14 +86,19 @@
       "fieldLabel": "লেবেল",
       "fieldValue": "মান",
       "secretOn": "লুকানো হিসেবে চিহ্নিত করুন",
-      "secretOff": "দৃশ্যমান হিসেবে চিহ্নিত করুন"
+      "secretOff": "দৃশ্যমান হিসেবে চিহ্নিত করুন",
+      "rpId": "সেবার ডোমেইন",
+      "rpName": "সেবার নাম",
+      "displayName": "প্রদর্শন নাম",
+      "credentialId": "ক্রেডেনশিয়াল আইডি (base64)"
     },
     "kind": {
       "login": "লগইন",
       "note": "নিরাপদ নোট",
       "card": "ক্রেডিট কার্ড",
       "identity": "পরিচয়",
-      "totp": "অথেন্টিকেটর"
+      "totp": "অথেন্টিকেটর",
+      "passkey": "পাসকি"
     },
     "passwordHistory": "পাসওয়ার্ড ইতিহাস ({{count}})",
     "restorePassword": "এই পাসওয়ার্ড পুনরুদ্ধার করুন",
@@ -151,8 +156,8 @@
     "autoLock": "স্বয়ংক্রিয় লক (মিনিটে)",
     "clipboardClear": "ক্লিপবোর্ড পরিষ্কার করুন (সেকেন্ডে)",
     "accent": "অ্যাকসেন্ট রঙ",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "স্ব-ধ্বংস এর পরে (ব্যর্থ প্রচেষ্টা)",
+    "maxFailedAttemptsHint": "এত সংখ্যক ভুল পাসওয়ার্ডের পরে ভল্ট স্থায়ীভাবে মুছে ফেলা হবে। 0 = অক্ষম।",
     "changePassword": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",
     "deviceUnlockSaved": "ডিভাইস শংসাপত্র ওএস কীচেইনে সংরক্ষিত আছে।",
     "deviceUnlockClear": "সংরক্ষিত শংসাপত্র মুছুন",
@@ -184,10 +189,16 @@
     "issues": "সমস্যা",
     "allGood": "সব ঠিক আছে",
     "allGoodDetail": "আপনার সমস্ত পাসওয়ার্ড নিরাপদ দেখাচ্ছে।",
+    "checkBreaches": "ডেটা লঙ্ঘন পরীক্ষা করুন",
+    "checking": "পরীক্ষা করছে…",
+    "breachError": "লঙ্ঘন ডেটাবেসে সংযোগ করা যায়নি। আপনার সংযোগ পরীক্ষা করুন।",
+    "breached": "ফাঁস হয়েছে",
+    "breachCount": "{{count}}টি লঙ্ঘনে পাওয়া গেছে",
     "reason": {
       "weak": "দুর্বল পাসওয়ার্ড",
       "reused": "পুনরায় ব্যবহৃত",
-      "old": "১৮০ দিনের বেশি পুরনো"
+      "old": "১৮০ দিনের বেশি পুরনো",
+      "breached": "ডেটা লঙ্ঘন"
     }
   },
   "importExport": {
