@@ -1,4 +1,4 @@
-import type { JSX } from 'react'
+import { useEffect, useRef, type JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight } from 'lucide-react'
 import { useAppStore } from '../store/app'
@@ -13,6 +13,19 @@ export default function TopBar(): JSX.Element {
   const setHealthOpen = useAppStore((s) => s.setHealthOpen)
   const setImportExportOpen = useAppStore((s) => s.setImportExportOpen)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
+  const searchRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent): void => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault()
+        searchRef.current?.focus()
+        searchRef.current?.select()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   async function lock(): Promise<void> {
     await window.sas.vault.lock()
@@ -32,8 +45,10 @@ export default function TopBar(): JSX.Element {
           className="pointer-events-none absolute top-1/2 left-2.5 -translate-y-1/2 text-[var(--text-muted)]"
         />
         <input
+          ref={searchRef}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Escape') { setSearch(''); e.currentTarget.blur() } }}
           placeholder={t('topbar.search')}
           className="w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] py-1.5 pr-3 pl-8 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
         />
