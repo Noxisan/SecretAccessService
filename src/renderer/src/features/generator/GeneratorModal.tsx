@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { RefreshCw, Copy, Check, X } from 'lucide-react'
@@ -30,12 +30,38 @@ export default function GeneratorModal(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.generatorOpen)
   const setOpen = useAppStore((s) => s.setGeneratorOpen)
+  const settings = useAppStore((s) => s.settings)
+  const setSettings = useAppStore((s) => s.setSettings)
   const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
 
-  const [opts, setOpts] = useState<GeneratePasswordOptions>(DEFAULTS)
+  const [opts, setOpts] = useState<GeneratePasswordOptions>(() => settings?.generatorDefaults ?? DEFAULTS)
   const [value, setValue] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+
+  // Keep stable refs so the close handler always sees the latest values
+  const optsRef = useRef(opts)
+  useEffect(() => { optsRef.current = opts }, [opts])
+  const settingsRef = useRef(settings)
+  settingsRef.current = settings
+
+  // Persist opts to settings when the modal closes; both refs are always current.
+  const handleClose = useCallback(() => {
+    if (settingsRef.current) {
+      const next = { ...settingsRef.current, generatorDefaults: optsRef.current }
+      void window.sas.settings.set(next).then(setSettings)
+    }
+    setOpen(false)
+  }, [setSettings, setOpen])
+
+  // Re-initialize opts from saved settings each time the modal opens.
+  const didOpenRef = useRef(false)
+  useEffect(() => {
+    if (!open) { didOpenRef.current = false; return }
+    if (didOpenRef.current) return
+    didOpenRef.current = true
+    setOpts(settings?.generatorDefaults ?? DEFAULTS)
+  }, [open, settings])
 
   const noClass =
     opts.mode === 'characters' &&
@@ -66,15 +92,15 @@ export default function GeneratorModal(): JSX.Element | null {
     void generate()
   }, [open, generate, noClass, t])
 
-  // Close on Escape.
+  // Close on Escape — saves settings via handleClose.
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') handleClose()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [open, setOpen])
+  }, [open, handleClose])
 
   if (!open) return null
 
@@ -109,7 +135,7 @@ export default function GeneratorModal(): JSX.Element | null {
   return (
     <div
       className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-      onMouseDown={() => setOpen(false)}
+      onMouseDown={() => handleClose()}
       role="presentation"
     >
       <div
@@ -122,7 +148,7 @@ export default function GeneratorModal(): JSX.Element | null {
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-semibold text-[var(--text)]">{t('generator.title')}</h2>
           <button
-            onClick={() => setOpen(false)}
+            onClick={() => handleClose()}
             className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
             aria-label={t('common.close')}
           >

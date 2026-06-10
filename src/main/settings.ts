@@ -14,7 +14,18 @@ export const DEFAULT_SETTINGS: AppSettings = {
   autoLockMinutes: 5,
   clipboardClearSeconds: 30,
   maxFailedAttempts: 10,
-  travelHiddenCategoryIds: []
+  travelHiddenCategoryIds: [],
+  generatorDefaults: {
+    length: 20,
+    uppercase: true,
+    lowercase: true,
+    digits: true,
+    symbols: true,
+    excludeAmbiguous: false,
+    mode: 'characters',
+    words: 5,
+    separator: '-'
+  }
 }
 
 export class SettingsStore {
