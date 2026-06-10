@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-06-10
+
+Keyboard shortcuts and embedded 2FA: navigate the app with your hands on
+the keyboard and store authenticator codes directly inside login items.
+
+### Added
+- **Embedded TOTP inside login items** — any login entry can now carry an
+  inline 2FA seed (otpauth:// URI). An "Add authenticator code" link appears
+  below the Website field in the login editor. When a URI is entered, a live
+  six-digit code with the familiar SVG countdown ring is shown immediately
+  below the input — click the code to copy it to clipboard (auto-clear timer
+  applies). The URI field can be cleared at any time to remove 2FA from the
+  entry. All 11 locales updated.
+- **Ctrl+F / Cmd+F — focus search** — pressing the standard find shortcut
+  anywhere in the app jumps focus to the search bar and selects all text.
+- **Ctrl+L / Cmd+L — lock vault** — pressing the standard lock shortcut
+  anywhere in the app immediately locks the vault, clearing all secrets from
+  renderer memory.
+- **Escape — clear search** — pressing Escape while the search bar is focused
+  clears the query and returns focus to the item list.
+
+### Changed
+- Refactored the TopBar `lock` handler to `useCallback` so it is stable
+  across renders; the keyboard-shortcut effect now registers once rather than
+  once per render.
+
 ## [0.6.0] - 2026-06-10
 
 Custom fields: every vault item can now carry arbitrary label/value pairs.
@@ -157,7 +183,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.3.0...v0.4.0

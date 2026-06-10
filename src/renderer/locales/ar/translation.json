@@ -91,7 +91,11 @@
     "restorePassword": "استعادة كلمة المرور هذه",
     "customFields": "حقول مخصصة",
     "addField": "إضافة حقل",
-    "deleteField": "حذف الحقل"
+    "deleteField": "حذف الحقل",
+    "addTotp": "إضافة رمز المصادقة",
+    "totpSection": "المصادق (2FA)",
+    "removeTotp": "إزالة 2FA",
+    "totpLiveCode": "الرمز المباشر — انقر للنسخ"
   },
   "generator": {
     "title": "مولّد كلمات المرور",

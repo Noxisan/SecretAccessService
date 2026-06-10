@@ -1,4 +1,4 @@
-import type { JSX } from 'react'
+import { useCallback, useEffect, useRef, type JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight } from 'lucide-react'
 import { useAppStore } from '../store/app'
@@ -13,11 +13,28 @@ export default function TopBar(): JSX.Element {
   const setHealthOpen = useAppStore((s) => s.setHealthOpen)
   const setImportExportOpen = useAppStore((s) => s.setImportExportOpen)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
+  const searchRef = useRef<HTMLInputElement>(null)
 
-  async function lock(): Promise<void> {
+  const lock = useCallback(async () => {
     await window.sas.vault.lock()
     clearSecrets()
-  }
+  }, [clearSecrets])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent): void => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault()
+        searchRef.current?.focus()
+        searchRef.current?.select()
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+        e.preventDefault()
+        void lock()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [lock])
 
   const iconBtn =
     'grid h-9 w-9 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]'
@@ -32,8 +49,10 @@ export default function TopBar(): JSX.Element {
           className="pointer-events-none absolute top-1/2 left-2.5 -translate-y-1/2 text-[var(--text-muted)]"
         />
         <input
+          ref={searchRef}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={(e) => { if (e.key === 'Escape') { setSearch(''); e.currentTarget.blur() } }}
           placeholder={t('topbar.search')}
           className="w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] py-1.5 pr-3 pl-8 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
         />
@@ -81,7 +100,7 @@ export default function TopBar(): JSX.Element {
           <Settings size={18} />
         </button>
         <button
-          onClick={() => void lock()}
+          onClick={() => { void lock() }}
           className="ml-1 flex h-9 items-center gap-1.5 rounded-[var(--radius)] px-3 text-sm text-[var(--accent-contrast)]"
           style={{ background: 'var(--accent)' }}
           title={t('topbar.lock')}

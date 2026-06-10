@@ -91,7 +91,11 @@
     "restorePassword": "یہ پاس ورڈ بحال کریں",
     "customFields": "حسب ضرورت فیلڈز",
     "addField": "فیلڈ شامل کریں",
-    "deleteField": "فیلڈ حذف کریں"
+    "deleteField": "فیلڈ حذف کریں",
+    "addTotp": "تصدیقی کوڈ شامل کریں",
+    "totpSection": "تصدیق کار (2FA)",
+    "removeTotp": "2FA ہٹائیں",
+    "totpLiveCode": "لائیو کوڈ — کاپی کرنے کے لیے کلک کریں"
   },
   "generator": {
     "title": "پاسورڈ جنریٹر",
