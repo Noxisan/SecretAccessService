@@ -38,7 +38,8 @@
     "lock": "Bloquear",
     "health": "Painel de segurança",
     "language": "Idioma",
-    "theme": "Alternar tema"
+    "theme": "Alternar tema",
+    "importExport": "Importar / Exportar"
   },
   "items": {
     "empty": "Nenhum item. Crie sua primeira entrada.",
@@ -138,5 +139,35 @@
       "reused": "Reutilizada",
       "old": "Mais de 180 dias"
     }
+  },
+  "importExport": {
+    "title": "Importar / Exportar",
+    "exportTab": "Exportar",
+    "importTab": "Importar",
+    "exportDesc": "Salve um backup criptografado do seu cofre.",
+    "exportPassword": "Senha do backup",
+    "exportPasswordPlaceholder": "Escolha uma senha forte…",
+    "confirmPassword": "Confirmar senha",
+    "confirmPasswordPlaceholder": "Repita a senha…",
+    "exportButton": "Exportar backup",
+    "exporting": "Exportando…",
+    "exportSuccess": "Salvo em {{path}}",
+    "importWarning": "Importações CSV são perigosas — exclua o arquivo após importar.",
+    "file": "Arquivo",
+    "chooseFile": "Escolher arquivo…",
+    "backupPassword": "Senha do backup",
+    "backupPasswordPlaceholder": "Senha usada ao exportar…",
+    "importMode": "Itens existentes",
+    "mode": {
+      "merge": "Mesclar (adicionar novos)",
+      "replace": "Substituir (sobrescrever tudo)"
+    },
+    "modeDesc": {
+      "merge": "Itens existentes mantidos. Apenas novos adicionados.",
+      "replace": "Todos os itens são substituídos pelos importados."
+    },
+    "importButton": "Importar",
+    "importing": "Importando…",
+    "importSuccess": "{{count}} item(ns) importado(s)."
   }
 }

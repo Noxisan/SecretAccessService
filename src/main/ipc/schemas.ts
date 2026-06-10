@@ -122,4 +122,18 @@ export const settingsSchema = z.object({
   clipboardClearSeconds: z.number().int().min(0).max(600)
 })
 
+export const exportSchema = z.object({
+  password: z.string().min(1).max(1024)
+})
+
+export const importSchema = z.object({
+  /** Absolute path to the file to import. */
+  filePath: z.string().min(1),
+  /** Required for .sasbak encrypted backups; unused for CSV. */
+  password: z.string().max(1024).optional(),
+  /** How to handle conflicts: 'merge' keeps existing and adds new; 'replace' overwrites all. */
+  mode: z.enum(['merge', 'replace']).default('merge')
+})
+
 export type GeneratePasswordInput = z.infer<typeof generatePasswordSchema>
+export type ImportInput = z.infer<typeof importSchema>

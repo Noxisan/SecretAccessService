@@ -37,6 +37,7 @@
     "settings": "Settings",
     "lock": "Lock",
     "health": "Health dashboard",
+    "importExport": "Import / Export",
     "language": "Language",
     "theme": "Toggle theme"
   },
@@ -125,6 +126,36 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "close": "Close"
+  },
+  "importExport": {
+    "title": "Import / Export",
+    "exportTab": "Export",
+    "importTab": "Import",
+    "exportDesc": "Save an encrypted backup of your vault. The backup is protected with a separate password and uses the same cryptography as the vault.",
+    "exportPassword": "Backup password",
+    "exportPasswordPlaceholder": "Choose a strong backup password…",
+    "confirmPassword": "Confirm backup password",
+    "confirmPasswordPlaceholder": "Repeat backup password…",
+    "exportButton": "Export encrypted backup",
+    "exporting": "Exporting…",
+    "exportSuccess": "Saved to {{path}}",
+    "importWarning": "CSV and plaintext imports are dangerous — anyone who obtains the file can read your passwords. Delete the file securely after importing.",
+    "file": "File",
+    "chooseFile": "Choose file…",
+    "backupPassword": "Backup password",
+    "backupPasswordPlaceholder": "Password used when exporting…",
+    "importMode": "How to handle existing items",
+    "mode": {
+      "merge": "Merge (keep existing, add new)",
+      "replace": "Replace (overwrite all items)"
+    },
+    "modeDesc": {
+      "merge": "Items already in the vault are kept. Only items not present are added.",
+      "replace": "All current vault items are removed and replaced with the imported ones."
+    },
+    "importButton": "Import",
+    "importing": "Importing…",
+    "importSuccess": "Imported {{count}} item(s) successfully."
   },
   "health": {
     "title": "Password health",

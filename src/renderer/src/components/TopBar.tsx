@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, KeyRound, Settings, Lock, Activity, Languages } from 'lucide-react'
+import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight } from 'lucide-react'
 import { useAppStore } from '../store/app'
 
 /** Narrow top bar: search + app-level tools (CLAUDE.md §7). */
@@ -11,6 +11,7 @@ export default function TopBar(): JSX.Element {
   const setGeneratorOpen = useAppStore((s) => s.setGeneratorOpen)
   const setSettingsOpen = useAppStore((s) => s.setSettingsOpen)
   const setHealthOpen = useAppStore((s) => s.setHealthOpen)
+  const setImportExportOpen = useAppStore((s) => s.setImportExportOpen)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
 
   async function lock(): Promise<void> {
@@ -54,6 +55,14 @@ export default function TopBar(): JSX.Element {
           aria-label={t('topbar.health')}
         >
           <Activity size={18} />
+        </button>
+        <button
+          className={iconBtn}
+          onClick={() => setImportExportOpen(true)}
+          title={t('topbar.importExport')}
+          aria-label={t('topbar.importExport')}
+        >
+          <ArrowLeftRight size={18} />
         </button>
         <button
           className={iconBtn}

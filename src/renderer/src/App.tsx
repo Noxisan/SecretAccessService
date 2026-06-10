@@ -11,6 +11,7 @@ import ItemEditor from './features/vault/ItemEditor'
 import GeneratorModal from './features/generator/GeneratorModal'
 import SettingsModal from './features/settings/SettingsModal'
 import HealthDashboard from './features/health/HealthDashboard'
+import ImportExportModal from './features/importexport/ImportExportModal'
 
 export default function App(): JSX.Element {
   const { i18n } = useTranslation()
@@ -74,6 +75,7 @@ export default function App(): JSX.Element {
       <GeneratorModal />
       <SettingsModal />
       <HealthDashboard />
+      <ImportExportModal />
     </div>
   )
 }

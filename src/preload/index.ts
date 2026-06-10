@@ -42,7 +42,17 @@ const api = {
       ipcRenderer.invoke(IPC.clipboardCopy, { text, clearSeconds }),
     /** k-anonymity HIBP check — returns breach count, 0 = clean. */
     checkBreached: (password: string): Promise<number> =>
-      ipcRenderer.invoke(IPC.checkBreached, { password })
+      ipcRenderer.invoke(IPC.checkBreached, { password }),
+    /** Export vault to encrypted .sasbak. Opens a system save dialog. Returns filePath or null. */
+    exportVault: (password: string): Promise<{ filePath: string | null }> =>
+      ipcRenderer.invoke(IPC.vaultExport, { password }),
+    /** Import from .sasbak backup or CSV. Returns count of imported items. */
+    importVault: (
+      filePath: string,
+      password?: string,
+      mode: 'merge' | 'replace' = 'merge'
+    ): Promise<{ imported: number; replaced: boolean }> =>
+      ipcRenderer.invoke(IPC.vaultImport, { filePath, password, mode })
   },
   settings: {
     get: (): Promise<AppSettings> => ipcRenderer.invoke(IPC.settingsGet),

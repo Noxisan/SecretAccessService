@@ -38,7 +38,8 @@
     "lock": "Sperren",
     "health": "Sicherheitsübersicht",
     "language": "Sprache",
-    "theme": "Design wechseln"
+    "theme": "Design wechseln",
+    "importExport": "Importieren / Exportieren"
   },
   "items": {
     "empty": "Noch keine Einträge. Erstellen Sie Ihren ersten Eintrag.",
@@ -144,5 +145,35 @@
       "old": "Älter als 180 Tage",
       "breached": "Datenleck"
     }
+  },
+  "importExport": {
+    "title": "Importieren / Exportieren",
+    "exportTab": "Export",
+    "importTab": "Import",
+    "exportDesc": "Verschlüsseltes Backup Ihres Tresors erstellen.",
+    "exportPassword": "Backup-Passwort",
+    "exportPasswordPlaceholder": "Starkes Passwort wählen…",
+    "confirmPassword": "Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Passwort wiederholen…",
+    "exportButton": "Backup exportieren",
+    "exporting": "Exportiere…",
+    "exportSuccess": "Gespeichert: {{path}}",
+    "importWarning": "CSV-Importe sind gefährlich — Datei nach dem Import sicher löschen.",
+    "file": "Datei",
+    "chooseFile": "Datei auswählen…",
+    "backupPassword": "Backup-Passwort",
+    "backupPasswordPlaceholder": "Passwort vom Export…",
+    "importMode": "Vorhandene Einträge",
+    "mode": {
+      "merge": "Zusammenführen (neue hinzufügen)",
+      "replace": "Ersetzen (alle überschreiben)"
+    },
+    "modeDesc": {
+      "merge": "Vorhandene bleiben. Nur neue werden hinzugefügt.",
+      "replace": "Alle Einträge werden durch importierte ersetzt."
+    },
+    "importButton": "Importieren",
+    "importing": "Importiere…",
+    "importSuccess": "{{count}} Eintrag/Einträge importiert."
   }
 }
