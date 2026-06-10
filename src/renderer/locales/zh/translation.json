@@ -19,7 +19,8 @@
     "resetConfirmTitle": "清除并重新开始？",
     "resetWarning": "这将永久删除现有密码库及其所有内容，无法恢复。请确认您不再需要其中的数据。",
     "resetContinue": "我已了解 — 继续",
-    "back": "返回"
+    "back": "返回",
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
   },
   "sidebar": {
     "allItems": "全部项目",
@@ -134,7 +135,9 @@
     "language": "语言",
     "autoLock": "自动锁定（分钟后）",
     "clipboardClear": "清除剪贴板（秒后）",
-    "accent": "强调色"
+    "accent": "强调色",
+    "maxFailedAttempts": "Self-destruct after (failed attempts)",
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
   },
   "common": {
     "save": "保存",

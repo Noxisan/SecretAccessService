@@ -181,6 +181,10 @@ export function registerIpcHandlers(opts: {
 }): void {
   const { vault, settings, onActivity } = opts
 
+  // Failed-unlock attempt counter (CLAUDE.md §8 self-destruct). Resets on
+  // successful unlock or app restart. Scoped here so it survives across calls.
+  let failedAttempts = 0
+
   const handle = <T>(channel: string, fn: (arg: unknown) => Promise<T> | T): void => {
     ipcMain.handle(channel, async (_event, arg) => {
       onActivity() // any IPC counts as user activity → resets idle auto-lock
@@ -206,6 +210,7 @@ export function registerIpcHandlers(opts: {
   handle<void>(IPC.vaultCreate, async (arg) => {
     const { masterPassword } = parse(masterPasswordSchema, arg)
     await vault.create(masterPassword)
+    failedAttempts = 0
   })
 
   // Irreversible: discards any existing vault and creates a fresh one. The
@@ -213,11 +218,31 @@ export function registerIpcHandlers(opts: {
   handle<void>(IPC.vaultRecreate, async (arg) => {
     const { masterPassword } = parse(masterPasswordSchema, arg)
     await vault.recreate(masterPassword)
+    failedAttempts = 0
   })
 
   handle<void>(IPC.vaultUnlock, async (arg) => {
     const { masterPassword } = parse(masterPasswordSchema, arg)
-    await vault.unlock(masterPassword)
+    const max = settings.get().maxFailedAttempts
+
+    // If the vault was already destroyed this session, refuse immediately.
+    if (max > 0 && failedAttempts >= max) {
+      throw new Error('panicked')
+    }
+
+    try {
+      await vault.unlock(masterPassword)
+      failedAttempts = 0
+    } catch {
+      failedAttempts++
+      if (max > 0 && failedAttempts >= max) {
+        // Panic: zero the key and delete the vault file. Irreversible.
+        await vault.destroy()
+        throw new Error('panicked')
+      }
+      // Embed the current count so the renderer can show a warning.
+      throw new Error(`wrong:${failedAttempts}/${max}`)
+    }
   })
 
   handle<void>(IPC.vaultLock, async () => {
