@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **TOTP logic extracted from the UI** — `otpauth` parsing and code/countdown
+  computation moved out of the `TotpCode` component into a pure, dependency-free
+  `totp.ts` module (`parseTotp`, `computeTotp`) with injectable time, making the
+  RFC 6238 logic unit-testable without rendering.
+
+### Tests
+- Added 8 tests for the TOTP module, including the RFC 6238 SHA1 reference
+  vector (T=59 → `94287082`), HOTP/garbage-URI rejection, and countdown
+  boundaries. Suite grows from 87 to 95 tests.
+
 ## [0.18.1] - 2026-06-10
 
 Patch release fixing a crash that could blank the main window.
