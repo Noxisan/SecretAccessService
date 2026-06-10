@@ -134,6 +134,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.18.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.1) | 2026-06-10 | Fix: ItemList white-screen / infinite render loop from an unstable store selector |
 | [0.18.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.0) | 2026-06-10 | Health issue badge on top bar — weak, reused, and old passwords shown at a glance |
 | [0.17.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.17.0) | 2026-06-10 | Persistent generator settings — mode, length, and options restored on every open |
 | [0.16.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.16.0) | 2026-06-10 | Import parsers extracted; test suite grows from 40 to 75 tests |
