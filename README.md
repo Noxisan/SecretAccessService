@@ -59,6 +59,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Encrypted vault: logins, secure notes, credit cards, identities, TOTP authenticators | Done |
 | Categories, favorites, and color-dot markers — create, rename, delete | Done |
 | Custom fields per entry (plain text or masked secret) | Done |
+| Duplicate entry — clone any item in one click from the editor | Done |
 | Password history per login (view previous passwords; one-click restore) | Done |
 | Password generator — character mode (length, classes, exclude-ambiguous) and passphrase/diceware mode | Done |
 | Global fuzzy search across all item types | Done |
@@ -133,6 +134,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.15.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.15.0) | 2026-06-10 | Duplicate entry button in item editor |
 | [0.14.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.14.0) | 2026-06-10 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds |
 | [0.13.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.13.0) | 2026-06-10 | Passkey storage; full i18n coverage for travel mode, panic lock, and breach check |
 | [0.12.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.12.0) | 2026-06-10 | Quick unlock via OS keychain — unlock with saved credentials |

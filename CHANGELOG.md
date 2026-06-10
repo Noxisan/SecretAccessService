@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-06-10
+
+Quality-of-life: duplicate any vault entry in one click.
+
+### Added
+- **Duplicate entry** — a "Duplicate" button appears in the item editor footer
+  when editing an existing entry. Clicking it clones the item with a new ID,
+  resets `createdAt` and `updatedAt` to now, prefixes the title with
+  "Copy of …", and saves the copy to the vault. The duplicate inherits all
+  fields: credentials, TOTP seed, custom fields, notes, category, color tag,
+  and favorite status. The editor closes after duplicating so the user can find
+  and rename the new copy in the list. All 11 locales updated.
+
 ## [0.14.0] - 2026-06-10
 
 Bitwarden JSON import: migrate from Bitwarden by dropping in an unencrypted
@@ -324,7 +337,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.15.0...HEAD
+[0.15.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.11.0...v0.12.0
