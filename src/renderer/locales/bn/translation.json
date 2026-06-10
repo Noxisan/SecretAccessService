@@ -19,7 +19,8 @@
     "resetConfirmTitle": "সব মুছে নতুন শুরু করবেন?",
     "resetWarning": "এটি বিদ্যমান ভল্ট এবং সংরক্ষিত সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলবে। পুনরুদ্ধার সম্ভব নয় — নিশ্চিত করুন যে আপনার এটির প্রয়োজন নেই।",
     "resetContinue": "আমি বুঝেছি — চালিয়ে যান",
-    "back": "ফিরে যান"
+    "back": "ফিরে যান",
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
   },
   "sidebar": {
     "allItems": "সব আইটেম",
@@ -134,7 +135,9 @@
     "language": "ভাষা",
     "autoLock": "স্বয়ংক্রিয় লক (মিনিটে)",
     "clipboardClear": "ক্লিপবোর্ড পরিষ্কার করুন (সেকেন্ডে)",
-    "accent": "অ্যাকসেন্ট রঙ"
+    "accent": "অ্যাকসেন্ট রঙ",
+    "maxFailedAttempts": "Self-destruct after (failed attempts)",
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
   },
   "common": {
     "save": "সংরক্ষণ করুন",

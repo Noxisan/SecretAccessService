@@ -19,7 +19,8 @@
     "resetConfirmTitle": "Löschen und neu beginnen?",
     "resetWarning": "Dies löscht den vorhandenen Tresor und alle darin gespeicherten Daten unwiderruflich. Eine Wiederherstellung ist nicht möglich — stellen Sie sicher, dass Sie die Inhalte nicht mehr benötigen.",
     "resetContinue": "Ich habe verstanden — fortfahren",
-    "back": "Zurück"
+    "back": "Zurück",
+    "attemptsRemaining": "Warnung: Noch {{remaining}} Versuch(e) bis der Tresor unwiderruflich gelöscht wird (Limit: {{max}})."
   },
   "sidebar": {
     "allItems": "Alle Einträge",
@@ -134,7 +135,9 @@
     "language": "Sprache",
     "autoLock": "Automatisch sperren nach (Minuten)",
     "clipboardClear": "Zwischenablage leeren nach (Sekunden)",
-    "accent": "Akzentfarbe"
+    "accent": "Akzentfarbe",
+    "maxFailedAttempts": "Selbstzerstörung nach (fehlgeschlagenen Versuchen)",
+    "maxFailedAttemptsHint": "Der Tresor wird nach dieser Anzahl falscher Passwörter unwiderruflich gelöscht. 0 = deaktiviert."
   },
   "common": {
     "save": "Speichern",

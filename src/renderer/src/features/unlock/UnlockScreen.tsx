@@ -3,6 +3,7 @@ import type { JSX, FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ShieldCheck, Lock, AlertTriangle } from 'lucide-react'
 import type { VaultStatus } from '@shared/types'
+import { useAppStore } from '../../store/app'
 
 interface Props {
   status: VaultStatus
@@ -10,6 +11,13 @@ interface Props {
 }
 
 type ResetFlow = null | 'confirm' | 'form'
+
+/** Parse the embedded attempt counter from an unlock error message. */
+function parseAttemptError(msg: string): { count: number; max: number } | null {
+  const m = msg.match(/^wrong:(\d+)\/(\d+)$/)
+  if (!m) return null
+  return { count: parseInt(m[1]!, 10), max: parseInt(m[2]!, 10) }
+}
 
 /**
  * One screen covering three states:
@@ -20,10 +28,12 @@ type ResetFlow = null | 'confirm' | 'form'
  */
 export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element {
   const { t } = useTranslation()
+  const setStatus = useAppStore((s) => s.setStatus)
   const [resetFlow, setResetFlow] = useState<ResetFlow>(null)
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [error, setError] = useState<string | null>(null)
+  const [attempts, setAttempts] = useState<{ count: number; max: number } | null>(null)
   const [busy, setBusy] = useState(false)
 
   const isReset = resetFlow === 'form'
@@ -33,6 +43,7 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
     setPassword('')
     setConfirm('')
     setError(null)
+    setAttempts(null)
   }
 
   async function submit(e: FormEvent): Promise<void> {
@@ -49,7 +60,16 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
       else await window.sas.vault.unlock(password)
       resetFields()
       await onUnlocked()
-    } catch {
+    } catch (err) {
+      const msg = (err as Error).message ?? ''
+      if (msg === 'panicked') {
+        // Vault has been destroyed — re-poll status so the screen transitions to 'absent'.
+        const newStatus = await window.sas.vault.status()
+        setStatus(newStatus)
+        return
+      }
+      const info = parseAttemptError(msg)
+      if (info) setAttempts(info)
       setError(t('unlock.wrong'))
     } finally {
       setBusy(false)
@@ -108,6 +128,10 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
       ? t('unlock.createTitle')
       : t('unlock.unlockTitle')
 
+  // Warn when close to the limit (last 3 attempts) or at limit.
+  const showAttemptsWarning =
+    !creating && attempts !== null && attempts.max > 0 && attempts.count >= attempts.max - 2
+
   return (
     <div className="grid h-full place-items-center bg-[var(--bg)] p-6">
       <form onSubmit={submit} className={card}>
@@ -157,7 +181,19 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
           </>
         )}
 
-        {error && <p className="mb-3 text-sm text-[var(--danger)]">{error}</p>}
+        {error && <p className="mb-2 text-sm text-[var(--danger)]">{error}</p>}
+
+        {showAttemptsWarning && attempts && (
+          <div className="mb-3 flex items-start gap-2 rounded-[var(--radius)] border border-[var(--danger)] bg-[var(--danger)]/10 px-3 py-2 text-xs text-[var(--danger)]">
+            <AlertTriangle size={14} className="mt-0.5 shrink-0" />
+            <span>
+              {t('unlock.attemptsRemaining', {
+                remaining: attempts.max - attempts.count,
+                max: attempts.max,
+              })}
+            </span>
+          </div>
+        )}
 
         <button
           type="submit"

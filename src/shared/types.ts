@@ -104,6 +104,8 @@ export interface AppSettings {
   accent: string
   autoLockMinutes: number
   clipboardClearSeconds: number
+  /** After this many consecutive wrong-password attempts, wipe the vault. 0 = disabled. */
+  maxFailedAttempts: number
 }
 
 export type VaultStatus = 'absent' | 'locked' | 'unlocked'
