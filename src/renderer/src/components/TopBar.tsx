@@ -9,6 +9,7 @@ export default function TopBar(): JSX.Element {
   const search = useAppStore((s) => s.search)
   const setSearch = useAppStore((s) => s.setSearch)
   const setGeneratorOpen = useAppStore((s) => s.setGeneratorOpen)
+  const setSettingsOpen = useAppStore((s) => s.setSettingsOpen)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
 
   async function lock(): Promise<void> {
@@ -48,10 +49,20 @@ export default function TopBar(): JSX.Element {
         <button className={iconBtn} title={t('topbar.health')} aria-label={t('topbar.health')}>
           <Activity size={18} />
         </button>
-        <button className={iconBtn} title={t('topbar.language')} aria-label={t('topbar.language')}>
+        <button
+          className={iconBtn}
+          onClick={() => setSettingsOpen(true)}
+          title={t('topbar.language')}
+          aria-label={t('topbar.language')}
+        >
           <Languages size={18} />
         </button>
-        <button className={iconBtn} title={t('topbar.settings')} aria-label={t('topbar.settings')}>
+        <button
+          className={iconBtn}
+          onClick={() => setSettingsOpen(true)}
+          title={t('topbar.settings')}
+          aria-label={t('topbar.settings')}
+        >
           <Settings size={18} />
         </button>
         <button
