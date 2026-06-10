@@ -79,7 +79,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Escape (clear/dismiss) | Done |
 | 11 UI translations — all languages fully loaded | Done |
 | Panic lock / self-destruct after N failed unlock attempts | Done |
-| Passkeys / FIDO2 / WebAuthn storage | Planned |
+| Passkeys / FIDO2 / WebAuthn storage — record credentials as reference entries | Done |
 | Quick unlock — save master password to OS keychain (DPAPI / libsecret); unlock with one click | Done |
 | Travel mode — hide selected categories and their items with a single toggle | Done |
 | Emergency access with configurable wait period | Planned |
@@ -132,6 +132,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.13.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.13.0) | 2026-06-10 | Passkey storage; full i18n coverage for travel mode, panic lock, and breach check |
 | [0.12.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.12.0) | 2026-06-10 | Quick unlock via OS keychain — unlock with saved credentials |
 | [0.11.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.11.0) | 2026-06-10 | Item sort options and category item-count badges |
 | [0.10.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.10.0) | 2026-06-10 | Change master password with current-password verification and immediate re-encryption |
