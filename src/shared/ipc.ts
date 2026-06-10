@@ -19,6 +19,8 @@ export const IPC = {
   generatePassword: 'tools:generatePassword',
   clipboardCopy: 'tools:clipboardCopy',
   checkBreached: 'tools:checkBreached',
+  vaultExport: 'vault:export',
+  vaultImport: 'vault:import',
   settingsGet: 'settings:get',
   settingsSet: 'settings:set',
   // main → renderer (pushed)

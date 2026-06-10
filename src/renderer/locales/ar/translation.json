@@ -38,7 +38,8 @@
     "lock": "قفل",
     "health": "لوحة الأمان",
     "language": "اللغة",
-    "theme": "تبديل السمة"
+    "theme": "تبديل السمة",
+    "importExport": "استيراد / تصدير"
   },
   "items": {
     "empty": "لا توجد عناصر. أنشئ إدخالك الأول.",
@@ -138,5 +139,35 @@
       "reused": "معاد استخدامها",
       "old": "أكثر من 180 يوماً"
     }
+  },
+  "importExport": {
+    "title": "استيراد / تصدير",
+    "exportTab": "تصدير",
+    "importTab": "استيراد",
+    "exportDesc": "احفظ نسخة احتياطية مشفرة من خزينتك.",
+    "exportPassword": "كلمة مرور النسخة",
+    "exportPasswordPlaceholder": "اختر كلمة مرور قوية…",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "كرر كلمة المرور…",
+    "exportButton": "تصدير نسخة مشفرة",
+    "exporting": "جارٍ التصدير…",
+    "exportSuccess": "تم الحفظ في {{path}}",
+    "importWarning": "ملفات CSV خطيرة — احذف الملف بأمان بعد الاستيراد.",
+    "file": "ملف",
+    "chooseFile": "اختر ملفاً…",
+    "backupPassword": "كلمة مرور النسخة",
+    "backupPasswordPlaceholder": "كلمة مرور التصدير…",
+    "importMode": "العناصر الموجودة",
+    "mode": {
+      "merge": "دمج (إضافة الجديد)",
+      "replace": "استبدال (الكتابة فوق الكل)"
+    },
+    "modeDesc": {
+      "merge": "تبقى العناصر الموجودة، تُضاف الجديدة.",
+      "replace": "تُستبدل جميع العناصر الحالية بالمستوردة."
+    },
+    "importButton": "استيراد",
+    "importing": "جارٍ الاستيراد…",
+    "importSuccess": "تم استيراد {{count}} عنصر."
   }
 }
