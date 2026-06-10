@@ -216,6 +216,7 @@
     "importWarning": "Importações CSV são perigosas — exclua o arquivo após importar.",
     "file": "Arquivo",
     "chooseFile": "Escolher arquivo…",
+    "jsonHint": "Exportações JSON do Bitwarden são detectadas e importadas automaticamente. Exportações Bitwarden criptografadas não são suportadas — exporte sem criptografia primeiro.",
     "backupPassword": "Senha do backup",
     "backupPasswordPlaceholder": "Senha usada ao exportar…",
     "importMode": "Itens existentes",

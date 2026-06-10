@@ -5,7 +5,7 @@ import { X, Download, Upload, Eye, EyeOff, AlertTriangle, CheckCircle2 } from 'l
 import { useAppStore } from '../../store/app'
 
 type Tab = 'export' | 'import'
-type ImportFormat = 'sasbak' | 'csv'
+type ImportFormat = 'sasbak' | 'csv' | 'json'
 
 export default function ImportExportModal(): JSX.Element | null {
   const { t } = useTranslation()
@@ -73,6 +73,7 @@ export default function ImportExportModal(): JSX.Element | null {
     setImportFile((file as File & { path?: string }).path ?? file.name)
     const lower = file.name.toLowerCase()
     if (lower.endsWith('.csv') || lower.endsWith('.txt')) setImportFormat('csv')
+    else if (lower.endsWith('.json')) setImportFormat('json')
     else setImportFormat('sasbak')
     setImportResult(null); setImportError(null)
   }
@@ -240,6 +241,11 @@ export default function ImportExportModal(): JSX.Element | null {
                   )}
                 </div>
               </label>
+
+              {/* Format hint for JSON (Bitwarden) */}
+              {importFormat === 'json' && (
+                <p className="text-xs text-[var(--text-muted)]">{t('importExport.jsonHint')}</p>
+              )}
 
               {/* Password (only for .sasbak) */}
               {importFormat === 'sasbak' && (

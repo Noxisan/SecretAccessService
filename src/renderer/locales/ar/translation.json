@@ -216,6 +216,7 @@
     "importWarning": "ملفات CSV خطيرة — احذف الملف بأمان بعد الاستيراد.",
     "file": "ملف",
     "chooseFile": "اختر ملفاً…",
+    "jsonHint": "يتم اكتشاف صادرات Bitwarden بتنسيق JSON واستيرادها تلقائيًا. لا تُدعم الصادرات المشفرة من Bitwarden — يرجى التصدير بدون تشفير أولاً.",
     "backupPassword": "كلمة مرور النسخة",
     "backupPasswordPlaceholder": "كلمة مرور التصدير…",
     "importMode": "العناصر الموجودة",
