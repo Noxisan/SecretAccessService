@@ -76,7 +76,11 @@
       "address": "Address",
       "totpUri": "otpauth URI",
       "issuer": "Issuer",
-      "account": "Account"
+      "account": "Account",
+      "fieldLabel": "Label",
+      "fieldValue": "Value",
+      "secretOn": "Mark as hidden",
+      "secretOff": "Mark as visible"
     },
     "kind": {
       "login": "Login",
@@ -84,7 +88,10 @@
       "card": "Credit card",
       "identity": "Identity",
       "totp": "Authenticator"
-    }
+    },
+    "customFields": "Custom fields",
+    "addField": "Add field",
+    "deleteField": "Delete field"
   },
   "generator": {
     "title": "Password generator",

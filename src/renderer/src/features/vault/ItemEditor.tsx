@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp } from 'lucide-react'
+import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock } from 'lucide-react'
 import type {
   CardItem,
   IdentityItem,
@@ -46,6 +46,7 @@ export default function ItemEditor(): JSX.Element | null {
   const [copied, setCopied] = useState(false)
   const [showHistory, setShowHistory] = useState(false)
   const [revealedHistIdx, setRevealedHistIdx] = useState<number | null>(null)
+  const [revealedCfIds, setRevealedCfIds] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!open) return
@@ -56,6 +57,7 @@ export default function ItemEditor(): JSX.Element | null {
     setCopied(false)
     setShowHistory(false)
     setRevealedHistIdx(null)
+    setRevealedCfIds(new Set())
   }, [open, editorItem, createKind])
 
   useEffect(() => {
@@ -529,6 +531,117 @@ export default function ItemEditor(): JSX.Element | null {
               onChange={(e) => patchBase({ notes: e.target.value })}
               className={`${fld} resize-y`}
             />
+          </div>
+
+          {/* Custom fields */}
+          <div>
+            <div className="mb-2 flex items-center justify-between">
+              <span className={lbl}>{t('items.customFields')}</span>
+              <button
+                type="button"
+                onClick={() =>
+                  patchBase({
+                    customFields: [
+                      ...draft.customFields,
+                      { id: crypto.randomUUID(), label: '', value: '', secret: false }
+                    ]
+                  })
+                }
+                className="flex items-center gap-1 text-xs text-[var(--accent)] hover:opacity-80"
+              >
+                <Plus size={13} />
+                {t('items.addField')}
+              </button>
+            </div>
+            {draft.customFields.length > 0 && (
+              <div className="flex flex-col gap-2">
+                {draft.customFields.map((cf) => {
+                  const revealed = revealedCfIds.has(cf.id)
+                  return (
+                    <div key={cf.id} className="flex gap-1.5">
+                      <input
+                        value={cf.label}
+                        placeholder={t('items.field.fieldLabel')}
+                        onChange={(e) =>
+                          patchBase({
+                            customFields: draft.customFields.map((f) =>
+                              f.id === cf.id ? { ...f, label: e.target.value } : f
+                            )
+                          })
+                        }
+                        className={`${fld} w-28 shrink-0`}
+                      />
+                      <input
+                        value={cf.value}
+                        type={cf.secret && !revealed ? 'password' : 'text'}
+                        placeholder={t('items.field.fieldValue')}
+                        autoComplete="off"
+                        onChange={(e) =>
+                          patchBase({
+                            customFields: draft.customFields.map((f) =>
+                              f.id === cf.id ? { ...f, value: e.target.value } : f
+                            )
+                          })
+                        }
+                        className={`${fld} min-w-0 flex-1 ${cf.secret ? 'font-mono' : ''}`}
+                      />
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setRevealedCfIds((s) => {
+                            const n = new Set(s)
+                            if (revealed) n.delete(cf.id)
+                            else n.add(cf.id)
+                            return n
+                          })
+                        }
+                        disabled={!cf.secret}
+                        className={`${iconBtn} disabled:opacity-30`}
+                        aria-label={revealed ? t('items.hide') : t('items.show')}
+                      >
+                        {revealed ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          patchBase({
+                            customFields: draft.customFields.map((f) =>
+                              f.id === cf.id ? { ...f, secret: !f.secret } : f
+                            )
+                          })
+                        }
+                        className={`${iconBtn} ${cf.secret ? 'border-[var(--accent)] text-[var(--accent)]' : ''}`}
+                        aria-label={cf.secret ? t('items.field.secretOff') : t('items.field.secretOn')}
+                        title={cf.secret ? t('items.field.secretOff') : t('items.field.secretOn')}
+                      >
+                        {cf.secret ? <Lock size={16} /> : <Unlock size={16} />}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => void copyToClipboard(cf.value)}
+                        disabled={!cf.value}
+                        className={`${iconBtn} disabled:opacity-40`}
+                        aria-label={t('generator.copy')}
+                      >
+                        <Copy size={16} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          patchBase({
+                            customFields: draft.customFields.filter((f) => f.id !== cf.id)
+                          })
+                        }
+                        className={`${iconBtn} hover:border-[var(--danger)] hover:text-[var(--danger)]`}
+                        aria-label={t('items.deleteField')}
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
 
           {/* Category + color + favorite */}

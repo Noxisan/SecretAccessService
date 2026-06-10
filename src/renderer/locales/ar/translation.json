@@ -74,7 +74,11 @@
       "address": "العنوان",
       "totpUri": "عنوان otpauth URI",
       "issuer": "الجهة المُصدِرة",
-      "account": "الحساب"
+      "account": "الحساب",
+      "fieldLabel": "التسمية",
+      "fieldValue": "القيمة",
+      "secretOn": "وضع علامة مخفي",
+      "secretOff": "وضع علامة مرئي"
     },
     "kind": {
       "login": "تسجيل دخول",
@@ -84,7 +88,10 @@
       "totp": "المصادق"
     },
     "passwordHistory": "سجل كلمات المرور ({{count}})",
-    "restorePassword": "استعادة كلمة المرور هذه"
+    "restorePassword": "استعادة كلمة المرور هذه",
+    "customFields": "حقول مخصصة",
+    "addField": "إضافة حقل",
+    "deleteField": "حذف الحقل"
   },
   "generator": {
     "title": "مولّد كلمات المرور",
