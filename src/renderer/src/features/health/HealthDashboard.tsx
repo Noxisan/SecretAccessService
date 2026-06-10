@@ -2,55 +2,11 @@ import { useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, ShieldAlert, ShieldCheck, Copy, RefreshCw, Clock, Wifi, Loader } from 'lucide-react'
-import { zxcvbn } from '@zxcvbn-ts/core'
 import { useAppStore } from '../../store/app'
 import type { LoginItem } from '@shared/types'
-
-const WEAK_SCORE = 3           // zxcvbn 0-4; below this = weak
-const OLD_DAYS = 180
+import { analyzeVault, type BreachMap } from './analyzeVault'
 
 type BreachState = 'idle' | 'checking' | 'done' | 'error'
-// Map from item id → breach count (undefined = not yet checked)
-type BreachMap = Map<string, number>
-
-interface HealthIssue {
-  item: LoginItem
-  reasons: Array<'weak' | 'reused' | 'old' | 'breached'>
-}
-
-function analyzeVault(items: LoginItem[], breaches: BreachMap): {
-  issues: HealthIssue[]
-  totalLogins: number
-  safeCount: number
-} {
-  const now = Date.now()
-  const passwordCounts = new Map<string, number>()
-  for (const item of items) {
-    if (item.password) {
-      passwordCounts.set(item.password, (passwordCounts.get(item.password) ?? 0) + 1)
-    }
-  }
-
-  const issues: HealthIssue[] = []
-  for (const item of items) {
-    const reasons: Array<'weak' | 'reused' | 'old' | 'breached'> = []
-    if (item.password) {
-      if (zxcvbn(item.password).score < WEAK_SCORE) reasons.push('weak')
-      if ((passwordCounts.get(item.password) ?? 0) > 1) reasons.push('reused')
-      const count = breaches.get(item.id)
-      if (count !== undefined && count > 0) reasons.push('breached')
-    }
-    const ageDays = (now - item.updatedAt) / (1000 * 60 * 60 * 24)
-    if (ageDays > OLD_DAYS) reasons.push('old')
-    if (reasons.length > 0) issues.push({ item, reasons })
-  }
-
-  return {
-    issues,
-    totalLogins: items.length,
-    safeCount: items.length - issues.length
-  }
-}
 
 const REASON_ICON = {
   weak: ShieldAlert,
