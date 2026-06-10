@@ -64,6 +64,8 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Global fuzzy search across all item types | Done |
 | Settings: theme (light/dark/system), accent color, language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
+| Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
+| Category item-count badges in sidebar | Done |
 | Auto-lock on idle + OS sleep/lock-screen | Done |
 | Clipboard auto-clear | Done |
 | Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring | Done |
@@ -130,6 +132,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.11.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.11.0) | 2026-06-10 | Item sort options and category item-count badges |
 | [0.10.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.10.0) | 2026-06-10 | Change master password with current-password verification and immediate re-encryption |
 | [0.9.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.9.0) | 2026-06-10 | Travel mode — hide selected categories and their items on demand |
 | [0.8.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.8.0) | 2026-06-10 | Panic lock — vault self-destruct after N failed attempts |

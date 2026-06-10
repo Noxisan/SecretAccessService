@@ -98,7 +98,15 @@
     "addTotp": "Add authenticator code",
     "totpSection": "Authenticator (2FA)",
     "removeTotp": "Remove 2FA",
-    "totpLiveCode": "Live code — click to copy"
+    "totpLiveCode": "Live code — click to copy",
+    "sortBy": "Sort by",
+    "sort": {
+      "az": "A → Z",
+      "za": "Z → A",
+      "newest": "Recently modified",
+      "oldest": "Oldest first",
+      "kind": "By type"
+    }
   },
   "generator": {
     "title": "Password generator",

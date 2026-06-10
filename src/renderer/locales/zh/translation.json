@@ -98,7 +98,15 @@
     "addTotp": "添加验证码",
     "totpSection": "验证器（双重认证）",
     "removeTotp": "移除双重认证",
-    "totpLiveCode": "实时验证码 — 点击复制"
+    "totpLiveCode": "实时验证码 — 点击复制",
+    "sortBy": "排序方式",
+    "sort": {
+      "az": "A → Z",
+      "za": "Z → A",
+      "newest": "最近修改",
+      "oldest": "最早优先",
+      "kind": "按类型"
+    }
   },
   "generator": {
     "title": "密码生成器",

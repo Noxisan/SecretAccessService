@@ -6,6 +6,8 @@ import { useAppStore } from '../../store/app'
 import type { VaultItem, VaultItemKind } from '@shared/types'
 import TotpCode from './TotpCode'
 
+type SortKey = 'az' | 'za' | 'newest' | 'oldest' | 'kind'
+
 const KIND_ICON: Record<VaultItemKind, ComponentType<{ size?: number }>> = {
   login: KeyRound,
   note: StickyNote,
@@ -29,18 +31,28 @@ export default function ItemList(): JSX.Element {
   )
   const [addMenu, setAddMenu] = useState(false)
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [sortBy, setSortBy] = useState<SortKey>('az')
 
   const items = useMemo<VaultItem[]>(() => {
     const all = vault?.items ?? []
     const q = search.trim().toLowerCase()
-    return all
+    const filtered = all
       .filter((i) => (showFavoritesOnly ? i.favorite : true))
       .filter((i) => (selectedCategoryId ? i.categoryId === selectedCategoryId : true))
       // Travel mode: hide items from categories marked as travel-hidden.
       .filter((i) => !i.categoryId || !travelHiddenIds.has(i.categoryId))
       .filter((i) => (q ? matches(i, q) : true))
-      .sort((a, b) => a.title.localeCompare(b.title))
-  }, [vault, selectedCategoryId, showFavoritesOnly, search, travelHiddenIds])
+
+    return filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'za': return b.title.localeCompare(a.title)
+        case 'newest': return b.updatedAt - a.updatedAt
+        case 'oldest': return a.createdAt - b.createdAt
+        case 'kind': return a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title)
+        default: return a.title.localeCompare(b.title)
+      }
+    })
+  }, [vault, selectedCategoryId, showFavoritesOnly, search, travelHiddenIds, sortBy])
 
   function add(kind: VaultItemKind): void {
     setAddMenu(false)
@@ -64,11 +76,25 @@ export default function ItemList(): JSX.Element {
 
   return (
     <div className="p-4">
-      <div className="mb-3 flex items-center justify-between">
-        <h2 className="text-sm font-medium text-[var(--text-muted)]">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <h2 className="shrink-0 text-sm font-medium text-[var(--text-muted)]">
           {showFavoritesOnly ? t('sidebar.favorites') : t('sidebar.allItems')}
           <span className="ml-2 text-[var(--text-muted)]">{items.length}</span>
         </h2>
+        <div className="flex items-center gap-2">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as SortKey)}
+            className="rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-2 py-1 text-xs text-[var(--text-muted)] outline-none focus:border-[var(--accent)] hover:text-[var(--text)]"
+            aria-label={t('items.sortBy')}
+            title={t('items.sortBy')}
+          >
+            <option value="az">{t('items.sort.az')}</option>
+            <option value="za">{t('items.sort.za')}</option>
+            <option value="newest">{t('items.sort.newest')}</option>
+            <option value="oldest">{t('items.sort.oldest')}</option>
+            <option value="kind">{t('items.sort.kind')}</option>
+          </select>
         <div className="relative">
           <button
             onClick={() => setAddMenu((v) => !v)}
@@ -98,6 +124,7 @@ export default function ItemList(): JSX.Element {
               </div>
             </>
           )}
+        </div>
         </div>
       </div>
 

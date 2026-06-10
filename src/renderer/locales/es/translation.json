@@ -98,7 +98,15 @@
     "addTotp": "Agregar código autenticador",
     "totpSection": "Autenticador (2FA)",
     "removeTotp": "Eliminar 2FA",
-    "totpLiveCode": "Código en vivo — clic para copiar"
+    "totpLiveCode": "Código en vivo — clic para copiar",
+    "sortBy": "Ordenar por",
+    "sort": {
+      "az": "A → Z",
+      "za": "Z → A",
+      "newest": "Modificado recientemente",
+      "oldest": "Más antiguo primero",
+      "kind": "Por tipo"
+    }
   },
   "generator": {
     "title": "Generador de contraseñas",
