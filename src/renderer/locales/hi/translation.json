@@ -91,7 +91,11 @@
     "restorePassword": "यह पासवर्ड पुनर्स्थापित करें",
     "customFields": "कस्टम फ़ील्ड",
     "addField": "फ़ील्ड जोड़ें",
-    "deleteField": "फ़ील्ड हटाएं"
+    "deleteField": "फ़ील्ड हटाएं",
+    "addTotp": "प्रमाणीकरण कोड जोड़ें",
+    "totpSection": "प्रमाणक (2FA)",
+    "removeTotp": "2FA हटाएं",
+    "totpLiveCode": "लाइव कोड — कॉपी करने के लिए क्लिक करें"
   },
   "generator": {
     "title": "पासवर्ड जनरेटर",

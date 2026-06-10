@@ -91,7 +91,11 @@
     "restorePassword": "Dieses Passwort wiederherstellen",
     "customFields": "Benutzerdefinierte Felder",
     "addField": "Feld hinzufügen",
-    "deleteField": "Feld löschen"
+    "deleteField": "Feld löschen",
+    "addTotp": "Authentifizierungscode hinzufügen",
+    "totpSection": "Authentifikator (2FA)",
+    "removeTotp": "2FA entfernen",
+    "totpLiveCode": "Live-Code – zum Kopieren klicken"
   },
   "generator": {
     "title": "Passwortgenerator",

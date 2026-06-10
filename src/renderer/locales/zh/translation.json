@@ -91,7 +91,11 @@
     "restorePassword": "恢复此密码",
     "customFields": "自定义字段",
     "addField": "添加字段",
-    "deleteField": "删除字段"
+    "deleteField": "删除字段",
+    "addTotp": "添加验证码",
+    "totpSection": "验证器（双重认证）",
+    "removeTotp": "移除双重认证",
+    "totpLiveCode": "实时验证码 — 点击复制"
   },
   "generator": {
     "title": "密码生成器",
