@@ -21,6 +21,8 @@ Thumbs.db
 .claude/
 .omc/
 .swarmmind/
+memory/
+.loop-*.patch
 
 # Env / secrets — never commit anything that could carry a vault or key
 .env
