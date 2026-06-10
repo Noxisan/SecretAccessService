@@ -20,7 +20,12 @@
     "resetWarning": "Cela supprime définitivement le coffre existant et tout son contenu. Il n'y a pas de récupération possible — assurez-vous de ne plus en avoir besoin.",
     "resetContinue": "Je comprends — continuer",
     "back": "Retour",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "quickUnlock": "Déverrouiller avec les identifiants enregistrés",
+    "quickUnlockHint": "Votre mot de passe principal est protégé par le trousseau du système.",
+    "quickUnlockOutdated": "Les identifiants enregistrés sont obsolètes. Veuillez déverrouiller avec votre mot de passe principal.",
+    "usePassword": "Utiliser le mot de passe principal à la place",
+    "saveDevice": "Mémoriser cet appareil"
   },
   "sidebar": {
     "allItems": "Tous les éléments",
@@ -148,7 +153,10 @@
     "accent": "Couleur d'accentuation",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
     "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
-    "changePassword": "Changer le mot de passe principal"
+    "changePassword": "Changer le mot de passe principal",
+    "deviceUnlockSaved": "Les identifiants de l'appareil sont enregistrés dans le trousseau du système.",
+    "deviceUnlockClear": "Supprimer les identifiants enregistrés",
+    "deviceUnlockNone": "Aucun identifiant d'appareil enregistré."
   },
   "changePw": {
     "title": "Changer le mot de passe principal",

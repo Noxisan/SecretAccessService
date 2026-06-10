@@ -20,7 +20,12 @@
     "resetWarning": "Dies löscht den vorhandenen Tresor und alle darin gespeicherten Daten unwiderruflich. Eine Wiederherstellung ist nicht möglich — stellen Sie sicher, dass Sie die Inhalte nicht mehr benötigen.",
     "resetContinue": "Ich habe verstanden — fortfahren",
     "back": "Zurück",
-    "attemptsRemaining": "Warnung: Noch {{remaining}} Versuch(e) bis der Tresor unwiderruflich gelöscht wird (Limit: {{max}})."
+    "attemptsRemaining": "Warnung: Noch {{remaining}} Versuch(e) bis der Tresor unwiderruflich gelöscht wird (Limit: {{max}}).",
+    "quickUnlock": "Mit gespeicherten Anmeldedaten entsperren",
+    "quickUnlockHint": "Ihr Master-Passwort ist durch den OS-Schlüsselbund geschützt.",
+    "quickUnlockOutdated": "Gespeicherte Anmeldedaten sind veraltet. Bitte entsperren Sie mit Ihrem Master-Passwort.",
+    "usePassword": "Stattdessen Master-Passwort verwenden",
+    "saveDevice": "Dieses Gerät merken"
   },
   "sidebar": {
     "allItems": "Alle Einträge",
@@ -148,7 +153,10 @@
     "accent": "Akzentfarbe",
     "maxFailedAttempts": "Selbstzerstörung nach (fehlgeschlagenen Versuchen)",
     "maxFailedAttemptsHint": "Der Tresor wird nach dieser Anzahl falscher Passwörter unwiderruflich gelöscht. 0 = deaktiviert.",
-    "changePassword": "Master-Passwort ändern"
+    "changePassword": "Master-Passwort ändern",
+    "deviceUnlockSaved": "Geräteanmeldedaten sind im OS-Schlüsselbund gespeichert.",
+    "deviceUnlockClear": "Gespeicherte Anmeldedaten entfernen",
+    "deviceUnlockNone": "Keine Geräteanmeldedaten gespeichert."
   },
   "changePw": {
     "title": "Master-Passwort ändern",

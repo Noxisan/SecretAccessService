@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { JSX, FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ShieldCheck, Lock, AlertTriangle } from 'lucide-react'
+import { ShieldCheck, Lock, AlertTriangle, Fingerprint } from 'lucide-react'
 import type { VaultStatus } from '@shared/types'
 import { useAppStore } from '../../store/app'
 
@@ -35,6 +35,14 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
   const [error, setError] = useState<string | null>(null)
   const [attempts, setAttempts] = useState<{ count: number; max: number } | null>(null)
   const [busy, setBusy] = useState(false)
+  const [quickAvailable, setQuickAvailable] = useState(false)
+  const [saveDevice, setSaveDevice] = useState(false)
+
+  useEffect(() => {
+    if (status === 'locked') {
+      void window.sas.vault.quickUnlockStatus().then(({ available }) => setQuickAvailable(available))
+    }
+  }, [status])
 
   const isReset = resetFlow === 'form'
   const creating = status === 'absent' || isReset
@@ -55,9 +63,18 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
     }
     setBusy(true)
     try {
-      if (isReset) await window.sas.vault.recreate(password)
-      else if (creating) await window.sas.vault.create(password)
-      else await window.sas.vault.unlock(password)
+      if (isReset) {
+        await window.sas.vault.recreate(password)
+      } else if (creating) {
+        await window.sas.vault.create(password)
+      } else {
+        await window.sas.vault.unlock(password)
+        if (saveDevice) {
+          // Save the master password encrypted with the OS keychain for quick unlock.
+          try { await window.sas.vault.saveQuickUnlock(password) } catch { /* ignore if unavailable */ }
+          setQuickAvailable(true)
+        }
+      }
       resetFields()
       await onUnlocked()
     } catch (err) {
@@ -71,6 +88,21 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
       const info = parseAttemptError(msg)
       if (info) setAttempts(info)
       setError(t('unlock.wrong'))
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  async function handleQuickUnlock(): Promise<void> {
+    setError(null)
+    setBusy(true)
+    try {
+      await window.sas.vault.quickUnlock()
+      await onUnlocked()
+    } catch (err) {
+      const msg = (err as Error).message ?? ''
+      setQuickAvailable(false) // key was stale; fall back to password
+      setError(msg.includes('outdated') ? t('unlock.quickUnlockOutdated') : t('unlock.wrong'))
     } finally {
       setBusy(false)
     }
@@ -116,6 +148,41 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
               {t('unlock.resetContinue')}
             </button>
           </div>
+        </div>
+      </div>
+    )
+  }
+
+  // --- Quick unlock shortcut (shown above the form when OS key is saved) ---
+  if (status === 'locked' && quickAvailable && !resetFlow) {
+    return (
+      <div className="grid h-full place-items-center bg-[var(--bg)] p-6">
+        <div className="w-full max-w-sm space-y-3">
+          <div className="rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 text-center">
+            <div
+              className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full text-[var(--accent-contrast)]"
+              style={{ background: 'var(--accent)' }}
+            >
+              <Fingerprint size={28} />
+            </div>
+            <h1 className="mb-1 text-base font-semibold text-[var(--text)]">{t('app.name')}</h1>
+            <p className="mb-5 text-xs text-[var(--text-muted)]">{t('unlock.quickUnlockHint')}</p>
+            {error && <p className="mb-3 text-sm text-[var(--danger)]">{error}</p>}
+            <button
+              onClick={() => void handleQuickUnlock()}
+              disabled={busy}
+              className="w-full rounded-[var(--radius)] px-3 py-2 font-medium text-[var(--accent-contrast)] disabled:opacity-50"
+              style={{ background: 'var(--accent)' }}
+            >
+              {busy ? t('unlock.working') : t('unlock.quickUnlock')}
+            </button>
+          </div>
+          <button
+            onClick={() => setQuickAvailable(false)}
+            className="block w-full text-center text-xs text-[var(--text-muted)] hover:text-[var(--accent)]"
+          >
+            {t('unlock.usePassword')}
+          </button>
         </div>
       </div>
     )
@@ -193,6 +260,19 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
               })}
             </span>
           </div>
+        )}
+
+        {/* Remember this device — only shown in the normal unlock flow */}
+        {!creating && (
+          <label className="mb-3 flex cursor-pointer items-center gap-2 text-xs text-[var(--text-muted)]">
+            <input
+              type="checkbox"
+              checked={saveDevice}
+              onChange={(e) => setSaveDevice(e.target.checked)}
+              className="accent-[var(--accent)]"
+            />
+            {t('unlock.saveDevice')}
+          </label>
         )}
 
         <button

@@ -20,7 +20,12 @@
     "resetWarning": "这将永久删除现有密码库及其所有内容，无法恢复。请确认您不再需要其中的数据。",
     "resetContinue": "我已了解 — 继续",
     "back": "返回",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "quickUnlock": "使用已保存的凭据解锁",
+    "quickUnlockHint": "您的主密码受操作系统密钥链保护。",
+    "quickUnlockOutdated": "已保存的凭据已过期。请使用主密码解锁。",
+    "usePassword": "改用主密码",
+    "saveDevice": "记住此设备"
   },
   "sidebar": {
     "allItems": "全部项目",
@@ -148,7 +153,10 @@
     "accent": "强调色",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
     "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
-    "changePassword": "更改主密码"
+    "changePassword": "更改主密码",
+    "deviceUnlockSaved": "设备凭据已保存到操作系统密钥链。",
+    "deviceUnlockClear": "删除已保存的凭据",
+    "deviceUnlockNone": "未保存任何设备凭据。"
   },
   "changePw": {
     "title": "更改主密码",

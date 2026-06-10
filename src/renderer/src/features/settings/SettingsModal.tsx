@@ -40,10 +40,12 @@ export default function SettingsModal(): JSX.Element | null {
   const setSettings = useAppStore((s) => s.setSettings)
   const [draft, setDraft] = useState<AppSettings | null>(null)
   const [busy, setBusy] = useState(false)
+  const [quickUnlockSaved, setQuickUnlockSaved] = useState(false)
 
   useEffect(() => {
     if (open && currentSettings) {
       setDraft({ ...currentSettings })
+      void window.sas.vault.quickUnlockStatus().then(({ available }) => setQuickUnlockSaved(available))
     }
   }, [open, currentSettings])
 
@@ -216,8 +218,23 @@ export default function SettingsModal(): JSX.Element | null {
           </div>
         </div>
 
-        {/* Security: change master password */}
-        <div className="mt-2 border-t border-[var(--border)] pt-4">
+        {/* Security: device unlock + change master password */}
+        <div className="mt-2 space-y-3 border-t border-[var(--border)] pt-4">
+          {quickUnlockSaved ? (
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xs text-[var(--text-muted)]">{t('settings.deviceUnlockSaved')}</p>
+              <button
+                onClick={() => {
+                  void window.sas.vault.clearQuickUnlock().then(() => setQuickUnlockSaved(false))
+                }}
+                className="shrink-0 text-xs text-[var(--danger)] hover:underline"
+              >
+                {t('settings.deviceUnlockClear')}
+              </button>
+            </div>
+          ) : (
+            <p className="text-xs text-[var(--text-muted)]">{t('settings.deviceUnlockNone')}</p>
+          )}
           <button
             onClick={() => { setOpen(false); setChangePasswordOpen(true) }}
             className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--accent)]"

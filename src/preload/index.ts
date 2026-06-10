@@ -29,6 +29,14 @@ const api = {
     read: (): Promise<VaultData> => ipcRenderer.invoke(IPC.vaultRead),
     changePassword: (currentPassword: string, newPassword: string): Promise<void> =>
       ipcRenderer.invoke(IPC.vaultChangePassword, { currentPassword, newPassword }),
+    quickUnlockStatus: (): Promise<{ available: boolean }> =>
+      ipcRenderer.invoke(IPC.quickUnlockStatus),
+    quickUnlock: (): Promise<void> =>
+      ipcRenderer.invoke(IPC.vaultQuickUnlock),
+    saveQuickUnlock: (masterPassword: string): Promise<void> =>
+      ipcRenderer.invoke(IPC.vaultSaveQuickUnlock, { masterPassword }),
+    clearQuickUnlock: (): Promise<void> =>
+      ipcRenderer.invoke(IPC.vaultClearQuickUnlock),
     upsertItem: (item: VaultItem): Promise<VaultData> =>
       ipcRenderer.invoke(IPC.itemUpsert, item),
     deleteItem: (id: string): Promise<VaultData> => ipcRenderer.invoke(IPC.itemDelete, { id }),

@@ -25,6 +25,10 @@ export const IPC = {
   settingsGet: 'settings:get',
   settingsSet: 'settings:set',
   vaultChangePassword: 'vault:changePassword',
+  quickUnlockStatus: 'vault:quickUnlock:status',
+  vaultQuickUnlock: 'vault:quickUnlock:unlock',
+  vaultSaveQuickUnlock: 'vault:quickUnlock:save',
+  vaultClearQuickUnlock: 'vault:quickUnlock:clear',
   // main → renderer (pushed)
   evtLocked: 'evt:locked'
 } as const
