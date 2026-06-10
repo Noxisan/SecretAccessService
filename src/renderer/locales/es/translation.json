@@ -184,10 +184,16 @@
     "issues": "Problemas",
     "allGood": "Todo bien",
     "allGoodDetail": "Todas tus contraseñas tienen buen aspecto.",
+    "checkBreaches": "Verificar filtraciones",
+    "checking": "Verificando…",
+    "breachError": "No se pudo contactar la base de datos de filtraciones. Revisa tu conexión.",
+    "breached": "Filtrada",
+    "breachCount": "Encontrada en {{count}} filtración(es)",
     "reason": {
       "weak": "Contraseña débil",
       "reused": "Reutilizada",
-      "old": "Más de 180 días"
+      "old": "Más de 180 días",
+      "breached": "Filtración de datos"
     }
   },
   "importExport": {

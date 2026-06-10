@@ -184,10 +184,16 @@
     "issues": "Problemas",
     "allGood": "Tudo certo",
     "allGoodDetail": "Todas as suas senhas parecem saudáveis.",
+    "checkBreaches": "Verificar violações",
+    "checking": "Verificando…",
+    "breachError": "Não foi possível contactar a base de dados de violações. Verifique a sua ligação.",
+    "breached": "Violada",
+    "breachCount": "Encontrada em {{count}} violação(ões)",
     "reason": {
       "weak": "Senha fraca",
       "reused": "Reutilizada",
-      "old": "Mais de 180 dias"
+      "old": "Mais de 180 dias",
+      "breached": "Violação de dados"
     }
   },
   "importExport": {

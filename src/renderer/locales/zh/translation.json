@@ -184,10 +184,16 @@
     "issues": "问题",
     "allGood": "一切正常",
     "allGoodDetail": "您的所有密码看起来都很健康。",
+    "checkBreaches": "检查数据泄露",
+    "checking": "检查中…",
+    "breachError": "无法连接到数据泄露数据库。请检查您的网络连接。",
+    "breached": "已泄露",
+    "breachCount": "在 {{count}} 次泄露中发现",
     "reason": {
       "weak": "弱密码",
       "reused": "已复用",
-      "old": "超过180天"
+      "old": "超过180天",
+      "breached": "数据泄露"
     }
   },
   "importExport": {

@@ -184,10 +184,16 @@
     "issues": "Problèmes",
     "allGood": "Tout va bien",
     "allGoodDetail": "Tous vos mots de passe semblent sains.",
+    "checkBreaches": "Vérifier les fuites",
+    "checking": "Vérification…",
+    "breachError": "Impossible de contacter la base de données de fuites. Vérifiez votre connexion.",
+    "breached": "Compromise",
+    "breachCount": "Trouvée dans {{count}} fuite(s)",
     "reason": {
       "weak": "Mot de passe faible",
       "reused": "Réutilisé",
-      "old": "Plus de 180 jours"
+      "old": "Plus de 180 jours",
+      "breached": "Fuite de données"
     }
   },
   "importExport": {
