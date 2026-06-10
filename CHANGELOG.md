@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-06-10
+
+Custom fields: every vault item can now carry arbitrary label/value pairs.
+
+### Added
+- **Custom fields** — any vault item (login, secure note, card, identity, TOTP)
+  can now have unlimited user-defined fields, each with a label and a value.
+  Fields can be marked *secret* (value is masked and shown only on demand, like
+  a password field) or plain text. A lock-icon toggle switches between the two
+  modes at any time. Each field has a copy-to-clipboard button (respects the
+  auto-clear timer) and a delete button. All 11 locales updated.
+
+### Fixed
+- **CHANGELOG comparison links** — URLs still pointed to the old repository name
+  (`Noxisan/sas`); corrected to `Noxisan/SecretAccessService`.
+
 ## [0.5.0] - 2026-06-10
 
 UX polish and security hardening: idle auto-lock now works correctly,
@@ -141,9 +157,10 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/sas/compare/v0.5.0...HEAD
-[0.5.0]: https://github.com/Noxisan/sas/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/Noxisan/sas/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/Noxisan/sas/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/Noxisan/sas/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/Noxisan/sas/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/Noxisan/SecretAccessService/releases/tag/v0.1.0
