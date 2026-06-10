@@ -61,7 +61,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Custom fields per entry (plain text or masked secret) | Done |
 | Duplicate entry — clone any item in one click from the editor | Done |
 | Password history per login (view previous passwords; one-click restore) | Done |
-| Password generator — character mode (length, classes, exclude-ambiguous) and passphrase/diceware mode | Done |
+| Password generator — character mode (length, classes, exclude-ambiguous) and passphrase/diceware mode; settings persist across sessions | Done |
 | Global fuzzy search across all item types | Done |
 | Settings: theme (light/dark/system), accent color, language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
@@ -134,6 +134,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.17.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.17.0) | 2026-06-10 | Persistent generator settings — mode, length, and options restored on every open |
 | [0.16.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.16.0) | 2026-06-10 | Import parsers extracted; test suite grows from 40 to 75 tests |
 | [0.15.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.15.0) | 2026-06-10 | Duplicate entry button in item editor |
 | [0.14.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.14.0) | 2026-06-10 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds |
