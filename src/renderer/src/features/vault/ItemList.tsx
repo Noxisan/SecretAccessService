@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Copy, Check } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import type { VaultItem, VaultItemKind } from '@shared/types'
+import TotpCode from './TotpCode'
 
 const KIND_ICON: Record<VaultItemKind, ComponentType<{ size?: number }>> = {
   login: KeyRound,
@@ -47,6 +48,12 @@ export default function ItemList(): JSX.Element {
     await window.sas.tools.copyToClipboard(text, clipboardClearSeconds)
     setCopiedId(item.id)
     window.setTimeout(() => setCopiedId((prev) => (prev === item.id ? null : prev)), 1500)
+  }
+
+  async function quickCopyText_string(text: string, itemId: string): Promise<void> {
+    await window.sas.tools.copyToClipboard(text, clipboardClearSeconds)
+    setCopiedId(itemId)
+    window.setTimeout(() => setCopiedId((prev) => (prev === itemId ? null : prev)), 1500)
   }
 
   return (
@@ -115,8 +122,14 @@ export default function ItemList(): JSX.Element {
                     </span>
                   </button>
 
-                  {/* Right-side indicators + quick-copy */}
+                  {/* Right-side: TOTP live code, indicators, quick-copy */}
                   <div className="flex shrink-0 items-center gap-1.5">
+                    {item.kind === 'totp' && item.uri && (
+                      <TotpCode
+                        uri={item.uri}
+                        onCopy={(code) => void quickCopyText_string(code, item.id)}
+                      />
+                    )}
                     {item.colorTag && (
                       <span
                         className="h-2.5 w-2.5 rounded-full"
