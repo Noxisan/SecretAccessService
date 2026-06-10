@@ -74,7 +74,11 @@
       "address": "ঠিকানা",
       "totpUri": "otpauth URI",
       "issuer": "ইস্যুকারী",
-      "account": "অ্যাকাউন্ট"
+      "account": "অ্যাকাউন্ট",
+      "fieldLabel": "লেবেল",
+      "fieldValue": "মান",
+      "secretOn": "লুকানো হিসেবে চিহ্নিত করুন",
+      "secretOff": "দৃশ্যমান হিসেবে চিহ্নিত করুন"
     },
     "kind": {
       "login": "লগইন",
@@ -84,7 +88,10 @@
       "totp": "অথেন্টিকেটর"
     },
     "passwordHistory": "পাসওয়ার্ড ইতিহাস ({{count}})",
-    "restorePassword": "এই পাসওয়ার্ড পুনরুদ্ধার করুন"
+    "restorePassword": "এই পাসওয়ার্ড পুনরুদ্ধার করুন",
+    "customFields": "কাস্টম ফিল্ড",
+    "addField": "ফিল্ড যোগ করুন",
+    "deleteField": "ফিল্ড মুছুন"
   },
   "generator": {
     "title": "পাসওয়ার্ড জেনারেটর",

@@ -74,7 +74,11 @@
       "address": "पता",
       "totpUri": "otpauth URI",
       "issuer": "जारीकर्ता",
-      "account": "खाता"
+      "account": "खाता",
+      "fieldLabel": "लेबल",
+      "fieldValue": "मान",
+      "secretOn": "छिपे हुए के रूप में चिह्नित करें",
+      "secretOff": "दृश्यमान के रूप में चिह्नित करें"
     },
     "kind": {
       "login": "लॉगिन",
@@ -84,7 +88,10 @@
       "totp": "प्रमाणक"
     },
     "passwordHistory": "पासवर्ड इतिहास ({{count}})",
-    "restorePassword": "यह पासवर्ड पुनर्स्थापित करें"
+    "restorePassword": "यह पासवर्ड पुनर्स्थापित करें",
+    "customFields": "कस्टम फ़ील्ड",
+    "addField": "फ़ील्ड जोड़ें",
+    "deleteField": "फ़ील्ड हटाएं"
   },
   "generator": {
     "title": "पासवर्ड जनरेटर",

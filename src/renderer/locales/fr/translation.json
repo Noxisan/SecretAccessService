@@ -74,7 +74,11 @@
       "address": "Adresse",
       "totpUri": "URI otpauth",
       "issuer": "Émetteur",
-      "account": "Compte"
+      "account": "Compte",
+      "fieldLabel": "Libellé",
+      "fieldValue": "Valeur",
+      "secretOn": "Marquer comme masqué",
+      "secretOff": "Marquer comme visible"
     },
     "kind": {
       "login": "Connexion",
@@ -84,7 +88,10 @@
       "totp": "Authentificateur"
     },
     "passwordHistory": "Historique des mots de passe ({{count}})",
-    "restorePassword": "Restaurer ce mot de passe"
+    "restorePassword": "Restaurer ce mot de passe",
+    "customFields": "Champs personnalisés",
+    "addField": "Ajouter un champ",
+    "deleteField": "Supprimer le champ"
   },
   "generator": {
     "title": "Générateur de mots de passe",

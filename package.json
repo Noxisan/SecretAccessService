@@ -1,6 +1,6 @@
 {
   "name": "sas",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "S.A.S — Secret Access Service: a cross-platform, offline-first, zero-knowledge password manager.",
   "author": "Noxisan",
   "license": "GPL-3.0-or-later",
