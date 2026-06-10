@@ -1,7 +1,8 @@
-import { ipcMain, clipboard, dialog, type BrowserWindow } from 'electron'
+import { ipcMain, clipboard, dialog, app, safeStorage, type BrowserWindow } from 'electron'
 import { createHash } from 'node:crypto'
 import { get as httpsGet } from 'node:https'
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile, writeFile, unlink, access } from 'node:fs/promises'
+import { join } from 'node:path'
 import { z } from 'zod'
 import { IPC } from '../../shared/ipc.js'
 import type { AppSettings, VaultData, VaultStatus, VaultItem, LoginItem } from '../../shared/types.js'
@@ -220,6 +221,7 @@ export function registerIpcHandlers(opts: {
     const { masterPassword } = parse(masterPasswordSchema, arg)
     await vault.recreate(masterPassword)
     failedAttempts = 0
+    try { await unlink(join(app.getPath('userData'), 'device-key.enc')) } catch { /* ok */ }
   })
 
   handle<void>(IPC.vaultUnlock, async (arg) => {
@@ -239,6 +241,8 @@ export function registerIpcHandlers(opts: {
       if (max > 0 && failedAttempts >= max) {
         // Panic: zero the key and delete the vault file. Irreversible.
         await vault.destroy()
+        // Also wipe any saved device key — the vault is gone so it's useless.
+        try { await unlink(join(app.getPath('userData'), 'device-key.enc')) } catch { /* ok */ }
         throw new Error('panicked')
       }
       // Embed the current count so the renderer can show a warning.
@@ -258,6 +262,51 @@ export function registerIpcHandlers(opts: {
     // same key (leaving the vault unlocked) if correct.
     await vault.unlock(currentPassword)
     await vault.changeMasterPassword(newPassword)
+    // Invalidate any saved device key — it was encrypted with the old password.
+    await clearDeviceKey()
+  })
+
+  // --- Quick Unlock (OS keychain via safeStorage) — CLAUDE.md §3 ---
+
+  const deviceKeyPath = (): string => join(app.getPath('userData'), 'device-key.enc')
+
+  async function clearDeviceKey(): Promise<void> {
+    try { await unlink(deviceKeyPath()) } catch { /* already gone */ }
+  }
+
+  async function deviceKeyExists(): Promise<boolean> {
+    try { await access(deviceKeyPath()); return true } catch { return false }
+  }
+
+  handle<{ available: boolean }>(IPC.quickUnlockStatus, async () => ({
+    available: safeStorage.isEncryptionAvailable() && await deviceKeyExists()
+  }))
+
+  handle<void>(IPC.vaultSaveQuickUnlock, async (arg) => {
+    const { masterPassword } = parse(masterPasswordSchema, arg)
+    if (!safeStorage.isEncryptionAvailable()) {
+      throw new Error('OS keychain encryption is not available on this system.')
+    }
+    const encrypted = safeStorage.encryptString(masterPassword)
+    await writeFile(deviceKeyPath(), encrypted)
+  })
+
+  handle<void>(IPC.vaultQuickUnlock, async () => {
+    if (!safeStorage.isEncryptionAvailable()) throw new Error('Encryption unavailable.')
+    const encrypted = await readFile(deviceKeyPath())
+    const masterPassword = safeStorage.decryptString(encrypted)
+    try {
+      await vault.unlock(masterPassword)
+    } catch {
+      // The saved key no longer works (vault recreated, password changed, etc.).
+      // Clear the stale key so the user falls back to manual entry next time.
+      await clearDeviceKey()
+      throw new Error('Saved credentials are outdated. Please unlock with your master password.')
+    }
+  })
+
+  handle<void>(IPC.vaultClearQuickUnlock, async () => {
+    await clearDeviceKey()
   })
 
   handle<VaultData>(IPC.vaultRead, () => vault.read())

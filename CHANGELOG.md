@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-06-10
+
+OS keychain integration: unlock the vault with a single click after the
+first successful password entry on a trusted device.
+
+### Added
+- **Quick unlock ("Remember this device")** — a new checkbox on the unlock
+  screen lets the user save their master password to the OS keychain
+  (DPAPI on Windows, libsecret/kwallet on Linux) via Electron `safeStorage`.
+  On subsequent launches a large "Unlock with saved credentials" button is
+  shown; tapping it decrypts the vault without typing the master password.
+  A "Use master password instead" fallback link is always visible.
+- **Settings > Device unlock section** — shows whether credentials are
+  currently saved and provides a "Remove saved credentials" button to
+  immediately wipe the stored key.
+- **Automatic key invalidation** — the saved device key is automatically
+  cleared on vault recreate, master password change, and panic lock. If
+  the key has gone stale (vault was recreated on another path), the failed
+  unlock attempt clears the key and surfaces a clear error message.
+- Graceful degradation when OS encryption is unavailable (Linux without a
+  secret service; cloud/container environments): the feature hides itself
+  silently.
+- All 11 locales updated.
+
 ## [0.11.0] - 2026-06-10
 
 UX polish: sort the item list any way you like, and see at a glance how many
@@ -258,7 +282,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.8.0...v0.9.0

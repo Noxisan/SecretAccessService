@@ -20,7 +20,12 @@
     "resetWarning": "Esto elimina permanentemente la bóveda existente y todo lo almacenado. No hay recuperación posible — asegúrate de no necesitar su contenido.",
     "resetContinue": "Entiendo — continuar",
     "back": "Atrás",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "quickUnlock": "Desbloquear con credenciales guardadas",
+    "quickUnlockHint": "Tu contraseña maestra está protegida por el llavero del sistema.",
+    "quickUnlockOutdated": "Las credenciales guardadas están desactualizadas. Por favor desbloquea con tu contraseña maestra.",
+    "usePassword": "Usar contraseña maestra en su lugar",
+    "saveDevice": "Recordar este dispositivo"
   },
   "sidebar": {
     "allItems": "Todos los elementos",
@@ -148,7 +153,10 @@
     "accent": "Color de acento",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
     "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
-    "changePassword": "Cambiar contraseña maestra"
+    "changePassword": "Cambiar contraseña maestra",
+    "deviceUnlockSaved": "Las credenciales del dispositivo están guardadas en el llavero del sistema.",
+    "deviceUnlockClear": "Eliminar credenciales guardadas",
+    "deviceUnlockNone": "No hay credenciales de dispositivo guardadas."
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",

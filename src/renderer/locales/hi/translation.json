@@ -20,7 +20,12 @@
     "resetWarning": "यह मौजूदा वॉल्ट और उसमें संग्रहीत सभी डेटा को स्थायी रूप से मिटा देगा। कोई पुनर्प्राप्ति नहीं होगी — सुनिश्चित करें कि आपको इसकी ज़रूरत नहीं है।",
     "resetContinue": "मैं समझता/समझती हूँ — जारी रखें",
     "back": "वापस",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "quickUnlock": "सहेजे गए क्रेडेंशियल से अनलॉक करें",
+    "quickUnlockHint": "आपका मास्टर पासवर्ड ओएस कीचेन द्वारा सुरक्षित है।",
+    "quickUnlockOutdated": "सहेजे गए क्रेडेंशियल पुराने हैं। कृपया अपने मास्टर पासवर्ड से अनलॉक करें।",
+    "usePassword": "इसके बजाय मास्टर पासवर्ड उपयोग करें",
+    "saveDevice": "इस डिवाइस को याद रखें"
   },
   "sidebar": {
     "allItems": "सभी आइटम",
@@ -148,7 +153,10 @@
     "accent": "एक्सेंट रंग",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
     "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
-    "changePassword": "मास्टर पासवर्ड बदलें"
+    "changePassword": "मास्टर पासवर्ड बदलें",
+    "deviceUnlockSaved": "डिवाइस क्रेडेंशियल ओएस कीचेन में सहेजे गए हैं।",
+    "deviceUnlockClear": "सहेजे गए क्रेडेंशियल हटाएं",
+    "deviceUnlockNone": "कोई डिवाइस क्रेडेंशियल सहेजा नहीं गया।"
   },
   "changePw": {
     "title": "मास्टर पासवर्ड बदलें",

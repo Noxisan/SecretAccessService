@@ -20,7 +20,12 @@
     "resetWarning": "یہ موجودہ والٹ اور اس میں محفوظ تمام ڈیٹا کو مستقل طور پر مٹا دے گا۔ بازیابی ممکن نہیں — یقینی بنائیں کہ آپ کو اس کی ضرورت نہیں۔",
     "resetContinue": "میں سمجھتا/سمجھتی ہوں — جاری رکھیں",
     "back": "واپس",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "quickUnlock": "محفوظ اسناد سے کھولیں",
+    "quickUnlockHint": "آپ کا ماسٹر پاسورڈ آپریٹنگ سسٹم کی کی چین سے محفوظ ہے۔",
+    "quickUnlockOutdated": "محفوظ اسناد پرانی ہو گئی ہیں۔ براہ کرم اپنے ماسٹر پاسورڈ سے کھولیں۔",
+    "usePassword": "اس کی بجائے ماسٹر پاسورڈ استعمال کریں",
+    "saveDevice": "اس ڈیوائس کو یاد رکھیں"
   },
   "sidebar": {
     "allItems": "تمام اشیاء",
@@ -148,7 +153,10 @@
     "accent": "لہجے کا رنگ",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
     "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
-    "changePassword": "ماسٹر پاسورڈ تبدیل کریں"
+    "changePassword": "ماسٹر پاسورڈ تبدیل کریں",
+    "deviceUnlockSaved": "ڈیوائس کی اسناد آپریٹنگ سسٹم کی کی چین میں محفوظ ہیں۔",
+    "deviceUnlockClear": "محفوظ اسناد ہٹائیں",
+    "deviceUnlockNone": "کوئی ڈیوائس اسناد محفوظ نہیں۔"
   },
   "changePw": {
     "title": "ماسٹر پاسورڈ تبدیل کریں",
