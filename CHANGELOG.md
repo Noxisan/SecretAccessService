@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-06-10
+
+Bitwarden JSON import: migrate from Bitwarden by dropping in an unencrypted
+JSON export — no conversion step required.
+
+### Added
+- **Bitwarden JSON import** — the Import dialog now accepts `.json` files and
+  automatically detects unencrypted Bitwarden vault exports. All four item
+  types are mapped: Login (type 1), Secure Note (type 2), Credit Card (type 3),
+  and Identity (type 4). Custom fields, favorites, and notes are preserved.
+  TOTP seeds embedded in Bitwarden login items are carried over as the `totp`
+  field so they show live codes immediately after import. Merge and Replace
+  modes both work as with other formats. An informational hint explains the
+  format requirements and links to the export-without-encryption step for
+  encrypted Bitwarden exports. All 11 locales updated.
+
+### Changed
+- Import-format detection now identifies Bitwarden JSON by probing item type
+  values; falls back to native SAS JSON then CSV for unrecognised files. The
+  `.json` file extension is mapped to the new `json` format in the UI rather
+  than being treated as a backup archive.
+
 ## [0.13.0] - 2026-06-10
 
 Passkey storage, full i18n coverage, and breach-check localization.
@@ -302,7 +324,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.10.0...v0.11.0
