@@ -216,6 +216,7 @@
     "importWarning": "CSV 导入很危险——任何获得该文件的人都可以读取密码。",
     "file": "文件",
     "chooseFile": "选择文件…",
+    "jsonHint": "自动检测并导入 Bitwarden JSON 导出文件。不支持加密的 Bitwarden 导出文件——请先以不加密方式导出。",
     "backupPassword": "备份密码",
     "backupPasswordPlaceholder": "导出时使用的密码…",
     "importMode": "处理现有条目",

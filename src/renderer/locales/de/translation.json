@@ -216,6 +216,7 @@
     "importWarning": "CSV-Importe sind gefährlich — Datei nach dem Import sicher löschen.",
     "file": "Datei",
     "chooseFile": "Datei auswählen…",
+    "jsonHint": "Bitwarden JSON-Exporte werden automatisch erkannt und importiert. Verschlüsselte Bitwarden-Exporte werden nicht unterstützt — bitte zuerst ohne Verschlüsselung exportieren.",
     "backupPassword": "Backup-Passwort",
     "backupPasswordPlaceholder": "Passwort vom Export…",
     "importMode": "Vorhandene Einträge",
