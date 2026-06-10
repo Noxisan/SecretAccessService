@@ -29,7 +29,9 @@
     "uncategorized": "Sin categoría",
     "newCategoryPlaceholder": "Nombre de categoría…",
     "renameCategory": "Renombrar",
-    "deleteCategoryConfirm": "¿Eliminar?"
+    "deleteCategoryConfirm": "¿Eliminar?",
+    "collapse": "Contraer barra lateral",
+    "expand": "Expandir barra lateral"
   },
   "topbar": {
     "search": "Buscar en bóveda…",
@@ -80,7 +82,9 @@
       "card": "Tarjeta de crédito",
       "identity": "Identidad",
       "totp": "Autenticador"
-    }
+    },
+    "passwordHistory": "Historial de contraseñas ({{count}})",
+    "restorePassword": "Restaurar esta contraseña"
   },
   "generator": {
     "title": "Generador de contraseñas",

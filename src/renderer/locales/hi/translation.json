@@ -29,7 +29,9 @@
     "uncategorized": "बिना श्रेणी",
     "newCategoryPlaceholder": "श्रेणी का नाम…",
     "renameCategory": "नाम बदलें",
-    "deleteCategoryConfirm": "मिटाएँ?"
+    "deleteCategoryConfirm": "मिटाएँ?",
+    "collapse": "साइडबार संकुचित करें",
+    "expand": "साइडबार विस्तार करें"
   },
   "topbar": {
     "search": "वॉल्ट में खोजें…",
@@ -80,7 +82,9 @@
       "card": "क्रेडिट कार्ड",
       "identity": "पहचान",
       "totp": "प्रमाणक"
-    }
+    },
+    "passwordHistory": "पासवर्ड इतिहास ({{count}})",
+    "restorePassword": "यह पासवर्ड पुनर्स्थापित करें"
   },
   "generator": {
     "title": "पासवर्ड जनरेटर",

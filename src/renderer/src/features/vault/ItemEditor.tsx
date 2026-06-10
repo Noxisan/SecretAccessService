@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check } from 'lucide-react'
+import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp } from 'lucide-react'
 import type {
   CardItem,
   IdentityItem,
@@ -44,6 +44,8 @@ export default function ItemEditor(): JSX.Element | null {
   const [busy, setBusy] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [showHistory, setShowHistory] = useState(false)
+  const [revealedHistIdx, setRevealedHistIdx] = useState<number | null>(null)
 
   useEffect(() => {
     if (!open) return
@@ -52,6 +54,8 @@ export default function ItemEditor(): JSX.Element | null {
     setShowCvv(false)
     setConfirmDelete(false)
     setCopied(false)
+    setShowHistory(false)
+    setRevealedHistIdx(null)
   }, [open, editorItem, createKind])
 
   useEffect(() => {
@@ -98,6 +102,12 @@ export default function ItemEditor(): JSX.Element | null {
     } finally {
       setBusy(false)
     }
+  }
+
+  function restorePassword(password: string): void {
+    patchLogin({ password })
+    setShowPassword(true)
+    setShowHistory(false)
   }
 
   async function generate(): Promise<void> {
@@ -242,6 +252,54 @@ export default function ItemEditor(): JSX.Element | null {
                   className={fld}
                 />
               </div>
+
+              {/* Password history — only shown when editing and history exists */}
+              {isEdit && draft.passwordHistory.length > 0 && (
+                <div className="rounded-[var(--radius)] border border-[var(--border)]">
+                  <button
+                    type="button"
+                    onClick={() => { setShowHistory((v) => !v); setRevealedHistIdx(null) }}
+                    className="flex w-full items-center gap-2 px-3 py-2 text-xs text-[var(--text-muted)] hover:text-[var(--text)]"
+                  >
+                    <History size={13} />
+                    <span>{t('items.passwordHistory', { count: draft.passwordHistory.length })}</span>
+                    <span className="ml-auto">
+                      {showHistory ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                    </span>
+                  </button>
+                  {showHistory && (
+                    <ul className="flex flex-col divide-y divide-[var(--border)] border-t border-[var(--border)]">
+                      {draft.passwordHistory.map((entry, idx) => (
+                        <li key={idx} className="flex items-center gap-2 px-3 py-1.5">
+                          <span className="w-28 shrink-0 text-[11px] text-[var(--text-muted)]">
+                            {new Date(entry.replacedAt).toLocaleDateString()}
+                          </span>
+                          <span className="min-w-0 flex-1 truncate font-mono text-xs text-[var(--text)]">
+                            {revealedHistIdx === idx ? entry.password : '••••••••'}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => setRevealedHistIdx(revealedHistIdx === idx ? null : idx)}
+                            className="shrink-0 text-[var(--text-muted)] hover:text-[var(--text)]"
+                            aria-label={revealedHistIdx === idx ? t('items.hide') : t('items.show')}
+                          >
+                            {revealedHistIdx === idx ? <EyeOff size={13} /> : <Eye size={13} />}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => restorePassword(entry.password)}
+                            className="shrink-0 text-[var(--text-muted)] hover:text-[var(--accent)]"
+                            title={t('items.restorePassword')}
+                            aria-label={t('items.restorePassword')}
+                          >
+                            <RotateCcw size={13} />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
             </>
           )}
 

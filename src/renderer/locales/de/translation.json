@@ -29,7 +29,9 @@
     "uncategorized": "Ohne Kategorie",
     "newCategoryPlaceholder": "Kategoriename…",
     "renameCategory": "Umbenennen",
-    "deleteCategoryConfirm": "Löschen?"
+    "deleteCategoryConfirm": "Löschen?",
+    "collapse": "Seitenleiste einklappen",
+    "expand": "Seitenleiste ausklappen"
   },
   "topbar": {
     "search": "Tresor durchsuchen…",
@@ -80,7 +82,9 @@
       "card": "Kreditkarte",
       "identity": "Identität",
       "totp": "Authentifikator"
-    }
+    },
+    "passwordHistory": "Passwortverlauf ({{count}})",
+    "restorePassword": "Dieses Passwort wiederherstellen"
   },
   "generator": {
     "title": "Passwortgenerator",

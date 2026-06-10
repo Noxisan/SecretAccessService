@@ -29,7 +29,9 @@
     "uncategorized": "未分类",
     "newCategoryPlaceholder": "分类名称…",
     "renameCategory": "重命名",
-    "deleteCategoryConfirm": "删除？"
+    "deleteCategoryConfirm": "删除？",
+    "collapse": "折叠侧边栏",
+    "expand": "展开侧边栏"
   },
   "topbar": {
     "search": "搜索密码库…",
@@ -80,7 +82,9 @@
       "card": "银行卡",
       "identity": "身份信息",
       "totp": "验证器"
-    }
+    },
+    "passwordHistory": "密码历史记录 ({{count}})",
+    "restorePassword": "恢复此密码"
   },
   "generator": {
     "title": "密码生成器",

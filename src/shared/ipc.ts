@@ -21,6 +21,7 @@ export const IPC = {
   checkBreached: 'tools:checkBreached',
   vaultExport: 'vault:export',
   vaultImport: 'vault:import',
+  activityPing: 'tools:activityPing',
   settingsGet: 'settings:get',
   settingsSet: 'settings:set',
   // main → renderer (pushed)
