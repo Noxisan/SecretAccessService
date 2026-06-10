@@ -98,7 +98,15 @@
     "addTotp": "Ajouter un code d'authentification",
     "totpSection": "Authentificateur (2FA)",
     "removeTotp": "Supprimer le 2FA",
-    "totpLiveCode": "Code en direct — cliquer pour copier"
+    "totpLiveCode": "Code en direct — cliquer pour copier",
+    "sortBy": "Trier par",
+    "sort": {
+      "az": "A → Z",
+      "za": "Z → A",
+      "newest": "Modifié récemment",
+      "oldest": "Plus ancien d'abord",
+      "kind": "Par type"
+    }
   },
   "generator": {
     "title": "Générateur de mots de passe",

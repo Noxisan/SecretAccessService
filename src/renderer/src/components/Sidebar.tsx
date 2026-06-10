@@ -71,6 +71,17 @@ export default function Sidebar(): JSX.Element {
     .sort((a, b) => a.order - b.order)
     .filter((c) => !travelMode || !travelHiddenIds.has(c.id))
 
+  // Precompute item counts per category for the count badges.
+  const allItems = vault?.items ?? []
+  const totalCount = allItems.length
+  const favoritesCount = allItems.filter((i) => i.favorite).length
+  const categoryCounts = new Map<string, number>()
+  for (const item of allItems) {
+    if (item.categoryId) {
+      categoryCounts.set(item.categoryId, (categoryCounts.get(item.categoryId) ?? 0) + 1)
+    }
+  }
+
   useEffect(() => {
     if (isAdding) addInputRef.current?.focus()
   }, [isAdding])
@@ -215,11 +226,17 @@ export default function Sidebar(): JSX.Element {
 
       <button className={row(allActive)} onClick={() => setSelectedCategory(null)}>
         <LayoutGrid size={16} />
-        {t('sidebar.allItems')}
+        <span className="flex-1 truncate">{t('sidebar.allItems')}</span>
+        {totalCount > 0 && (
+          <span className="text-xs text-[var(--text-muted)]">{totalCount}</span>
+        )}
       </button>
       <button className={row(showFavoritesOnly)} onClick={() => setShowFavoritesOnly(true)}>
         <Star size={16} />
-        {t('sidebar.favorites')}
+        <span className="flex-1 truncate">{t('sidebar.favorites')}</span>
+        {favoritesCount > 0 && (
+          <span className="text-xs text-[var(--text-muted)]">{favoritesCount}</span>
+        )}
       </button>
 
       <div className="mt-4 mb-1 flex items-center justify-between px-2.5">
@@ -308,7 +325,12 @@ export default function Sidebar(): JSX.Element {
               ) : (
                 <Folder size={16} className="shrink-0" />
               )}
-              <span className="truncate">{cat.name}</span>
+              <span className="min-w-0 flex-1 truncate">{cat.name}</span>
+              {(categoryCounts.get(cat.id) ?? 0) > 0 && (
+                <span className="ml-auto shrink-0 text-xs text-[var(--text-muted)]">
+                  {categoryCounts.get(cat.id)}
+                </span>
+              )}
             </button>
             <div className="mr-1 hidden shrink-0 items-center gap-0.5 group-hover:flex">
               <button
