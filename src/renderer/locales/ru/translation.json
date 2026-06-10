@@ -139,7 +139,21 @@
     "clipboardClear": "Очищать буфер через (секунды)",
     "accent": "Цвет акцента",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "changePassword": "Изменить мастер-пароль"
+  },
+  "changePw": {
+    "title": "Изменить мастер-пароль",
+    "hint": "Хранилище будет немедленно перешифровано с новым мастер-паролем.",
+    "currentPassword": "Текущий мастер-пароль",
+    "newPassword": "Новый мастер-пароль",
+    "confirmPassword": "Подтвердить новый мастер-пароль",
+    "mismatch": "Пароли не совпадают.",
+    "wrong": "Текущий мастер-пароль неверен.",
+    "emptyNew": "Новый мастер-пароль не может быть пустым.",
+    "success": "Мастер-пароль успешно изменён.",
+    "submit": "Изменить пароль",
+    "changing": "Изменяется…"
   },
   "common": {
     "save": "Сохранить",

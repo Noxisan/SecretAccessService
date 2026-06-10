@@ -139,7 +139,21 @@
     "clipboardClear": "Clear clipboard after (seconds)",
     "accent": "Accent color",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "changePassword": "Change master password"
+  },
+  "changePw": {
+    "title": "Change master password",
+    "hint": "The vault will be re-encrypted with your new master password immediately.",
+    "currentPassword": "Current master password",
+    "newPassword": "New master password",
+    "confirmPassword": "Confirm new master password",
+    "mismatch": "Passwords do not match.",
+    "wrong": "Current master password is incorrect.",
+    "emptyNew": "New master password cannot be empty.",
+    "success": "Master password changed successfully.",
+    "submit": "Change password",
+    "changing": "Changing…"
   },
   "common": {
     "save": "Save",

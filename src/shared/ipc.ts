@@ -24,6 +24,7 @@ export const IPC = {
   activityPing: 'tools:activityPing',
   settingsGet: 'settings:get',
   settingsSet: 'settings:set',
+  vaultChangePassword: 'vault:changePassword',
   // main → renderer (pushed)
   evtLocked: 'evt:locked'
 } as const

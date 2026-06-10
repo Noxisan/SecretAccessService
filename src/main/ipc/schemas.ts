@@ -124,6 +124,11 @@ export const settingsSchema = z.object({
   travelHiddenCategoryIds: z.array(z.string()).max(500)
 })
 
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(1).max(1024),
+  newPassword: z.string().min(1).max(1024)
+})
+
 export const exportSchema = z.object({
   password: z.string().min(1).max(1024)
 })

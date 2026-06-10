@@ -10,6 +10,7 @@ import ItemList from './features/vault/ItemList'
 import ItemEditor from './features/vault/ItemEditor'
 import GeneratorModal from './features/generator/GeneratorModal'
 import SettingsModal from './features/settings/SettingsModal'
+import ChangePasswordModal from './features/settings/ChangePasswordModal'
 import HealthDashboard from './features/health/HealthDashboard'
 import ImportExportModal from './features/importexport/ImportExportModal'
 
@@ -94,6 +95,7 @@ export default function App(): JSX.Element {
       <ItemEditor />
       <GeneratorModal />
       <SettingsModal />
+      <ChangePasswordModal />
       <HealthDashboard />
       <ImportExportModal />
     </div>
