@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-06-10
+
+Security feature: change the master password while the vault is unlocked,
+with mandatory current-password verification and immediate vault re-encryption.
+
+### Added
+- **Change master password** — a new "Change master password" link at the
+  bottom of the Settings modal opens a dedicated dialog. The user must supply
+  their current master password before the new one is accepted, providing a
+  second-factor check against unauthorized changes on an unattended device.
+  On confirmation the vault is immediately re-encrypted with the new key (a
+  full Argon2id derivation + XChaCha20-Poly1305 re-seal); the old key is
+  zeroed from memory. A green confirmation screen is shown on success. All 11
+  locales updated.
+
 ## [0.9.0] - 2026-06-10
 
 Travel mode: hide sensitive categories (and all their items) with a single
@@ -226,7 +241,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.6.0...v0.7.0
