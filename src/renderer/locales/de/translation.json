@@ -133,10 +133,16 @@
     "issues": "Probleme",
     "allGood": "Alles in Ordnung",
     "allGoodDetail": "Alle Ihre Passwörter sehen gut aus.",
+    "checkBreaches": "Auf Datenlecks prüfen",
+    "checking": "Prüfe…",
+    "breachError": "Datenleck-Datenbank nicht erreichbar. Verbindung prüfen.",
+    "breached": "Kompromittiert",
+    "breachCount": "In {{count}} Datenleck(s) gefunden",
     "reason": {
       "weak": "Schwaches Passwort",
       "reused": "Wiederverwendet",
-      "old": "Älter als 180 Tage"
+      "old": "Älter als 180 Tage",
+      "breached": "Datenleck"
     }
   }
 }
