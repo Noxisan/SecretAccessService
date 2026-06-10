@@ -20,7 +20,7 @@
     "resetWarning": "Это безвозвратно удалит существующее хранилище и все данные в нём. Восстановление невозможно — убедитесь, что содержимое вам больше не нужно.",
     "resetContinue": "Я понимаю — продолжить",
     "back": "Назад",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "Предупреждение: осталось {{remaining}} попытка(ок) до безвозвратного удаления хранилища (лимит: {{max}}).",
     "quickUnlock": "Разблокировать с сохранёнными данными",
     "quickUnlockHint": "Ваш мастер-пароль защищён цепочкой ключей ОС.",
     "quickUnlockOutdated": "Сохранённые данные устарели. Пожалуйста, разблокируйте с помощью мастер-пароля.",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "Удалить?",
     "collapse": "Свернуть боковую панель",
     "expand": "Развернуть боковую панель",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "Скрыть в режиме путешествия"
   },
   "topbar": {
     "search": "Поиск в хранилище…",
@@ -49,7 +49,7 @@
     "language": "Язык",
     "theme": "Сменить тему",
     "importExport": "Импорт / Экспорт",
-    "travelMode": "Travel mode"
+    "travelMode": "Режим путешествия"
   },
   "items": {
     "empty": "Нет элементов. Создайте первую запись.",
@@ -151,8 +151,8 @@
     "autoLock": "Автоблокировка через (минуты)",
     "clipboardClear": "Очищать буфер через (секунды)",
     "accent": "Цвет акцента",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "Самоуничтожение после (неверных попыток)",
+    "maxFailedAttemptsHint": "Хранилище будет удалено после указанного количества неверных паролей. 0 = отключено.",
     "changePassword": "Изменить мастер-пароль",
     "deviceUnlockSaved": "Данные устройства сохранены в цепочке ключей ОС.",
     "deviceUnlockClear": "Удалить сохранённые данные",
