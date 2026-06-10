@@ -26,7 +26,10 @@
     "favorites": "Favorites",
     "categories": "Categories",
     "addCategory": "Add category",
-    "uncategorized": "Uncategorized"
+    "uncategorized": "Uncategorized",
+    "newCategoryPlaceholder": "Category name…",
+    "renameCategory": "Rename",
+    "deleteCategoryConfirm": "Delete?"
   },
   "topbar": {
     "search": "Search vault…",

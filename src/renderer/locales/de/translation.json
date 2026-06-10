@@ -26,7 +26,10 @@
     "favorites": "Favoriten",
     "categories": "Kategorien",
     "addCategory": "Kategorie hinzufügen",
-    "uncategorized": "Ohne Kategorie"
+    "uncategorized": "Ohne Kategorie",
+    "newCategoryPlaceholder": "Kategoriename…",
+    "renameCategory": "Umbenennen",
+    "deleteCategoryConfirm": "Löschen?"
   },
   "topbar": {
     "search": "Tresor durchsuchen…",
