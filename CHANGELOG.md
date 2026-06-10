@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-06-10
+
+Generator settings are now remembered across sessions.
+
+### Added
+- **Persistent generator settings** — the password generator modal restores
+  your last-used configuration (mode, length, character classes, word count,
+  and separator) whenever it opens. Settings are saved to `AppSettings` via
+  the existing IPC channel the moment the modal closes, so every subsequent
+  session starts where you left off. A fresh install defaults to the previous
+  hard-coded values (length 20, all character classes on, 5-word passphrase,
+  hyphen separator).
+
+### Changed
+- `AppSettings` gains an optional `generatorDefaults` field of type
+  `GeneratePasswordOptions`; existing settings files without this field
+  automatically fall back to the built-in defaults on first load.
+- `settingsSchema` updated to validate `generatorDefaults` when present.
+- `DEFAULT_SETTINGS` seeded with the existing default generator options so
+  all code paths have a consistent fallback.
+
 ## [0.16.0] - 2026-06-10
 
 Code quality: import parsers extracted to a testable module; test suite grows
