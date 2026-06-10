@@ -1,24 +1,11 @@
 import { useEffect, useState } from 'react'
 import type { JSX } from 'react'
-import * as OTPAuth from 'otpauth'
+import type * as OTPAuth from 'otpauth'
+import { parseTotp, computeTotp, type TotpSnapshot } from './totp'
 
 interface Props {
   uri: string
   onCopy?: (code: string) => void
-}
-
-interface TotpState {
-  code: string
-  secondsLeft: number
-  period: number
-}
-
-function compute(totp: OTPAuth.TOTP): TotpState {
-  const now = Date.now()
-  const period = totp.period
-  const secondsLeft = period - Math.floor((now / 1000) % period)
-  const code = totp.generate()
-  return { code, secondsLeft, period }
 }
 
 /**
@@ -27,21 +14,13 @@ function compute(totp: OTPAuth.TOTP): TotpState {
  * Returns null silently if the URI is invalid (bad QR scan etc.).
  */
 export default function TotpCode({ uri, onCopy }: Props): JSX.Element | null {
-  const [state, setState] = useState<TotpState | null>(null)
+  const [state, setState] = useState<TotpSnapshot | null>(null)
 
   useEffect(() => {
-    let totp: OTPAuth.TOTP | null = null
-    try {
-      const parsed = OTPAuth.URI.parse(uri)
-      if (!(parsed instanceof OTPAuth.TOTP)) return
-      totp = parsed
-    } catch {
-      return
-    }
+    const totp: OTPAuth.TOTP | null = parseTotp(uri)
+    if (!totp) return
 
-    const update = (): void => {
-      if (totp) setState(compute(totp))
-    }
+    const update = (): void => setState(computeTotp(totp))
 
     update()
     const id = window.setInterval(update, 1000)
