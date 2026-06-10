@@ -74,7 +74,11 @@
       "address": "地址",
       "totpUri": "otpauth URI",
       "issuer": "发行方",
-      "account": "账户"
+      "account": "账户",
+      "fieldLabel": "标签",
+      "fieldValue": "值",
+      "secretOn": "标记为隐藏",
+      "secretOff": "标记为可见"
     },
     "kind": {
       "login": "登录",
@@ -84,7 +88,10 @@
       "totp": "验证器"
     },
     "passwordHistory": "密码历史记录 ({{count}})",
-    "restorePassword": "恢复此密码"
+    "restorePassword": "恢复此密码",
+    "customFields": "自定义字段",
+    "addField": "添加字段",
+    "deleteField": "删除字段"
   },
   "generator": {
     "title": "密码生成器",

@@ -74,7 +74,11 @@
       "address": "پتہ",
       "totpUri": "otpauth URI",
       "issuer": "جاری کنندہ",
-      "account": "اکاؤنٹ"
+      "account": "اکاؤنٹ",
+      "fieldLabel": "لیبل",
+      "fieldValue": "قدر",
+      "secretOn": "پوشیدہ کے طور پر نشان زد کریں",
+      "secretOff": "مرئی کے طور پر نشان زد کریں"
     },
     "kind": {
       "login": "لاگ ان",
@@ -84,7 +88,10 @@
       "totp": "توثیق کار"
     },
     "passwordHistory": "پاس ورڈ کی تاریخ ({{count}})",
-    "restorePassword": "یہ پاس ورڈ بحال کریں"
+    "restorePassword": "یہ پاس ورڈ بحال کریں",
+    "customFields": "حسب ضرورت فیلڈز",
+    "addField": "فیلڈ شامل کریں",
+    "deleteField": "فیلڈ حذف کریں"
   },
   "generator": {
     "title": "پاسورڈ جنریٹر",

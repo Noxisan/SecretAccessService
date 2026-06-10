@@ -74,7 +74,11 @@
       "address": "Adresse",
       "totpUri": "otpauth-URI",
       "issuer": "Aussteller",
-      "account": "Konto"
+      "account": "Konto",
+      "fieldLabel": "Bezeichnung",
+      "fieldValue": "Wert",
+      "secretOn": "Als verborgen markieren",
+      "secretOff": "Als sichtbar markieren"
     },
     "kind": {
       "login": "Login",
@@ -84,7 +88,10 @@
       "totp": "Authentifikator"
     },
     "passwordHistory": "Passwortverlauf ({{count}})",
-    "restorePassword": "Dieses Passwort wiederherstellen"
+    "restorePassword": "Dieses Passwort wiederherstellen",
+    "customFields": "Benutzerdefinierte Felder",
+    "addField": "Feld hinzufügen",
+    "deleteField": "Feld löschen"
   },
   "generator": {
     "title": "Passwortgenerator",

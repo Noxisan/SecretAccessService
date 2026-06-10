@@ -74,7 +74,11 @@
       "address": "Адрес",
       "totpUri": "URI otpauth",
       "issuer": "Эмитент",
-      "account": "Аккаунт"
+      "account": "Аккаунт",
+      "fieldLabel": "Метка",
+      "fieldValue": "Значение",
+      "secretOn": "Отметить как скрытое",
+      "secretOff": "Отметить как видимое"
     },
     "kind": {
       "login": "Логин",
@@ -84,7 +88,10 @@
       "totp": "Аутентификатор"
     },
     "passwordHistory": "История паролей ({{count}})",
-    "restorePassword": "Восстановить этот пароль"
+    "restorePassword": "Восстановить этот пароль",
+    "customFields": "Настраиваемые поля",
+    "addField": "Добавить поле",
+    "deleteField": "Удалить поле"
   },
   "generator": {
     "title": "Генератор паролей",

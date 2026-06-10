@@ -74,7 +74,11 @@
       "address": "Dirección",
       "totpUri": "URI otpauth",
       "issuer": "Emisor",
-      "account": "Cuenta"
+      "account": "Cuenta",
+      "fieldLabel": "Etiqueta",
+      "fieldValue": "Valor",
+      "secretOn": "Marcar como oculto",
+      "secretOff": "Marcar como visible"
     },
     "kind": {
       "login": "Inicio de sesión",
@@ -84,7 +88,10 @@
       "totp": "Autenticador"
     },
     "passwordHistory": "Historial de contraseñas ({{count}})",
-    "restorePassword": "Restaurar esta contraseña"
+    "restorePassword": "Restaurar esta contraseña",
+    "customFields": "Campos personalizados",
+    "addField": "Agregar campo",
+    "deleteField": "Eliminar campo"
   },
   "generator": {
     "title": "Generador de contraseñas",
