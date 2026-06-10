@@ -48,6 +48,10 @@
     "hide": "Verbergen",
     "noColor": "Keine Farbe",
     "confirmDelete": "Diesen Eintrag löschen?",
+    "copyPassword": "Passwort kopieren",
+    "copyUsername": "Benutzername kopieren",
+    "copyCardNumber": "Kartennummer kopieren",
+    "copyEmail": "E-Mail kopieren",
     "field": {
       "title": "Titel",
       "username": "Benutzername",
