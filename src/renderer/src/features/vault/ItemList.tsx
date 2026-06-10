@@ -23,6 +23,10 @@ export default function ItemList(): JSX.Element {
   const search = useAppStore((s) => s.search)
   const openEditor = useAppStore((s) => s.openItemEditor)
   const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
+  const travelMode = useAppStore((s) => s.travelMode)
+  const travelHiddenIds = useAppStore((s) =>
+    travelMode ? new Set(s.settings?.travelHiddenCategoryIds ?? []) : new Set<string>()
+  )
   const [addMenu, setAddMenu] = useState(false)
   const [copiedId, setCopiedId] = useState<string | null>(null)
 
@@ -32,9 +36,11 @@ export default function ItemList(): JSX.Element {
     return all
       .filter((i) => (showFavoritesOnly ? i.favorite : true))
       .filter((i) => (selectedCategoryId ? i.categoryId === selectedCategoryId : true))
+      // Travel mode: hide items from categories marked as travel-hidden.
+      .filter((i) => !i.categoryId || !travelHiddenIds.has(i.categoryId))
       .filter((i) => (q ? matches(i, q) : true))
       .sort((a, b) => a.title.localeCompare(b.title))
-  }, [vault, selectedCategoryId, showFavoritesOnly, search])
+  }, [vault, selectedCategoryId, showFavoritesOnly, search, travelHiddenIds])
 
   function add(kind: VaultItemKind): void {
     setAddMenu(false)

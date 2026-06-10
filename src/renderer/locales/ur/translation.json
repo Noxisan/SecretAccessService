@@ -32,7 +32,8 @@
     "renameCategory": "نام تبدیل کریں",
     "deleteCategoryConfirm": "حذف کریں؟",
     "collapse": "سائڈبار چھوٹا کریں",
-    "expand": "سائڈبار بڑا کریں"
+    "expand": "سائڈبار بڑا کریں",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "والٹ میں تلاش کریں…",
@@ -42,7 +43,8 @@
     "health": "سیکیورٹی ڈیش بورڈ",
     "language": "زبان",
     "theme": "تھیم تبدیل کریں",
-    "importExport": "درآمد / برآمد"
+    "importExport": "درآمد / برآمد",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "کوئی آئٹم نہیں۔ اپنی پہلی اندراج بنائیں۔",

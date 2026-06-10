@@ -32,7 +32,8 @@
     "renameCategory": "重命名",
     "deleteCategoryConfirm": "删除？",
     "collapse": "折叠侧边栏",
-    "expand": "展开侧边栏"
+    "expand": "展开侧边栏",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "搜索密码库…",
@@ -42,7 +43,8 @@
     "health": "安全仪表板",
     "language": "语言",
     "theme": "切换主题",
-    "importExport": "导入 / 导出"
+    "importExport": "导入 / 导出",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "暂无项目，创建您的第一条记录。",

@@ -32,7 +32,8 @@
     "renameCategory": "Переименовать",
     "deleteCategoryConfirm": "Удалить?",
     "collapse": "Свернуть боковую панель",
-    "expand": "Развернуть боковую панель"
+    "expand": "Развернуть боковую панель",
+    "travelHide": "Hide in travel mode"
   },
   "topbar": {
     "search": "Поиск в хранилище…",
@@ -42,7 +43,8 @@
     "health": "Панель безопасности",
     "language": "Язык",
     "theme": "Сменить тему",
-    "importExport": "Импорт / Экспорт"
+    "importExport": "Импорт / Экспорт",
+    "travelMode": "Travel mode"
   },
   "items": {
     "empty": "Нет элементов. Создайте первую запись.",

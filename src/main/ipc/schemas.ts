@@ -120,7 +120,8 @@ export const settingsSchema = z.object({
   accent: z.string().regex(/^#[0-9a-fA-F]{6}$/),
   autoLockMinutes: z.number().int().min(0).max(1440),
   clipboardClearSeconds: z.number().int().min(0).max(600),
-  maxFailedAttempts: z.number().int().min(0).max(100)
+  maxFailedAttempts: z.number().int().min(0).max(100),
+  travelHiddenCategoryIds: z.array(z.string()).max(500)
 })
 
 export const exportSchema = z.object({
