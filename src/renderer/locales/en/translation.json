@@ -26,7 +26,10 @@
     "favorites": "Favorites",
     "categories": "Categories",
     "addCategory": "Add category",
-    "uncategorized": "Uncategorized"
+    "uncategorized": "Uncategorized",
+    "newCategoryPlaceholder": "Category name…",
+    "renameCategory": "Rename",
+    "deleteCategoryConfirm": "Delete?"
   },
   "topbar": {
     "search": "Search vault…",
@@ -45,13 +48,30 @@
     "hide": "Hide",
     "noColor": "No color",
     "confirmDelete": "Delete this item?",
+    "copyPassword": "Copy password",
+    "copyUsername": "Copy username",
+    "copyCardNumber": "Copy card number",
+    "copyEmail": "Copy email",
     "field": {
       "title": "Title",
       "username": "Username",
       "password": "Password",
       "url": "Website",
       "notes": "Notes",
-      "color": "Color"
+      "color": "Color",
+      "cardholder": "Cardholder name",
+      "cardNumber": "Card number",
+      "brand": "Brand",
+      "expiry": "Expiry (MM / YYYY)",
+      "cvv": "CVV",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "totpUri": "otpauth URI",
+      "issuer": "Issuer",
+      "account": "Account"
     },
     "kind": {
       "login": "Login",
@@ -105,5 +125,24 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "close": "Close"
+  },
+  "health": {
+    "title": "Password health",
+    "totalLogins": "Total logins",
+    "safe": "Healthy",
+    "issues": "Issues",
+    "allGood": "All good",
+    "allGoodDetail": "All your passwords look healthy.",
+    "checkBreaches": "Check for breaches",
+    "checking": "Checking…",
+    "breachError": "Could not reach breach database. Check your connection.",
+    "breached": "Breached",
+    "breachCount": "Found in {{count}} breach(es)",
+    "reason": {
+      "weak": "Weak password",
+      "reused": "Reused",
+      "old": "Over 180 days old",
+      "breached": "Data breach"
+    }
   }
 }

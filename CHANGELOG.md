@@ -7,6 +7,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-06-10
+
+A major quality-of-life release: all five vault item types are now fully
+editable, every UI string ships in 11 languages, and security intelligence
+features surface password weaknesses in real time.
+
+### Added
+- **Full item editor for all five vault types** — Credit Card (cardholder,
+  masked number, brand, expiry month/year selectors, CVV with show/hide),
+  Identity (first/last name, email, phone, address), and TOTP Authenticator
+  (otpauth URI, issuer, account) join the existing Login and Secure Note editors.
+  Add-menu in the item list now lists all five types.
+- **Live TOTP code display** — TOTP items in the list show the current 6-digit
+  code with an SVG radial countdown ring; turns red in the last 5 seconds.
+  Clicking the code copies it to clipboard with auto-clear.
+- **Password health dashboard** — Activity button in the top bar opens a modal
+  that flags weak (zxcvbn score < 3), reused, old (> 180 days unchanged), and
+  breached passwords. Clicking any flagged item jumps directly to its editor.
+- **HaveIBeenPwned k-anonymity breach check** — "Check for breaches" button in
+  the health dashboard queries the HIBP range API; only the first 5 hex chars
+  of the SHA-1 hash leave the process. Shows per-item breach count inline.
+- **Inline password strength meter** — zxcvbn-powered 5-segment bar appears
+  below the password field in the item editor while typing.
+- **Quick-copy on item list rows** — hover reveals a copy button that copies the
+  relevant secret in one click (password for logins, card number for cards,
+  email for identities) with auto-clipboard-clear.
+- **11 full UI translations** — Mandarin Chinese, Hindi, Spanish, French,
+  Arabic, Bengali, Portuguese, Russian, and Urdu added alongside the existing
+  English and German. RTL layout applied automatically for Arabic and Urdu.
+- **Vault search expanded** — now matches across all item types: username/URL
+  for logins, note content, cardholder/brand for cards, name/email for
+  identities, issuer/account for TOTP.
+
+### Fixed
+- **Settings language picker** — previously all nine non-English/German
+  languages silently fell back to English; all 11 now load native text.
+- **HTML validity** — nested `<button>` inside `<button>` in the health
+  dashboard replaced with sibling flex layout; fixes keyboard navigation
+  and assistive-technology announcement.
+
 ## [0.2.0] - 2026-06-09
 
 First feature release on top of the secure foundation: the vault is now usable

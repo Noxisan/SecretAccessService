@@ -1,4 +1,6 @@
 import { ipcMain, clipboard, type BrowserWindow } from 'electron'
+import { createHash } from 'node:crypto'
+import { get as httpsGet } from 'node:https'
 import { z } from 'zod'
 import { IPC } from '../../shared/ipc.js'
 import type { AppSettings, VaultData, VaultStatus } from '../../shared/types.js'
@@ -11,9 +13,42 @@ import {
   idSchema,
   generatePasswordSchema,
   clipboardCopySchema,
+  breachCheckSchema,
   settingsSchema
 } from './schemas.js'
 import type { SettingsStore } from '../settings.js'
+
+/**
+ * k-anonymity HIBP range query (CLAUDE.md §8).
+ * Only the first 5 hex chars of the SHA-1 hash leave the process.
+ * Returns the breach count for the given password (0 = not found).
+ */
+async function hibpRangeQuery(password: string): Promise<number> {
+  const sha1 = createHash('sha1').update(password).digest('hex').toUpperCase()
+  const prefix = sha1.slice(0, 5)
+  const suffix = sha1.slice(5)
+
+  const body = await new Promise<string>((resolve, reject) => {
+    const req = httpsGet(
+      `https://api.pwnedpasswords.com/range/${prefix}`,
+      { headers: { 'User-Agent': 'SAS-PasswordManager/0.3 (offline-first; k-anon)' } },
+      (res) => {
+        const chunks: Buffer[] = []
+        res.on('data', (c: Buffer) => chunks.push(c))
+        res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')))
+        res.on('error', reject)
+      }
+    )
+    req.on('error', reject)
+    req.setTimeout(8000, () => { req.destroy(); reject(new Error('HIBP timeout')) })
+  })
+
+  for (const line of body.split('\r\n')) {
+    const [s, count] = line.split(':')
+    if (s?.toUpperCase() === suffix) return parseInt(count ?? '0', 10)
+  }
+  return 0
+}
 
 /**
  * Registers every IPC handler with strict zod validation. Each handler validates
@@ -133,5 +168,12 @@ export function registerIpcHandlers(opts: {
     const next = parse(settingsSchema, arg)
     await settings.set(next)
     return settings.get()
+  })
+
+  // Returns breach count (0 = clean). Throws on network error so the renderer
+  // can surface an error state rather than silently showing a false zero.
+  handle<number>(IPC.checkBreached, async (arg) => {
+    const { password } = parse(breachCheckSchema, arg)
+    return hibpRangeQuery(password)
   })
 }

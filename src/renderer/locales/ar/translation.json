@@ -1,0 +1,142 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "خدمة الوصول الآمن"
+  },
+  "unlock": {
+    "createTitle": "إنشاء خزينتك",
+    "createSubtitle": "اختر كلمة مرور رئيسية قوية. لن تغادر هذا الجهاز أبداً ولا يمكن استرجاعها.",
+    "unlockTitle": "فتح خزينتك",
+    "masterPassword": "كلمة المرور الرئيسية",
+    "confirmPassword": "تأكيد كلمة المرور الرئيسية",
+    "create": "إنشاء الخزينة",
+    "unlock": "فتح",
+    "mismatch": "كلمتا المرور غير متطابقتين.",
+    "wrong": "كلمة المرور الرئيسية غير صحيحة أو الخزينة تالفة.",
+    "working": "جارٍ المعالجة…",
+    "resetCta": "لا توجد خزينة أو نسيت كلمة المرور؟ إنشاء خزينة جديدة",
+    "resetTitle": "إنشاء خزينة جديدة",
+    "resetConfirmTitle": "مسح كل شيء والبدء من جديد؟",
+    "resetWarning": "سيؤدي هذا إلى حذف الخزينة الحالية وجميع ما يحتويها بشكل دائم. لا يمكن الاسترداد — تأكد من أنك لا تحتاج إلى محتواها.",
+    "resetContinue": "أفهم — متابعة",
+    "back": "رجوع"
+  },
+  "sidebar": {
+    "allItems": "جميع العناصر",
+    "favorites": "المفضلة",
+    "categories": "الفئات",
+    "addCategory": "إضافة فئة",
+    "uncategorized": "بدون فئة",
+    "newCategoryPlaceholder": "اسم الفئة…",
+    "renameCategory": "إعادة تسمية",
+    "deleteCategoryConfirm": "حذف؟"
+  },
+  "topbar": {
+    "search": "البحث في الخزينة…",
+    "generator": "مولّد كلمات المرور",
+    "settings": "الإعدادات",
+    "lock": "قفل",
+    "health": "لوحة الأمان",
+    "language": "اللغة",
+    "theme": "تبديل السمة"
+  },
+  "items": {
+    "empty": "لا توجد عناصر. أنشئ إدخالك الأول.",
+    "add": "إضافة",
+    "edit": "تعديل العنصر",
+    "show": "إظهار",
+    "hide": "إخفاء",
+    "noColor": "بدون لون",
+    "confirmDelete": "هل تريد حذف هذا العنصر؟",
+    "copyPassword": "نسخ كلمة المرور",
+    "copyUsername": "نسخ اسم المستخدم",
+    "copyCardNumber": "نسخ رقم البطاقة",
+    "copyEmail": "نسخ البريد الإلكتروني",
+    "field": {
+      "title": "العنوان",
+      "username": "اسم المستخدم",
+      "password": "كلمة المرور",
+      "url": "الموقع الإلكتروني",
+      "notes": "ملاحظات",
+      "color": "اللون",
+      "cardholder": "اسم حامل البطاقة",
+      "cardNumber": "رقم البطاقة",
+      "brand": "العلامة التجارية",
+      "expiry": "تاريخ الانتهاء (MM / YYYY)",
+      "cvv": "CVV",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "address": "العنوان",
+      "totpUri": "عنوان otpauth URI",
+      "issuer": "الجهة المُصدِرة",
+      "account": "الحساب"
+    },
+    "kind": {
+      "login": "تسجيل دخول",
+      "note": "ملاحظة آمنة",
+      "card": "بطاقة ائتمان",
+      "identity": "هوية",
+      "totp": "المصادق"
+    }
+  },
+  "generator": {
+    "title": "مولّد كلمات المرور",
+    "length": "الطول",
+    "uppercase": "أحرف كبيرة (A-Z)",
+    "lowercase": "أحرف صغيرة (a-z)",
+    "digits": "أرقام (0-9)",
+    "symbols": "رموز",
+    "excludeAmbiguous": "استبعاد الأحرف المتشابهة",
+    "mode": "الوضع",
+    "characters": "أحرف",
+    "passphrase": "عبارة مرور",
+    "words": "كلمات",
+    "separator": "فاصل",
+    "generate": "توليد",
+    "regenerate": "إعادة التوليد",
+    "copy": "نسخ",
+    "copied": "تم النسخ",
+    "strength": "القوة",
+    "entropyBits": "{{bits}} بت إنتروبيا",
+    "noClass": "اختر فئة أحرف واحدة على الأقل.",
+    "level": {
+      "veryWeak": "ضعيفة جداً",
+      "weak": "ضعيفة",
+      "fair": "متوسطة",
+      "strong": "قوية",
+      "veryStrong": "قوية جداً"
+    }
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "theme": "السمة",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام",
+    "language": "اللغة",
+    "autoLock": "القفل التلقائي بعد (دقائق)",
+    "clipboardClear": "مسح الحافظة بعد (ثوانٍ)",
+    "accent": "لون التمييز"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "close": "إغلاق"
+  },
+  "health": {
+    "title": "أمان كلمات المرور",
+    "totalLogins": "إجمالي تسجيلات الدخول",
+    "safe": "آمنة",
+    "issues": "مشكلات",
+    "allGood": "كل شيء على ما يرام",
+    "allGoodDetail": "تبدو جميع كلمات مرورك آمنة.",
+    "reason": {
+      "weak": "كلمة مرور ضعيفة",
+      "reused": "معاد استخدامها",
+      "old": "أكثر من 180 يوماً"
+    }
+  }
+}

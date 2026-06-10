@@ -2,13 +2,24 @@ import { useEffect, useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check } from 'lucide-react'
-import type { LoginItem, SecureNoteItem, VaultItem, VaultItemBase } from '@shared/types'
+import type {
+  CardItem,
+  IdentityItem,
+  LoginItem,
+  SecureNoteItem,
+  TotpItem,
+  VaultItem,
+  VaultItemBase
+} from '@shared/types'
 import { useAppStore } from '../../store/app'
-import { createBlankItem, finalizeItem, type EditableKind } from './itemFactory'
+import { createBlankItem, finalizeItem } from './itemFactory'
+import PasswordStrengthBar from '../../components/PasswordStrengthBar'
 
-type Draft = LoginItem | SecureNoteItem
+type Draft = LoginItem | SecureNoteItem | CardItem | IdentityItem | TotpItem
 
 const COLOR_PRESETS = ['#7c3aed', '#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#ec4899']
+const MONTHS = Array.from({ length: 12 }, (_, i) => i + 1)
+const YEARS = Array.from({ length: 20 }, (_, i) => new Date().getFullYear() + i)
 
 export default function ItemEditor(): JSX.Element | null {
   const { t } = useTranslation()
@@ -24,26 +35,25 @@ export default function ItemEditor(): JSX.Element | null {
     () => [...(vault?.categories ?? [])].sort((a, b) => a.order - b.order),
     [vault]
   )
-  const editableKind: EditableKind = createKind === 'note' ? 'note' : 'login'
 
   const [draft, setDraft] = useState<Draft>(() =>
-    isEditable(editorItem) ? editorItem : createBlankItem(editableKind, null)
+    editorItem ?? createBlankItem(createKind, null)
   )
   const [showPassword, setShowPassword] = useState(false)
+  const [showCvv, setShowCvv] = useState(false)
   const [busy, setBusy] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  // Reload the draft whenever a different item (or a fresh create) opens.
   useEffect(() => {
     if (!open) return
-    setDraft(isEditable(editorItem) ? editorItem : createBlankItem(editableKind, null))
+    setDraft(editorItem ?? createBlankItem(createKind, null))
     setShowPassword(false)
+    setShowCvv(false)
     setConfirmDelete(false)
     setCopied(false)
-  }, [open, editorItem, editableKind])
+  }, [open, editorItem, createKind])
 
-  // Close on Escape.
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent): void => {
@@ -60,6 +70,12 @@ export default function ItemEditor(): JSX.Element | null {
     setDraft((prev) => ({ ...prev, ...p }) as Draft)
   const patchLogin = (p: Partial<Omit<LoginItem, keyof VaultItemBase | 'kind'>>): void =>
     setDraft((prev) => (prev.kind === 'login' ? { ...prev, ...p } : prev))
+  const patchCard = (p: Partial<Omit<CardItem, keyof VaultItemBase | 'kind'>>): void =>
+    setDraft((prev) => (prev.kind === 'card' ? { ...prev, ...p } : prev))
+  const patchIdentity = (p: Partial<Omit<IdentityItem, keyof VaultItemBase | 'kind'>>): void =>
+    setDraft((prev) => (prev.kind === 'identity' ? { ...prev, ...p } : prev))
+  const patchTotp = (p: Partial<Omit<TotpItem, keyof VaultItemBase | 'kind'>>): void =>
+    setDraft((prev) => (prev.kind === 'totp' ? { ...prev, ...p } : prev))
 
   async function save(): Promise<void> {
     if (draft.title.trim().length === 0) return
@@ -98,15 +114,14 @@ export default function ItemEditor(): JSX.Element | null {
     setShowPassword(true)
   }
 
-  async function copyPassword(): Promise<void> {
-    if (draft.kind !== 'login' || !draft.password) return
-    await window.sas.tools.copyToClipboard(draft.password, clipboardClearSeconds)
+  async function copyToClipboard(text: string): Promise<void> {
+    await window.sas.tools.copyToClipboard(text, clipboardClearSeconds)
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1500)
   }
 
-  const label = 'mb-1 block text-xs font-medium text-[var(--text-muted)]'
-  const field =
+  const lbl = 'mb-1 block text-xs font-medium text-[var(--text-muted)]'
+  const fld =
     'w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-2 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]'
   const iconBtn =
     'grid w-9 shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--accent)]'
@@ -145,8 +160,9 @@ export default function ItemEditor(): JSX.Element | null {
 
         {/* Body */}
         <div className="flex flex-col gap-4 overflow-auto p-5">
+          {/* Title — shared by all kinds */}
           <div>
-            <label className={label} htmlFor="it-title">
+            <label className={lbl} htmlFor="it-title">
               {t('items.field.title')}
             </label>
             <input
@@ -154,14 +170,15 @@ export default function ItemEditor(): JSX.Element | null {
               autoFocus
               value={draft.title}
               onChange={(e) => patchBase({ title: e.target.value })}
-              className={field}
+              className={fld}
             />
           </div>
 
+          {/* ── Login ──────────────────────────────────────────────────── */}
           {draft.kind === 'login' && (
             <>
               <div>
-                <label className={label} htmlFor="it-user">
+                <label className={lbl} htmlFor="it-user">
                   {t('items.field.username')}
                 </label>
                 <input
@@ -169,11 +186,11 @@ export default function ItemEditor(): JSX.Element | null {
                   value={draft.username}
                   autoComplete="off"
                   onChange={(e) => patchLogin({ username: e.target.value })}
-                  className={field}
+                  className={fld}
                 />
               </div>
               <div>
-                <label className={label} htmlFor="it-pass">
+                <label className={lbl} htmlFor="it-pass">
                   {t('items.field.password')}
                 </label>
                 <div className="flex gap-2">
@@ -183,14 +200,13 @@ export default function ItemEditor(): JSX.Element | null {
                     value={draft.password}
                     autoComplete="off"
                     onChange={(e) => patchLogin({ password: e.target.value })}
-                    className={`${field} font-mono`}
+                    className={`${fld} font-mono`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
                     className={iconBtn}
                     aria-label={showPassword ? t('items.hide') : t('items.show')}
-                    title={showPassword ? t('items.hide') : t('items.show')}
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -199,24 +215,23 @@ export default function ItemEditor(): JSX.Element | null {
                     onClick={() => void generate()}
                     className={iconBtn}
                     aria-label={t('generator.generate')}
-                    title={t('generator.generate')}
                   >
                     <RefreshCw size={16} />
                   </button>
                   <button
                     type="button"
-                    onClick={() => void copyPassword()}
+                    onClick={() => void copyToClipboard(draft.password)}
                     disabled={!draft.password}
                     className={`${iconBtn} disabled:opacity-40`}
                     aria-label={copied ? t('generator.copied') : t('generator.copy')}
-                    title={copied ? t('generator.copied') : t('generator.copy')}
                   >
                     {copied ? <Check size={16} /> : <Copy size={16} />}
                   </button>
                 </div>
+                <PasswordStrengthBar password={draft.password} />
               </div>
               <div>
-                <label className={label} htmlFor="it-url">
+                <label className={lbl} htmlFor="it-url">
                   {t('items.field.url')}
                 </label>
                 <input
@@ -224,14 +239,229 @@ export default function ItemEditor(): JSX.Element | null {
                   value={draft.url}
                   autoComplete="off"
                   onChange={(e) => patchLogin({ url: e.target.value })}
-                  className={field}
+                  className={fld}
                 />
               </div>
             </>
           )}
 
+          {/* ── Credit card ────────────────────────────────────────────── */}
+          {draft.kind === 'card' && (
+            <>
+              <div>
+                <label className={lbl} htmlFor="it-cardholder">
+                  {t('items.field.cardholder')}
+                </label>
+                <input
+                  id="it-cardholder"
+                  value={draft.cardholder}
+                  autoComplete="off"
+                  onChange={(e) => patchCard({ cardholder: e.target.value })}
+                  className={fld}
+                />
+              </div>
+              <div>
+                <label className={lbl} htmlFor="it-cardnum">
+                  {t('items.field.cardNumber')}
+                </label>
+                <input
+                  id="it-cardnum"
+                  value={draft.number}
+                  autoComplete="off"
+                  inputMode="numeric"
+                  maxLength={24}
+                  onChange={(e) => patchCard({ number: e.target.value.replace(/\D/g, '') })}
+                  className={`${fld} font-mono tracking-wider`}
+                  placeholder="•••• •••• •••• ••••"
+                />
+              </div>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-brand">
+                    {t('items.field.brand')}
+                  </label>
+                  <input
+                    id="it-brand"
+                    value={draft.brand}
+                    autoComplete="off"
+                    onChange={(e) => patchCard({ brand: e.target.value })}
+                    className={fld}
+                    placeholder="Visa, Mastercard…"
+                  />
+                </div>
+                <div>
+                  <label className={lbl} htmlFor="it-cvv">
+                    {t('items.field.cvv')}
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      id="it-cvv"
+                      type={showCvv ? 'text' : 'password'}
+                      value={draft.cvv}
+                      autoComplete="off"
+                      maxLength={8}
+                      onChange={(e) => patchCard({ cvv: e.target.value })}
+                      className={`${fld} w-24 font-mono`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowCvv((v) => !v)}
+                      className={iconBtn}
+                      aria-label={showCvv ? t('items.hide') : t('items.show')}
+                    >
+                      {showCvv ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label className={lbl}>{t('items.field.expiry')}</label>
+                <div className="flex gap-2">
+                  <select
+                    value={draft.expMonth}
+                    onChange={(e) => patchCard({ expMonth: Number(e.target.value) })}
+                    className={`${fld} w-28`}
+                  >
+                    {MONTHS.map((m) => (
+                      <option key={m} value={m}>
+                        {String(m).padStart(2, '0')}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={draft.expYear}
+                    onChange={(e) => patchCard({ expYear: Number(e.target.value) })}
+                    className={fld}
+                  >
+                    {YEARS.map((y) => (
+                      <option key={y} value={y}>
+                        {y}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* ── Identity ───────────────────────────────────────────────── */}
+          {draft.kind === 'identity' && (
+            <>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-first">
+                    {t('items.field.firstName')}
+                  </label>
+                  <input
+                    id="it-first"
+                    value={draft.firstName}
+                    autoComplete="off"
+                    onChange={(e) => patchIdentity({ firstName: e.target.value })}
+                    className={fld}
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-last">
+                    {t('items.field.lastName')}
+                  </label>
+                  <input
+                    id="it-last"
+                    value={draft.lastName}
+                    autoComplete="off"
+                    onChange={(e) => patchIdentity({ lastName: e.target.value })}
+                    className={fld}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className={lbl} htmlFor="it-email">
+                  {t('items.field.email')}
+                </label>
+                <input
+                  id="it-email"
+                  type="email"
+                  value={draft.email}
+                  autoComplete="off"
+                  onChange={(e) => patchIdentity({ email: e.target.value })}
+                  className={fld}
+                />
+              </div>
+              <div>
+                <label className={lbl} htmlFor="it-phone">
+                  {t('items.field.phone')}
+                </label>
+                <input
+                  id="it-phone"
+                  type="tel"
+                  value={draft.phone}
+                  autoComplete="off"
+                  onChange={(e) => patchIdentity({ phone: e.target.value })}
+                  className={fld}
+                />
+              </div>
+              <div>
+                <label className={lbl} htmlFor="it-address">
+                  {t('items.field.address')}
+                </label>
+                <textarea
+                  id="it-address"
+                  rows={3}
+                  value={draft.address}
+                  onChange={(e) => patchIdentity({ address: e.target.value })}
+                  className={`${fld} resize-y`}
+                />
+              </div>
+            </>
+          )}
+
+          {/* ── TOTP authenticator ─────────────────────────────────────── */}
+          {draft.kind === 'totp' && (
+            <>
+              <div>
+                <label className={lbl} htmlFor="it-totp-uri">
+                  {t('items.field.totpUri')}
+                </label>
+                <input
+                  id="it-totp-uri"
+                  value={draft.uri}
+                  autoComplete="off"
+                  onChange={(e) => patchTotp({ uri: e.target.value })}
+                  className={`${fld} font-mono text-xs`}
+                  placeholder="otpauth://totp/…"
+                />
+              </div>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-totp-issuer">
+                    {t('items.field.issuer')}
+                  </label>
+                  <input
+                    id="it-totp-issuer"
+                    value={draft.issuer}
+                    autoComplete="off"
+                    onChange={(e) => patchTotp({ issuer: e.target.value })}
+                    className={fld}
+                  />
+                </div>
+                <div className="flex-1">
+                  <label className={lbl} htmlFor="it-totp-account">
+                    {t('items.field.account')}
+                  </label>
+                  <input
+                    id="it-totp-account"
+                    value={draft.account}
+                    autoComplete="off"
+                    onChange={(e) => patchTotp({ account: e.target.value })}
+                    className={fld}
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Notes — shared (all kinds) */}
           <div>
-            <label className={label} htmlFor="it-notes">
+            <label className={lbl} htmlFor="it-notes">
               {t('items.field.notes')}
             </label>
             <textarea
@@ -239,21 +469,21 @@ export default function ItemEditor(): JSX.Element | null {
               rows={draft.kind === 'note' ? 6 : 3}
               value={draft.notes}
               onChange={(e) => patchBase({ notes: e.target.value })}
-              className={`${field} resize-y`}
+              className={`${fld} resize-y`}
             />
           </div>
 
           {/* Category + color + favorite */}
           <div className="flex flex-wrap items-end gap-4">
             <div className="min-w-40 flex-1">
-              <label className={label} htmlFor="it-cat">
+              <label className={lbl} htmlFor="it-cat">
                 {t('sidebar.categories')}
               </label>
               <select
                 id="it-cat"
                 value={draft.categoryId ?? ''}
                 onChange={(e) => patchBase({ categoryId: e.target.value || null })}
-                className={field}
+                className={fld}
               >
                 <option value="">{t('sidebar.uncategorized')}</option>
                 {categories.map((c) => (
@@ -264,7 +494,7 @@ export default function ItemEditor(): JSX.Element | null {
               </select>
             </div>
             <div>
-              <span className={label}>{t('items.field.color')}</span>
+              <span className={lbl}>{t('items.field.color')}</span>
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
@@ -355,8 +585,4 @@ export default function ItemEditor(): JSX.Element | null {
       </div>
     </div>
   )
-}
-
-function isEditable(item: VaultItem | null): item is Draft {
-  return item !== null && (item.kind === 'login' || item.kind === 'note')
 }

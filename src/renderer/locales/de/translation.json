@@ -26,7 +26,10 @@
     "favorites": "Favoriten",
     "categories": "Kategorien",
     "addCategory": "Kategorie hinzufügen",
-    "uncategorized": "Ohne Kategorie"
+    "uncategorized": "Ohne Kategorie",
+    "newCategoryPlaceholder": "Kategoriename…",
+    "renameCategory": "Umbenennen",
+    "deleteCategoryConfirm": "Löschen?"
   },
   "topbar": {
     "search": "Tresor durchsuchen…",
@@ -45,13 +48,30 @@
     "hide": "Verbergen",
     "noColor": "Keine Farbe",
     "confirmDelete": "Diesen Eintrag löschen?",
+    "copyPassword": "Passwort kopieren",
+    "copyUsername": "Benutzername kopieren",
+    "copyCardNumber": "Kartennummer kopieren",
+    "copyEmail": "E-Mail kopieren",
     "field": {
       "title": "Titel",
       "username": "Benutzername",
       "password": "Passwort",
       "url": "Website",
       "notes": "Notizen",
-      "color": "Farbe"
+      "color": "Farbe",
+      "cardholder": "Karteninhaber",
+      "cardNumber": "Kartennummer",
+      "brand": "Kartenmarke",
+      "expiry": "Ablaufdatum (MM / JJJJ)",
+      "cvv": "CVV",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse",
+      "totpUri": "otpauth-URI",
+      "issuer": "Aussteller",
+      "account": "Konto"
     },
     "kind": {
       "login": "Login",
@@ -105,5 +125,24 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "close": "Schließen"
+  },
+  "health": {
+    "title": "Passwort-Sicherheit",
+    "totalLogins": "Logins gesamt",
+    "safe": "Sicher",
+    "issues": "Probleme",
+    "allGood": "Alles in Ordnung",
+    "allGoodDetail": "Alle Ihre Passwörter sehen gut aus.",
+    "checkBreaches": "Auf Datenlecks prüfen",
+    "checking": "Prüfe…",
+    "breachError": "Datenleck-Datenbank nicht erreichbar. Verbindung prüfen.",
+    "breached": "Kompromittiert",
+    "breachCount": "In {{count}} Datenleck(s) gefunden",
+    "reason": {
+      "weak": "Schwaches Passwort",
+      "reused": "Wiederverwendet",
+      "old": "Älter als 180 Tage",
+      "breached": "Datenleck"
+    }
   }
 }

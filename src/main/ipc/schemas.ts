@@ -110,6 +110,10 @@ export const clipboardCopySchema = z.object({
   clearSeconds: z.number().int().min(0).max(600).optional()
 })
 
+export const breachCheckSchema = z.object({
+  password: z.string().min(1).max(10000)
+})
+
 export const settingsSchema = z.object({
   language: z.string().min(2).max(10),
   theme: z.enum(['light', 'dark', 'system']),

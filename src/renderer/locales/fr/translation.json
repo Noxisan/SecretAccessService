@@ -1,0 +1,142 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "Service d'Accès Sécurisé"
+  },
+  "unlock": {
+    "createTitle": "Créer votre coffre",
+    "createSubtitle": "Choisissez un mot de passe maître fort. Il ne quitte jamais cet appareil et ne peut pas être récupéré.",
+    "unlockTitle": "Déverrouiller votre coffre",
+    "masterPassword": "Mot de passe maître",
+    "confirmPassword": "Confirmer le mot de passe maître",
+    "create": "Créer le coffre",
+    "unlock": "Déverrouiller",
+    "mismatch": "Les mots de passe ne correspondent pas.",
+    "wrong": "Mot de passe maître incorrect ou coffre corrompu.",
+    "working": "Traitement en cours…",
+    "resetCta": "Pas de coffre ou mot de passe oublié ? En créer un nouveau",
+    "resetTitle": "Créer un nouveau coffre",
+    "resetConfirmTitle": "Effacer et recommencer ?",
+    "resetWarning": "Cela supprime définitivement le coffre existant et tout son contenu. Il n'y a pas de récupération possible — assurez-vous de ne plus en avoir besoin.",
+    "resetContinue": "Je comprends — continuer",
+    "back": "Retour"
+  },
+  "sidebar": {
+    "allItems": "Tous les éléments",
+    "favorites": "Favoris",
+    "categories": "Catégories",
+    "addCategory": "Ajouter une catégorie",
+    "uncategorized": "Non classifié",
+    "newCategoryPlaceholder": "Nom de la catégorie…",
+    "renameCategory": "Renommer",
+    "deleteCategoryConfirm": "Supprimer ?"
+  },
+  "topbar": {
+    "search": "Rechercher dans le coffre…",
+    "generator": "Générateur de mots de passe",
+    "settings": "Paramètres",
+    "lock": "Verrouiller",
+    "health": "Tableau de bord sécurité",
+    "language": "Langue",
+    "theme": "Changer de thème"
+  },
+  "items": {
+    "empty": "Aucun élément. Créez votre première entrée.",
+    "add": "Ajouter",
+    "edit": "Modifier l'élément",
+    "show": "Afficher",
+    "hide": "Masquer",
+    "noColor": "Pas de couleur",
+    "confirmDelete": "Supprimer cet élément ?",
+    "copyPassword": "Copier le mot de passe",
+    "copyUsername": "Copier l'identifiant",
+    "copyCardNumber": "Copier le numéro de carte",
+    "copyEmail": "Copier l'e-mail",
+    "field": {
+      "title": "Titre",
+      "username": "Identifiant",
+      "password": "Mot de passe",
+      "url": "Site web",
+      "notes": "Notes",
+      "color": "Couleur",
+      "cardholder": "Nom du titulaire",
+      "cardNumber": "Numéro de carte",
+      "brand": "Marque",
+      "expiry": "Expiration (MM / AAAA)",
+      "cvv": "CVV",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "totpUri": "URI otpauth",
+      "issuer": "Émetteur",
+      "account": "Compte"
+    },
+    "kind": {
+      "login": "Connexion",
+      "note": "Note sécurisée",
+      "card": "Carte bancaire",
+      "identity": "Identité",
+      "totp": "Authentificateur"
+    }
+  },
+  "generator": {
+    "title": "Générateur de mots de passe",
+    "length": "Longueur",
+    "uppercase": "Majuscules (A-Z)",
+    "lowercase": "Minuscules (a-z)",
+    "digits": "Chiffres (0-9)",
+    "symbols": "Symboles",
+    "excludeAmbiguous": "Exclure les caractères ambigus",
+    "mode": "Mode",
+    "characters": "Caractères",
+    "passphrase": "Phrase secrète",
+    "words": "Mots",
+    "separator": "Séparateur",
+    "generate": "Générer",
+    "regenerate": "Régénérer",
+    "copy": "Copier",
+    "copied": "Copié",
+    "strength": "Force",
+    "entropyBits": "{{bits}} bits d'entropie",
+    "noClass": "Sélectionnez au moins une classe de caractères.",
+    "level": {
+      "veryWeak": "Très faible",
+      "weak": "Faible",
+      "fair": "Moyen",
+      "strong": "Fort",
+      "veryStrong": "Très fort"
+    }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "theme": "Thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système",
+    "language": "Langue",
+    "autoLock": "Verrouillage automatique après (minutes)",
+    "clipboardClear": "Vider le presse-papiers après (secondes)",
+    "accent": "Couleur d'accentuation"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "close": "Fermer"
+  },
+  "health": {
+    "title": "Sécurité des mots de passe",
+    "totalLogins": "Connexions totales",
+    "safe": "Sains",
+    "issues": "Problèmes",
+    "allGood": "Tout va bien",
+    "allGoodDetail": "Tous vos mots de passe semblent sains.",
+    "reason": {
+      "weak": "Mot de passe faible",
+      "reused": "Réutilisé",
+      "old": "Plus de 180 jours"
+    }
+  }
+}
