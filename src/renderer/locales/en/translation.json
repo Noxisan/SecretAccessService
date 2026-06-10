@@ -29,7 +29,9 @@
     "uncategorized": "Uncategorized",
     "newCategoryPlaceholder": "Category name…",
     "renameCategory": "Rename",
-    "deleteCategoryConfirm": "Delete?"
+    "deleteCategoryConfirm": "Delete?",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
   },
   "topbar": {
     "search": "Search vault…",
@@ -51,6 +53,8 @@
     "confirmDelete": "Delete this item?",
     "copyPassword": "Copy password",
     "copyUsername": "Copy username",
+    "passwordHistory": "Password history ({{count}})",
+    "restorePassword": "Restore this password",
     "copyCardNumber": "Copy card number",
     "copyEmail": "Copy email",
     "field": {

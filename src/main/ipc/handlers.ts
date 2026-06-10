@@ -351,4 +351,10 @@ export function registerIpcHandlers(opts: {
 
     return { imported: incoming.length, replaced: mode === 'replace' }
   })
+
+  // Lightweight heartbeat: the renderer sends this on mouse/keyboard activity so
+  // the idle auto-lock timer resets even when no vault IPC calls are in flight.
+  // No payload; no return value. onActivity() is already called by the `handle`
+  // wrapper above, so just registering the channel is sufficient.
+  handle<void>(IPC.activityPing, () => { /* side-effect via onActivity() wrapper */ })
 }

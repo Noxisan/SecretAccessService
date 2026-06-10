@@ -29,7 +29,9 @@
     "uncategorized": "Non classifié",
     "newCategoryPlaceholder": "Nom de la catégorie…",
     "renameCategory": "Renommer",
-    "deleteCategoryConfirm": "Supprimer ?"
+    "deleteCategoryConfirm": "Supprimer ?",
+    "collapse": "Réduire la barre latérale",
+    "expand": "Développer la barre latérale"
   },
   "topbar": {
     "search": "Rechercher dans le coffre…",
@@ -80,7 +82,9 @@
       "card": "Carte bancaire",
       "identity": "Identité",
       "totp": "Authentificateur"
-    }
+    },
+    "passwordHistory": "Historique des mots de passe ({{count}})",
+    "restorePassword": "Restaurer ce mot de passe"
   },
   "generator": {
     "title": "Générateur de mots de passe",

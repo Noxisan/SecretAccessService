@@ -52,7 +52,9 @@ const api = {
       password?: string,
       mode: 'merge' | 'replace' = 'merge'
     ): Promise<{ imported: number; replaced: boolean }> =>
-      ipcRenderer.invoke(IPC.vaultImport, { filePath, password, mode })
+      ipcRenderer.invoke(IPC.vaultImport, { filePath, password, mode }),
+    /** Notify the main process of user activity to reset the idle auto-lock timer. */
+    pingActivity: (): Promise<void> => ipcRenderer.invoke(IPC.activityPing)
   },
   settings: {
     get: (): Promise<AppSettings> => ipcRenderer.invoke(IPC.settingsGet),

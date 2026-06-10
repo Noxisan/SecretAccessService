@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-06-10
+
+UX polish and security hardening: idle auto-lock now works correctly,
+the sidebar is collapsible, and password history is browsable in-editor.
+
+### Added
+- **Collapsible sidebar** — a ChevronLeft button at the top of the
+  sidebar collapses it to a 48 px icon strip showing All Items, Favorites,
+  and each category as a colour-dot or folder icon. ChevronRight expands
+  it again. State is not persisted, so it opens full on each launch.
+- **Idle auto-lock heartbeat** — the renderer now listens for `mousemove`
+  and `keydown` events and fires a lightweight `tools:activityPing` IPC
+  call at most once per 30 s. Previously the idle timer only reset on
+  explicit vault IPC traffic, so a user reading their vault without
+  clicking anything would be locked out prematurely. The timer now resets
+  correctly on any user interaction.
+- **Password history viewer** — login items in edit mode show a
+  collapsible "Password history (N)" section below the URL field when
+  previous passwords exist. Each entry shows the replacement date, a
+  masked password with a show/hide toggle, and a Restore button that
+  promotes the old password to the active field (useful after an accidental
+  overwrite). All 11 locales updated.
+
 ## [0.4.0] - 2026-06-10
 
 Migration and backup release: move between devices, restore from backup,
@@ -118,7 +141,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/sas/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/Noxisan/sas/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/Noxisan/sas/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/Noxisan/sas/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/Noxisan/sas/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Noxisan/sas/compare/v0.1.0...v0.2.0

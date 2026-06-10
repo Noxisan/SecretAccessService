@@ -29,7 +29,9 @@
     "uncategorized": "بدون فئة",
     "newCategoryPlaceholder": "اسم الفئة…",
     "renameCategory": "إعادة تسمية",
-    "deleteCategoryConfirm": "حذف؟"
+    "deleteCategoryConfirm": "حذف؟",
+    "collapse": "طي الشريط الجانبي",
+    "expand": "توسيع الشريط الجانبي"
   },
   "topbar": {
     "search": "البحث في الخزينة…",
@@ -80,7 +82,9 @@
       "card": "بطاقة ائتمان",
       "identity": "هوية",
       "totp": "المصادق"
-    }
+    },
+    "passwordHistory": "سجل كلمات المرور ({{count}})",
+    "restorePassword": "استعادة كلمة المرور هذه"
   },
   "generator": {
     "title": "مولّد كلمات المرور",

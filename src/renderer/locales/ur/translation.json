@@ -29,7 +29,9 @@
     "uncategorized": "غیر زمرہ بند",
     "newCategoryPlaceholder": "زمرے کا نام…",
     "renameCategory": "نام تبدیل کریں",
-    "deleteCategoryConfirm": "حذف کریں؟"
+    "deleteCategoryConfirm": "حذف کریں؟",
+    "collapse": "سائڈبار چھوٹا کریں",
+    "expand": "سائڈبار بڑا کریں"
   },
   "topbar": {
     "search": "والٹ میں تلاش کریں…",
@@ -80,7 +82,9 @@
       "card": "کریڈٹ کارڈ",
       "identity": "شناخت",
       "totp": "توثیق کار"
-    }
+    },
+    "passwordHistory": "پاس ورڈ کی تاریخ ({{count}})",
+    "restorePassword": "یہ پاس ورڈ بحال کریں"
   },
   "generator": {
     "title": "پاسورڈ جنریٹر",

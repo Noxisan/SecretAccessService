@@ -21,6 +21,7 @@ interface AppState {
   settingsOpen: boolean
   healthOpen: boolean
   importExportOpen: boolean
+  sidebarCollapsed: boolean
 
   setStatus: (status: VaultStatus) => void
   setVault: (vault: VaultData | null) => void
@@ -34,6 +35,7 @@ interface AppState {
   setSettingsOpen: (open: boolean) => void
   setHealthOpen: (open: boolean) => void
   setImportExportOpen: (open: boolean) => void
+  setSidebarCollapsed: (collapsed: boolean) => void
   /** Wipe all decrypted state from renderer memory. */
   clearSecrets: () => void
 }
@@ -52,6 +54,7 @@ export const useAppStore = create<AppState>((set) => ({
   settingsOpen: false,
   healthOpen: false,
   importExportOpen: false,
+  sidebarCollapsed: false,
 
   setStatus: (status) => set({ status }),
   setVault: (vault) => set({ vault }),
@@ -66,6 +69,7 @@ export const useAppStore = create<AppState>((set) => ({
   setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
   setHealthOpen: (healthOpen) => set({ healthOpen }),
   setImportExportOpen: (importExportOpen) => set({ importExportOpen }),
+  setSidebarCollapsed: (sidebarCollapsed) => set({ sidebarCollapsed }),
   clearSecrets: () =>
     set({
       vault: null,

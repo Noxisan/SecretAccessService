@@ -29,7 +29,9 @@
     "uncategorized": "Без категории",
     "newCategoryPlaceholder": "Название категории…",
     "renameCategory": "Переименовать",
-    "deleteCategoryConfirm": "Удалить?"
+    "deleteCategoryConfirm": "Удалить?",
+    "collapse": "Свернуть боковую панель",
+    "expand": "Развернуть боковую панель"
   },
   "topbar": {
     "search": "Поиск в хранилище…",
@@ -80,7 +82,9 @@
       "card": "Банковская карта",
       "identity": "Личные данные",
       "totp": "Аутентификатор"
-    }
+    },
+    "passwordHistory": "История паролей ({{count}})",
+    "restorePassword": "Восстановить этот пароль"
   },
   "generator": {
     "title": "Генератор паролей",
