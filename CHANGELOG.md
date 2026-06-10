@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-06-10
+
+Code quality: import parsers extracted to a testable module; test suite grows
+from 40 to 75 tests.
+
+### Changed
+- **Refactored import parsers** — `parseCsv`, `parseBitwardenJson`, and
+  `isBitwardenJson` moved from `src/main/ipc/handlers.ts` into a new
+  dedicated module `src/main/tools/importParsers.ts`. No behaviour change;
+  the IPC handler still calls the same functions via the new import.
+- **35 new unit tests** covering `parseCsv` (Bitwarden/LastPass/generic CSV,
+  quoted fields, RFC 4180 double-quote escaping, TOTP column, blank lines,
+  unique IDs), `isBitwardenJson` (detection accuracy, edge cases), and
+  `parseBitwardenJson` (all four item types, custom fields, encrypted-export
+  error, missing fields, unknown type skipping). Total test count: 75.
+
 ## [0.15.0] - 2026-06-10
 
 Quality-of-life: duplicate any vault entry in one click.
@@ -337,7 +353,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.16.0...HEAD
+[0.16.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...v0.14.0
 [0.13.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.12.0...v0.13.0
