@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-06-10
+
+Proactive health awareness: a red count badge appears on the health button
+whenever the vault contains weak, reused, or old passwords.
+
+### Added
+- **Health issue badge** — the Activity icon in the top bar now shows a small
+  red count badge (capped at 99+) when the vault has at least one password
+  issue (weak, reused, or older than 180 days). The count is computed locally
+  in the renderer from vault state; no network call is needed. Breach issues
+  remain opt-in via the "Check breaches" button inside the health dashboard.
+
+### Changed
+- `analyzeVault` extracted from `HealthDashboard` into a standalone module
+  (`src/renderer/src/features/health/analyzeVault.ts`). Both the TopBar badge
+  and the dashboard now share the same logic. Exports: `analyzeVault`,
+  `BreachMap`, `HealthIssue`, `WEAK_SCORE`, `OLD_DAYS`.
+- 12 new unit tests for `analyzeVault` covering all issue categories,
+  multi-reason accumulation, safe tallies, and constant exports.
+  Total test count: 87.
+
 ## [0.17.0] - 2026-06-10
 
 Generator settings are now remembered across sessions.
