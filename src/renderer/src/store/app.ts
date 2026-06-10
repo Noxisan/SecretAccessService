@@ -21,6 +21,7 @@ interface AppState {
   settingsOpen: boolean
   healthOpen: boolean
   importExportOpen: boolean
+  changePasswordOpen: boolean
   sidebarCollapsed: boolean
   /** Session-only: whether travel mode is currently active. */
   travelMode: boolean
@@ -37,6 +38,7 @@ interface AppState {
   setSettingsOpen: (open: boolean) => void
   setHealthOpen: (open: boolean) => void
   setImportExportOpen: (open: boolean) => void
+  setChangePasswordOpen: (open: boolean) => void
   setSidebarCollapsed: (collapsed: boolean) => void
   setTravelMode: (on: boolean) => void
   /** Wipe all decrypted state from renderer memory. */
@@ -57,6 +59,7 @@ export const useAppStore = create<AppState>((set) => ({
   settingsOpen: false,
   healthOpen: false,
   importExportOpen: false,
+  changePasswordOpen: false,
   sidebarCollapsed: false,
   travelMode: false,
 
@@ -73,6 +76,7 @@ export const useAppStore = create<AppState>((set) => ({
   setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
   setHealthOpen: (healthOpen) => set({ healthOpen }),
   setImportExportOpen: (importExportOpen) => set({ importExportOpen }),
+  setChangePasswordOpen: (changePasswordOpen) => set({ changePasswordOpen }),
   setSidebarCollapsed: (sidebarCollapsed) => set({ sidebarCollapsed }),
   setTravelMode: (travelMode) => set({ travelMode }),
   clearSecrets: () =>

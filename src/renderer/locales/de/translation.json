@@ -139,7 +139,21 @@
     "clipboardClear": "Zwischenablage leeren nach (Sekunden)",
     "accent": "Akzentfarbe",
     "maxFailedAttempts": "Selbstzerstörung nach (fehlgeschlagenen Versuchen)",
-    "maxFailedAttemptsHint": "Der Tresor wird nach dieser Anzahl falscher Passwörter unwiderruflich gelöscht. 0 = deaktiviert."
+    "maxFailedAttemptsHint": "Der Tresor wird nach dieser Anzahl falscher Passwörter unwiderruflich gelöscht. 0 = deaktiviert.",
+    "changePassword": "Master-Passwort ändern"
+  },
+  "changePw": {
+    "title": "Master-Passwort ändern",
+    "hint": "Der Tresor wird sofort mit dem neuen Master-Passwort neu verschlüsselt.",
+    "currentPassword": "Aktuelles Master-Passwort",
+    "newPassword": "Neues Master-Passwort",
+    "confirmPassword": "Neues Master-Passwort bestätigen",
+    "mismatch": "Passwörter stimmen nicht überein.",
+    "wrong": "Das aktuelle Master-Passwort ist falsch.",
+    "emptyNew": "Das neue Master-Passwort darf nicht leer sein.",
+    "success": "Master-Passwort erfolgreich geändert.",
+    "submit": "Passwort ändern",
+    "changing": "Ändere…"
   },
   "common": {
     "save": "Speichern",

@@ -139,7 +139,21 @@
     "clipboardClear": "Vider le presse-papiers après (secondes)",
     "accent": "Couleur d'accentuation",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "changePassword": "Changer le mot de passe principal"
+  },
+  "changePw": {
+    "title": "Changer le mot de passe principal",
+    "hint": "Le coffre sera immédiatement re-chiffré avec le nouveau mot de passe principal.",
+    "currentPassword": "Mot de passe principal actuel",
+    "newPassword": "Nouveau mot de passe principal",
+    "confirmPassword": "Confirmer le nouveau mot de passe principal",
+    "mismatch": "Les mots de passe ne correspondent pas.",
+    "wrong": "Le mot de passe principal actuel est incorrect.",
+    "emptyNew": "Le nouveau mot de passe principal ne peut pas être vide.",
+    "success": "Mot de passe principal modifié avec succès.",
+    "submit": "Changer le mot de passe",
+    "changing": "Modification…"
   },
   "common": {
     "save": "Enregistrer",

@@ -139,7 +139,21 @@
     "clipboardClear": "مسح الحافظة بعد (ثوانٍ)",
     "accent": "لون التمييز",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled."
+    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "changePassword": "تغيير كلمة المرور الرئيسية"
+  },
+  "changePw": {
+    "title": "تغيير كلمة المرور الرئيسية",
+    "hint": "سيتم إعادة تشفير الخزينة فورًا بكلمة المرور الرئيسية الجديدة.",
+    "currentPassword": "كلمة المرور الرئيسية الحالية",
+    "newPassword": "كلمة المرور الرئيسية الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور الرئيسية الجديدة",
+    "mismatch": "كلمتا المرور غير متطابقتين.",
+    "wrong": "كلمة المرور الرئيسية الحالية غير صحيحة.",
+    "emptyNew": "لا يمكن أن تكون كلمة المرور الرئيسية الجديدة فارغة.",
+    "success": "تم تغيير كلمة المرور الرئيسية بنجاح.",
+    "submit": "تغيير كلمة المرور",
+    "changing": "جارٍ التغيير…"
   },
   "common": {
     "save": "حفظ",
