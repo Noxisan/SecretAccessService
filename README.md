@@ -134,6 +134,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.16.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.16.0) | 2026-06-10 | Import parsers extracted; test suite grows from 40 to 75 tests |
 | [0.15.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.15.0) | 2026-06-10 | Duplicate entry button in item editor |
 | [0.14.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.14.0) | 2026-06-10 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds |
 | [0.13.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.13.0) | 2026-06-10 | Passkey storage; full i18n coverage for travel mode, panic lock, and breach check |
