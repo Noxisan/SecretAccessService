@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useRef, type JSX } from 'react'
+import { useCallback, useEffect, useMemo, useRef, type JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight, Plane } from 'lucide-react'
 import { useAppStore } from '../store/app'
+import { analyzeVault } from '../features/health/analyzeVault'
+import type { LoginItem } from '@shared/types'
 
 /** Narrow top bar: search + app-level tools (CLAUDE.md §7). */
 export default function TopBar(): JSX.Element {
@@ -15,7 +17,18 @@ export default function TopBar(): JSX.Element {
   const travelMode = useAppStore((s) => s.travelMode)
   const setTravelMode = useAppStore((s) => s.setTravelMode)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
+  const vault = useAppStore((s) => s.vault)
   const searchRef = useRef<HTMLInputElement>(null)
+
+  const logins = useMemo<LoginItem[]>(
+    () => (vault?.items ?? []).filter((i): i is LoginItem => i.kind === 'login'),
+    [vault]
+  )
+  // Compute issue count without breach data — breaches stay opt-in in the dashboard.
+  const healthIssueCount = useMemo(
+    () => analyzeVault(logins, new Map()).issues.length,
+    [logins]
+  )
 
   const lock = useCallback(async () => {
     await window.sas.vault.lock()
@@ -70,12 +83,17 @@ export default function TopBar(): JSX.Element {
           <KeyRound size={18} />
         </button>
         <button
-          className={iconBtn}
+          className={`relative ${iconBtn}`}
           onClick={() => setHealthOpen(true)}
           title={t('topbar.health')}
           aria-label={t('topbar.health')}
         >
           <Activity size={18} />
+          {healthIssueCount > 0 && (
+            <span className="absolute top-1 right-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--danger)] px-0.5 text-[10px] font-bold leading-none text-white">
+              {healthIssueCount > 99 ? '99+' : healthIssueCount}
+            </span>
+          )}
         </button>
         <button
           className={iconBtn}
