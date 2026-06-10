@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-06-10
+
+Migration and backup release: move between devices, restore from backup,
+and import from other password managers.
+
+### Added
+- **Encrypted vault export** — top-bar "Import / Export" button opens a
+  new modal. The Export tab derives a standalone Argon2id key from a
+  user-supplied backup password, then seals the full vault JSON with
+  XChaCha20-Poly1305 and writes a `.sasbak` file. The master password is
+  never reused for backups; each export gets its own random salt and nonce.
+  A native save dialog lets the user choose where to put the file.
+- **`.sasbak` encrypted import** — supply the backup password to decrypt
+  and restore. Merge mode keeps existing items and appends new ones; Replace
+  mode overwrites all items. The import runs fully in the main process; no
+  plaintext ever touches the renderer.
+- **CSV import** — accepts exports from Bitwarden, LastPass, and any
+  manager that produces standard columns (`name/title`, `login_username/
+  username`, `login_password/password`, `login_uri/url`, `notes`,
+  `login_totp/totp`). Full RFC 4180 parser handles quoted fields and
+  embedded commas. A warning banner is shown before importing because CSV
+  files are plaintext.
+- **Import mode selector** — choose *Merge* (safe default: only adds items
+  not already present by ID) or *Replace* (destructive: clears vault and
+  imports fresh). UI clearly explains the difference.
+- All 11 UI locales updated with Import / Export translations.
+
 ## [0.3.0] - 2026-06-10
 
 A major quality-of-life release: all five vault item types are now fully
@@ -91,6 +118,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/sas/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Noxisan/sas/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/Noxisan/sas/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/Noxisan/sas/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/Noxisan/sas/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Noxisan/sas/releases/tag/v0.1.0
