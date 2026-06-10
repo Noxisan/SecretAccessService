@@ -132,7 +132,8 @@ export const settingsSchema = z.object({
   autoLockMinutes: z.number().int().min(0).max(1440),
   clipboardClearSeconds: z.number().int().min(0).max(600),
   maxFailedAttempts: z.number().int().min(0).max(100),
-  travelHiddenCategoryIds: z.array(z.string()).max(500)
+  travelHiddenCategoryIds: z.array(z.string()).max(500),
+  generatorDefaults: generatePasswordSchema.optional()
 })
 
 export const changePasswordSchema = z.object({
