@@ -123,6 +123,8 @@ export interface AppSettings {
   maxFailedAttempts: number
   /** Category IDs that are hidden while travel mode is active. */
   travelHiddenCategoryIds: string[]
+  /** Last-used password generator options — restored when the generator modal opens. */
+  generatorDefaults?: GeneratePasswordOptions | undefined
 }
 
 export type VaultStatus = 'absent' | 'locked' | 'unlocked'
