@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-06-10
+
+Passkey storage, full i18n coverage, and breach-check localization.
+
+### Added
+- **Passkey storage** — a new "Passkey" item type lets users record WebAuthn /
+  FIDO2 credentials as reference entries. Fields: relying party domain, relying
+  party name, username, display name, credential ID (base64). The private key
+  stays in the OS/hardware authenticator and is never stored; the entry is an
+  organisational record so users know which services have passkeys set up.
+  Searchable, sortable, and colour-taggable like all other item types.
+- **Breach-check strings** for all 9 non-English/German locales — the health
+  dashboard's "Check for breaches", checking indicator, error message, and
+  breach count labels are now fully translated.
+
+### Fixed
+- Travel-mode and panic-lock UI strings (`travelHide`, `travelMode`,
+  `maxFailedAttempts`, `maxFailedAttemptsHint`, `attemptsRemaining`) that were
+  left in English in 9 non-German locales are now translated.
+
 ## [0.12.0] - 2026-06-10
 
 OS keychain integration: unlock the vault with a single click after the
@@ -282,7 +302,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.9.0...v0.10.0
