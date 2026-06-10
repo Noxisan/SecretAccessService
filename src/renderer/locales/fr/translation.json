@@ -20,7 +20,7 @@
     "resetWarning": "Cela supprime définitivement le coffre existant et tout son contenu. Il n'y a pas de récupération possible — assurez-vous de ne plus en avoir besoin.",
     "resetContinue": "Je comprends — continuer",
     "back": "Retour",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "Avertissement : {{remaining}} tentative(s) restante(s) avant la suppression définitive du coffre (limite : {{max}}).",
     "quickUnlock": "Déverrouiller avec les identifiants enregistrés",
     "quickUnlockHint": "Votre mot de passe principal est protégé par le trousseau du système.",
     "quickUnlockOutdated": "Les identifiants enregistrés sont obsolètes. Veuillez déverrouiller avec votre mot de passe principal.",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "Supprimer ?",
     "collapse": "Réduire la barre latérale",
     "expand": "Développer la barre latérale",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "Masquer en mode voyage"
   },
   "topbar": {
     "search": "Rechercher dans le coffre…",
@@ -49,7 +49,7 @@
     "language": "Langue",
     "theme": "Changer de thème",
     "importExport": "Importer / Exporter",
-    "travelMode": "Travel mode"
+    "travelMode": "Mode voyage"
   },
   "items": {
     "empty": "Aucun élément. Créez votre première entrée.",
@@ -151,8 +151,8 @@
     "autoLock": "Verrouillage automatique après (minutes)",
     "clipboardClear": "Vider le presse-papiers après (secondes)",
     "accent": "Couleur d'accentuation",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "Auto-destruction après (tentatives échouées)",
+    "maxFailedAttemptsHint": "Le coffre est définitivement supprimé après ce nombre de mauvais mots de passe. 0 = désactivé.",
     "changePassword": "Changer le mot de passe principal",
     "deviceUnlockSaved": "Les identifiants de l'appareil sont enregistrés dans le trousseau du système.",
     "deviceUnlockClear": "Supprimer les identifiants enregistrés",

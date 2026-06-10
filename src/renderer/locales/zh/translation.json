@@ -20,7 +20,7 @@
     "resetWarning": "这将永久删除现有密码库及其所有内容，无法恢复。请确认您不再需要其中的数据。",
     "resetContinue": "我已了解 — 继续",
     "back": "返回",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "警告：还剩 {{remaining}} 次尝试，保险库将被永久删除（限制：{{max}}）。",
     "quickUnlock": "使用已保存的凭据解锁",
     "quickUnlockHint": "您的主密码受操作系统密钥链保护。",
     "quickUnlockOutdated": "已保存的凭据已过期。请使用主密码解锁。",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "删除？",
     "collapse": "折叠侧边栏",
     "expand": "展开侧边栏",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "在旅行模式下隐藏"
   },
   "topbar": {
     "search": "搜索密码库…",
@@ -49,7 +49,7 @@
     "language": "语言",
     "theme": "切换主题",
     "importExport": "导入 / 导出",
-    "travelMode": "Travel mode"
+    "travelMode": "旅行模式"
   },
   "items": {
     "empty": "暂无项目，创建您的第一条记录。",
@@ -151,8 +151,8 @@
     "autoLock": "自动锁定（分钟后）",
     "clipboardClear": "清除剪贴板（秒后）",
     "accent": "强调色",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "自毁于（失败尝试次数）",
+    "maxFailedAttemptsHint": "输入此数量的错误密码后，保险库将被永久删除。0 = 禁用。",
     "changePassword": "更改主密码",
     "deviceUnlockSaved": "设备凭据已保存到操作系统密钥链。",
     "deviceUnlockClear": "删除已保存的凭据",

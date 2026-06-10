@@ -20,7 +20,7 @@
     "resetWarning": "Esto elimina permanentemente la bóveda existente y todo lo almacenado. No hay recuperación posible — asegúrate de no necesitar su contenido.",
     "resetContinue": "Entiendo — continuar",
     "back": "Atrás",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "Advertencia: {{remaining}} intento(s) restante(s) antes de que el almacén se elimine permanentemente (límite: {{max}}).",
     "quickUnlock": "Desbloquear con credenciales guardadas",
     "quickUnlockHint": "Tu contraseña maestra está protegida por el llavero del sistema.",
     "quickUnlockOutdated": "Las credenciales guardadas están desactualizadas. Por favor desbloquea con tu contraseña maestra.",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "¿Eliminar?",
     "collapse": "Contraer barra lateral",
     "expand": "Expandir barra lateral",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "Ocultar en modo viaje"
   },
   "topbar": {
     "search": "Buscar en bóveda…",
@@ -49,7 +49,7 @@
     "language": "Idioma",
     "theme": "Cambiar tema",
     "importExport": "Importar / Exportar",
-    "travelMode": "Travel mode"
+    "travelMode": "Modo viaje"
   },
   "items": {
     "empty": "Sin elementos. Crea tu primera entrada.",
@@ -151,8 +151,8 @@
     "autoLock": "Bloqueo automático tras (minutos)",
     "clipboardClear": "Limpiar portapapeles tras (segundos)",
     "accent": "Color de acento",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "Autodestrucción tras (intentos fallidos)",
+    "maxFailedAttemptsHint": "El almacén se elimina permanentemente tras este número de contraseñas incorrectas. 0 = desactivado.",
     "changePassword": "Cambiar contraseña maestra",
     "deviceUnlockSaved": "Las credenciales del dispositivo están guardadas en el llavero del sistema.",
     "deviceUnlockClear": "Eliminar credenciales guardadas",

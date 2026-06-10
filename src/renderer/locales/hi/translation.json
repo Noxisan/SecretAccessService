@@ -20,7 +20,7 @@
     "resetWarning": "यह मौजूदा वॉल्ट और उसमें संग्रहीत सभी डेटा को स्थायी रूप से मिटा देगा। कोई पुनर्प्राप्ति नहीं होगी — सुनिश्चित करें कि आपको इसकी ज़रूरत नहीं है।",
     "resetContinue": "मैं समझता/समझती हूँ — जारी रखें",
     "back": "वापस",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "attemptsRemaining": "चेतावनी: वॉल्ट स्थायी रूप से हटाए जाने से पहले {{remaining}} प्रयास शेष हैं (सीमा: {{max}})।",
     "quickUnlock": "सहेजे गए क्रेडेंशियल से अनलॉक करें",
     "quickUnlockHint": "आपका मास्टर पासवर्ड ओएस कीचेन द्वारा सुरक्षित है।",
     "quickUnlockOutdated": "सहेजे गए क्रेडेंशियल पुराने हैं। कृपया अपने मास्टर पासवर्ड से अनलॉक करें।",
@@ -38,7 +38,7 @@
     "deleteCategoryConfirm": "मिटाएँ?",
     "collapse": "साइडबार संकुचित करें",
     "expand": "साइडबार विस्तार करें",
-    "travelHide": "Hide in travel mode"
+    "travelHide": "यात्रा मोड में छिपाएं"
   },
   "topbar": {
     "search": "वॉल्ट में खोजें…",
@@ -49,7 +49,7 @@
     "language": "भाषा",
     "theme": "थीम बदलें",
     "importExport": "आयात / निर्यात",
-    "travelMode": "Travel mode"
+    "travelMode": "यात्रा मोड"
   },
   "items": {
     "empty": "कोई आइटम नहीं। अपनी पहली प्रविष्टि बनाएँ।",
@@ -151,8 +151,8 @@
     "autoLock": "स्वतः लॉक (मिनटों में)",
     "clipboardClear": "क्लिपबोर्ड साफ़ करें (सेकंड में)",
     "accent": "एक्सेंट रंग",
-    "maxFailedAttempts": "Self-destruct after (failed attempts)",
-    "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
+    "maxFailedAttempts": "स्वयं-नष्ट के बाद (असफल प्रयास)",
+    "maxFailedAttemptsHint": "इतने गलत पासवर्ड के बाद वॉल्ट स्थायी रूप से हटा दिया जाएगा। 0 = अक्षम।",
     "changePassword": "मास्टर पासवर्ड बदलें",
     "deviceUnlockSaved": "डिवाइस क्रेडेंशियल ओएस कीचेन में सहेजे गए हैं।",
     "deviceUnlockClear": "सहेजे गए क्रेडेंशियल हटाएं",
