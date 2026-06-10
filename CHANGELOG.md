@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-06-10
+
+UX polish: sort the item list any way you like, and see at a glance how many
+items live in each category.
+
+### Added
+- **Item sort options** — a compact sort selector appears in the item list
+  header. Choose from: A → Z (default), Z → A, Recently modified (newest
+  `updatedAt` first), Oldest first (by `createdAt`), or By type (groups all
+  logins, notes, cards, etc. together, then alphabetically within each group).
+  The selected sort is session-scoped; it resets to A → Z on next launch.
+  All 11 locales updated.
+- **Category item-count badges** — the sidebar now shows a muted count next
+  to each category name, as well as next to "All items" and "Favorites". Counts
+  are computed in the renderer from the in-memory vault data (no IPC). Zero
+  counts are hidden to keep the sidebar uncluttered.
+
 ## [0.10.0] - 2026-06-10
 
 Security feature: change the master password while the vault is unlocked,
@@ -241,7 +258,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.7.0...v0.8.0
