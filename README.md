@@ -78,7 +78,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Panic lock / self-destruct after N failed unlock attempts | Done |
 | Passkeys / FIDO2 / WebAuthn storage | Planned |
 | Biometric / OS unlock (safeStorage + Windows Hello / polkit) | Planned |
-| Travel mode — temporarily hide selected categories | Planned |
+| Travel mode — hide selected categories and their items with a single toggle | Done |
 | Emergency access with configurable wait period | Planned |
 | Auto-type / global hotkey | Planned |
 
@@ -129,6 +129,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.9.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.9.0) | 2026-06-10 | Travel mode — hide selected categories and their items on demand |
 | [0.8.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.8.0) | 2026-06-10 | Panic lock — vault self-destruct after N failed attempts |
 | [0.7.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.7.0) | 2026-06-10 | Embedded TOTP in login items; Ctrl+F / Ctrl+L keyboard shortcuts |
 | [0.6.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.6.0) | 2026-06-10 | Custom fields per entry |
