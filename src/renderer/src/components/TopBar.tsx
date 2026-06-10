@@ -1,4 +1,4 @@
-import { useEffect, useRef, type JSX } from 'react'
+import { useCallback, useEffect, useRef, type JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight } from 'lucide-react'
 import { useAppStore } from '../store/app'
@@ -15,6 +15,11 @@ export default function TopBar(): JSX.Element {
   const clearSecrets = useAppStore((s) => s.clearSecrets)
   const searchRef = useRef<HTMLInputElement>(null)
 
+  const lock = useCallback(async () => {
+    await window.sas.vault.lock()
+    clearSecrets()
+  }, [clearSecrets])
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent): void => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
@@ -22,15 +27,14 @@ export default function TopBar(): JSX.Element {
         searchRef.current?.focus()
         searchRef.current?.select()
       }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+        e.preventDefault()
+        void lock()
+      }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
-
-  async function lock(): Promise<void> {
-    await window.sas.vault.lock()
-    clearSecrets()
-  }
+  }, [lock])
 
   const iconBtn =
     'grid h-9 w-9 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]'
@@ -96,7 +100,7 @@ export default function TopBar(): JSX.Element {
           <Settings size={18} />
         </button>
         <button
-          onClick={() => void lock()}
+          onClick={() => { void lock() }}
           className="ml-1 flex h-9 items-center gap-1.5 rounded-[var(--radius)] px-3 text-sm text-[var(--accent-contrast)]"
           style={{ background: 'var(--accent)' }}
           title={t('topbar.lock')}
