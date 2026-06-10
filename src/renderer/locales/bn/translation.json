@@ -20,7 +20,12 @@
     "resetWarning": "এটি বিদ্যমান ভল্ট এবং সংরক্ষিত সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলবে। পুনরুদ্ধার সম্ভব নয় — নিশ্চিত করুন যে আপনার এটির প্রয়োজন নেই।",
     "resetContinue": "আমি বুঝেছি — চালিয়ে যান",
     "back": "ফিরে যান",
-    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}})."
+    "attemptsRemaining": "Warning: {{remaining}} attempt(s) remaining before the vault is permanently deleted (limit: {{max}}).",
+    "quickUnlock": "সংরক্ষিত শংসাপত্র দিয়ে আনলক করুন",
+    "quickUnlockHint": "আপনার মাস্টার পাসওয়ার্ড ওএস কীচেইন দ্বারা সুরক্ষিত।",
+    "quickUnlockOutdated": "সংরক্ষিত শংসাপত্র পুরানো হয়ে গেছে। আপনার মাস্টার পাসওয়ার্ড দিয়ে আনলক করুন।",
+    "usePassword": "পরিবর্তে মাস্টার পাসওয়ার্ড ব্যবহার করুন",
+    "saveDevice": "এই ডিভাইসটি মনে রাখুন"
   },
   "sidebar": {
     "allItems": "সব আইটেম",
@@ -148,7 +153,10 @@
     "accent": "অ্যাকসেন্ট রঙ",
     "maxFailedAttempts": "Self-destruct after (failed attempts)",
     "maxFailedAttemptsHint": "Vault is permanently deleted after this many wrong passwords. 0 = disabled.",
-    "changePassword": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন"
+    "changePassword": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",
+    "deviceUnlockSaved": "ডিভাইস শংসাপত্র ওএস কীচেইনে সংরক্ষিত আছে।",
+    "deviceUnlockClear": "সংরক্ষিত শংসাপত্র মুছুন",
+    "deviceUnlockNone": "কোনো ডিভাইস শংসাপত্র সংরক্ষিত নেই।"
   },
   "changePw": {
     "title": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",
