@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-06-10
+
+Travel mode: hide sensitive categories (and all their items) with a single
+button press, then restore everything just as easily.
+
+### Added
+- **Travel mode** — a Plane icon in the top bar toggles travel mode on and
+  off. The mode is session-scoped (resets on restart), but the per-category
+  configuration persists in app settings.
+- **Per-category travel hiding** — hovering over any category in the sidebar
+  reveals a plane icon alongside the existing rename/delete actions. Clicking
+  it marks that category as hidden in travel mode (icon turns accent-coloured).
+  While travel mode is active, marked categories disappear entirely from the
+  sidebar and every item that belongs to them is removed from the item list and
+  global search. Toggling travel mode off restores everything instantly.
+- Configuration stored as `travelHiddenCategoryIds` in `AppSettings` (IPC-
+  validated); the list survives restarts so re-arming travel mode at the border
+  is a single click.
+- All 11 locales updated.
+
 ## [0.8.0] - 2026-06-10
 
 Security hardening: configurable vault self-destruct after too many failed
@@ -206,7 +226,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.5.0...v0.6.0
