@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "Serviço de Acesso Seguro"
+  },
+  "unlock": {
+    "createTitle": "Criar seu cofre",
+    "createSubtitle": "Escolha uma senha mestra forte. Ela nunca sai deste dispositivo e não pode ser recuperada.",
+    "unlockTitle": "Desbloquear seu cofre",
+    "masterPassword": "Senha mestra",
+    "confirmPassword": "Confirmar senha mestra",
+    "create": "Criar cofre",
+    "unlock": "Desbloquear",
+    "mismatch": "As senhas não coincidem.",
+    "wrong": "Senha mestra incorreta ou cofre corrompido.",
+    "working": "Processando…",
+    "resetCta": "Sem cofre ou esqueceu a senha? Criar um novo",
+    "resetTitle": "Criar um novo cofre",
+    "resetConfirmTitle": "Apagar e começar do zero?",
+    "resetWarning": "Isso apaga permanentemente o cofre existente e tudo armazenado nele. Não há recuperação — certifique-se de que não precisa do conteúdo.",
+    "resetContinue": "Entendo — continuar",
+    "back": "Voltar"
+  },
+  "sidebar": {
+    "allItems": "Todos os itens",
+    "favorites": "Favoritos",
+    "categories": "Categorias",
+    "addCategory": "Adicionar categoria",
+    "uncategorized": "Sem categoria",
+    "newCategoryPlaceholder": "Nome da categoria…",
+    "renameCategory": "Renomear",
+    "deleteCategoryConfirm": "Excluir?"
+  },
+  "topbar": {
+    "search": "Pesquisar no cofre…",
+    "generator": "Gerador de senhas",
+    "settings": "Configurações",
+    "lock": "Bloquear",
+    "health": "Painel de segurança",
+    "language": "Idioma",
+    "theme": "Alternar tema"
+  },
+  "items": {
+    "empty": "Nenhum item. Crie sua primeira entrada.",
+    "add": "Adicionar",
+    "edit": "Editar item",
+    "show": "Mostrar",
+    "hide": "Ocultar",
+    "noColor": "Sem cor",
+    "confirmDelete": "Excluir este item?",
+    "copyPassword": "Copiar senha",
+    "copyUsername": "Copiar usuário",
+    "copyCardNumber": "Copiar número do cartão",
+    "copyEmail": "Copiar e-mail",
+    "field": {
+      "title": "Título",
+      "username": "Usuário",
+      "password": "Senha",
+      "url": "Site",
+      "notes": "Notas",
+      "color": "Cor",
+      "cardholder": "Nome do titular",
+      "cardNumber": "Número do cartão",
+      "brand": "Bandeira",
+      "expiry": "Validade (MM / AAAA)",
+      "cvv": "CVV",
+      "firstName": "Nome",
+      "lastName": "Sobrenome",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "address": "Endereço",
+      "totpUri": "URI otpauth",
+      "issuer": "Emissor",
+      "account": "Conta"
+    },
+    "kind": {
+      "login": "Login",
+      "note": "Nota segura",
+      "card": "Cartão de crédito",
+      "identity": "Identidade",
+      "totp": "Autenticador"
+    }
+  },
+  "generator": {
+    "title": "Gerador de senhas",
+    "length": "Comprimento",
+    "uppercase": "Maiúsculas (A-Z)",
+    "lowercase": "Minúsculas (a-z)",
+    "digits": "Dígitos (0-9)",
+    "symbols": "Símbolos",
+    "excludeAmbiguous": "Excluir caracteres ambíguos",
+    "mode": "Modo",
+    "characters": "Caracteres",
+    "passphrase": "Frase secreta",
+    "words": "Palavras",
+    "separator": "Separador",
+    "generate": "Gerar",
+    "regenerate": "Regenerar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "strength": "Força",
+    "entropyBits": "{{bits}} bits de entropia",
+    "noClass": "Selecione pelo menos uma classe de caracteres.",
+    "level": {
+      "veryWeak": "Muito fraca",
+      "weak": "Fraca",
+      "fair": "Razoável",
+      "strong": "Forte",
+      "veryStrong": "Muito forte"
+    }
+  },
+  "settings": {
+    "title": "Configurações",
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema",
+    "language": "Idioma",
+    "autoLock": "Bloqueio automático após (minutos)",
+    "clipboardClear": "Limpar área de transferência após (segundos)",
+    "accent": "Cor de destaque"
+  },
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "close": "Fechar"
+  }
+}

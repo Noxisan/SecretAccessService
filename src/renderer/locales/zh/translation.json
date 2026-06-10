@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "安全访问服务"
+  },
+  "unlock": {
+    "createTitle": "创建密码库",
+    "createSubtitle": "请设置一个强主密码。它永远不会离开此设备，且无法恢复。",
+    "unlockTitle": "解锁密码库",
+    "masterPassword": "主密码",
+    "confirmPassword": "确认主密码",
+    "create": "创建密码库",
+    "unlock": "解锁",
+    "mismatch": "两次密码不一致。",
+    "wrong": "主密码错误或密码库已损坏。",
+    "working": "处理中…",
+    "resetCta": "没有密码库或忘记密码？创建新的密码库",
+    "resetTitle": "创建新密码库",
+    "resetConfirmTitle": "清除并重新开始？",
+    "resetWarning": "这将永久删除现有密码库及其所有内容，无法恢复。请确认您不再需要其中的数据。",
+    "resetContinue": "我已了解 — 继续",
+    "back": "返回"
+  },
+  "sidebar": {
+    "allItems": "全部项目",
+    "favorites": "收藏夹",
+    "categories": "分类",
+    "addCategory": "添加分类",
+    "uncategorized": "未分类",
+    "newCategoryPlaceholder": "分类名称…",
+    "renameCategory": "重命名",
+    "deleteCategoryConfirm": "删除？"
+  },
+  "topbar": {
+    "search": "搜索密码库…",
+    "generator": "密码生成器",
+    "settings": "设置",
+    "lock": "锁定",
+    "health": "安全仪表板",
+    "language": "语言",
+    "theme": "切换主题"
+  },
+  "items": {
+    "empty": "暂无项目，创建您的第一条记录。",
+    "add": "添加",
+    "edit": "编辑项目",
+    "show": "显示",
+    "hide": "隐藏",
+    "noColor": "无颜色",
+    "confirmDelete": "删除此项目？",
+    "copyPassword": "复制密码",
+    "copyUsername": "复制用户名",
+    "copyCardNumber": "复制卡号",
+    "copyEmail": "复制邮箱",
+    "field": {
+      "title": "标题",
+      "username": "用户名",
+      "password": "密码",
+      "url": "网站",
+      "notes": "备注",
+      "color": "颜色",
+      "cardholder": "持卡人姓名",
+      "cardNumber": "卡号",
+      "brand": "品牌",
+      "expiry": "有效期（月 / 年）",
+      "cvv": "CVV",
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "电子邮箱",
+      "phone": "电话",
+      "address": "地址",
+      "totpUri": "otpauth URI",
+      "issuer": "发行方",
+      "account": "账户"
+    },
+    "kind": {
+      "login": "登录",
+      "note": "安全备忘录",
+      "card": "银行卡",
+      "identity": "身份信息",
+      "totp": "验证器"
+    }
+  },
+  "generator": {
+    "title": "密码生成器",
+    "length": "长度",
+    "uppercase": "大写字母 (A-Z)",
+    "lowercase": "小写字母 (a-z)",
+    "digits": "数字 (0-9)",
+    "symbols": "符号",
+    "excludeAmbiguous": "排除易混淆字符",
+    "mode": "模式",
+    "characters": "字符",
+    "passphrase": "密码短语",
+    "words": "单词数",
+    "separator": "分隔符",
+    "generate": "生成",
+    "regenerate": "重新生成",
+    "copy": "复制",
+    "copied": "已复制",
+    "strength": "强度",
+    "entropyBits": "{{bits}} 位熵",
+    "noClass": "请至少选择一个字符类型。",
+    "level": {
+      "veryWeak": "非常弱",
+      "weak": "弱",
+      "fair": "一般",
+      "strong": "强",
+      "veryStrong": "非常强"
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "theme": "主题",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统",
+    "language": "语言",
+    "autoLock": "自动锁定（分钟后）",
+    "clipboardClear": "清除剪贴板（秒后）",
+    "accent": "强调色"
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "close": "关闭"
+  }
+}

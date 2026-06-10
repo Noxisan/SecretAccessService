@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "S.A.S",
+    "tagline": "محفوظ رسائی سروس"
+  },
+  "unlock": {
+    "createTitle": "اپنا والٹ بنائیں",
+    "createSubtitle": "ایک مضبوط ماسٹر پاسورڈ چنیں۔ یہ کبھی اس ڈیوائس سے نہیں جائے گا اور اسے بازیاب نہیں کیا جا سکتا۔",
+    "unlockTitle": "اپنا والٹ کھولیں",
+    "masterPassword": "ماسٹر پاسورڈ",
+    "confirmPassword": "ماسٹر پاسورڈ کی تصدیق کریں",
+    "create": "والٹ بنائیں",
+    "unlock": "کھولیں",
+    "mismatch": "پاسورڈ مطابقت نہیں رکھتے۔",
+    "wrong": "غلط ماسٹر پاسورڈ یا والٹ خراب ہے۔",
+    "working": "کارروائی جاری ہے…",
+    "resetCta": "والٹ نہیں ہے یا پاسورڈ بھول گئے؟ نیا بنائیں",
+    "resetTitle": "نیا والٹ بنائیں",
+    "resetConfirmTitle": "سب کچھ مٹا کر نئے سرے سے شروع کریں؟",
+    "resetWarning": "یہ موجودہ والٹ اور اس میں محفوظ تمام ڈیٹا کو مستقل طور پر مٹا دے گا۔ بازیابی ممکن نہیں — یقینی بنائیں کہ آپ کو اس کی ضرورت نہیں۔",
+    "resetContinue": "میں سمجھتا/سمجھتی ہوں — جاری رکھیں",
+    "back": "واپس"
+  },
+  "sidebar": {
+    "allItems": "تمام اشیاء",
+    "favorites": "پسندیدہ",
+    "categories": "زمرے",
+    "addCategory": "زمرہ شامل کریں",
+    "uncategorized": "غیر زمرہ بند",
+    "newCategoryPlaceholder": "زمرے کا نام…",
+    "renameCategory": "نام تبدیل کریں",
+    "deleteCategoryConfirm": "حذف کریں؟"
+  },
+  "topbar": {
+    "search": "والٹ میں تلاش کریں…",
+    "generator": "پاسورڈ جنریٹر",
+    "settings": "ترتیبات",
+    "lock": "لاک کریں",
+    "health": "سیکیورٹی ڈیش بورڈ",
+    "language": "زبان",
+    "theme": "تھیم تبدیل کریں"
+  },
+  "items": {
+    "empty": "کوئی آئٹم نہیں۔ اپنی پہلی اندراج بنائیں۔",
+    "add": "شامل کریں",
+    "edit": "آئٹم میں ترمیم کریں",
+    "show": "دکھائیں",
+    "hide": "چھپائیں",
+    "noColor": "کوئی رنگ نہیں",
+    "confirmDelete": "یہ آئٹم حذف کریں؟",
+    "copyPassword": "پاسورڈ کاپی کریں",
+    "copyUsername": "صارف نام کاپی کریں",
+    "copyCardNumber": "کارڈ نمبر کاپی کریں",
+    "copyEmail": "ای میل کاپی کریں",
+    "field": {
+      "title": "عنوان",
+      "username": "صارف نام",
+      "password": "پاسورڈ",
+      "url": "ویب سائٹ",
+      "notes": "نوٹس",
+      "color": "رنگ",
+      "cardholder": "کارڈ ہولڈر کا نام",
+      "cardNumber": "کارڈ نمبر",
+      "brand": "برانڈ",
+      "expiry": "میعاد (MM / YYYY)",
+      "cvv": "CVV",
+      "firstName": "پہلا نام",
+      "lastName": "آخری نام",
+      "email": "ای میل",
+      "phone": "فون",
+      "address": "پتہ",
+      "totpUri": "otpauth URI",
+      "issuer": "جاری کنندہ",
+      "account": "اکاؤنٹ"
+    },
+    "kind": {
+      "login": "لاگ ان",
+      "note": "محفوظ نوٹ",
+      "card": "کریڈٹ کارڈ",
+      "identity": "شناخت",
+      "totp": "توثیق کار"
+    }
+  },
+  "generator": {
+    "title": "پاسورڈ جنریٹر",
+    "length": "لمبائی",
+    "uppercase": "بڑے حروف (A-Z)",
+    "lowercase": "چھوٹے حروف (a-z)",
+    "digits": "ہندسے (0-9)",
+    "symbols": "علامات",
+    "excludeAmbiguous": "مبہم حروف خارج کریں",
+    "mode": "طریقہ",
+    "characters": "حروف",
+    "passphrase": "پاس فریز",
+    "words": "الفاظ",
+    "separator": "علیحدہ کنندہ",
+    "generate": "بنائیں",
+    "regenerate": "دوبارہ بنائیں",
+    "copy": "کاپی کریں",
+    "copied": "کاپی ہو گیا",
+    "strength": "مضبوطی",
+    "entropyBits": "{{bits}} بٹ انٹروپی",
+    "noClass": "کم از کم ایک حروف کا زمرہ منتخب کریں۔",
+    "level": {
+      "veryWeak": "بہت کمزور",
+      "weak": "کمزور",
+      "fair": "درمیانہ",
+      "strong": "مضبوط",
+      "veryStrong": "بہت مضبوط"
+    }
+  },
+  "settings": {
+    "title": "ترتیبات",
+    "theme": "تھیم",
+    "light": "روشن",
+    "dark": "تاریک",
+    "system": "سسٹم",
+    "language": "زبان",
+    "autoLock": "خودکار لاک (منٹوں میں)",
+    "clipboardClear": "کلپ بورڈ صاف کریں (سیکنڈوں میں)",
+    "accent": "لہجے کا رنگ"
+  },
+  "common": {
+    "save": "محفوظ کریں",
+    "cancel": "منسوخ کریں",
+    "delete": "حذف کریں",
+    "close": "بند کریں"
+  }
+}
