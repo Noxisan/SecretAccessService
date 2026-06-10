@@ -142,49 +142,50 @@ export default function HealthDashboard(): JSX.Element | null {
           ) : (
             <ul className="flex flex-col divide-y divide-[var(--border)]">
               {issues.map(({ item, reasons }) => (
-                <li key={item.id}>
+                <li
+                  key={item.id}
+                  className="flex items-start gap-3 px-5 py-3 hover:bg-[var(--bg)]"
+                >
                   <button
                     onClick={() => { openEditor(item); setOpen(false) }}
-                    className="flex w-full items-start gap-3 px-5 py-3 text-left hover:bg-[var(--bg)]"
+                    className="min-w-0 flex-1 text-left"
                   >
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-medium text-[var(--text)]">{item.title}</p>
-                      <p className="truncate text-xs text-[var(--text-muted)]">
-                        {item.username || item.url}
-                      </p>
-                      <div className="mt-1.5 flex flex-wrap gap-1.5">
-                        {reasons.map((r) => {
-                          const Icon = REASON_ICON[r]
-                          return (
-                            <span
-                              key={r}
-                              className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px]"
-                              style={{
-                                background:
-                                  r === 'weak' || r === 'reused'
-                                    ? 'color-mix(in srgb, var(--danger) 15%, transparent)'
-                                    : 'color-mix(in srgb, var(--warning) 15%, transparent)',
-                                color:
-                                  r === 'weak' || r === 'reused'
-                                    ? 'var(--danger)'
-                                    : 'var(--warning)'
-                              }}
-                            >
-                              <Icon size={11} />
-                              {t(`health.reason.${r}`)}
-                            </span>
-                          )
-                        })}
-                      </div>
+                    <p className="truncate text-sm font-medium text-[var(--text)]">{item.title}</p>
+                    <p className="truncate text-xs text-[var(--text-muted)]">
+                      {item.username || item.url}
+                    </p>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {reasons.map((r) => {
+                        const Icon = REASON_ICON[r]
+                        return (
+                          <span
+                            key={r}
+                            className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px]"
+                            style={{
+                              background:
+                                r === 'weak' || r === 'reused'
+                                  ? 'color-mix(in srgb, var(--danger) 15%, transparent)'
+                                  : 'color-mix(in srgb, var(--warning) 15%, transparent)',
+                              color:
+                                r === 'weak' || r === 'reused'
+                                  ? 'var(--danger)'
+                                  : 'var(--warning)'
+                            }}
+                          >
+                            <Icon size={11} />
+                            {t(`health.reason.${r}`)}
+                          </span>
+                        )
+                      })}
                     </div>
-                    <button
-                      onClick={(e) => void copyPassword(item, e)}
-                      className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:text-[var(--accent)]"
-                      aria-label={t('items.copyPassword')}
-                      title={t('items.copyPassword')}
-                    >
-                      <Copy size={14} />
-                    </button>
+                  </button>
+                  <button
+                    onClick={(e) => void copyPassword(item, e)}
+                    className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:text-[var(--accent)]"
+                    aria-label={t('items.copyPassword')}
+                    title={t('items.copyPassword')}
+                  >
+                    <Copy size={14} />
                   </button>
                 </li>
               ))}
