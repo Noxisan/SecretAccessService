@@ -55,6 +55,8 @@
     "empty": "No items yet. Create your first entry.",
     "add": "Add",
     "edit": "Edit item",
+    "duplicate": "Duplicate",
+    "copyOf": "Copy of {{title}}",
     "show": "Show",
     "hide": "Hide",
     "noColor": "No color",

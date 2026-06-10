@@ -55,6 +55,8 @@
     "empty": "Nenhum item. Crie sua primeira entrada.",
     "add": "Adicionar",
     "edit": "Editar item",
+    "duplicate": "Duplicar",
+    "copyOf": "Cópia de {{title}}",
     "show": "Mostrar",
     "hide": "Ocultar",
     "noColor": "Sem cor",
