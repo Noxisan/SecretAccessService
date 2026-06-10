@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-06-10
+
+Security hardening: configurable vault self-destruct after too many failed
+unlock attempts, and a live attempt-remaining warning in the unlock screen.
+
+### Added
+- **Panic lock / self-destruct** — a new setting (*Self-destruct after N failed
+  attempts*; default 10; 0 = disabled) instructs the app to permanently delete
+  the vault file after that many consecutive wrong master-password attempts.
+  The in-memory key is zeroed immediately; only the encrypted ciphertext on disk
+  is deleted — the master password is never stored and therefore cannot be wiped
+  (it never existed after key derivation). The counter resets on any successful
+  unlock or app restart. Configurable in Settings.
+- **Attempts-remaining warning** — the unlock screen shows a danger banner
+  during the final 3 attempts before destruction, stating exactly how many
+  chances remain. After destruction the screen automatically transitions to the
+  create-vault state. All 11 locales updated.
+
+### Fixed
+- **ESLint misconfiguration** — one-off migration scripts in `scripts/` were
+  being linted as TypeScript modules, producing spurious `require()`/`__dirname`
+  errors. `scripts/` is now excluded from the ESLint config.
+
 ## [0.7.0] - 2026-06-10
 
 Keyboard shortcuts and embedded 2FA: navigate the app with your hands on
@@ -183,7 +206,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.4.0...v0.5.0
