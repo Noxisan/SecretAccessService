@@ -110,6 +110,25 @@ export default function ItemEditor(): JSX.Element | null {
     }
   }
 
+  async function duplicate(): Promise<void> {
+    if (!editorItem) return
+    setBusy(true)
+    try {
+      const now = Date.now()
+      const clone: VaultItem = {
+        ...editorItem,
+        id: crypto.randomUUID(),
+        title: t('items.copyOf', { title: editorItem.title }),
+        createdAt: now,
+        updatedAt: now
+      }
+      setVault(await window.sas.vault.upsertItem(clone))
+      close()
+    } finally {
+      setBusy(false)
+    }
+  }
+
   function restorePassword(password: string): void {
     patchLogin({ password })
     setShowPassword(true)
@@ -859,6 +878,17 @@ export default function ItemEditor(): JSX.Element | null {
             <span />
           )}
           <div className="flex gap-2">
+            {isEdit && !confirmDelete && (
+              <button
+                onClick={() => void duplicate()}
+                disabled={busy}
+                className="flex items-center gap-1.5 rounded-[var(--radius)] border border-[var(--border)] px-3 py-1.5 text-sm text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-40"
+                title={t('items.duplicate')}
+              >
+                <Copy size={14} />
+                {t('items.duplicate')}
+              </button>
+            )}
             <button
               onClick={() => close()}
               className="rounded-[var(--radius)] border border-[var(--border)] px-3 py-1.5 text-sm text-[var(--text)] hover:bg-[var(--bg)]"
