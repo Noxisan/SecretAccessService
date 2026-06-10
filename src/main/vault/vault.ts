@@ -166,6 +166,16 @@ export class VaultManager {
     this.#data = null
   }
 
+  /**
+   * Panic destroy: zero the key, drop in-memory state, then delete the vault
+   * file from disk. Called after too many consecutive failed unlock attempts
+   * (CLAUDE.md §8 self-destruct). Irreversible — no recovery possible.
+   */
+  async destroy(): Promise<void> {
+    await this.lock()
+    await rm(this.#path, { force: true })
+  }
+
   async #persist(): Promise<void> {
     if (!this.#key || !this.#header || !this.#data) {
       throw new Error('Cannot persist a locked vault.')

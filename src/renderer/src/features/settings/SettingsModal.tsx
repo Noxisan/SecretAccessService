@@ -197,6 +197,22 @@ export default function SettingsModal(): JSX.Element | null {
               className="w-32 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
             />
           </div>
+
+          {/* Max failed unlock attempts (self-destruct) */}
+          <div className={fieldRow}>
+            <span className={fieldLabel}>{t('settings.maxFailedAttempts')}</span>
+            <p className="text-xs text-[var(--text-muted)]">{t('settings.maxFailedAttemptsHint')}</p>
+            <input
+              type="number"
+              min={0}
+              max={100}
+              value={draft.maxFailedAttempts}
+              onChange={(e) =>
+                patch({ maxFailedAttempts: Math.max(0, parseInt(e.target.value, 10) || 0) })
+              }
+              className="w-32 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
+            />
+          </div>
         </div>
 
         <div className="mt-6 flex justify-end gap-2">

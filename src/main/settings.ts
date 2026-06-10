@@ -12,7 +12,8 @@ export const DEFAULT_SETTINGS: AppSettings = {
   theme: 'system',
   accent: '#7c3aed', // electric violet
   autoLockMinutes: 5,
-  clipboardClearSeconds: 30
+  clipboardClearSeconds: 30,
+  maxFailedAttempts: 10
 }
 
 export class SettingsStore {
