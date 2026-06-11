@@ -137,6 +137,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.28.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.28.0) | 2026-06-11 | New display-size (UI scale) setting; consistent pinned headers/footers across all slide-in panels |
 | [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |
 | [0.26.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.26.0) | 2026-06-11 | Search matches custom-field labels (values stay private); sidebar labels left-aligned |
 | [0.25.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.1) | 2026-06-11 | Fix: wider item editor so custom fields no longer overflow / force sideways scrolling |
