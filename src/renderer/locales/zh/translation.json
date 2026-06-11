@@ -179,7 +179,8 @@
     "sectionSecurity": "安全",
     "passwordHistoryLimit": "密码历史记录上限",
     "passwordHistoryLimitHint": "每个登录保留多少个旧密码（0 表示不保留）。",
-    "lockOnMinimize": "最小化时锁定"
+    "lockOnMinimize": "最小化时锁定",
+    "minimizeToTrayOnClose": "关闭时最小化到系统托盘"
   },
   "changePw": {
     "title": "更改主密码",

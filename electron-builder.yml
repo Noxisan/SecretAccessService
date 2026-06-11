@@ -12,8 +12,22 @@ files:
 
 asar: true
 
+# Runtime image assets (window + tray icons). buildResources in build/ are only
+# used at build time, so the tray icon the main process loads at runtime must be
+# copied next to the packaged app; the main process resolves these via
+# process.resourcesPath (see src/main/index.ts assetPath()). The tray@2x variant
+# is auto-picked by nativeImage on HiDPI displays.
+extraResources:
+  - from: build/icon.png
+    to: icon.png
+  - from: build/tray.png
+    to: tray.png
+  - from: build/tray@2x.png
+    to: tray@2x.png
+
 # --- Windows ---
 win:
+  icon: build/icon.ico
   target:
     - nsis
     - portable
@@ -30,6 +44,7 @@ portable:
 
 # --- Linux ---
 linux:
+  icon: build/icon.png
   target:
     - AppImage
     - deb

@@ -19,6 +19,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   itemSort: 'az',
   clearClipboardOnLock: true,
   lockOnMinimize: false,
+  minimizeToTrayOnClose: false,
   passwordHistoryLimit: 50,
   generatorDefaults: {
     length: 20,

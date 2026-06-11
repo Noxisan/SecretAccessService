@@ -179,7 +179,8 @@
     "sectionSecurity": "Segurança",
     "passwordHistoryLimit": "Limite do histórico de senhas",
     "passwordHistoryLimitHint": "Quantas senhas anteriores manter por login (0 não mantém nenhuma).",
-    "lockOnMinimize": "Bloquear ao minimizar"
+    "lockOnMinimize": "Bloquear ao minimizar",
+    "minimizeToTrayOnClose": "Minimizar para a bandeja ao fechar"
   },
   "changePw": {
     "title": "Alterar senha principal",

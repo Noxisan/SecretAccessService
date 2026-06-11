@@ -179,7 +179,8 @@
     "sectionSecurity": "Sicherheit",
     "passwordHistoryLimit": "Limit des Passwortverlaufs",
     "passwordHistoryLimitHint": "Wie viele frühere Passwörter pro Login behalten werden (0 behält keine).",
-    "lockOnMinimize": "Beim Minimieren sperren"
+    "lockOnMinimize": "Beim Minimieren sperren",
+    "minimizeToTrayOnClose": "Beim Schließen in den Infobereich minimieren"
   },
   "changePw": {
     "title": "Master-Passwort ändern",

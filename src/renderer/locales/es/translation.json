@@ -179,7 +179,8 @@
     "sectionSecurity": "Seguridad",
     "passwordHistoryLimit": "Límite del historial de contraseñas",
     "passwordHistoryLimitHint": "Cuántas contraseñas anteriores conservar por inicio de sesión (0 no conserva ninguna).",
-    "lockOnMinimize": "Bloquear al minimizar"
+    "lockOnMinimize": "Bloquear al minimizar",
+    "minimizeToTrayOnClose": "Minimizar a la bandeja al cerrar"
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",

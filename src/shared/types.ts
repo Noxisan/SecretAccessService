@@ -135,6 +135,8 @@ export interface AppSettings {
   clearClipboardOnLock: boolean
   /** Lock the vault when the application window is minimized. */
   lockOnMinimize: boolean
+  /** Hide to the system tray instead of quitting when the window is closed. */
+  minimizeToTrayOnClose: boolean
   /** Max previous passwords kept per login (0 disables history; hard ceiling 50). */
   passwordHistoryLimit: number
   /** Last-used password generator options — restored when the generator modal opens. */

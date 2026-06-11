@@ -179,7 +179,8 @@
     "sectionSecurity": "Security",
     "passwordHistoryLimit": "Password history limit",
     "passwordHistoryLimitHint": "How many previous passwords to keep per login (0 keeps none).",
-    "lockOnMinimize": "Lock when minimized"
+    "lockOnMinimize": "Lock when minimized",
+    "minimizeToTrayOnClose": "Minimize to tray on close"
   },
   "changePw": {
     "title": "Change master password",
