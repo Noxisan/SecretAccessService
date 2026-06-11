@@ -138,6 +138,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.30.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.30.0) | 2026-06-11 | Plaintext CSV export of logins (migrate out); settings panel organized into Appearance and Security sections |
 | [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |
 | [0.28.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.28.0) | 2026-06-11 | New display-size (UI scale) setting; consistent pinned headers/footers across all slide-in panels |
 | [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |

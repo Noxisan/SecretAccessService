@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.30.0] - 2026-06-11
+
+Adds plaintext CSV export for migrating logins out, and organizes the settings
+panel into clear sections.
+
 ### Added
 - **Plaintext CSV export of logins** — the Export tab can now save your login
   entries to a CSV file for migrating to another password manager, complementing
@@ -744,7 +749,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.29.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.30.0...HEAD
+[0.30.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.29.0...v0.30.0
 [0.29.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.28.0...v0.29.0
 [0.28.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.27.0...v0.28.0
 [0.27.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...v0.27.0
