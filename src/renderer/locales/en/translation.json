@@ -216,7 +216,8 @@
     },
     "importButton": "Import",
     "importing": "Importing…",
-    "importSuccess": "Imported {{count}} item(s) successfully."
+    "importSuccess": "Imported {{count}} item(s) successfully.",
+    "csvHint": "CSV exports from Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass, and Dashlane are supported. Columns are matched by name; only login items are imported."
   },
   "health": {
     "title": "Password health",

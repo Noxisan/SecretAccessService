@@ -235,6 +235,7 @@
     },
     "importButton": "استيراد",
     "importing": "جارٍ الاستيراد…",
-    "importSuccess": "تم استيراد {{count}} عنصر."
+    "importSuccess": "تم استيراد {{count}} عنصر.",
+    "csvHint": "يتم دعم ملفات CSV المُصدَّرة من Chrome وEdge وFirefox وBitwarden وLastPass وKeePass وDashlane. تتم مطابقة الأعمدة بالاسم؛ ويتم استيراد عناصر تسجيل الدخول فقط."
   }
 }

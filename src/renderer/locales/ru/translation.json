@@ -235,6 +235,7 @@
     },
     "importButton": "Импортировать",
     "importing": "Импорт…",
-    "importSuccess": "Импортировано {{count}} запис(и/ей)."
+    "importSuccess": "Импортировано {{count}} запис(и/ей).",
+    "csvHint": "Поддерживается импорт CSV из Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass и Dashlane. Столбцы сопоставляются по имени; импортируются только записи для входа."
   }
 }

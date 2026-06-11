@@ -235,6 +235,7 @@
     },
     "importButton": "Importar",
     "importing": "Importando…",
-    "importSuccess": "{{count}} item(ns) importado(s)."
+    "importSuccess": "{{count}} item(ns) importado(s).",
+    "csvHint": "Exportações CSV do Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass e Dashlane são suportadas. As colunas são reconhecidas pelo nome; apenas itens de login são importados."
   }
 }

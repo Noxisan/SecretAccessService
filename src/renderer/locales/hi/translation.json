@@ -235,6 +235,7 @@
     },
     "importButton": "आयात करें",
     "importing": "आयात हो रहा है…",
-    "importSuccess": "{{count}} आइटम आयात हुए।"
+    "importSuccess": "{{count}} आइटम आयात हुए।",
+    "csvHint": "Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass और Dashlane से CSV निर्यात समर्थित हैं। कॉलम नाम से मिलाए जाते हैं; केवल लॉगिन आइटम आयात किए जाते हैं।"
   }
 }
