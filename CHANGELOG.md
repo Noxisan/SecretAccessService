@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **The item list sort order is now remembered** — the sort you pick (A-Z, Z-A,
+  recently modified, oldest first, or by type) is saved to settings and restored
+  the next time you open the app, instead of resetting to A-Z each session.
+
+### Refactored
+- Extracted the item-list sort comparator from the `ItemList` component into a
+  pure, unit-tested `sortItems` helper in `itemDisplay.ts`, and added the
+  `VaultItemSortKey` type to the shared model. Simplifies the component and locks
+  the sort behaviour down with tests.
+
 ## [0.28.0] - 2026-06-11
 
 Adds a display-size setting and polishes the slide-in panels so every dialog
