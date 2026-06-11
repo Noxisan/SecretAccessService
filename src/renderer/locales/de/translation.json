@@ -170,7 +170,9 @@
     "displaySize": "Anzeigegröße",
     "clearClipboardOnLock": "Zwischenablage beim Sperren leeren",
     "sectionAppearance": "Darstellung",
-    "sectionSecurity": "Sicherheit"
+    "sectionSecurity": "Sicherheit",
+    "passwordHistoryLimit": "Limit des Passwortverlaufs",
+    "passwordHistoryLimitHint": "Wie viele frühere Passwörter pro Login behalten werden (0 behält keine)."
   },
   "changePw": {
     "title": "Master-Passwort ändern",

@@ -170,7 +170,9 @@
     "displaySize": "حجم العرض",
     "clearClipboardOnLock": "مسح الحافظة عند القفل",
     "sectionAppearance": "المظهر",
-    "sectionSecurity": "الأمان"
+    "sectionSecurity": "الأمان",
+    "passwordHistoryLimit": "حد سجل كلمات المرور",
+    "passwordHistoryLimitHint": "عدد كلمات المرور السابقة المحفوظة لكل تسجيل دخول (0 لا يحفظ أيًا منها)."
   },
   "changePw": {
     "title": "تغيير كلمة المرور الرئيسية",

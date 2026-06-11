@@ -170,7 +170,9 @@
     "displaySize": "Tamaño de visualización",
     "clearClipboardOnLock": "Borrar portapapeles al bloquear",
     "sectionAppearance": "Apariencia",
-    "sectionSecurity": "Seguridad"
+    "sectionSecurity": "Seguridad",
+    "passwordHistoryLimit": "Límite del historial de contraseñas",
+    "passwordHistoryLimitHint": "Cuántas contraseñas anteriores conservar por inicio de sesión (0 no conserva ninguna)."
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",

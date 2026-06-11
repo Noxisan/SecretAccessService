@@ -170,7 +170,9 @@
     "displaySize": "Tamanho de exibição",
     "clearClipboardOnLock": "Limpar área de transferência ao bloquear",
     "sectionAppearance": "Aparência",
-    "sectionSecurity": "Segurança"
+    "sectionSecurity": "Segurança",
+    "passwordHistoryLimit": "Limite do histórico de senhas",
+    "passwordHistoryLimitHint": "Quantas senhas anteriores manter por login (0 não mantém nenhuma)."
   },
   "changePw": {
     "title": "Alterar senha principal",
