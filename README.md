@@ -136,6 +136,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.24.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.24.0) | 2026-06-11 | Broader CSV import: Chrome/Edge, Firefox, KeePass(XC), and Dashlane layouts (URL-derived titles); in-dialog hint of supported sources |
 | [0.23.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.23.0) | 2026-06-11 | Generated passwords always include at least one character from every selected class (unbiased), satisfying site composition rules |
 | [0.22.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.1) | 2026-06-11 | Fix: inline password generator honours saved generator settings; theme-token cleanup; IPC validation-schema tests |
 | [0.22.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.0) | 2026-06-11 | Reorder sidebar categories with up/down controls; tests for the reorder and settings-persistence logic |
