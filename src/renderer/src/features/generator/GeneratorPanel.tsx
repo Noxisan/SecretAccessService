@@ -29,7 +29,7 @@ const STRENGTH_COLOR: Record<StrengthLevel, string> = {
   veryStrong: 'var(--accent)'
 }
 
-export default function GeneratorModal(): JSX.Element | null {
+export default function GeneratorPanel(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.generatorOpen)
   const setOpen = useAppStore((s) => s.setGeneratorOpen)
@@ -48,7 +48,7 @@ export default function GeneratorModal(): JSX.Element | null {
   const settingsRef = useRef(settings)
   settingsRef.current = settings
 
-  // Persist opts to settings when the modal closes; both refs are always current.
+  // Persist opts to settings when the panel closes; both refs are always current.
   const handleClose = useCallback(() => {
     if (settingsRef.current) {
       const next = { ...settingsRef.current, generatorDefaults: optsRef.current }
@@ -57,7 +57,7 @@ export default function GeneratorModal(): JSX.Element | null {
     setOpen(false)
   }, [setSettings, setOpen])
 
-  // Re-initialize opts from saved settings each time the modal opens.
+  // Re-initialize opts from saved settings each time the panel opens.
   const didOpenRef = useRef(false)
   useEffect(() => {
     if (!open) { didOpenRef.current = false; return }

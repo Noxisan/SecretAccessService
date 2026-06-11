@@ -146,7 +146,7 @@ export default function ItemEditor(): JSX.Element | null {
   }
 
   async function generate(): Promise<void> {
-    // Use the user's saved generator preferences (set in the generator modal,
+    // Use the user's saved generator preferences (set in the generator panel,
     // persisted since v0.17.0) so the inline button stays consistent with them.
     const opts: GeneratePasswordOptions = generatorDefaults ?? {
       length: 20,
