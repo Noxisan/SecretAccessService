@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "Löschen?",
     "collapse": "Seitenleiste einklappen",
     "expand": "Seitenleiste ausklappen",
-    "travelHide": "Im Reisemodus verbergen"
+    "travelHide": "Im Reisemodus verbergen",
+    "moveUp": "Nach oben",
+    "moveDown": "Nach unten"
   },
   "topbar": {
     "search": "Tresor durchsuchen…",

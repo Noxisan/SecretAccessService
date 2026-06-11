@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "¿Eliminar?",
     "collapse": "Contraer barra lateral",
     "expand": "Expandir barra lateral",
-    "travelHide": "Ocultar en modo viaje"
+    "travelHide": "Ocultar en modo viaje",
+    "moveUp": "Subir",
+    "moveDown": "Bajar"
   },
   "topbar": {
     "search": "Buscar en bóveda…",
