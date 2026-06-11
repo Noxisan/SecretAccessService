@@ -47,28 +47,51 @@ async function pick(alphabet: string): Promise<string> {
   return alphabet[idx] as string
 }
 
+/** True when `pw` contains at least one character from every class in `classes`. */
+function coversAllClasses(pw: string, classes: string[]): boolean {
+  const chars = [...pw]
+  return classes.every((cls) => chars.some((ch) => cls.includes(ch)))
+}
+
 export async function generatePassword(opts: GeneratePasswordOptions): Promise<string> {
   if (opts.mode === 'passphrase') {
     return generatePassphrase(opts)
   }
 
-  let alphabet = ''
-  if (opts.lowercase) alphabet += LOWER
-  if (opts.uppercase) alphabet += UPPER
-  if (opts.digits) alphabet += DIGITS
-  if (opts.symbols) alphabet += SYMBOLS
-  if (opts.excludeAmbiguous) {
-    alphabet = [...alphabet].filter((c) => !AMBIGUOUS.has(c)).join('')
-  }
-  if (alphabet.length === 0) {
+  const classes: string[] = []
+  if (opts.lowercase) classes.push(LOWER)
+  if (opts.uppercase) classes.push(UPPER)
+  if (opts.digits) classes.push(DIGITS)
+  if (opts.symbols) classes.push(SYMBOLS)
+  const selected = (
+    opts.excludeAmbiguous
+      ? classes.map((cls) => [...cls].filter((c) => !AMBIGUOUS.has(c)).join(''))
+      : classes
+  ).filter((cls) => cls.length > 0)
+
+  if (selected.length === 0) {
     throw new Error('Select at least one character class.')
   }
 
-  const out: string[] = []
-  for (let i = 0; i < opts.length; i++) {
-    out.push(await pick(alphabet))
+  const alphabet = selected.join('')
+
+  // Guarantee every selected class appears when the requested length can fit one
+  // of each. We rejection-sample the whole password rather than forcing
+  // characters into fixed positions, so the result stays uniform over the set of
+  // passwords that contain all classes — no positional bias. For sensible
+  // lengths this almost always passes on the first try; the attempt cap is just
+  // a safety net against pathological inputs.
+  const requireAllClasses = opts.length >= selected.length
+  for (let attempt = 0; ; attempt++) {
+    const out: string[] = []
+    for (let i = 0; i < opts.length; i++) {
+      out.push(await pick(alphabet))
+    }
+    const pw = out.join('')
+    if (!requireAllClasses || attempt >= 1000 || coversAllClasses(pw, selected)) {
+      return pw
+    }
   }
-  return out.join('')
 }
 
 async function generatePassphrase(opts: GeneratePasswordOptions): Promise<string> {

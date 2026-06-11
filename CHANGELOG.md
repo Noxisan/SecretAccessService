@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Generated passwords now include at least one character from every selected
+  class** — previously each character was drawn uniformly from the combined
+  alphabet, so a password could occasionally lack a digit or symbol even when
+  those were enabled, tripping sites that require each class. Generation now
+  guarantees full class coverage whenever the length allows (length ≥ number of
+  selected classes). It uses password-level rejection rather than fixed
+  positions, so the result stays unbiased.
+
+### Tests
+- Added tests asserting class coverage at the tightest length (one slot per
+  class), that exclude-ambiguous still covers every class without leaking
+  ambiguous characters, and that a length smaller than the class count returns
+  promptly instead of looping. Suite grows to 169.
+
 ## [0.22.1] - 2026-06-11
 
 Patch release: the inline password generator now respects your saved generator
