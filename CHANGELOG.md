@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.25.1] - 2026-06-11
+
+Patch release fixing the item editor's width when adding custom fields.
+
+### Fixed
+- **The item editor no longer scrolls sideways when adding custom fields** — the
+  dialog was capped too narrow (`max-w-lg`), so a custom field's label, value,
+  and action buttons overflowed and forced horizontal scrolling. The dialog is
+  now wider (`max-w-2xl`), the body never scrolls horizontally, the value field
+  keeps a sensible minimum width, and a custom-field row wraps its buttons onto a
+  second line on very small windows instead of clipping them.
+
 ## [0.25.0] - 2026-06-11
 
 Makes adding two-factor authentication easier: TOTP fields now accept a plain
@@ -620,7 +632,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.1...HEAD
+[0.25.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.0...v0.25.1
 [0.25.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.24.0...v0.25.0
 [0.24.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.23.0...v0.24.0
 [0.23.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.1...v0.23.0
