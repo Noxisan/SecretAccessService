@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Broader CSV import coverage** — the importer now recognises the column
+  layouts of Chrome/Edge, Firefox, KeePass/KeePassXC, and Dashlane in addition
+  to Bitwarden and LastPass. Added aliases for the singular `note` column
+  (Chrome/Dashlane), `account`/`login name`/`web site` (classic KeePass), and
+  `otpSecret`/`otpauth` TOTP seeds (Dashlane). When an export has no name/title
+  column (Firefox), the item title is now derived from the URL's hostname
+  instead of falling back to a generic "Imported item".
+
+### Tests
+- Added 6 tests covering Chrome, Firefox, classic KeePass, and Dashlane CSV
+  layouts plus the URL-hostname title fallback. Suite grows to 175.
+
 ## [0.23.0] - 2026-06-11
 
 Strengthens generated passwords so they always include each selected character

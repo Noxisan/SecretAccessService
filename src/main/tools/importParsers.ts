@@ -1,8 +1,25 @@
 import type { VaultItem, LoginItem, SecureNoteItem, CardItem, IdentityItem } from '../../shared/types.js'
 
 /**
- * Parse a CSV export from Bitwarden, LastPass, or a generic fallback.
- * Returns an array of VaultItem objects (login items only for safety).
+ * Best-effort title from a URL when the export has no name/title column
+ * (e.g. Firefox, whose CSV is keyed only by `url`). Returns the bare hostname
+ * so an imported row reads as "example.com" rather than "Imported item".
+ */
+function hostnameFromUrl(url: string): string {
+  if (!url) return ''
+  try {
+    return new URL(url).hostname
+  } catch {
+    const stripped = url.replace(/^[a-z][a-z0-9+.-]*:\/\//i, '').split(/[/?#]/)[0]
+    return stripped ?? ''
+  }
+}
+
+/**
+ * Parse a CSV export from another password manager. Column names are matched by
+ * alias so the same parser handles Bitwarden, LastPass, Chrome/Edge, Firefox,
+ * KeePass(XC), Dashlane, and generic exports. Returns login items only (the
+ * universal CSV shape) for safety.
  */
 export function parseCsv(csv: string): VaultItem[] {
   const lines = csv.split(/\r?\n/).filter((l) => l.trim())
@@ -42,12 +59,15 @@ export function parseCsv(csv: string): VaultItem[] {
   for (const line of lines.slice(1)) {
     if (!line.trim()) continue
     const row = parseRow(line)
-    const title = col(row, 'name', 'title', 'label') || 'Imported item'
-    const username = col(row, 'login_username', 'username', 'user name', 'login')
+    const url = col(row, 'login_uri', 'url', 'uri', 'website', 'web site', 'login_uri_1')
+    const title =
+      col(row, 'name', 'title', 'label', 'account') || hostnameFromUrl(url) || 'Imported item'
+    const username = col(row, 'login_username', 'username', 'user name', 'login name', 'login')
     const password = col(row, 'login_password', 'password', 'pass')
-    const url = col(row, 'login_uri', 'url', 'uri', 'website', 'login_uri_1')
-    const notes = col(row, 'notes', 'extra', 'comment', 'comments')
-    const totp = col(row, 'login_totp', 'totp', 'one time password') || null
+    const notes = col(row, 'notes', 'note', 'extra', 'comment', 'comments')
+    const totp =
+      col(row, 'login_totp', 'totp', 'otpauth', 'otp_secret', 'otpsecret', 'one time password') ||
+      null
 
     const item: LoginItem = {
       id: crypto.randomUUID(),
