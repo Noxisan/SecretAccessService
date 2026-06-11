@@ -136,6 +136,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.20.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.20.0) | 2026-06-11 | Passphrase generator upgraded to the full 7776-word EFF diceware list (~12.9 bits/word); added the GPL-3.0 LICENSE file |
 | [0.19.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.19.0) | 2026-06-11 | Open a login's website in the system browser (http/https only); internal extraction of TOTP, search, and breach logic into unit-tested modules |
 | [0.18.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.1) | 2026-06-10 | Fix: ItemList white-screen / infinite render loop from an unstable store selector |
 | [0.18.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.0) | 2026-06-10 | Health issue badge on top bar — weak, reused, and old passwords shown at a glance |
