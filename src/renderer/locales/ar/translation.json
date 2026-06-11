@@ -168,7 +168,9 @@
     "deviceUnlockClear": "إزالة البيانات المحفوظة",
     "deviceUnlockNone": "لا توجد بيانات جهاز محفوظة.",
     "displaySize": "حجم العرض",
-    "clearClipboardOnLock": "مسح الحافظة عند القفل"
+    "clearClipboardOnLock": "مسح الحافظة عند القفل",
+    "sectionAppearance": "المظهر",
+    "sectionSecurity": "الأمان"
   },
   "changePw": {
     "title": "تغيير كلمة المرور الرئيسية",
@@ -238,6 +240,11 @@
     "importButton": "استيراد",
     "importing": "جارٍ الاستيراد…",
     "importSuccess": "تم استيراد {{count}} عنصر.",
-    "csvHint": "يتم دعم ملفات CSV المُصدَّرة من Chrome وEdge وFirefox وBitwarden وLastPass وKeePass وDashlane. تتم مطابقة الأعمدة بالاسم؛ ويتم استيراد عناصر تسجيل الدخول فقط."
+    "csvHint": "يتم دعم ملفات CSV المُصدَّرة من Chrome وEdge وFirefox وBitwarden وLastPass وKeePass وDashlane. تتم مطابقة الأعمدة بالاسم؛ ويتم استيراد عناصر تسجيل الدخول فقط.",
+    "csvExportTitle": "تصدير تسجيلات الدخول كملف CSV",
+    "csvExportDesc": "احفظ إدخالات تسجيل الدخول كملف CSV نصي يمكنك استيراده إلى مدير كلمات مرور آخر.",
+    "csvExportWarning": "هذا الملف غير مشفر - أي شخص يفتحه يمكنه قراءة كلمات المرور الخاصة بك. احفظه بأمان واحذفه بعد الاستخدام. يتم تضمين عناصر تسجيل الدخول فقط.",
+    "csvExportButton": "تصدير تسجيلات الدخول كملف CSV",
+    "csvExportSuccess": "تم تصدير {{count}} تسجيل دخول إلى {{path}}"
   }
 }

@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Eliminar credenciales guardadas",
     "deviceUnlockNone": "No hay credenciales de dispositivo guardadas.",
     "displaySize": "Tamaño de visualización",
-    "clearClipboardOnLock": "Borrar portapapeles al bloquear"
+    "clearClipboardOnLock": "Borrar portapapeles al bloquear",
+    "sectionAppearance": "Apariencia",
+    "sectionSecurity": "Seguridad"
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",
@@ -238,6 +240,11 @@
     "importButton": "Importar",
     "importing": "Importando…",
     "importSuccess": "{{count}} elemento(s) importado(s).",
-    "csvHint": "Se admiten exportaciones CSV de Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass y Dashlane. Las columnas se reconocen por su nombre; solo se importan elementos de inicio de sesión."
+    "csvHint": "Se admiten exportaciones CSV de Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass y Dashlane. Las columnas se reconocen por su nombre; solo se importan elementos de inicio de sesión.",
+    "csvExportTitle": "Exportar inicios de sesión como CSV",
+    "csvExportDesc": "Guarda tus entradas de inicio de sesión como un archivo CSV de texto plano que puedes importar en otro gestor de contraseñas.",
+    "csvExportWarning": "Este archivo no está cifrado: cualquiera que lo abra puede leer tus contraseñas. Guárdalo de forma segura y elimínalo después de usarlo. Solo se incluyen los inicios de sesión.",
+    "csvExportButton": "Exportar inicios de sesión como CSV",
+    "csvExportSuccess": "Se exportaron {{count}} inicio(s) de sesión a {{path}}"
   }
 }

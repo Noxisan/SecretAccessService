@@ -1,6 +1,23 @@
 import { describe, it, expect } from 'vitest'
-import { parseCsv, parseBitwardenJson, isBitwardenJson } from './importParsers.js'
-import type { LoginItem, CardItem, IdentityItem, SecureNoteItem } from '../../shared/types.js'
+import {
+  parseCsv,
+  parseBitwardenJson,
+  isBitwardenJson,
+  serializeLoginsCsv,
+  countExportableLogins
+} from './importParsers.js'
+import type { LoginItem, CardItem, IdentityItem, SecureNoteItem, VaultItem } from '../../shared/types.js'
+
+const login = (o: Partial<LoginItem> = {}): LoginItem => ({
+  id: 'x', kind: 'login', title: 'Acme', categoryId: null, favorite: false, colorTag: null,
+  createdAt: 0, updatedAt: 0, notes: '', customFields: [],
+  username: 'alice', password: 's3cret', url: 'https://example.com', totp: null,
+  passwordHistory: [], ...o
+})
+const noteItem = (): VaultItem => ({
+  id: 'n', kind: 'note', title: 'A note', categoryId: null, favorite: false, colorTag: null,
+  createdAt: 0, updatedAt: 0, notes: 'body', customFields: []
+})
 
 // ---------------------------------------------------------------------------
 // parseCsv
@@ -161,6 +178,57 @@ Mail,dave,pw,https://mail.example,,JBSWY3DPEHPK3PXP`
 // ---------------------------------------------------------------------------
 // isBitwardenJson
 // ---------------------------------------------------------------------------
+
+describe('serializeLoginsCsv', () => {
+  it('emits the header even with no items', () => {
+    expect(serializeLoginsCsv([])).toBe('name,username,password,url,totp,notes\r\n')
+  })
+
+  it('exports one CRLF-terminated row per login', () => {
+    const csv = serializeLoginsCsv([login({ title: 'GitHub', username: 'bob', password: 'pw' })])
+    expect(csv).toBe(
+      'name,username,password,url,totp,notes\r\n' +
+        'GitHub,bob,pw,https://example.com,,\r\n'
+    )
+  })
+
+  it('exports only login items', () => {
+    const csv = serializeLoginsCsv([login(), noteItem()])
+    expect(csv.trim().split('\r\n')).toHaveLength(2) // header + the single login
+  })
+
+  it('escapes commas, quotes, and newlines per RFC 4180', () => {
+    const csv = serializeLoginsCsv([
+      login({ title: 'Site, Inc.', notes: 'line1\nline2', password: 'a"b' })
+    ])
+    expect(csv).toContain('"Site, Inc."')
+    expect(csv).toContain('"line1\nline2"')
+    expect(csv).toContain('"a""b"')
+  })
+
+  it('round-trips through parseCsv (title/username/password/url/totp/notes)', () => {
+    const original = login({
+      title: 'My Bank', username: 'carol', password: 'p@ss,word',
+      url: 'https://bank.example', notes: 'savings', totp: 'JBSWY3DPEHPK3PXP'
+    })
+    const reparsed = parseCsv(serializeLoginsCsv([original]))
+    expect(reparsed).toHaveLength(1)
+    const r = reparsed[0] as LoginItem
+    expect(r.title).toBe('My Bank')
+    expect(r.username).toBe('carol')
+    expect(r.password).toBe('p@ss,word')
+    expect(r.url).toBe('https://bank.example')
+    expect(r.notes).toBe('savings')
+    expect(r.totp).toBe('JBSWY3DPEHPK3PXP')
+  })
+})
+
+describe('countExportableLogins', () => {
+  it('counts only login items', () => {
+    expect(countExportableLogins([login(), login(), noteItem()])).toBe(2)
+    expect(countExportableLogins([])).toBe(0)
+  })
+})
 
 describe('isBitwardenJson', () => {
   it('returns true for a minimal valid Bitwarden export', () => {

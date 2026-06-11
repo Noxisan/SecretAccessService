@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Gespeicherte Anmeldedaten entfernen",
     "deviceUnlockNone": "Keine Geräteanmeldedaten gespeichert.",
     "displaySize": "Anzeigegröße",
-    "clearClipboardOnLock": "Zwischenablage beim Sperren leeren"
+    "clearClipboardOnLock": "Zwischenablage beim Sperren leeren",
+    "sectionAppearance": "Darstellung",
+    "sectionSecurity": "Sicherheit"
   },
   "changePw": {
     "title": "Master-Passwort ändern",
@@ -238,6 +240,11 @@
     "importButton": "Importieren",
     "importing": "Importiere…",
     "importSuccess": "{{count}} Eintrag/Einträge importiert.",
-    "csvHint": "CSV-Exporte aus Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass und Dashlane werden unterstützt. Spalten werden anhand ihres Namens erkannt; es werden nur Login-Einträge importiert."
+    "csvHint": "CSV-Exporte aus Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass und Dashlane werden unterstützt. Spalten werden anhand ihres Namens erkannt; es werden nur Login-Einträge importiert.",
+    "csvExportTitle": "Logins als CSV exportieren",
+    "csvExportDesc": "Speichern Sie Ihre Login-Einträge als Klartext-CSV-Datei, die Sie in einen anderen Passwort-Manager importieren können.",
+    "csvExportWarning": "Diese Datei ist nicht verschlüsselt - jeder, der sie öffnet, kann Ihre Passwörter lesen. Bewahren Sie sie sicher auf und löschen Sie sie nach Gebrauch. Es werden nur Login-Einträge einbezogen.",
+    "csvExportButton": "Logins als CSV exportieren",
+    "csvExportSuccess": "{{count}} Login(s) nach {{path}} exportiert"
   }
 }

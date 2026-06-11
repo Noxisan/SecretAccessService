@@ -20,6 +20,7 @@ export const IPC = {
   clipboardCopy: 'tools:clipboardCopy',
   checkBreached: 'tools:checkBreached',
   vaultExport: 'vault:export',
+  vaultExportCsv: 'vault:exportCsv',
   vaultImport: 'vault:import',
   activityPing: 'tools:activityPing',
   openExternal: 'tools:openExternal',

@@ -76,6 +76,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
 | HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
 | Encrypted vault export (.sasbak) with independent Argon2id + XChaCha20-Poly1305 backup password | Done |
+| Plaintext CSV export of logins (for migrating to another manager; clearly warned, round-trips through the CSV importer) | Done |
 | CSV import — Bitwarden, LastPass, Chrome/Edge, Firefox, KeePass(XC), Dashlane, and generic exports (column names matched by alias; title derived from the URL when absent) | Done |
 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds | Done |
 | .sasbak encrypted import with merge or replace mode | Done |
@@ -137,6 +138,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.30.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.30.0) | 2026-06-11 | Plaintext CSV export of logins (migrate out); settings panel organized into Appearance and Security sections |
 | [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |
 | [0.28.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.28.0) | 2026-06-11 | New display-size (UI scale) setting; consistent pinned headers/footers across all slide-in panels |
 | [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |

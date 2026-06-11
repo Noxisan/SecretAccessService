@@ -168,7 +168,9 @@
     "deviceUnlockClear": "সংরক্ষিত শংসাপত্র মুছুন",
     "deviceUnlockNone": "কোনো ডিভাইস শংসাপত্র সংরক্ষিত নেই।",
     "displaySize": "প্রদর্শন আকার",
-    "clearClipboardOnLock": "লক করার সময় ক্লিপবোর্ড সাফ করুন"
+    "clearClipboardOnLock": "লক করার সময় ক্লিপবোর্ড সাফ করুন",
+    "sectionAppearance": "চেহারা",
+    "sectionSecurity": "নিরাপত্তা"
   },
   "changePw": {
     "title": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",
@@ -238,6 +240,11 @@
     "importButton": "আমদানি করুন",
     "importing": "আমদানি হচ্ছে…",
     "importSuccess": "{{count}}টি আইটেম আমদানি হয়েছে।",
-    "csvHint": "Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass এবং Dashlane থেকে CSV রপ্তানি সমর্থিত। কলামগুলি নাম অনুসারে মেলানো হয়; শুধুমাত্র লগইন আইটেম আমদানি করা হয়।"
+    "csvHint": "Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass এবং Dashlane থেকে CSV রপ্তানি সমর্থিত। কলামগুলি নাম অনুসারে মেলানো হয়; শুধুমাত্র লগইন আইটেম আমদানি করা হয়।",
+    "csvExportTitle": "লগইন CSV হিসেবে রপ্তানি করুন",
+    "csvExportDesc": "আপনার লগইন এন্ট্রিগুলি একটি প্লেইন-টেক্সট CSV ফাইল হিসেবে সংরক্ষণ করুন যা আপনি অন্য পাসওয়ার্ড ম্যানেজারে আমদানি করতে পারেন।",
+    "csvExportWarning": "এই ফাইলটি এনক্রিপ্ট করা নয় - যে কেউ এটি খুললে আপনার পাসওয়ার্ড পড়তে পারবে। নিরাপদে রাখুন এবং ব্যবহারের পরে মুছে ফেলুন। শুধুমাত্র লগইন আইটেম অন্তর্ভুক্ত।",
+    "csvExportButton": "লগইন CSV হিসেবে রপ্তানি করুন",
+    "csvExportSuccess": "{{count}} টি লগইন {{path}} এ রপ্তানি করা হয়েছে"
   }
 }

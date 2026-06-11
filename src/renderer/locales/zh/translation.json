@@ -168,7 +168,9 @@
     "deviceUnlockClear": "删除已保存的凭据",
     "deviceUnlockNone": "未保存任何设备凭据。",
     "displaySize": "显示大小",
-    "clearClipboardOnLock": "锁定时清除剪贴板"
+    "clearClipboardOnLock": "锁定时清除剪贴板",
+    "sectionAppearance": "外观",
+    "sectionSecurity": "安全"
   },
   "changePw": {
     "title": "更改主密码",
@@ -238,6 +240,11 @@
     "importButton": "导入",
     "importing": "导入中…",
     "importSuccess": "成功导入 {{count}} 个条目。",
-    "csvHint": "支持来自 Chrome、Edge、Firefox、Bitwarden、LastPass、KeePass 和 Dashlane 的 CSV 导出。按列名匹配；仅导入登录项。"
+    "csvHint": "支持来自 Chrome、Edge、Firefox、Bitwarden、LastPass、KeePass 和 Dashlane 的 CSV 导出。按列名匹配；仅导入登录项。",
+    "csvExportTitle": "导出登录为 CSV",
+    "csvExportDesc": "将您的登录条目保存为纯文本 CSV 文件，可导入到其他密码管理器。",
+    "csvExportWarning": "此文件未加密——任何打开它的人都能读取您的密码。请妥善保管并在使用后删除。仅包含登录项。",
+    "csvExportButton": "导出登录为 CSV",
+    "csvExportSuccess": "已将 {{count}} 个登录导出到 {{path}}"
   }
 }

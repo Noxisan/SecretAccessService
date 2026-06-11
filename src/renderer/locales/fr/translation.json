@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Supprimer les identifiants enregistrés",
     "deviceUnlockNone": "Aucun identifiant d'appareil enregistré.",
     "displaySize": "Taille d'affichage",
-    "clearClipboardOnLock": "Effacer le presse-papiers au verrouillage"
+    "clearClipboardOnLock": "Effacer le presse-papiers au verrouillage",
+    "sectionAppearance": "Apparence",
+    "sectionSecurity": "Sécurité"
   },
   "changePw": {
     "title": "Changer le mot de passe principal",
@@ -238,6 +240,11 @@
     "importButton": "Importer",
     "importing": "Import en cours…",
     "importSuccess": "{{count}} élément(s) importé(s).",
-    "csvHint": "Les exports CSV de Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass et Dashlane sont pris en charge. Les colonnes sont reconnues par leur nom ; seuls les identifiants sont importés."
+    "csvHint": "Les exports CSV de Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass et Dashlane sont pris en charge. Les colonnes sont reconnues par leur nom ; seuls les identifiants sont importés.",
+    "csvExportTitle": "Exporter les identifiants en CSV",
+    "csvExportDesc": "Enregistrez vos identifiants dans un fichier CSV en texte clair que vous pouvez importer dans un autre gestionnaire de mots de passe.",
+    "csvExportWarning": "Ce fichier n est pas chiffré : toute personne qui l ouvre peut lire vos mots de passe. Conservez-le en lieu sûr et supprimez-le après usage. Seuls les identifiants sont inclus.",
+    "csvExportButton": "Exporter les identifiants en CSV",
+    "csvExportSuccess": "{{count}} identifiant(s) exporté(s) vers {{path}}"
   }
 }

@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.30.0] - 2026-06-11
+
+Adds plaintext CSV export for migrating logins out, and organizes the settings
+panel into clear sections.
+
+### Added
+- **Plaintext CSV export of logins** — the Export tab can now save your login
+  entries to a CSV file for migrating to another password manager, complementing
+  the existing encrypted `.sasbak` backup. The output uses the same columns the
+  importer understands (name, username, password, url, totp, notes) and
+  round-trips through it. The file is unencrypted, so a clear warning is shown
+  before exporting. Only login items are included; use the encrypted backup for
+  full-fidelity export of all item types. Backed by a pure, RFC 4180-correct
+  `serializeLoginsCsv` with unit tests, and localized in all 11 languages.
+
+### Changed
+- **Settings are now grouped into sections** — the settings panel was a single
+  long list; it is now organized under "Appearance" (theme, accent, display size,
+  language) and "Security" (auto-lock, clipboard clear, clear-on-lock, panic
+  lock, device unlock, change master password) headings, making options easier to
+  scan as the list has grown. Section titles are localized in all 11 languages.
+
 ## [0.29.0] - 2026-06-11
 
 Two quality-of-life improvements: clipboard secrets are cleared the moment you
@@ -727,7 +749,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.29.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.30.0...HEAD
+[0.30.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.29.0...v0.30.0
 [0.29.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.28.0...v0.29.0
 [0.28.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.27.0...v0.28.0
 [0.27.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...v0.27.0
