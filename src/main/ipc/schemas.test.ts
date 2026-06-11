@@ -127,7 +127,7 @@ describe('generatePasswordSchema', () => {
 describe('settingsSchema', () => {
   const base = {
     language: 'en', theme: 'system', accent: '#7c3aed', autoLockMinutes: 5,
-    clipboardClearSeconds: 30, maxFailedAttempts: 10, travelHiddenCategoryIds: []
+    clipboardClearSeconds: 30, maxFailedAttempts: 10, travelHiddenCategoryIds: [], uiScale: 1
   }
   it('accepts valid settings', () => {
     expect(ok(settingsSchema, base)).toBe(true)
@@ -137,6 +137,11 @@ describe('settingsSchema', () => {
     expect(ok(settingsSchema, { ...base, accent: 'purple' })).toBe(false)
     expect(ok(settingsSchema, { ...base, autoLockMinutes: -1 })).toBe(false)
     expect(ok(settingsSchema, { ...base, clipboardClearSeconds: 9999 })).toBe(false)
+  })
+  it('bounds uiScale to a sane range and rejects extremes', () => {
+    expect(ok(settingsSchema, { ...base, uiScale: 1.25 })).toBe(true)
+    expect(ok(settingsSchema, { ...base, uiScale: 0.5 })).toBe(false)
+    expect(ok(settingsSchema, { ...base, uiScale: 3 })).toBe(false)
   })
 })
 

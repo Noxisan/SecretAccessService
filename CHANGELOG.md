@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Display-size setting (UI scale)** — a new control in Settings scales the
+  whole interface to 90%, 100%, 110%, or 125%. Because the UI is built on
+  rem-based units, this adjusts the root font size and resizes everything
+  proportionally — useful for high-resolution displays and accessibility. The
+  choice is stored in settings (default 100%) and applied on launch. Validated
+  by the IPC settings schema (clamped to 80-150%) and localized in all 11
+  languages.
+
 ### Changed
 - **Consistent panel headers and footers** — `SlidePanel` now provides a shared
   pinned header (title + close button) and an optional pinned footer. The

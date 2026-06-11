@@ -166,7 +166,8 @@
     "changePassword": "Changer le mot de passe principal",
     "deviceUnlockSaved": "Les identifiants de l'appareil sont enregistrés dans le trousseau du système.",
     "deviceUnlockClear": "Supprimer les identifiants enregistrés",
-    "deviceUnlockNone": "Aucun identifiant d'appareil enregistré."
+    "deviceUnlockNone": "Aucun identifiant d'appareil enregistré.",
+    "displaySize": "Taille d'affichage"
   },
   "changePw": {
     "title": "Changer le mot de passe principal",

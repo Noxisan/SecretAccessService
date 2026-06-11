@@ -65,7 +65,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password history per login (view previous passwords; one-click restore) | Done |
 | Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word); CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
 | Global search across all item types, including custom-field labels (never secret values) | Done |
-| Settings: theme (light/dark/system), accent color, language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
+| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
 | Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
 | Category item-count badges in sidebar | Done |

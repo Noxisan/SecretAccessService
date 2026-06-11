@@ -166,7 +166,8 @@
     "changePassword": "Alterar senha principal",
     "deviceUnlockSaved": "As credenciais do dispositivo estão salvas no chaveiro do sistema.",
     "deviceUnlockClear": "Remover credenciais salvas",
-    "deviceUnlockNone": "Nenhuma credencial de dispositivo salva."
+    "deviceUnlockNone": "Nenhuma credencial de dispositivo salva.",
+    "displaySize": "Tamanho de exibição"
   },
   "changePw": {
     "title": "Alterar senha principal",

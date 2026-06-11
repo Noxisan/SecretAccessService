@@ -133,6 +133,7 @@ export const settingsSchema = z.object({
   clipboardClearSeconds: z.number().int().min(0).max(600),
   maxFailedAttempts: z.number().int().min(0).max(100),
   travelHiddenCategoryIds: z.array(z.string()).max(500),
+  uiScale: z.number().min(0.8).max(1.5),
   generatorDefaults: generatePasswordSchema.optional()
 })
 

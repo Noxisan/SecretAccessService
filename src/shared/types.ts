@@ -123,6 +123,9 @@ export interface AppSettings {
   maxFailedAttempts: number
   /** Category IDs that are hidden while travel mode is active. */
   travelHiddenCategoryIds: string[]
+  /** UI scale factor applied to the root font size (1 = 100%). Scales the whole
+   * rem-based interface proportionally. */
+  uiScale: number
   /** Last-used password generator options — restored when the generator modal opens. */
   generatorDefaults?: GeneratePasswordOptions | undefined
 }

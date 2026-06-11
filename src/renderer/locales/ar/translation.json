@@ -166,7 +166,8 @@
     "changePassword": "تغيير كلمة المرور الرئيسية",
     "deviceUnlockSaved": "بيانات الجهاز محفوظة في سلسلة مفاتيح النظام.",
     "deviceUnlockClear": "إزالة البيانات المحفوظة",
-    "deviceUnlockNone": "لا توجد بيانات جهاز محفوظة."
+    "deviceUnlockNone": "لا توجد بيانات جهاز محفوظة.",
+    "displaySize": "حجم العرض"
   },
   "changePw": {
     "title": "تغيير كلمة المرور الرئيسية",
