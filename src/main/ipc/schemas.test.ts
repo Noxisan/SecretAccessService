@@ -128,7 +128,7 @@ describe('settingsSchema', () => {
   const base = {
     language: 'en', theme: 'system', accent: '#7c3aed', autoLockMinutes: 5,
     clipboardClearSeconds: 30, maxFailedAttempts: 10, travelHiddenCategoryIds: [], uiScale: 1,
-    itemSort: 'az', clearClipboardOnLock: true
+    itemSort: 'az', clearClipboardOnLock: true, passwordHistoryLimit: 50
   }
   it('accepts valid settings', () => {
     expect(ok(settingsSchema, base)).toBe(true)

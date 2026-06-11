@@ -121,7 +121,11 @@
       "oldest": "Oldest first",
       "kind": "By type"
     },
-    "openUrl": "Open in browser"
+    "openUrl": "Open in browser",
+    "emptyVaultTitle": "Your vault is empty",
+    "emptyVaultHint": "Add a login, card, secure note, or other item to get started.",
+    "emptyVaultCta": "Add your first item",
+    "emptySearch": "No items match your search"
   },
   "generator": {
     "title": "Password generator",
@@ -170,7 +174,9 @@
     "displaySize": "Display size",
     "clearClipboardOnLock": "Clear clipboard on lock",
     "sectionAppearance": "Appearance",
-    "sectionSecurity": "Security"
+    "sectionSecurity": "Security",
+    "passwordHistoryLimit": "Password history limit",
+    "passwordHistoryLimitHint": "How many previous passwords to keep per login (0 keeps none)."
   },
   "changePw": {
     "title": "Change master password",

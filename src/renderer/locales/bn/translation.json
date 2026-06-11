@@ -121,7 +121,11 @@
       "oldest": "পুরানো আগে",
       "kind": "ধরন অনুযায়ী"
     },
-    "openUrl": "ব্রাউজারে খুলুন"
+    "openUrl": "ব্রাউজারে খুলুন",
+    "emptyVaultTitle": "আপনার ভল্ট খালি",
+    "emptyVaultHint": "শুরু করতে একটি লগইন, কার্ড, নিরাপদ নোট বা অন্য আইটেম যোগ করুন।",
+    "emptyVaultCta": "আপনার প্রথম আইটেম যোগ করুন",
+    "emptySearch": "আপনার অনুসন্ধানের সাথে কোনো আইটেম মেলেনি"
   },
   "generator": {
     "title": "পাসওয়ার্ড জেনারেটর",
@@ -170,7 +174,9 @@
     "displaySize": "প্রদর্শন আকার",
     "clearClipboardOnLock": "লক করার সময় ক্লিপবোর্ড সাফ করুন",
     "sectionAppearance": "চেহারা",
-    "sectionSecurity": "নিরাপত্তা"
+    "sectionSecurity": "নিরাপত্তা",
+    "passwordHistoryLimit": "পাসওয়ার্ড ইতিহাসের সীমা",
+    "passwordHistoryLimitHint": "প্রতি লগইনে কতগুলি পুরনো পাসওয়ার্ড রাখা হবে (0 মানে কোনোটিই নয়)।"
   },
   "changePw": {
     "title": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",

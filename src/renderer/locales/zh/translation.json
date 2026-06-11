@@ -121,7 +121,11 @@
       "oldest": "最早优先",
       "kind": "按类型"
     },
-    "openUrl": "在浏览器中打开"
+    "openUrl": "在浏览器中打开",
+    "emptyVaultTitle": "您的保险库为空",
+    "emptyVaultHint": "添加登录、卡片、安全笔记或其他项目以开始使用。",
+    "emptyVaultCta": "添加您的第一个项目",
+    "emptySearch": "没有与您的搜索匹配的项目"
   },
   "generator": {
     "title": "密码生成器",
@@ -170,7 +174,9 @@
     "displaySize": "显示大小",
     "clearClipboardOnLock": "锁定时清除剪贴板",
     "sectionAppearance": "外观",
-    "sectionSecurity": "安全"
+    "sectionSecurity": "安全",
+    "passwordHistoryLimit": "密码历史记录上限",
+    "passwordHistoryLimitHint": "每个登录保留多少个旧密码（0 表示不保留）。"
   },
   "changePw": {
     "title": "更改主密码",

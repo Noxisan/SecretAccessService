@@ -74,21 +74,36 @@ export function createBlankItem(kind: EditableKind, categoryId: string | null): 
 
 /**
  * When a login's password changes on edit, archive the previous one so the user
- * keeps a history of credentials. No-op for new items or unchanged passwords.
+ * keeps a history of credentials, then trim the history to `limit` entries.
+ *
+ * `limit` is the user's configured cap (0 keeps no history); it is clamped to
+ * the hard ceiling of {@link MAX_PASSWORD_HISTORY}. Existing history beyond the
+ * limit is pruned even when the password is unchanged, so lowering the setting
+ * takes effect on the next save.
  */
-export function applyPasswordHistory(previous: VaultItem | null, next: LoginItem): LoginItem {
-  if (!previous || previous.kind !== 'login') return next
-  if (previous.password === '' || previous.password === next.password) return next
-  const entry = { password: previous.password, replacedAt: Date.now() }
-  return {
-    ...next,
-    passwordHistory: [entry, ...next.passwordHistory].slice(0, MAX_PASSWORD_HISTORY)
-  }
+export function applyPasswordHistory(
+  previous: VaultItem | null,
+  next: LoginItem,
+  limit: number = MAX_PASSWORD_HISTORY
+): LoginItem {
+  const cap = Math.max(0, Math.min(Math.floor(limit), MAX_PASSWORD_HISTORY))
+  const changed =
+    previous?.kind === 'login' &&
+    previous.password !== '' &&
+    previous.password !== next.password
+  const history = changed
+    ? [{ password: previous.password, replacedAt: Date.now() }, ...next.passwordHistory]
+    : next.passwordHistory
+  return { ...next, passwordHistory: history.slice(0, cap) }
 }
 
 /** Stamp updatedAt and fold in password history before persisting. */
-export function finalizeItem(previous: VaultItem | null, draft: VaultItem): VaultItem {
+export function finalizeItem(
+  previous: VaultItem | null,
+  draft: VaultItem,
+  limit: number = MAX_PASSWORD_HISTORY
+): VaultItem {
   const stamped = { ...draft, updatedAt: Date.now() }
-  if (stamped.kind === 'login') return applyPasswordHistory(previous, stamped)
+  if (stamped.kind === 'login') return applyPasswordHistory(previous, stamped, limit)
   return stamped
 }

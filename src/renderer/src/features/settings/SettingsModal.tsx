@@ -229,6 +229,24 @@ export default function SettingsModal(): JSX.Element | null {
             />
           </label>
 
+          {/* Password history limit */}
+          <div className={fieldRow}>
+            <span className={fieldLabel}>{t('settings.passwordHistoryLimit')}</span>
+            <p className="text-xs text-[var(--text-muted)]">{t('settings.passwordHistoryLimitHint')}</p>
+            <input
+              type="number"
+              min={0}
+              max={50}
+              value={draft.passwordHistoryLimit}
+              onChange={(e) =>
+                patch({
+                  passwordHistoryLimit: Math.max(0, Math.min(50, parseInt(e.target.value, 10) || 0))
+                })
+              }
+              className="w-32 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
+            />
+          </div>
+
           {/* Max failed unlock attempts (self-destruct) */}
           <div className={fieldRow}>
             <span className={fieldLabel}>{t('settings.maxFailedAttempts')}</span>

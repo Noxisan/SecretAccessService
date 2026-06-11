@@ -133,6 +133,8 @@ export interface AppSettings {
   itemSort: VaultItemSortKey
   /** Clear a copied secret from the clipboard immediately when the vault locks. */
   clearClipboardOnLock: boolean
+  /** Max previous passwords kept per login (0 disables history; hard ceiling 50). */
+  passwordHistoryLimit: number
   /** Last-used password generator options — restored when the generator modal opens. */
   generatorDefaults?: GeneratePasswordOptions | undefined
 }

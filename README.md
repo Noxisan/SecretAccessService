@@ -65,7 +65,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password history per login (view previous passwords; one-click restore) | Done |
 | Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word); CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
 | Global search across all item types, including custom-field labels (never secret values) | Done |
-| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, clear-clipboard-on-lock toggle, panic-lock threshold | Done |
+| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, clear-clipboard-on-lock toggle, password-history limit, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
 | Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
 | Category item-count badges in sidebar | Done |
@@ -138,6 +138,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.31.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.31.0) | 2026-06-11 | Onboarding empty states (new vault / empty search / empty filter); configurable password-history limit setting |
 | [0.30.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.30.0) | 2026-06-11 | Plaintext CSV export of logins (migrate out); settings panel organized into Appearance and Security sections |
 | [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |
 | [0.28.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.28.0) | 2026-06-11 | New display-size (UI scale) setting; consistent pinned headers/footers across all slide-in panels |

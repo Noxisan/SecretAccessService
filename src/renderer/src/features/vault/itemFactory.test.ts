@@ -68,6 +68,32 @@ describe('applyPasswordHistory', () => {
     const next = login({ password: 'new', passwordHistory: history })
     expect(applyPasswordHistory(prev, next).passwordHistory).toHaveLength(50)
   })
+
+  it('honours a custom limit when archiving', () => {
+    const history = [
+      { password: 'p1', replacedAt: 1 },
+      { password: 'p2', replacedAt: 2 }
+    ]
+    const prev = login({ password: 'old' })
+    const next = login({ password: 'new', passwordHistory: history })
+    // limit 2: prepend 'old' then keep only the two newest.
+    const out = applyPasswordHistory(prev, next, 2)
+    expect(out.passwordHistory).toHaveLength(2)
+    expect(out.passwordHistory[0]?.password).toBe('old')
+    expect(out.passwordHistory[1]?.password).toBe('p1')
+  })
+
+  it('keeps no history when the limit is 0', () => {
+    const prev = login({ password: 'old' })
+    const next = login({ password: 'new' })
+    expect(applyPasswordHistory(prev, next, 0).passwordHistory).toHaveLength(0)
+  })
+
+  it('prunes existing history down to the limit even when unchanged', () => {
+    const history = Array.from({ length: 8 }, (_, i) => ({ password: `p${i}`, replacedAt: i }))
+    const item = login({ password: 'same', passwordHistory: history })
+    expect(applyPasswordHistory(item, item, 3).passwordHistory).toHaveLength(3)
+  })
 })
 
 describe('finalizeItem', () => {

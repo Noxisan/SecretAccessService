@@ -121,7 +121,11 @@
       "oldest": "Más antiguo primero",
       "kind": "Por tipo"
     },
-    "openUrl": "Abrir en el navegador"
+    "openUrl": "Abrir en el navegador",
+    "emptyVaultTitle": "Tu bóveda está vacía",
+    "emptyVaultHint": "Agrega un inicio de sesión, tarjeta, nota segura u otro elemento para empezar.",
+    "emptyVaultCta": "Agrega tu primer elemento",
+    "emptySearch": "Ningún elemento coincide con tu búsqueda"
   },
   "generator": {
     "title": "Generador de contraseñas",
@@ -170,7 +174,9 @@
     "displaySize": "Tamaño de visualización",
     "clearClipboardOnLock": "Borrar portapapeles al bloquear",
     "sectionAppearance": "Apariencia",
-    "sectionSecurity": "Seguridad"
+    "sectionSecurity": "Seguridad",
+    "passwordHistoryLimit": "Límite del historial de contraseñas",
+    "passwordHistoryLimitHint": "Cuántas contraseñas anteriores conservar por inicio de sesión (0 no conserva ninguna)."
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",

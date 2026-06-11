@@ -121,7 +121,11 @@
       "oldest": "पुराना पहले",
       "kind": "प्रकार से"
     },
-    "openUrl": "ब्राउज़र में खोलें"
+    "openUrl": "ब्राउज़र में खोलें",
+    "emptyVaultTitle": "आपकी तिजोरी खाली है",
+    "emptyVaultHint": "शुरू करने के लिए एक लॉगिन, कार्ड, सुरक्षित नोट या अन्य आइटम जोड़ें।",
+    "emptyVaultCta": "अपना पहला आइटम जोड़ें",
+    "emptySearch": "आपकी खोज से कोई आइटम मेल नहीं खाता"
   },
   "generator": {
     "title": "पासवर्ड जनरेटर",
@@ -170,7 +174,9 @@
     "displaySize": "प्रदर्शन आकार",
     "clearClipboardOnLock": "लॉक होने पर क्लिपबोर्ड साफ़ करें",
     "sectionAppearance": "रूप",
-    "sectionSecurity": "सुरक्षा"
+    "sectionSecurity": "सुरक्षा",
+    "passwordHistoryLimit": "पासवर्ड इतिहास सीमा",
+    "passwordHistoryLimitHint": "प्रति लॉगिन कितने पुराने पासवर्ड रखें (0 का अर्थ कोई नहीं)।"
   },
   "changePw": {
     "title": "मास्टर पासवर्ड बदलें",

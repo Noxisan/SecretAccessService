@@ -121,7 +121,11 @@
       "oldest": "Plus ancien d'abord",
       "kind": "Par type"
     },
-    "openUrl": "Ouvrir dans le navigateur"
+    "openUrl": "Ouvrir dans le navigateur",
+    "emptyVaultTitle": "Votre coffre est vide",
+    "emptyVaultHint": "Ajoutez un identifiant, une carte, une note sécurisée ou un autre élément pour commencer.",
+    "emptyVaultCta": "Ajouter votre premier élément",
+    "emptySearch": "Aucun élément ne correspond à votre recherche"
   },
   "generator": {
     "title": "Générateur de mots de passe",
@@ -170,7 +174,9 @@
     "displaySize": "Taille d'affichage",
     "clearClipboardOnLock": "Effacer le presse-papiers au verrouillage",
     "sectionAppearance": "Apparence",
-    "sectionSecurity": "Sécurité"
+    "sectionSecurity": "Sécurité",
+    "passwordHistoryLimit": "Limite de l historique des mots de passe",
+    "passwordHistoryLimitHint": "Nombre d anciens mots de passe à conserver par identifiant (0 n en conserve aucun)."
   },
   "changePw": {
     "title": "Changer le mot de passe principal",
