@@ -138,6 +138,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.32.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.32.0) | 2026-06-11 | Lock-on-minimize security setting; internal locale key-parity test guarding all 11 translations |
 | [0.31.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.31.0) | 2026-06-11 | Onboarding empty states (new vault / empty search / empty filter); configurable password-history limit setting |
 | [0.30.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.30.0) | 2026-06-11 | Plaintext CSV export of logins (migrate out); settings panel organized into Appearance and Security sections |
 | [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |
