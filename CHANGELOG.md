@@ -16,7 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Tests
 - Added 9 tests for the category reorder helper (swap math, boundary no-ops,
-  unknown id, immutability, display-order vs array-order). Suite grows to 141.
+  unknown id, immutability, display-order vs array-order).
+- Added 6 tests for the main-process `SettingsStore`: defaults on a
+  missing/corrupt file, merging persisted values over defaults (so settings
+  files from older versions keep new keys' defaults), the set/get round-trip,
+  and parent-directory creation. Suite grows to 147.
 
 ## [0.21.0] - 2026-06-11
 
