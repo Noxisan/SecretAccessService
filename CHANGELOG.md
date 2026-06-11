@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.0] - 2026-06-11
+
+Adds a real inline language switcher to the top bar and shores up the test suite
+around the vault format and migration layer.
+
+### Added
+- **Inline language switcher in the top bar** — the globe icon now opens a
+  dropdown listing all 11 languages by their native name, with a check mark on
+  the active one. Selecting a language applies and persists it immediately
+  (including right-to-left layout for Arabic and Urdu) without opening Settings.
+
+### Changed
+- **Top-bar globe icon is no longer a duplicate of Settings** — previously both
+  the globe and the gear button just opened the Settings modal. The globe is now
+  a real language switcher; the gear still opens Settings.
+- Moved the native language-name map into the shared i18n module so the switcher
+  and the Settings dropdown share one source of truth.
+
+### Build
+- CI and release workflows now build and test on Node 22 (current active LTS)
+  instead of Node 20, which has entered maintenance. Runtime support is
+  unchanged (`engines.node` stays `>=20`).
+
+### Tests
+- Added 14 tests for the vault format and migration layer. `headerAad` (the AEAD
+  associated data) is now guarded to be deterministic, canonical regardless of
+  input key order, to exclude the nonce, and to change whenever any
+  security-relevant field (version, salt, KDF ops/mem, cipher) changes — locking
+  in the header tamper-detection surface. `migrateVaultData` is covered for
+  passing current/older vaults through without dropping user data and rejecting
+  newer-schema vaults. Suite grows to 132 tests.
+
 ## [0.20.0] - 2026-06-11
 
 Hardens the passphrase generator with the full EFF diceware wordlist — a
@@ -486,7 +518,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...HEAD
+[0.21.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.1...v0.19.0
 [0.18.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.0...v0.18.1

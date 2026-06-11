@@ -22,6 +22,21 @@ export const SUPPORTED_LANGUAGES = [
 
 export const RTL_LANGUAGES = new Set(['ar', 'ur'])
 
+/** Native (endonym) display names for each supported language. */
+export const LANGUAGE_NAMES: Record<(typeof SUPPORTED_LANGUAGES)[number], string> = {
+  en: 'English',
+  zh: '中文',
+  hi: 'हिंदी',
+  es: 'Español',
+  fr: 'Français',
+  ar: 'العربية',
+  bn: 'বাংলা',
+  pt: 'Português',
+  ru: 'Русский',
+  ur: 'اردو',
+  de: 'Deutsch'
+}
+
 void i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
