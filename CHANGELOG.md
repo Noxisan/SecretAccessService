@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.28.0] - 2026-06-11
+
+Adds a display-size setting and polishes the slide-in panels so every dialog
+shares one consistent, pinned header and footer.
+
+### Added
+- **Display-size setting (UI scale)** — a new control in Settings scales the
+  whole interface to 90%, 100%, 110%, or 125%. Because the UI is built on
+  rem-based units, this adjusts the root font size and resizes everything
+  proportionally — useful for high-resolution displays and accessibility. The
+  choice is stored in settings (default 100%) and applied on launch. Validated
+  by the IPC settings schema (clamped to 80-150%) and localized in all 11
+  languages.
+
+### Changed
+- **Consistent panel headers and footers** — `SlidePanel` now provides a shared
+  pinned header (title + close button) and an optional pinned footer. The
+  generator, settings, change-password, health, and import/export panels adopt
+  it, so every panel now has the same header treatment instead of some headers
+  scrolling away with the content. Settings keeps its Save/Cancel actions pinned
+  to a footer. The item editor continues to supply its own header/body/footer
+  layout (SlidePanel renders children directly when no title is given).
+
+### Refactored
+- Removed the duplicated per-panel header markup and the leftover close-button
+  icon imports; the bundle is marginally smaller as a result.
+
 ## [0.27.0] - 2026-06-11
 
 A UI overhaul: every dialog is now a side panel that slides in from the right,
@@ -678,7 +705,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.27.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.28.0...HEAD
+[0.28.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.27.0...v0.28.0
 [0.27.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...v0.27.0
 [0.26.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.1...v0.26.0
 [0.25.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.0...v0.25.1

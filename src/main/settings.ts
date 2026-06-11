@@ -15,6 +15,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   clipboardClearSeconds: 30,
   maxFailedAttempts: 10,
   travelHiddenCategoryIds: [],
+  uiScale: 1,
   generatorDefaults: {
     length: 20,
     uppercase: true,

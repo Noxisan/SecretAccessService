@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, ShieldAlert, ShieldCheck, Copy, RefreshCw, Clock, Wifi, Loader } from 'lucide-react'
+import { ShieldAlert, ShieldCheck, Copy, RefreshCw, Clock, Wifi, Loader } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import SlidePanel from '../../components/SlidePanel'
 import type { LoginItem } from '@shared/types'
@@ -64,19 +64,7 @@ export default function HealthDashboard(): JSX.Element | null {
   }
 
   return (
-    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('health.title')} width="max-w-xl">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
-          <h2 className="font-semibold text-[var(--text)]">{t('health.title')}</h2>
-          <button
-            onClick={() => setOpen(false)}
-            className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
-            aria-label={t('common.close')}
-          >
-            <X size={18} />
-          </button>
-        </div>
-
+    <SlidePanel open={open} onClose={() => setOpen(false)} title={t('health.title')} width="max-w-xl" bodyClassName="">
         {/* Summary strip */}
         <div className="flex flex-wrap items-center gap-6 border-b border-[var(--border)] px-5 py-3">
           <div className="text-center">

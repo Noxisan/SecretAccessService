@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, KeyRound } from 'lucide-react'
+import { KeyRound } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import SlidePanel from '../../components/SlidePanel'
 import type { AppSettings, ThemeMode } from '@shared/types'
@@ -17,6 +17,9 @@ const ACCENT_PRESETS = [
   '#d97706', // amber
   '#db2777', // pink
 ]
+
+/** Selectable UI scale factors (root font-size multipliers). */
+const UI_SCALES = [0.9, 1, 1.1, 1.25]
 
 export default function SettingsModal(): JSX.Element | null {
   const { t } = useTranslation()
@@ -57,26 +60,40 @@ export default function SettingsModal(): JSX.Element | null {
 
   const fieldRow = 'flex flex-col gap-1.5'
   const fieldLabel = 'text-sm font-medium text-[var(--text)]'
-  const themeBtn = (mode: ThemeMode): string =>
+  // Shared segmented-button style (used by the theme and display-size pickers).
+  const segBtn = (active: boolean): string =>
     `flex-1 rounded-[var(--radius)] border py-1.5 text-sm transition-colors cursor-pointer ${
-      draft.theme === mode
+      active
         ? 'border-[var(--accent)] text-[var(--accent)]'
         : 'border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text)]'
     }`
 
   return (
-    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('settings.title')} width="max-w-md">
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-[var(--text)]">{t('settings.title')}</h2>
+    <SlidePanel
+      open={open}
+      onClose={() => setOpen(false)}
+      title={t('settings.title')}
+      width="max-w-md"
+      bodyClassName="p-6"
+      footer={
+        <div className="flex justify-end gap-2">
           <button
             onClick={() => setOpen(false)}
-            className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
+            className="rounded-[var(--radius)] border border-[var(--border)] px-4 py-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)]"
           >
-            <X size={18} />
+            {t('common.cancel')}
+          </button>
+          <button
+            onClick={() => void handleSave()}
+            disabled={busy}
+            className="rounded-[var(--radius)] px-4 py-1.5 text-sm text-[var(--accent-contrast)] disabled:opacity-60"
+            style={{ background: 'var(--accent)' }}
+          >
+            {t('common.save')}
           </button>
         </div>
-
+      }
+    >
         <div className="flex flex-col gap-5">
           {/* Theme */}
           <div className={fieldRow}>
@@ -85,7 +102,7 @@ export default function SettingsModal(): JSX.Element | null {
               {(['light', 'dark', 'system'] as ThemeMode[]).map((mode) => (
                 <button
                   key={mode}
-                  className={themeBtn(mode)}
+                  className={segBtn(draft.theme === mode)}
                   onClick={() => patch({ theme: mode })}
                 >
                   {t(`settings.${mode}`)}
@@ -126,6 +143,23 @@ export default function SettingsModal(): JSX.Element | null {
                   className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                 />
               </label>
+            </div>
+          </div>
+
+          {/* Display size */}
+          <div className={fieldRow}>
+            <span className={fieldLabel}>{t('settings.displaySize')}</span>
+            <div className="flex gap-2">
+              {UI_SCALES.map((scale) => (
+                <button
+                  key={scale}
+                  className={segBtn(scale === draft.uiScale)}
+                  onClick={() => patch({ uiScale: scale })}
+                  aria-pressed={scale === draft.uiScale}
+                >
+                  {Math.round(scale * 100)}%
+                </button>
+              ))}
             </div>
           </div>
 
@@ -218,23 +252,6 @@ export default function SettingsModal(): JSX.Element | null {
           </button>
         </div>
 
-        <div className="mt-4 flex justify-end gap-2">
-          <button
-            onClick={() => setOpen(false)}
-            className="rounded-[var(--radius)] border border-[var(--border)] px-4 py-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)]"
-          >
-            {t('common.cancel')}
-          </button>
-          <button
-            onClick={() => void handleSave()}
-            disabled={busy}
-            className="rounded-[var(--radius)] px-4 py-1.5 text-sm text-[var(--accent-contrast)] disabled:opacity-60"
-            style={{ background: 'var(--accent)' }}
-          >
-            {t('common.save')}
-          </button>
-        </div>
-      </div>
     </SlidePanel>
   )
 }
