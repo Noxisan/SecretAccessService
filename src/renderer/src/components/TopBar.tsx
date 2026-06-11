@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useMemo, useRef, type JSX } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight, Plane } from 'lucide-react'
+import { Search, KeyRound, Settings, Lock, Activity, Languages, ArrowLeftRight, Plane, Check } from 'lucide-react'
 import { useAppStore } from '../store/app'
 import { analyzeVault } from '../features/health/analyzeVault'
+import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from '../i18n'
 import type { LoginItem } from '@shared/types'
 
 /** Narrow top bar: search + app-level tools (CLAUDE.md §7). */
@@ -18,7 +19,23 @@ export default function TopBar(): JSX.Element {
   const setTravelMode = useAppStore((s) => s.setTravelMode)
   const clearSecrets = useAppStore((s) => s.clearSecrets)
   const vault = useAppStore((s) => s.vault)
+  const settings = useAppStore((s) => s.settings)
+  const setSettings = useAppStore((s) => s.setSettings)
   const searchRef = useRef<HTMLInputElement>(null)
+  const [langMenu, setLangMenu] = useState(false)
+  const currentLang = settings?.language ?? 'en'
+
+  // Switch language inline and persist immediately. Updating the settings store
+  // triggers App's effect, which calls i18n.changeLanguage and sets the document
+  // direction (RTL for ar/ur), so no extra wiring is needed here.
+  const chooseLanguage = useCallback(
+    async (lang: string) => {
+      setLangMenu(false)
+      if (!settings || settings.language === lang) return
+      setSettings(await window.sas.settings.set({ ...settings, language: lang }))
+    },
+    [settings, setSettings]
+  )
 
   const logins = useMemo<LoginItem[]>(
     () => (vault?.items ?? []).filter((i): i is LoginItem => i.kind === 'login'),
@@ -103,14 +120,40 @@ export default function TopBar(): JSX.Element {
         >
           <ArrowLeftRight size={18} />
         </button>
-        <button
-          className={iconBtn}
-          onClick={() => setSettingsOpen(true)}
-          title={t('topbar.language')}
-          aria-label={t('topbar.language')}
-        >
-          <Languages size={18} />
-        </button>
+        <div className="relative">
+          <button
+            className={iconBtn}
+            onClick={() => setLangMenu((v) => !v)}
+            title={t('topbar.language')}
+            aria-label={t('topbar.language')}
+            aria-haspopup="menu"
+            aria-expanded={langMenu}
+          >
+            <Languages size={18} />
+          </button>
+          {langMenu && (
+            <>
+              <div className="fixed inset-0 z-10" onClick={() => setLangMenu(false)} />
+              <div
+                className="absolute end-0 z-20 mt-1 max-h-80 w-44 overflow-y-auto rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] py-1"
+                role="menu"
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => void chooseLanguage(lang)}
+                    role="menuitemradio"
+                    aria-checked={lang === currentLang}
+                    className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-sm text-[var(--text)] hover:bg-[var(--bg)]"
+                  >
+                    {LANGUAGE_NAMES[lang]}
+                    {lang === currentLang && <Check size={15} className="text-[var(--accent)]" />}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
         <button
           className={iconBtn}
           onClick={() => setSettingsOpen(true)}

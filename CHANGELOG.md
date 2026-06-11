@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Inline language switcher in the top bar** — the globe icon now opens a
+  dropdown listing all 11 languages by their native name, with a check mark on
+  the active one. Selecting a language applies and persists it immediately
+  (including right-to-left layout for Arabic and Urdu) without opening Settings.
+
+### Changed
+- **Top-bar globe icon is no longer a duplicate of Settings** — previously both
+  the globe and the gear button just opened the Settings modal. The globe is now
+  a real language switcher; the gear still opens Settings.
+- Moved the native language-name map into the shared i18n module so the switcher
+  and the Settings dropdown share one source of truth.
+
 ### Tests
 - Added 14 tests for the vault format and migration layer. `headerAad` (the AEAD
   associated data) is now guarded to be deterministic, canonical regardless of
