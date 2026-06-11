@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Search now matches custom-field labels** — an entry with a custom field
+  named, say, "Recovery email" or "Account number" is now found by searching
+  that label. Field *values* remain unsearched (a value may hold a secret), so
+  the guarantee that search never reveals secret material is preserved.
+
+### Fixed
+- **Sidebar category and navigation labels are left-aligned** — they were
+  centered because the rows are `<button>` elements (which default to centered
+  text); added a leading-edge alignment that also stays correct in right-to-left
+  layouts.
+
 ## [0.25.1] - 2026-06-11
 
 Patch release fixing the item editor's width when adding custom fields.
