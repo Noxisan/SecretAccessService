@@ -27,6 +27,7 @@
 | Packaging | **electron-builder 26** |
 | └ Windows | `nsis` (installer) + `portable` |
 | └ Linux | `AppImage` + `deb` |
+| └ Mac | `dmg` |
 | Node | **20 LTS or newer** |
 | Styling | **Tailwind 4** + **CSS variables** for theming |
 | Icons | **lucide-react** |
@@ -214,7 +215,7 @@ git config user.email
 
 ### Remote (already provided)
 ```bash
-git remote add origin https://github.com/Noxisan/sas.git
+git remote add origin https://github.com/Noxisan/SecretAccessService.git
 ```
 
 ### Branch model
