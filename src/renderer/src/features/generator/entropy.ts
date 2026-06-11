@@ -36,6 +36,9 @@ export function estimateStrength(opts: GeneratePasswordOptions): StrengthEstimat
   let bits: number
   if (opts.mode === 'passphrase') {
     bits = (opts.words ?? 5) * Math.log2(WORDLIST_SIZE)
+    // Capitalizing every word is deterministic (no entropy); an appended random
+    // digit adds log2(10) bits.
+    if (opts.wordNumber) bits += Math.log2(10)
   } else {
     const pool = estimatePoolSize(opts)
     bits = pool > 1 ? opts.length * Math.log2(pool) : 0

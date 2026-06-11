@@ -113,7 +113,9 @@ export const generatePasswordSchema = z.object({
   excludeAmbiguous: z.boolean(),
   mode: z.enum(['characters', 'passphrase']),
   words: z.number().int().min(3).max(20).optional(),
-  separator: z.string().max(4).optional()
+  separator: z.string().max(4).optional(),
+  capitalize: z.boolean().optional(),
+  wordNumber: z.boolean().optional()
 })
 
 export const clipboardCopySchema = z.object({

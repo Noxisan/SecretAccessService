@@ -153,7 +153,9 @@
       "fair": "Moyen",
       "strong": "Fort",
       "veryStrong": "Très fort"
-    }
+    },
+    "capitalize": "Mettre en majuscule",
+    "wordNumber": "Ajouter un chiffre"
   },
   "settings": {
     "title": "Paramètres",

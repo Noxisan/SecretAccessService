@@ -16,7 +16,9 @@ const DEFAULTS: GeneratePasswordOptions = {
   excludeAmbiguous: false,
   mode: 'characters',
   words: 5,
-  separator: '-'
+  separator: '-',
+  capitalize: false,
+  wordNumber: false
 }
 
 const STRENGTH_COLOR: Record<StrengthLevel, string> = {
@@ -234,6 +236,24 @@ export default function GeneratorModal(): JSX.Element | null {
                 onChange={(e) => patch({ separator: e.target.value })}
                 className="w-20 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-2 py-1 text-center font-mono text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
               />
+            </label>
+            <label className="flex cursor-pointer items-center gap-2 text-sm text-[var(--text)]">
+              <input
+                type="checkbox"
+                checked={opts.capitalize ?? false}
+                onChange={(e) => patch({ capitalize: e.target.checked })}
+                className="accent-[var(--accent)]"
+              />
+              {t('generator.capitalize')}
+            </label>
+            <label className="flex cursor-pointer items-center gap-2 text-sm text-[var(--text)]">
+              <input
+                type="checkbox"
+                checked={opts.wordNumber ?? false}
+                onChange={(e) => patch({ wordNumber: e.target.checked })}
+                className="accent-[var(--accent)]"
+              />
+              {t('generator.wordNumber')}
             </label>
           </div>
         )}
