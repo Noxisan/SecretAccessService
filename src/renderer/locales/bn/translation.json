@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "ডিভাইস শংসাপত্র ওএস কীচেইনে সংরক্ষিত আছে।",
     "deviceUnlockClear": "সংরক্ষিত শংসাপত্র মুছুন",
     "deviceUnlockNone": "কোনো ডিভাইস শংসাপত্র সংরক্ষিত নেই।",
-    "displaySize": "প্রদর্শন আকার"
+    "displaySize": "প্রদর্শন আকার",
+    "clearClipboardOnLock": "লক করার সময় ক্লিপবোর্ড সাফ করুন"
   },
   "changePw": {
     "title": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",

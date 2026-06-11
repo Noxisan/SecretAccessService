@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "ڈیوائس کی اسناد آپریٹنگ سسٹم کی کی چین میں محفوظ ہیں۔",
     "deviceUnlockClear": "محفوظ اسناد ہٹائیں",
     "deviceUnlockNone": "کوئی ڈیوائس اسناد محفوظ نہیں۔",
-    "displaySize": "ڈسپلے سائز"
+    "displaySize": "ڈسپلے سائز",
+    "clearClipboardOnLock": "لاک ہونے پر کلپ بورڈ صاف کریں"
   },
   "changePw": {
     "title": "ماسٹر پاسورڈ تبدیل کریں",

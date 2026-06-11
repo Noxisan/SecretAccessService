@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "Las credenciales del dispositivo están guardadas en el llavero del sistema.",
     "deviceUnlockClear": "Eliminar credenciales guardadas",
     "deviceUnlockNone": "No hay credenciales de dispositivo guardadas.",
-    "displaySize": "Tamaño de visualización"
+    "displaySize": "Tamaño de visualización",
+    "clearClipboardOnLock": "Borrar portapapeles al bloquear"
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",

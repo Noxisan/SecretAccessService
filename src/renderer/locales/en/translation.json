@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "Device credentials are saved in your OS keychain.",
     "deviceUnlockClear": "Remove saved credentials",
     "deviceUnlockNone": "No device credentials saved.",
-    "displaySize": "Display size"
+    "displaySize": "Display size",
+    "clearClipboardOnLock": "Clear clipboard on lock"
   },
   "changePw": {
     "title": "Change master password",

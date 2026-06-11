@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "Les identifiants de l'appareil sont enregistrés dans le trousseau du système.",
     "deviceUnlockClear": "Supprimer les identifiants enregistrés",
     "deviceUnlockNone": "Aucun identifiant d'appareil enregistré.",
-    "displaySize": "Taille d'affichage"
+    "displaySize": "Taille d'affichage",
+    "clearClipboardOnLock": "Effacer le presse-papiers au verrouillage"
   },
   "changePw": {
     "title": "Changer le mot de passe principal",
