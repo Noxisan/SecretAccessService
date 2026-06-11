@@ -121,7 +121,11 @@
       "oldest": "Mais antigo primeiro",
       "kind": "Por tipo"
     },
-    "openUrl": "Abrir no navegador"
+    "openUrl": "Abrir no navegador",
+    "emptyVaultTitle": "Seu cofre está vazio",
+    "emptyVaultHint": "Adicione um login, cartão, nota segura ou outro item para começar.",
+    "emptyVaultCta": "Adicione seu primeiro item",
+    "emptySearch": "Nenhum item corresponde à sua pesquisa"
   },
   "generator": {
     "title": "Gerador de senhas",
