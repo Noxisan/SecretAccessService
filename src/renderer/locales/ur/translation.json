@@ -235,6 +235,7 @@
     },
     "importButton": "درآمد کریں",
     "importing": "درآمد ہو رہا ہے…",
-    "importSuccess": "{{count}} آئٹم درآمد ہوئے۔"
+    "importSuccess": "{{count}} آئٹم درآمد ہوئے۔",
+    "csvHint": "Chrome، Edge، Firefox، Bitwarden، LastPass، KeePass اور Dashlane سے CSV برآمدات معاون ہیں۔ کالم نام سے ملائے جاتے ہیں؛ صرف لاگ اِن آئٹمز درآمد کیے جاتے ہیں۔"
   }
 }

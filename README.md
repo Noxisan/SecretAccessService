@@ -76,7 +76,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
 | HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
 | Encrypted vault export (.sasbak) with independent Argon2id + XChaCha20-Poly1305 backup password | Done |
-| CSV import — Bitwarden, LastPass, and generic exports | Done |
+| CSV import — Bitwarden, LastPass, Chrome/Edge, Firefox, KeePass(XC), Dashlane, and generic exports (column names matched by alias; title derived from the URL when absent) | Done |
 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds | Done |
 | .sasbak encrypted import with merge or replace mode | Done |
 | Collapsible sidebar | Done |
@@ -136,6 +136,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.24.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.24.0) | 2026-06-11 | Broader CSV import: Chrome/Edge, Firefox, KeePass(XC), and Dashlane layouts (URL-derived titles); in-dialog hint of supported sources |
 | [0.23.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.23.0) | 2026-06-11 | Generated passwords always include at least one character from every selected class (unbiased), satisfying site composition rules |
 | [0.22.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.1) | 2026-06-11 | Fix: inline password generator honours saved generator settings; theme-token cleanup; IPC validation-schema tests |
 | [0.22.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.0) | 2026-06-11 | Reorder sidebar categories with up/down controls; tests for the reorder and settings-persistence logic |

@@ -235,6 +235,7 @@
     },
     "importButton": "导入",
     "importing": "导入中…",
-    "importSuccess": "成功导入 {{count}} 个条目。"
+    "importSuccess": "成功导入 {{count}} 个条目。",
+    "csvHint": "支持来自 Chrome、Edge、Firefox、Bitwarden、LastPass、KeePass 和 Dashlane 的 CSV 导出。按列名匹配；仅导入登录项。"
   }
 }
