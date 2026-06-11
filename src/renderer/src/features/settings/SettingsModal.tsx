@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, KeyRound } from 'lucide-react'
+import { KeyRound } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import SlidePanel from '../../components/SlidePanel'
 import type { AppSettings, ThemeMode } from '@shared/types'
@@ -65,18 +65,31 @@ export default function SettingsModal(): JSX.Element | null {
     }`
 
   return (
-    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('settings.title')} width="max-w-md">
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-[var(--text)]">{t('settings.title')}</h2>
+    <SlidePanel
+      open={open}
+      onClose={() => setOpen(false)}
+      title={t('settings.title')}
+      width="max-w-md"
+      bodyClassName="p-6"
+      footer={
+        <div className="flex justify-end gap-2">
           <button
             onClick={() => setOpen(false)}
-            className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
+            className="rounded-[var(--radius)] border border-[var(--border)] px-4 py-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)]"
           >
-            <X size={18} />
+            {t('common.cancel')}
+          </button>
+          <button
+            onClick={() => void handleSave()}
+            disabled={busy}
+            className="rounded-[var(--radius)] px-4 py-1.5 text-sm text-[var(--accent-contrast)] disabled:opacity-60"
+            style={{ background: 'var(--accent)' }}
+          >
+            {t('common.save')}
           </button>
         </div>
-
+      }
+    >
         <div className="flex flex-col gap-5">
           {/* Theme */}
           <div className={fieldRow}>
@@ -218,23 +231,6 @@ export default function SettingsModal(): JSX.Element | null {
           </button>
         </div>
 
-        <div className="mt-4 flex justify-end gap-2">
-          <button
-            onClick={() => setOpen(false)}
-            className="rounded-[var(--radius)] border border-[var(--border)] px-4 py-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text)]"
-          >
-            {t('common.cancel')}
-          </button>
-          <button
-            onClick={() => void handleSave()}
-            disabled={busy}
-            className="rounded-[var(--radius)] px-4 py-1.5 text-sm text-[var(--accent-contrast)] disabled:opacity-60"
-            style={{ background: 'var(--accent)' }}
-          >
-            {t('common.save')}
-          </button>
-        </div>
-      </div>
     </SlidePanel>
   )
 }

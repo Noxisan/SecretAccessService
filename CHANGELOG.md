@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Consistent panel headers and footers** — `SlidePanel` now provides a shared
+  pinned header (title + close button) and an optional pinned footer. The
+  generator, settings, change-password, health, and import/export panels adopt
+  it, so every panel now has the same header treatment instead of some headers
+  scrolling away with the content. Settings keeps its Save/Cancel actions pinned
+  to a footer. The item editor continues to supply its own header/body/footer
+  layout (SlidePanel renders children directly when no title is given).
+
+### Refactored
+- Removed the duplicated per-panel header markup and the leftover close-button
+  icon imports; the bundle is marginally smaller as a result.
+
 ## [0.27.0] - 2026-06-11
 
 A UI overhaul: every dialog is now a side panel that slides in from the right,

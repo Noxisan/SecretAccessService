@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { RefreshCw, Copy, Check, X } from 'lucide-react'
+import { RefreshCw, Copy, Check } from 'lucide-react'
 import type { GeneratePasswordOptions } from '@shared/types'
 import { useAppStore } from '../../store/app'
 import SlidePanel from '../../components/SlidePanel'
@@ -122,18 +122,7 @@ export default function GeneratorModal(): JSX.Element | null {
   )
 
   return (
-    <SlidePanel open={open} onClose={handleClose} ariaLabel={t('generator.title')} width="max-w-md">
-      <div className="flex-1 overflow-y-auto p-5">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="font-semibold text-[var(--text)]">{t('generator.title')}</h2>
-          <button
-            onClick={() => handleClose()}
-            className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
-            aria-label={t('common.close')}
-          >
-            <X size={18} />
-          </button>
-        </div>
+    <SlidePanel open={open} onClose={handleClose} title={t('generator.title')} width="max-w-md">
 
         {/* Result */}
         <div className="mb-1 flex items-stretch gap-2">
@@ -250,7 +239,6 @@ export default function GeneratorModal(): JSX.Element | null {
         )}
 
         {error && <p className="mt-3 text-sm text-[var(--danger)]">{error}</p>}
-      </div>
     </SlidePanel>
   )
 }
