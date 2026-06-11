@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **Inline password generator now honours your saved generator settings** — the
+  refresh button next to a login password used hardcoded options (always 20-char,
+  all classes). It now uses the generator defaults you configured in the
+  generator modal (length, character classes, exclude-ambiguous, or passphrase
+  mode), matching the persistence added in 0.17.0.
+
+### Changed
+- Replaced the last hardcoded `text-white` usages (top-bar health badge,
+  destructive buttons in the editor, import/export, and vault-reset screens) with
+  themed CSS variables (`--accent-contrast`, new `--danger-contrast`), so every
+  color flows from the theme tokens per the design guidelines.
+
 ## [0.22.0] - 2026-06-11
 
 Lets you reorder sidebar categories, and adds coverage for the category-order
