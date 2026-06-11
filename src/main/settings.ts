@@ -16,6 +16,8 @@ export const DEFAULT_SETTINGS: AppSettings = {
   maxFailedAttempts: 10,
   travelHiddenCategoryIds: [],
   uiScale: 1,
+  itemSort: 'az',
+  clearClipboardOnLock: true,
   generatorDefaults: {
     length: 20,
     uppercase: true,

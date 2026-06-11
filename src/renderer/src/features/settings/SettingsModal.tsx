@@ -209,6 +209,17 @@ export default function SettingsModal(): JSX.Element | null {
             />
           </div>
 
+          {/* Clear clipboard on lock */}
+          <label className="flex cursor-pointer items-center justify-between gap-3">
+            <span className={fieldLabel}>{t('settings.clearClipboardOnLock')}</span>
+            <input
+              type="checkbox"
+              checked={draft.clearClipboardOnLock}
+              onChange={(e) => patch({ clearClipboardOnLock: e.target.checked })}
+              className="h-4 w-4 accent-[var(--accent)]"
+            />
+          </label>
+
           {/* Max failed unlock attempts (self-destruct) */}
           <div className={fieldRow}>
             <span className={fieldLabel}>{t('settings.maxFailedAttempts')}</span>

@@ -3,6 +3,7 @@ import { app, BrowserWindow, shell, session, powerMonitor } from 'electron'
 import { VaultManager } from './vault/vault.js'
 import { SettingsStore } from './settings.js'
 import { registerIpcHandlers } from './ipc/handlers.js'
+import { clearClipboardIfOurs } from './clipboardGuard.js'
 import { IPC } from '../shared/ipc.js'
 
 const isDev = !app.isPackaged
@@ -17,6 +18,7 @@ const settings = new SettingsStore()
 /** Lock the vault and tell the renderer to drop its in-memory state. */
 async function lockNow(): Promise<void> {
   await vault.lock()
+  if (settings.get().clearClipboardOnLock) clearClipboardIfOurs()
   mainWindow?.webContents.send(IPC.evtLocked)
 }
 

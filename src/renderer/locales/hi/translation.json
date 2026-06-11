@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "डिवाइस क्रेडेंशियल ओएस कीचेन में सहेजे गए हैं।",
     "deviceUnlockClear": "सहेजे गए क्रेडेंशियल हटाएं",
     "deviceUnlockNone": "कोई डिवाइस क्रेडेंशियल सहेजा नहीं गया।",
-    "displaySize": "प्रदर्शन आकार"
+    "displaySize": "प्रदर्शन आकार",
+    "clearClipboardOnLock": "लॉक होने पर क्लिपबोर्ड साफ़ करें"
   },
   "changePw": {
     "title": "मास्टर पासवर्ड बदलें",

@@ -65,12 +65,12 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password history per login (view previous passwords; one-click restore) | Done |
 | Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word); CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
 | Global search across all item types, including custom-field labels (never secret values) | Done |
-| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
+| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, clear-clipboard-on-lock toggle, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
 | Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
 | Category item-count badges in sidebar | Done |
 | Auto-lock on idle + OS sleep/lock-screen | Done |
-| Clipboard auto-clear | Done |
+| Clipboard auto-clear (timed) plus optional immediate clear when the vault locks | Done |
 | Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring; accepts a full `otpauth://` URI or a bare base32 secret | Done |
 | Embedded 2FA — TOTP seed stored directly inside a login entry; live code visible in the editor | Done |
 | Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
@@ -137,6 +137,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |
 | [0.28.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.28.0) | 2026-06-11 | New display-size (UI scale) setting; consistent pinned headers/footers across all slide-in panels |
 | [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |
 | [0.26.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.26.0) | 2026-06-11 | Search matches custom-field labels (values stay private); sidebar labels left-aligned |

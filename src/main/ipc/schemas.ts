@@ -134,6 +134,8 @@ export const settingsSchema = z.object({
   maxFailedAttempts: z.number().int().min(0).max(100),
   travelHiddenCategoryIds: z.array(z.string()).max(500),
   uiScale: z.number().min(0.8).max(1.5),
+  itemSort: z.enum(['az', 'za', 'newest', 'oldest', 'kind']),
+  clearClipboardOnLock: z.boolean(),
   generatorDefaults: generatePasswordSchema.optional()
 })
 

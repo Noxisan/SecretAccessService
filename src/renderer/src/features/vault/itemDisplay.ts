@@ -1,4 +1,4 @@
-import type { VaultItem } from '@shared/types'
+import type { VaultItem, VaultItemSortKey } from '@shared/types'
 
 /**
  * Pure presentation/search helpers for vault items.
@@ -84,4 +84,27 @@ export function subtitle(item: VaultItem): string {
     default:
       return ''
   }
+}
+
+/**
+ * Return a new array of `items` sorted by `key`. Pure — does not mutate the
+ * input. Title comparisons are locale-aware; `kind` falls back to title so the
+ * order within a kind is stable and predictable.
+ */
+export function sortItems(items: VaultItem[], key: VaultItemSortKey): VaultItem[] {
+  return [...items].sort((a, b) => {
+    switch (key) {
+      case 'za':
+        return b.title.localeCompare(a.title)
+      case 'newest':
+        return b.updatedAt - a.updatedAt
+      case 'oldest':
+        return a.createdAt - b.createdAt
+      case 'kind':
+        return a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title)
+      case 'az':
+      default:
+        return a.title.localeCompare(b.title)
+    }
+  })
 }

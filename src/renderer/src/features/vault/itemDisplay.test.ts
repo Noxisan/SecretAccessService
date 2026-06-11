@@ -7,7 +7,7 @@ import type {
   SecureNoteItem,
   TotpItem
 } from '../../../../shared/types.js'
-import { quickCopyText, quickCopyLabel, matches, subtitle } from './itemDisplay.js'
+import { quickCopyText, quickCopyLabel, matches, subtitle, sortItems } from './itemDisplay.js'
 
 const base = {
   id: 'x',
@@ -168,5 +168,41 @@ describe('subtitle', () => {
 
   it('returns an empty string for notes (no preview line)', () => {
     expect(subtitle(note())).toBe('')
+  })
+})
+
+describe('sortItems', () => {
+  const items = (): LoginItem[] => [
+    login({ title: 'Banana', createdAt: 30, updatedAt: 30 }),
+    login({ title: 'apple', createdAt: 10, updatedAt: 50 }),
+    login({ title: 'Cherry', createdAt: 20, updatedAt: 40 })
+  ]
+  const titles = (arr: { title: string }[]): string[] => arr.map((i) => i.title)
+
+  it('sorts A-Z and Z-A case-insensitively by title', () => {
+    expect(titles(sortItems(items(), 'az'))).toEqual(['apple', 'Banana', 'Cherry'])
+    expect(titles(sortItems(items(), 'za'))).toEqual(['Cherry', 'Banana', 'apple'])
+  })
+
+  it('sorts newest by updatedAt (desc) and oldest by createdAt (asc)', () => {
+    expect(titles(sortItems(items(), 'newest'))).toEqual(['apple', 'Cherry', 'Banana'])
+    expect(titles(sortItems(items(), 'oldest'))).toEqual(['apple', 'Cherry', 'Banana'])
+  })
+
+  it('sorts by kind, then title within a kind', () => {
+    const mixed = [
+      note({ title: 'Zeta note' }),
+      login({ title: 'Beta login' }),
+      login({ title: 'Alpha login' })
+    ]
+    // 'login' < 'note' alphabetically; logins ordered by title.
+    expect(titles(sortItems(mixed, 'kind'))).toEqual(['Alpha login', 'Beta login', 'Zeta note'])
+  })
+
+  it('does not mutate the input array', () => {
+    const input = items()
+    const order = titles(input)
+    sortItems(input, 'za')
+    expect(titles(input)).toEqual(order)
   })
 })
