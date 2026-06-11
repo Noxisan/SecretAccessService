@@ -1,5 +1,40 @@
 import type { VaultItem, LoginItem, SecureNoteItem, CardItem, IdentityItem } from '../../shared/types.js'
 
+/** Columns emitted by {@link serializeLoginsCsv}, recognised on re-import. */
+const CSV_EXPORT_HEADER = ['name', 'username', 'password', 'url', 'totp', 'notes'] as const
+
+/** Quote a CSV field per RFC 4180 when it contains a comma, quote, CR, or LF. */
+function csvEscape(field: string): string {
+  return /[",\r\n]/.test(field) ? `"${field.replace(/"/g, '""')}"` : field
+}
+
+/**
+ * Serialize the login items of a vault to a plaintext CSV string (RFC 4180,
+ * CRLF line endings) whose columns round-trip through {@link parseCsv}.
+ *
+ * Only login items are exported — CSV has no universal shape for cards,
+ * identities, notes, TOTP entries, or passkeys, and full-fidelity export is the
+ * encrypted `.sasbak` backup. The output is plaintext and contains passwords, so
+ * callers must warn the user.
+ */
+export function serializeLoginsCsv(items: VaultItem[]): string {
+  const lines = [CSV_EXPORT_HEADER.join(',')]
+  for (const item of items) {
+    if (item.kind !== 'login') continue
+    lines.push(
+      [item.title, item.username, item.password, item.url, item.totp ?? '', item.notes]
+        .map(csvEscape)
+        .join(',')
+    )
+  }
+  return lines.join('\r\n') + '\r\n'
+}
+
+/** Number of login items that {@link serializeLoginsCsv} would export. */
+export function countExportableLogins(items: VaultItem[]): number {
+  return items.filter((i) => i.kind === 'login').length
+}
+
 /**
  * Best-effort title from a URL when the export has no name/title column
  * (e.g. Firefox, whose CSV is keyed only by `url`). Returns the bare hostname

@@ -5,7 +5,9 @@ import { join } from 'node:path'
 import { z } from 'zod'
 import { IPC } from '../../shared/ipc.js'
 import type { AppSettings, VaultData, VaultStatus, VaultItem } from '../../shared/types.js'
-import { parseCsv, parseBitwardenJson, isBitwardenJson } from '../tools/importParsers.js'
+import {
+  parseCsv, parseBitwardenJson, isBitwardenJson, serializeLoginsCsv, countExportableLogins
+} from '../tools/importParsers.js'
 import { VaultManager } from '../vault/vault.js'
 import { generatePassword } from '../tools/generator.js'
 import { hashPassword, parseRangeResponse } from '../tools/hibp.js'
@@ -325,6 +327,23 @@ export function registerIpcHandlers(opts: {
     const file = await encryptBackup(data, password)
     await writeFile(result.filePath, JSON.stringify(file), 'utf8')
     return { filePath: result.filePath }
+  })
+
+  // Plaintext CSV export of login items (for migrating to another manager). The
+  // file is unencrypted, so the renderer warns before calling this.
+  handle<{ filePath: string | null; count: number }>(IPC.vaultExportCsv, async () => {
+    if (!vault.isUnlocked) throw new Error('Vault is not unlocked.')
+    const items = vault.read().items
+    const saveOpts = {
+      title: 'Export logins as CSV (plaintext)',
+      defaultPath: `sas-logins-${new Date().toISOString().slice(0, 10)}.csv`,
+      filters: [{ name: 'CSV', extensions: ['csv'] }, { name: 'All files', extensions: ['*'] }]
+    }
+    const win = opts.getWindow()
+    const result = await (win ? dialog.showSaveDialog(win, saveOpts) : dialog.showSaveDialog(saveOpts))
+    if (result.canceled || !result.filePath) return { filePath: null, count: 0 }
+    await writeFile(result.filePath, serializeLoginsCsv(items), 'utf8')
+    return { filePath: result.filePath, count: countExportableLogins(items) }
   })
 
   // Import: read a .sasbak or .csv file and merge/replace items in the vault.

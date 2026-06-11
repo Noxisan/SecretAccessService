@@ -240,6 +240,11 @@
     "importButton": "आयात करें",
     "importing": "आयात हो रहा है…",
     "importSuccess": "{{count}} आइटम आयात हुए।",
-    "csvHint": "Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass और Dashlane से CSV निर्यात समर्थित हैं। कॉलम नाम से मिलाए जाते हैं; केवल लॉगिन आइटम आयात किए जाते हैं।"
+    "csvHint": "Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass और Dashlane से CSV निर्यात समर्थित हैं। कॉलम नाम से मिलाए जाते हैं; केवल लॉगिन आइटम आयात किए जाते हैं।",
+    "csvExportTitle": "लॉगिन को CSV के रूप में निर्यात करें",
+    "csvExportDesc": "अपनी लॉगिन प्रविष्टियों को सादा-पाठ CSV फ़ाइल के रूप में सहेजें जिसे आप किसी अन्य पासवर्ड प्रबंधक में आयात कर सकते हैं।",
+    "csvExportWarning": "यह फ़ाइल एन्क्रिप्टेड नहीं है - इसे खोलने वाला कोई भी आपके पासवर्ड पढ़ सकता है। इसे सुरक्षित रखें और उपयोग के बाद हटा दें। केवल लॉगिन आइटम शामिल हैं।",
+    "csvExportButton": "लॉगिन को CSV के रूप में निर्यात करें",
+    "csvExportSuccess": "{{count}} लॉगिन {{path}} में निर्यात किए गए"
   }
 }

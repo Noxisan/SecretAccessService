@@ -56,6 +56,9 @@ const api = {
     /** Export vault to encrypted .sasbak. Opens a system save dialog. Returns filePath or null. */
     exportVault: (password: string): Promise<{ filePath: string | null }> =>
       ipcRenderer.invoke(IPC.vaultExport, { password }),
+    /** Export login items to a plaintext CSV. Opens a save dialog. Returns the path and count. */
+    exportCsv: (): Promise<{ filePath: string | null; count: number }> =>
+      ipcRenderer.invoke(IPC.vaultExportCsv),
     /** Import from .sasbak backup or CSV. Returns count of imported items. */
     importVault: (
       filePath: string,

@@ -76,6 +76,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
 | HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
 | Encrypted vault export (.sasbak) with independent Argon2id + XChaCha20-Poly1305 backup password | Done |
+| Plaintext CSV export of logins (for migrating to another manager; clearly warned, round-trips through the CSV importer) | Done |
 | CSV import — Bitwarden, LastPass, Chrome/Edge, Firefox, KeePass(XC), Dashlane, and generic exports (column names matched by alias; title derived from the URL when absent) | Done |
 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds | Done |
 | .sasbak encrypted import with merge or replace mode | Done |

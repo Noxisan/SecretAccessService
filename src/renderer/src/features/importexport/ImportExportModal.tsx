@@ -23,6 +23,9 @@ export default function ImportExportModal(): JSX.Element | null {
   const [exportBusy, setExportBusy] = useState(false)
   const [exportResult, setExportResult] = useState<string | null>(null)
   const [exportError, setExportError] = useState<string | null>(null)
+  const [csvBusy, setCsvBusy] = useState(false)
+  const [csvResult, setCsvResult] = useState<{ path: string; count: number } | null>(null)
+  const [csvError, setCsvError] = useState<string | null>(null)
 
   // Import state
   const [importFormat, setImportFormat] = useState<ImportFormat>('sasbak')
@@ -38,6 +41,7 @@ export default function ImportExportModal(): JSX.Element | null {
   useEffect(() => {
     if (!open) {
       setExportPassword(''); setExportConfirm(''); setExportResult(null); setExportError(null)
+      setCsvResult(null); setCsvError(null)
       setImportFile(''); setImportPassword(''); setImportResult(null); setImportError(null)
     }
   }, [open])
@@ -56,6 +60,18 @@ export default function ImportExportModal(): JSX.Element | null {
       setExportError(e instanceof Error ? e.message : String(e))
     } finally {
       setExportBusy(false)
+    }
+  }
+
+  async function doExportCsv(): Promise<void> {
+    setCsvBusy(true); setCsvError(null); setCsvResult(null)
+    try {
+      const res = await window.sas.tools.exportCsv()
+      if (res.filePath) setCsvResult({ path: res.filePath, count: res.count })
+    } catch (e) {
+      setCsvError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setCsvBusy(false)
     }
   }
 
@@ -176,6 +192,37 @@ export default function ImportExportModal(): JSX.Element | null {
                 <Download size={14} />
                 {exportBusy ? t('importExport.exporting') : t('importExport.exportButton')}
               </button>
+
+              {/* Plaintext CSV export (for migrating logins to another manager) */}
+              <div className="mt-2 flex flex-col gap-3 border-t border-[var(--border)] pt-4">
+                <div>
+                  <p className="text-sm font-medium text-[var(--text)]">{t('importExport.csvExportTitle')}</p>
+                  <p className="mt-1 text-xs text-[var(--text-muted)]">{t('importExport.csvExportDesc')}</p>
+                </div>
+                <div className="flex items-start gap-2 rounded-[var(--radius)] border border-[var(--warning)] bg-[color-mix(in_srgb,var(--warning)_10%,transparent)] px-3 py-2.5">
+                  <AlertTriangle size={14} className="mt-0.5 shrink-0 text-[var(--warning)]" />
+                  <p className="text-xs text-[var(--warning)]">{t('importExport.csvExportWarning')}</p>
+                </div>
+                {csvResult && (
+                  <div className="flex items-center gap-2 rounded-[var(--radius)] bg-[color-mix(in_srgb,var(--success)_12%,transparent)] px-3 py-2 text-sm text-[var(--success)]">
+                    <CheckCircle2 size={14} />
+                    {t('importExport.csvExportSuccess', { count: csvResult.count, path: csvResult.path })}
+                  </div>
+                )}
+                {csvError && (
+                  <div className="rounded-[var(--radius)] bg-[color-mix(in_srgb,var(--danger)_12%,transparent)] px-3 py-2 text-sm text-[var(--danger)]">
+                    {csvError}
+                  </div>
+                )}
+                <button
+                  onClick={() => void doExportCsv()}
+                  disabled={csvBusy}
+                  className="flex items-center justify-center gap-2 rounded-[var(--radius)] border border-[var(--border)] px-4 py-2 text-sm font-medium text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-40"
+                >
+                  <Download size={14} />
+                  {csvBusy ? t('importExport.exporting') : t('importExport.csvExportButton')}
+                </button>
+              </div>
             </div>
           ) : (
             <div className="flex flex-col gap-4">
