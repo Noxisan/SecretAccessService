@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock, ShieldCheck } from 'lucide-react'
+import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock, ShieldCheck, ExternalLink } from 'lucide-react'
 import type {
   CardItem,
   IdentityItem,
@@ -269,13 +269,26 @@ export default function ItemEditor(): JSX.Element | null {
                 <label className={lbl} htmlFor="it-url">
                   {t('items.field.url')}
                 </label>
-                <input
-                  id="it-url"
-                  value={draft.url}
-                  autoComplete="off"
-                  onChange={(e) => patchLogin({ url: e.target.value })}
-                  className={fld}
-                />
+                <div className="flex gap-2">
+                  <input
+                    id="it-url"
+                    value={draft.url}
+                    autoComplete="off"
+                    onChange={(e) => patchLogin({ url: e.target.value })}
+                    className={`${fld} flex-1`}
+                  />
+                  {/^https?:\/\//.test(draft.url) && (
+                    <button
+                      type="button"
+                      onClick={() => void window.sas.tools.openExternal(draft.url)}
+                      className="grid h-9 w-9 shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                      title={t('items.openUrl')}
+                      aria-label={t('items.openUrl')}
+                    >
+                      <ExternalLink size={15} />
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Embedded 2FA / TOTP — shown when draft.totp is set, otherwise an "Add" affordance */}

@@ -118,7 +118,8 @@
       "newest": "Zuletzt geändert",
       "oldest": "Älteste zuerst",
       "kind": "Nach Typ"
-    }
+    },
+    "openUrl": "Im Browser öffnen"
   },
   "generator": {
     "title": "Passwortgenerator",

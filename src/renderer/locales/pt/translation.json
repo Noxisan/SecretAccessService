@@ -118,7 +118,8 @@
       "newest": "Modificado recentemente",
       "oldest": "Mais antigo primeiro",
       "kind": "Por tipo"
-    }
+    },
+    "openUrl": "Abrir no navegador"
   },
   "generator": {
     "title": "Gerador de senhas",

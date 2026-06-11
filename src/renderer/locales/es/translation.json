@@ -118,7 +118,8 @@
       "newest": "Modificado recientemente",
       "oldest": "Más antiguo primero",
       "kind": "Por tipo"
-    }
+    },
+    "openUrl": "Abrir en el navegador"
   },
   "generator": {
     "title": "Generador de contraseñas",

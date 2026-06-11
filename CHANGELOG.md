@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.19.0] - 2026-06-11
+
+Adds the ability to open a login's website directly in your system browser, plus
+a round of internal refactors that put security-sensitive logic (TOTP, breach
+checking, item search) under unit test.
+
+### Added
+- **Open URL in system browser** — login entries with a website now show an
+  external-link button (in both the list and the editor) that opens the URL in
+  your default browser via `shell.openExternal`. Only `http`/`https` URLs are
+  allowed, validated by a zod schema in the main process to prevent
+  protocol-handler abuse. New `tools:openExternal` IPC channel and an
+  `items.openUrl` string localized across all 11 languages.
+
+### Changed
+- **TOTP logic extracted from the UI** — `otpauth` parsing and code/countdown
+  computation moved out of the `TotpCode` component into a pure, dependency-free
+  `totp.ts` module (`parseTotp`, `computeTotp`) with injectable time, making the
+  RFC 6238 logic unit-testable without rendering.
+- **Item search/display helpers extracted** — `matches`, `subtitle`,
+  `quickCopyText`, and `quickCopyLabel` moved out of `ItemList` into a pure
+  `itemDisplay.ts` module so they can be unit-tested. Consolidated two
+  near-duplicate clipboard helpers into a single `copyValue`.
+- **HIBP hashing/parsing extracted** — the SHA-1 hashing, k-anonymity
+  prefix/suffix split, and breach-range response parsing moved out of the IPC
+  handler into a pure `hibp.ts` module (`hashPassword`, `parseRangeResponse`).
+  No behaviour change; the network call stays in the handler.
+
+### Tests
+- Added 8 tests for the TOTP module, including the RFC 6238 SHA1 reference
+  vector (T=59 → `94287082`), HOTP/garbage-URI rejection, and countdown
+  boundaries.
+- Added 10 tests for the item display/search helpers, including a security
+  guard asserting that search never matches secret material (passwords, card
+  numbers/CVV, TOTP/passkey secrets).
+- Added 10 tests for the HIBP module, covering the known SHA-1 of `password`,
+  the privacy invariant that only a 5-char prefix is transmitted, and range
+  parsing across `\r\n`/`\n` endings, mixed case, whitespace, malformed lines,
+  and fail-closed non-numeric/non-positive counts. Suite grows from 87 to 115
+  tests.
+
 ## [0.18.1] - 2026-06-10
 
 Patch release fixing a crash that could blank the main window.
@@ -411,7 +452,11 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.16.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...HEAD
+[0.19.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.1...v0.19.0
+[0.18.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.0...v0.18.1
+[0.18.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.17.0...v0.18.0
+[0.17.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...v0.14.0
