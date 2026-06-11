@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Gespeicherte Anmeldedaten entfernen",
     "deviceUnlockNone": "Keine Geräteanmeldedaten gespeichert.",
     "displaySize": "Anzeigegröße",
-    "clearClipboardOnLock": "Zwischenablage beim Sperren leeren"
+    "clearClipboardOnLock": "Zwischenablage beim Sperren leeren",
+    "sectionAppearance": "Darstellung",
+    "sectionSecurity": "Sicherheit"
   },
   "changePw": {
     "title": "Master-Passwort ändern",

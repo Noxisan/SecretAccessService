@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Удалить сохранённые данные",
     "deviceUnlockNone": "Данные устройства не сохранены.",
     "displaySize": "Размер интерфейса",
-    "clearClipboardOnLock": "Очищать буфер обмена при блокировке"
+    "clearClipboardOnLock": "Очищать буфер обмена при блокировке",
+    "sectionAppearance": "Внешний вид",
+    "sectionSecurity": "Безопасность"
   },
   "changePw": {
     "title": "Изменить мастер-пароль",

@@ -168,7 +168,9 @@
     "deviceUnlockClear": "محفوظ اسناد ہٹائیں",
     "deviceUnlockNone": "کوئی ڈیوائس اسناد محفوظ نہیں۔",
     "displaySize": "ڈسپلے سائز",
-    "clearClipboardOnLock": "لاک ہونے پر کلپ بورڈ صاف کریں"
+    "clearClipboardOnLock": "لاک ہونے پر کلپ بورڈ صاف کریں",
+    "sectionAppearance": "ظاہری شکل",
+    "sectionSecurity": "سیکیورٹی"
   },
   "changePw": {
     "title": "ماسٹر پاسورڈ تبدیل کریں",

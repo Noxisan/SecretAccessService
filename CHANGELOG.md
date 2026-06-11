@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Settings are now grouped into sections** — the settings panel was a single
+  long list; it is now organized under "Appearance" (theme, accent, display size,
+  language) and "Security" (auto-lock, clipboard clear, clear-on-lock, panic
+  lock, device unlock, change master password) headings, making options easier to
+  scan as the list has grown. Section titles are localized in all 11 languages.
+
 ## [0.29.0] - 2026-06-11
 
 Two quality-of-life improvements: clipboard secrets are cleared the moment you

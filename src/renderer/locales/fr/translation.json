@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Supprimer les identifiants enregistrés",
     "deviceUnlockNone": "Aucun identifiant d'appareil enregistré.",
     "displaySize": "Taille d'affichage",
-    "clearClipboardOnLock": "Effacer le presse-papiers au verrouillage"
+    "clearClipboardOnLock": "Effacer le presse-papiers au verrouillage",
+    "sectionAppearance": "Apparence",
+    "sectionSecurity": "Sécurité"
   },
   "changePw": {
     "title": "Changer le mot de passe principal",

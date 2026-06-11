@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Remover credenciais salvas",
     "deviceUnlockNone": "Nenhuma credencial de dispositivo salva.",
     "displaySize": "Tamanho de exibição",
-    "clearClipboardOnLock": "Limpar área de transferência ao bloquear"
+    "clearClipboardOnLock": "Limpar área de transferência ao bloquear",
+    "sectionAppearance": "Aparência",
+    "sectionSecurity": "Segurança"
   },
   "changePw": {
     "title": "Alterar senha principal",

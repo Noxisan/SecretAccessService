@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Remove saved credentials",
     "deviceUnlockNone": "No device credentials saved.",
     "displaySize": "Display size",
-    "clearClipboardOnLock": "Clear clipboard on lock"
+    "clearClipboardOnLock": "Clear clipboard on lock",
+    "sectionAppearance": "Appearance",
+    "sectionSecurity": "Security"
   },
   "changePw": {
     "title": "Change master password",
