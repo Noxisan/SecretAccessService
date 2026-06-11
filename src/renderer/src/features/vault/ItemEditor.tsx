@@ -316,7 +316,7 @@ export default function ItemEditor(): JSX.Element | null {
                   <input
                     value={draft.totp}
                     onChange={(e) => patchLogin({ totp: e.target.value })}
-                    placeholder="otpauth://totp/…"
+                    placeholder="otpauth://… or secret key"
                     autoComplete="off"
                     className={`${fld} font-mono text-xs`}
                   />
@@ -573,7 +573,7 @@ export default function ItemEditor(): JSX.Element | null {
                   autoComplete="off"
                   onChange={(e) => patchTotp({ uri: e.target.value })}
                   className={`${fld} font-mono text-xs`}
-                  placeholder="otpauth://totp/…"
+                  placeholder="otpauth://… or secret key"
                 />
               </div>
               <div className="flex gap-3">

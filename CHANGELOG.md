@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.25.0] - 2026-06-11
+
+Makes adding two-factor authentication easier: TOTP fields now accept a plain
+secret key, not just a full `otpauth://` URI.
+
+### Added
+- **TOTP fields accept a bare secret key, not just an `otpauth://` URI** — many
+  sites show only a base32 secret (e.g. "JBSW Y3DP EHPK 3PXP") rather than a QR
+  code. You can now paste that secret directly into a TOTP item or a login's
+  embedded 2FA field; spaces, hyphens, and lower case are tolerated and standard
+  defaults (SHA1, 6 digits, 30 s) are applied. Full `otpauth://` URIs still work.
+
+### Tests
+- Added 3 tests for bare-secret parsing (defaults, whitespace/case tolerance,
+  and rejection of non-base32 or too-short input). Suite grows to 178.
+
 ## [0.24.0] - 2026-06-11
 
 Makes importing from other password managers smoother: the CSV importer now
@@ -604,7 +620,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.24.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.0...HEAD
+[0.25.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.24.0...v0.25.0
 [0.24.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.23.0...v0.24.0
 [0.23.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.1...v0.23.0
 [0.22.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...v0.22.1
