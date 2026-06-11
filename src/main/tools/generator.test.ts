@@ -61,6 +61,44 @@ describe('generatePassword — character mode', () => {
     const pw = await generatePassword({ ...base, digits: true, excludeAmbiguous: true, length: 500 })
     for (const ch of '34679') expect(pw).toContain(ch)
   })
+
+  it('guarantees every selected class appears at the minimum length', async () => {
+    // length === number of classes is the tightest case (one slot per class).
+    // The guarantee is deterministic, so every one of many runs must satisfy it.
+    const opts = { ...base, lowercase: true, uppercase: true, digits: true, symbols: true, length: 4 }
+    for (let i = 0; i < 200; i++) {
+      const pw = await generatePassword(opts)
+      expect(pw).toMatch(/[a-z]/)
+      expect(pw).toMatch(/[A-Z]/)
+      expect(pw).toMatch(/[0-9]/)
+      expect(pw).toMatch(/[^a-zA-Z0-9]/)
+    }
+  })
+
+  it('respects exclude-ambiguous while still covering every class', async () => {
+    const opts = {
+      ...base, lowercase: true, uppercase: true, digits: true, symbols: true,
+      excludeAmbiguous: true, length: 4
+    }
+    for (let i = 0; i < 100; i++) {
+      const pw = await generatePassword(opts)
+      expect(pw).toMatch(/[a-z]/)
+      expect(pw).toMatch(/[A-Z]/)
+      expect(pw).toMatch(/[0-9]/)
+      expect([...pw].some((c) => '!@#$%^&*()-_=+[]{};:,.<>?/'.includes(c))).toBe(true)
+      // No ambiguous characters slipped through.
+      expect(pw).not.toMatch(/[Il1O0oB8S5Z2|`'"{}()/\\[\]]/)
+    }
+  })
+
+  it('does not loop forever when length is smaller than the class count', async () => {
+    // length 2 with 4 classes cannot contain all of them; generation must still
+    // return a valid 2-char password rather than hang on the coverage check.
+    const pw = await generatePassword({
+      ...base, lowercase: true, uppercase: true, digits: true, symbols: true, length: 2
+    })
+    expect(pw).toHaveLength(2)
+  })
 })
 
 describe('EFF diceware wordlist', () => {
