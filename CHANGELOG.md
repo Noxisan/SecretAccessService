@@ -12,11 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   computation moved out of the `TotpCode` component into a pure, dependency-free
   `totp.ts` module (`parseTotp`, `computeTotp`) with injectable time, making the
   RFC 6238 logic unit-testable without rendering.
+- **Item search/display helpers extracted** — `matches`, `subtitle`,
+  `quickCopyText`, and `quickCopyLabel` moved out of `ItemList` into a pure
+  `itemDisplay.ts` module so they can be unit-tested. Consolidated two
+  near-duplicate clipboard helpers into a single `copyValue`.
 
 ### Tests
 - Added 8 tests for the TOTP module, including the RFC 6238 SHA1 reference
   vector (T=59 → `94287082`), HOTP/garbage-URI rejection, and countdown
-  boundaries. Suite grows from 87 to 95 tests.
+  boundaries.
+- Added 10 tests for the item display/search helpers, including a security
+  guard asserting that search never matches secret material (passwords, card
+  numbers/CVV, TOTP/passkey secrets). Suite grows from 87 to 105 tests.
 
 ## [0.18.1] - 2026-06-10
 
