@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.29.0] - 2026-06-11
+
+Two quality-of-life improvements: clipboard secrets are cleared the moment you
+lock, and the item list remembers how you like it sorted.
+
 ### Added
 - **Clear clipboard on lock** — a new setting (on by default) wipes a copied
   secret from the clipboard the moment the vault locks, across all lock triggers
@@ -722,7 +727,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.28.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.29.0...HEAD
+[0.29.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.28.0...v0.29.0
 [0.28.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.27.0...v0.28.0
 [0.27.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...v0.27.0
 [0.26.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.1...v0.26.0
