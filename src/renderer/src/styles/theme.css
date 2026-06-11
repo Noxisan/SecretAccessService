@@ -9,6 +9,9 @@
   --accent: #7c3aed; /* electric violet */
   --accent-hover: #6d28d9;
   --accent-contrast: #ffffff;
+  /* Readable text/icon color on a --danger background (badges, destructive
+     buttons). White in both themes; defined once so usages stay tokenized. */
+  --danger-contrast: #ffffff;
   --radius: 6px;
 
   /* Light theme (default tokens) */

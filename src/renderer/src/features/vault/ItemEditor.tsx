@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock, ShieldCheck, ExternalLink } from 'lucide-react'
 import type {
   CardItem,
+  GeneratePasswordOptions,
   IdentityItem,
   LoginItem,
   PasskeyItem,
@@ -32,6 +33,7 @@ export default function ItemEditor(): JSX.Element | null {
   const setVault = useAppStore((s) => s.setVault)
   const vault = useAppStore((s) => s.vault)
   const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
+  const generatorDefaults = useAppStore((s) => s.settings?.generatorDefaults)
 
   const categories = useMemo(
     () => [...(vault?.categories ?? [])].sort((a, b) => a.order - b.order),
@@ -136,7 +138,9 @@ export default function ItemEditor(): JSX.Element | null {
   }
 
   async function generate(): Promise<void> {
-    const pw = await window.sas.tools.generatePassword({
+    // Use the user's saved generator preferences (set in the generator modal,
+    // persisted since v0.17.0) so the inline button stays consistent with them.
+    const opts: GeneratePasswordOptions = generatorDefaults ?? {
       length: 20,
       uppercase: true,
       lowercase: true,
@@ -144,7 +148,8 @@ export default function ItemEditor(): JSX.Element | null {
       symbols: true,
       excludeAmbiguous: false,
       mode: 'characters'
-    })
+    }
+    const pw = await window.sas.tools.generatePassword(opts)
     patchLogin({ password: pw })
     setShowPassword(true)
   }
@@ -866,7 +871,7 @@ export default function ItemEditor(): JSX.Element | null {
                 <span className="text-[var(--text-muted)]">{t('items.confirmDelete')}</span>
                 <button
                   onClick={() => void remove()}
-                  className="rounded-[var(--radius)] px-2 py-1 text-white"
+                  className="rounded-[var(--radius)] px-2 py-1 text-[var(--danger-contrast)]"
                   style={{ background: 'var(--danger)' }}
                 >
                   {t('common.delete')}

@@ -202,7 +202,7 @@ export default function ImportExportModal(): JSX.Element | null {
               <button
                 onClick={() => void doExport()}
                 disabled={!exportReady || exportBusy}
-                className="flex items-center justify-center gap-2 rounded-[var(--radius)] bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-40"
+                className="flex items-center justify-center gap-2 rounded-[var(--radius)] bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-contrast)] hover:opacity-90 disabled:opacity-40"
               >
                 <Download size={14} />
                 {exportBusy ? t('importExport.exporting') : t('importExport.exportButton')}
@@ -307,7 +307,7 @@ export default function ImportExportModal(): JSX.Element | null {
               <button
                 onClick={() => void doImport()}
                 disabled={!importFile || importBusy || (importFormat === 'sasbak' && !importPassword)}
-                className="flex items-center justify-center gap-2 rounded-[var(--radius)] bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-40"
+                className="flex items-center justify-center gap-2 rounded-[var(--radius)] bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-contrast)] hover:opacity-90 disabled:opacity-40"
               >
                 <Upload size={14} />
                 {importBusy ? t('importExport.importing') : t('importExport.importButton')}
