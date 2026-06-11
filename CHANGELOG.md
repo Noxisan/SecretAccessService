@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Save keyboard shortcut** — pressing Ctrl/Cmd+S now saves and closes the open
+  item editor or settings panel without reaching for the mouse; in the item
+  editor Ctrl/Cmd+Enter also saves. The shortcuts respect the same guards as the
+  buttons (an empty item title or an in-flight save is ignored). Escape continues
+  to close panels.
+
 ## [0.33.0] - 2026-06-11
 
 Enhances the passphrase generator with capitalization and an appended digit.
