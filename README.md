@@ -59,19 +59,19 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Feature | Status |
 |---|---|
 | Encrypted vault: logins, secure notes, credit cards, identities, TOTP authenticators | Done |
-| Categories, favorites, and color-dot markers — create, rename, delete | Done |
+| Categories, favorites, and color-dot markers — create, rename, reorder (up/down), delete | Done |
 | Custom fields per entry (plain text or masked secret) | Done |
 | Duplicate entry — clone any item in one click from the editor | Done |
 | Password history per login (view previous passwords; one-click restore) | Done |
 | Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word); CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
-| Global fuzzy search across all item types | Done |
+| Global search across all item types, including custom-field labels (never secret values) | Done |
 | Settings: theme (light/dark/system), accent color, language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
 | Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
 | Category item-count badges in sidebar | Done |
 | Auto-lock on idle + OS sleep/lock-screen | Done |
 | Clipboard auto-clear | Done |
-| Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring | Done |
+| Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring; accepts a full `otpauth://` URI or a bare base32 secret | Done |
 | Embedded 2FA — TOTP seed stored directly inside a login entry; live code visible in the editor | Done |
 | Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
 | HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
@@ -79,9 +79,10 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | CSV import — Bitwarden, LastPass, Chrome/Edge, Firefox, KeePass(XC), Dashlane, and generic exports (column names matched by alias; title derived from the URL when absent) | Done |
 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds | Done |
 | .sasbak encrypted import with merge or replace mode | Done |
-| Collapsible sidebar | Done |
-| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Escape (clear/dismiss) | Done |
-| 11 UI translations — all languages fully loaded | Done |
+| Collapsible sidebar with left-aligned, RTL-aware labels | Done |
+| Slide-in side panels (no modal dialogs) for the editor, generator, settings, health, and import/export | Done |
+| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Escape (close panel / clear) | Done |
+| 11 UI translations with an inline top-bar language switcher (RTL for Arabic & Urdu) | Done |
 | Panic lock / self-destruct after N failed unlock attempts | Done |
 | Passkeys / FIDO2 / WebAuthn storage — record credentials as reference entries | Done |
 | Quick unlock — save master password to OS keychain (DPAPI / libsecret); unlock with one click | Done |
@@ -136,6 +137,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |
 | [0.26.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.26.0) | 2026-06-11 | Search matches custom-field labels (values stay private); sidebar labels left-aligned |
 | [0.25.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.1) | 2026-06-11 | Fix: wider item editor so custom fields no longer overflow / force sideways scrolling |
 | [0.25.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.0) | 2026-06-11 | TOTP fields accept a bare base32 secret (spaces/case tolerated), not just an otpauth:// URI |

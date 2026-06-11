@@ -3,6 +3,7 @@ import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, ShieldAlert, ShieldCheck, Copy, RefreshCw, Clock, Wifi, Loader } from 'lucide-react'
 import { useAppStore } from '../../store/app'
+import SlidePanel from '../../components/SlidePanel'
 import type { LoginItem } from '@shared/types'
 import { analyzeVault, type BreachMap } from './analyzeVault'
 
@@ -38,8 +39,6 @@ export default function HealthDashboard(): JSX.Element | null {
     [logins, breaches]
   )
 
-  if (!open) return null
-
   const allGood = issues.length === 0
 
   async function copyPassword(item: LoginItem, e: React.MouseEvent): Promise<void> {
@@ -65,18 +64,7 @@ export default function HealthDashboard(): JSX.Element | null {
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-      onMouseDown={() => setOpen(false)}
-      role="presentation"
-    >
-      <div
-        className="flex max-h-[85vh] w-full max-w-xl flex-col rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)]"
-        onMouseDown={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={t('health.title')}
-      >
+    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('health.title')} width="max-w-xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
           <h2 className="font-semibold text-[var(--text)]">{t('health.title')}</h2>
@@ -196,7 +184,6 @@ export default function HealthDashboard(): JSX.Element | null {
             </ul>
           )}
         </div>
-      </div>
-    </div>
+    </SlidePanel>
   )
 }

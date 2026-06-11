@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.27.0] - 2026-06-11
+
+A UI overhaul: every dialog is now a side panel that slides in from the right,
+replacing the centered modal boxes for a calmer, more consistent feel.
+
+### Changed
+- **Dialogs are now slide-in side panels instead of centered modals** — the item
+  editor, password generator, settings, change-password, health dashboard, and
+  import/export all slide in from the right edge (and animate back out) over a
+  dimmed backdrop. They are driven by a single shared `SlidePanel` component, so
+  every panel behaves identically: backdrop click or Escape closes it, the panel
+  is full height and scrolls its own content, and it is right-anchored and
+  RTL-aware. No more centered modal boxes anywhere in the app.
+
+### Refactored
+- Introduced `SlidePanel` (`src/renderer/src/components/SlidePanel.tsx`) and
+  removed the six bespoke modal overlays and their duplicated Escape handlers,
+  cutting ~135 lines of repeated overlay markup. `SettingsModal` now gates on its
+  loaded `draft` rather than `open`, so the slide-out animation plays correctly.
+
+### Documentation
+- Refreshed the README feature matrix (category reorder, custom-field-label
+  search, bare-secret TOTP, slide-in panels, inline language switcher, RTL-aware
+  sidebar) and updated the project logo.
+
+### Known limitations
+- The component files are still named `*Modal.tsx` internally even though they
+  now render panels; this is cosmetic and will be renamed in a later pass.
+
 ## [0.26.0] - 2026-06-11
 
 Search now finds entries by their custom-field names, plus a sidebar alignment
@@ -649,7 +678,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.27.0...HEAD
+[0.27.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...v0.27.0
 [0.26.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.1...v0.26.0
 [0.25.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.0...v0.25.1
 [0.25.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.24.0...v0.25.0
