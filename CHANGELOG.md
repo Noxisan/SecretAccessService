@@ -20,6 +20,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   themed CSS variables (`--accent-contrast`, new `--danger-contrast`), so every
   color flows from the theme tokens per the design guidelines.
 
+### Tests
+- Added 19 tests for the IPC validation schemas — the trust boundary that checks
+  untrusted renderer payloads before they reach the vault/crypto layer. Covers
+  the `openExternal` scheme guard (rejecting `file:`/`javascript:`/`data:` and a
+  whitespace-prefixed bypass), `#rrggbb` color validation, the item discriminated
+  union (unknown kinds, missing fields, numeric bounds, customField caps), and
+  bounds on generator/settings/credential/import payloads. Suite grows to 166.
+
 ## [0.22.0] - 2026-06-11
 
 Lets you reorder sidebar categories, and adds coverage for the category-order
