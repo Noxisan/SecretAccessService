@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **LICENSE file** — the canonical GPL-3.0 text, matching the
+  `GPL-3.0-or-later` declaration in `package.json` and the README badge.
+
+### Documentation
+- README: added the 0.19.0 release to the history table, corrected the source
+  download to GitHub's auto-attached "Source code (zip / tar.gz)", documented the
+  EFF diceware list in the generator row, cross-linked the LICENSE, and linked
+  Download to the release history and changelog.
+
 ### Changed
 - **Stronger passphrases — full EFF diceware wordlist** — the passphrase
   generator now draws from the standard 7776-word EFF large wordlist instead of
