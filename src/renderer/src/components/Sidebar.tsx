@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Star, LayoutGrid, Plus, Folder, Check, X, Pencil, Trash2, ChevronLeft, ChevronRight, Plane } from 'lucide-react'
+import { Star, LayoutGrid, Plus, Folder, Check, X, Pencil, Trash2, ChevronLeft, ChevronRight, ChevronUp, ChevronDown, Plane } from 'lucide-react'
 import { useAppStore } from '../store/app'
+import { planReorder, isFirst, isLast } from './categoryOrder'
 import type { Category } from '@shared/types'
 
 const COLOR_PRESETS = ['#7c3aed', '#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#ec4899']
@@ -141,6 +142,15 @@ export default function Sidebar(): JSX.Element {
     setVault(data)
     setConfirmDeleteId(null)
     if (selectedCategoryId === id) setSelectedCategory(null)
+  }
+
+  // Move a category one step up/down by swapping its order with its neighbour's.
+  // planReorder returns the two categories to persist (or null at a boundary).
+  async function moveCategory(cat: Category, dir: 'up' | 'down'): Promise<void> {
+    const plan = planReorder(categories, cat.id, dir)
+    if (!plan) return
+    await window.sas.vault.upsertCategory(plan[0])
+    setVault(await window.sas.vault.upsertCategory(plan[1]))
   }
 
   async function toggleTravelHidden(id: string): Promise<void> {
@@ -333,6 +343,30 @@ export default function Sidebar(): JSX.Element {
               )}
             </button>
             <div className="mr-1 hidden shrink-0 items-center gap-0.5 group-hover:flex">
+              <button
+                className="grid h-6 w-5 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text)] disabled:opacity-25 disabled:hover:bg-transparent"
+                title={t('sidebar.moveUp')}
+                aria-label={t('sidebar.moveUp')}
+                disabled={isFirst(categories, cat.id)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  void moveCategory(cat, 'up')
+                }}
+              >
+                <ChevronUp size={12} />
+              </button>
+              <button
+                className="grid h-6 w-5 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text)] disabled:opacity-25 disabled:hover:bg-transparent"
+                title={t('sidebar.moveDown')}
+                aria-label={t('sidebar.moveDown')}
+                disabled={isLast(categories, cat.id)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  void moveCategory(cat, 'down')
+                }}
+              >
+                <ChevronDown size={12} />
+              </button>
               <button
                 className={`grid h-6 w-6 place-items-center rounded-[var(--radius)] hover:bg-[var(--bg-elevated)] ${
                   travelHiddenIds.has(cat.id)

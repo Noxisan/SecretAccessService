@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "मिटाएँ?",
     "collapse": "साइडबार संकुचित करें",
     "expand": "साइडबार विस्तार करें",
-    "travelHide": "यात्रा मोड में छिपाएं"
+    "travelHide": "यात्रा मोड में छिपाएं",
+    "moveUp": "ऊपर ले जाएँ",
+    "moveDown": "नीचे ले जाएँ"
   },
   "topbar": {
     "search": "वॉल्ट में खोजें…",

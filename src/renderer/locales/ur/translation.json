@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "حذف کریں؟",
     "collapse": "سائڈبار چھوٹا کریں",
     "expand": "سائڈبار بڑا کریں",
-    "travelHide": "سفری موڈ میں چھپائیں"
+    "travelHide": "سفری موڈ میں چھپائیں",
+    "moveUp": "اوپر منتقل کریں",
+    "moveDown": "نیچے منتقل کریں"
   },
   "topbar": {
     "search": "والٹ میں تلاش کریں…",

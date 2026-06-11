@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.22.0] - 2026-06-11
+
+Lets you reorder sidebar categories, and adds coverage for the category-order
+and settings-persistence logic.
+
+### Added
+- **Reorder categories in the sidebar** — each category now shows up/down
+  controls on hover (disabled at the top/bottom) that move it one step, fulfilling
+  the create/rename/reorder spec. Reordering swaps the two categories' order
+  values via a pure, unit-tested helper. Added `sidebar.moveUp`/`sidebar.moveDown`
+  strings to all 11 locales.
+
+### Tests
+- Added 9 tests for the category reorder helper (swap math, boundary no-ops,
+  unknown id, immutability, display-order vs array-order).
+- Added 6 tests for the main-process `SettingsStore`: defaults on a
+  missing/corrupt file, merging persisted values over defaults (so settings
+  files from older versions keep new keys' defaults), the set/get round-trip,
+  and parent-directory creation. Suite grows to 147.
+
 ## [0.21.0] - 2026-06-11
 
 Adds a real inline language switcher to the top bar and shores up the test suite
@@ -518,7 +538,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...HEAD
+[0.22.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.1...v0.19.0

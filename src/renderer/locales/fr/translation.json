@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "Supprimer ?",
     "collapse": "Réduire la barre latérale",
     "expand": "Développer la barre latérale",
-    "travelHide": "Masquer en mode voyage"
+    "travelHide": "Masquer en mode voyage",
+    "moveUp": "Monter",
+    "moveDown": "Descendre"
   },
   "topbar": {
     "search": "Rechercher dans le coffre…",
