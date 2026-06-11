@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **The item editor no longer scrolls sideways when adding custom fields** — the
+  dialog was capped too narrow (`max-w-lg`), so a custom field's label, value,
+  and action buttons overflowed and forced horizontal scrolling. The dialog is
+  now wider (`max-w-2xl`), the body never scrolls horizontally, the value field
+  keeps a sensible minimum width, and a custom-field row wraps its buttons onto a
+  second line on very small windows instead of clipping them.
+
 ## [0.25.0] - 2026-06-11
 
 Makes adding two-factor authentication easier: TOTP fields now accept a plain
