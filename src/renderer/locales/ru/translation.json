@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "Данные устройства сохранены в цепочке ключей ОС.",
     "deviceUnlockClear": "Удалить сохранённые данные",
     "deviceUnlockNone": "Данные устройства не сохранены.",
-    "displaySize": "Размер интерфейса"
+    "displaySize": "Размер интерфейса",
+    "clearClipboardOnLock": "Очищать буфер обмена при блокировке"
   },
   "changePw": {
     "title": "Изменить мастер-пароль",

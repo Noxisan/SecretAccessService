@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Clear clipboard on lock** — a new setting (on by default) wipes a copied
+  secret from the clipboard the moment the vault locks, across all lock triggers
+  (manual lock, idle timeout, and system sleep/lock-screen), instead of waiting
+  for the timed auto-clear. It only clears the clipboard when it still holds the
+  exact secret the app copied, so unrelated data you copied afterward is never
+  touched. Backed by a new `clipboardGuard` module with unit tests.
 - **The item list sort order is now remembered** — the sort you pick (A-Z, Z-A,
   recently modified, oldest first, or by type) is saved to settings and restored
   the next time you open the app, instead of resetting to A-Z each session.

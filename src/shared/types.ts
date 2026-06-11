@@ -131,6 +131,8 @@ export interface AppSettings {
   uiScale: number
   /** Persisted sort order for the main item list. */
   itemSort: VaultItemSortKey
+  /** Clear a copied secret from the clipboard immediately when the vault locks. */
+  clearClipboardOnLock: boolean
   /** Last-used password generator options — restored when the generator modal opens. */
   generatorDefaults?: GeneratePasswordOptions | undefined
 }

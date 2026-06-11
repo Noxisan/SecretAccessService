@@ -9,6 +9,7 @@ import { parseCsv, parseBitwardenJson, isBitwardenJson } from '../tools/importPa
 import { VaultManager } from '../vault/vault.js'
 import { generatePassword } from '../tools/generator.js'
 import { hashPassword, parseRangeResponse } from '../tools/hibp.js'
+import { rememberClipboard, clearClipboardIfOurs, forgetClipboard } from '../clipboardGuard.js'
 import {
   deriveKey, generateSalt, seal, open, memzero, DEFAULT_KDF_PARAMS
 } from '../crypto/index.js'
@@ -176,6 +177,7 @@ export function registerIpcHandlers(opts: {
 
   handle<void>(IPC.vaultLock, async () => {
     await vault.lock()
+    if (settings.get().clearClipboardOnLock) clearClipboardIfOurs()
   })
 
   handle<void>(IPC.vaultChangePassword, async (arg) => {
@@ -280,11 +282,15 @@ export function registerIpcHandlers(opts: {
   handle<void>(IPC.clipboardCopy, async (arg) => {
     const { text, clearSeconds } = parse(clipboardCopySchema, arg)
     clipboard.writeText(text)
+    rememberClipboard(text)
     const delay = clearSeconds ?? settings.get().clipboardClearSeconds
     if (delay > 0) {
       setTimeout(() => {
         // Only clear if it's still our secret sitting there.
-        if (clipboard.readText() === text) clipboard.clear()
+        if (clipboard.readText() === text) {
+          clipboard.clear()
+          forgetClipboard()
+        }
       }, delay * 1000)
     }
   })

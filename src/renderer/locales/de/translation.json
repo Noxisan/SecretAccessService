@@ -167,7 +167,8 @@
     "deviceUnlockSaved": "Geräteanmeldedaten sind im OS-Schlüsselbund gespeichert.",
     "deviceUnlockClear": "Gespeicherte Anmeldedaten entfernen",
     "deviceUnlockNone": "Keine Geräteanmeldedaten gespeichert.",
-    "displaySize": "Anzeigegröße"
+    "displaySize": "Anzeigegröße",
+    "clearClipboardOnLock": "Zwischenablage beim Sperren leeren"
   },
   "changePw": {
     "title": "Master-Passwort ändern",
