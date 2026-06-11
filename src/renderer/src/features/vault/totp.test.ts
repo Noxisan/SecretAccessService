@@ -34,6 +34,28 @@ describe('parseTotp', () => {
     expect(hotp.startsWith('otpauth://hotp/')).toBe(true)
     expect(parseTotp(hotp)).toBeNull()
   })
+
+  it('accepts a bare base32 secret with standard defaults', () => {
+    const totp = parseTotp('JBSWY3DPEHPK3PXP')
+    expect(totp).toBeInstanceOf(OTPAuth.TOTP)
+    expect(totp?.period).toBe(30)
+    expect(totp?.digits).toBe(6)
+    expect(totp?.algorithm).toBe('SHA1')
+  })
+
+  it('tolerates spaces, hyphens, and lower case in a pasted secret', () => {
+    const grouped = parseTotp('jbsw y3dp-ehpk 3pxp')
+    const plain = parseTotp('JBSWY3DPEHPK3PXP')!
+    expect(grouped).toBeInstanceOf(OTPAuth.TOTP)
+    // Same secret → identical code at the same instant.
+    expect(computeTotp(grouped!, 0).code).toBe(computeTotp(plain, 0).code)
+  })
+
+  it('rejects strings that are not valid base32 or are too short', () => {
+    expect(parseTotp('not-base32!!!')).toBeNull() // contains non-base32 chars
+    expect(parseTotp('ABC189')).toBeNull() // 0/1/8/9 are outside the base32 alphabet
+    expect(parseTotp('JBSW')).toBeNull() // too short to be a real secret
+  })
 })
 
 describe('computeTotp', () => {
