@@ -170,7 +170,9 @@
     "displaySize": "Размер интерфейса",
     "clearClipboardOnLock": "Очищать буфер обмена при блокировке",
     "sectionAppearance": "Внешний вид",
-    "sectionSecurity": "Безопасность"
+    "sectionSecurity": "Безопасность",
+    "passwordHistoryLimit": "Лимит истории паролей",
+    "passwordHistoryLimitHint": "Сколько прежних паролей хранить для каждого входа (0 — не хранить)."
   },
   "changePw": {
     "title": "Изменить мастер-пароль",

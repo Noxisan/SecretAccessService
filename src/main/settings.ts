@@ -18,6 +18,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   uiScale: 1,
   itemSort: 'az',
   clearClipboardOnLock: true,
+  passwordHistoryLimit: 50,
   generatorDefaults: {
     length: 20,
     uppercase: true,

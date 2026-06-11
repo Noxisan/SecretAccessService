@@ -136,6 +136,7 @@ export const settingsSchema = z.object({
   uiScale: z.number().min(0.8).max(1.5),
   itemSort: z.enum(['az', 'za', 'newest', 'oldest', 'kind']),
   clearClipboardOnLock: z.boolean(),
+  passwordHistoryLimit: z.number().int().min(0).max(50),
   generatorDefaults: generatePasswordSchema.optional()
 })
 

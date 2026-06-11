@@ -35,6 +35,7 @@ export default function ItemEditor(): JSX.Element | null {
   const vault = useAppStore((s) => s.vault)
   const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
   const generatorDefaults = useAppStore((s) => s.settings?.generatorDefaults)
+  const passwordHistoryLimit = useAppStore((s) => s.settings?.passwordHistoryLimit)
 
   const categories = useMemo(
     () => [...(vault?.categories ?? [])].sort((a, b) => a.order - b.order),
@@ -83,7 +84,7 @@ export default function ItemEditor(): JSX.Element | null {
     if (draft.title.trim().length === 0) return
     setBusy(true)
     try {
-      const item = finalizeItem(editorItem, draft as VaultItem)
+      const item = finalizeItem(editorItem, draft as VaultItem, passwordHistoryLimit ?? 50)
       setVault(await window.sas.vault.upsertItem(item))
       close()
     } finally {

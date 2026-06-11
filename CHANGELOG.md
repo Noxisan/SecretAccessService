@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Configurable password-history limit** — a new Security setting controls how
+  many previous passwords are kept per login (0 disables history entirely; hard
+  ceiling 50, default 50 to preserve existing behaviour). Lowering it prunes
+  existing history down to the new limit on the next save of an item, reducing
+  how many old secrets are retained. Covered by new tests for custom limits,
+  zero, and pruning.
+
 ## [0.30.0] - 2026-06-11
 
 Adds plaintext CSV export for migrating logins out, and organizes the settings

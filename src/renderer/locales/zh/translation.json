@@ -170,7 +170,9 @@
     "displaySize": "显示大小",
     "clearClipboardOnLock": "锁定时清除剪贴板",
     "sectionAppearance": "外观",
-    "sectionSecurity": "安全"
+    "sectionSecurity": "安全",
+    "passwordHistoryLimit": "密码历史记录上限",
+    "passwordHistoryLimitHint": "每个登录保留多少个旧密码（0 表示不保留）。"
   },
   "changePw": {
     "title": "更改主密码",
