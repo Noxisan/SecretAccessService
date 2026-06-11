@@ -137,6 +137,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |
 | [0.26.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.26.0) | 2026-06-11 | Search matches custom-field labels (values stay private); sidebar labels left-aligned |
 | [0.25.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.1) | 2026-06-11 | Fix: wider item editor so custom fields no longer overflow / force sideways scrolling |
 | [0.25.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.0) | 2026-06-11 | TOTP fields accept a bare base32 secret (spaces/case tolerated), not just an otpauth:// URI |
