@@ -153,7 +153,9 @@
       "fair": "Mittel",
       "strong": "Stark",
       "veryStrong": "Sehr stark"
-    }
+    },
+    "capitalize": "Wörter großschreiben",
+    "wordNumber": "Zahl anhängen"
   },
   "settings": {
     "title": "Einstellungen",

@@ -99,9 +99,14 @@ async function generatePassphrase(opts: GeneratePasswordOptions): Promise<string
   const sep = opts.separator ?? '-'
   const words: string[] = []
   for (let i = 0; i < count; i++) {
-    words.push(await pick2(EFF_LARGE_WORDLIST))
+    let word = await pick2(EFF_LARGE_WORDLIST)
+    if (opts.capitalize) word = word.charAt(0).toUpperCase() + word.slice(1)
+    words.push(word)
   }
-  return words.join(sep)
+  let phrase = words.join(sep)
+  // Append a random digit so the passphrase satisfies "must contain a number".
+  if (opts.wordNumber) phrase += String(await uniformByte(10))
+  return phrase
 }
 
 async function pick2(list: readonly string[]): Promise<string> {
