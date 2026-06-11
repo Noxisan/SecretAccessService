@@ -3,11 +3,9 @@ import type { JSX, ComponentType } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Star, Plus, KeyRound, StickyNote, CreditCard, IdCard, Timer, Fingerprint, Copy, Check, ExternalLink } from 'lucide-react'
 import { useAppStore } from '../../store/app'
-import type { VaultItem, VaultItemKind } from '@shared/types'
+import type { VaultItem, VaultItemKind, VaultItemSortKey } from '@shared/types'
 import TotpCode from './TotpCode'
-import { quickCopyText, quickCopyLabel, matches, subtitle } from './itemDisplay'
-
-type SortKey = 'az' | 'za' | 'newest' | 'oldest' | 'kind'
+import { quickCopyText, quickCopyLabel, matches, subtitle, sortItems } from './itemDisplay'
 
 const KIND_ICON: Record<VaultItemKind, ComponentType<{ size?: number }>> = {
   login: KeyRound,
@@ -27,6 +25,8 @@ export default function ItemList(): JSX.Element {
   const search = useAppStore((s) => s.search)
   const openEditor = useAppStore((s) => s.openItemEditor)
   const clipboardClearSeconds = useAppStore((s) => s.settings?.clipboardClearSeconds)
+  const settings = useAppStore((s) => s.settings)
+  const setSettings = useAppStore((s) => s.setSettings)
   const travelMode = useAppStore((s) => s.travelMode)
   const travelHiddenCategoryIds = useAppStore((s) => s.settings?.travelHiddenCategoryIds)
   // Derive the lookup Set with useMemo — building a new Set directly inside the
@@ -38,7 +38,13 @@ export default function ItemList(): JSX.Element {
   )
   const [addMenu, setAddMenu] = useState(false)
   const [copiedId, setCopiedId] = useState<string | null>(null)
-  const [sortBy, setSortBy] = useState<SortKey>('az')
+  const sortBy: VaultItemSortKey = settings?.itemSort ?? 'az'
+
+  // Persist the chosen sort order so it survives across sessions.
+  async function changeSort(key: VaultItemSortKey): Promise<void> {
+    if (!settings || settings.itemSort === key) return
+    setSettings(await window.sas.settings.set({ ...settings, itemSort: key }))
+  }
 
   const items = useMemo<VaultItem[]>(() => {
     const all = vault?.items ?? []
@@ -50,15 +56,7 @@ export default function ItemList(): JSX.Element {
       .filter((i) => !i.categoryId || !travelHiddenIds.has(i.categoryId))
       .filter((i) => (q ? matches(i, q) : true))
 
-    return filtered.sort((a, b) => {
-      switch (sortBy) {
-        case 'za': return b.title.localeCompare(a.title)
-        case 'newest': return b.updatedAt - a.updatedAt
-        case 'oldest': return a.createdAt - b.createdAt
-        case 'kind': return a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title)
-        default: return a.title.localeCompare(b.title)
-      }
-    })
+    return sortItems(filtered, sortBy)
   }, [vault, selectedCategoryId, showFavoritesOnly, search, travelHiddenIds, sortBy])
 
   function add(kind: VaultItemKind): void {
@@ -96,7 +94,7 @@ export default function ItemList(): JSX.Element {
         <div className="flex items-center gap-2">
           <select
             value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as SortKey)}
+            onChange={(e) => void changeSort(e.target.value as VaultItemSortKey)}
             className="rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-2 py-1 text-xs text-[var(--text-muted)] outline-none focus:border-[var(--accent)] hover:text-[var(--text)]"
             aria-label={t('items.sortBy')}
             title={t('items.sortBy')}

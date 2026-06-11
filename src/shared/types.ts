@@ -112,6 +112,9 @@ export interface VaultData {
 
 export type ThemeMode = 'light' | 'dark' | 'system'
 
+/** Sort orders for the main item list. */
+export type VaultItemSortKey = 'az' | 'za' | 'newest' | 'oldest' | 'kind'
+
 /** App-level settings — stored OUTSIDE the vault (CLAUDE.md §6). */
 export interface AppSettings {
   language: string
@@ -126,6 +129,8 @@ export interface AppSettings {
   /** UI scale factor applied to the root font size (1 = 100%). Scales the whole
    * rem-based interface proportionally. */
   uiScale: number
+  /** Persisted sort order for the main item list. */
+  itemSort: VaultItemSortKey
   /** Last-used password generator options — restored when the generator modal opens. */
   generatorDefaults?: GeneratePasswordOptions | undefined
 }
