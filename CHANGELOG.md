@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.22.0] - 2026-06-11
+
+Lets you reorder sidebar categories, and adds coverage for the category-order
+and settings-persistence logic.
+
 ### Added
 - **Reorder categories in the sidebar** — each category now shows up/down
   controls on hover (disabled at the top/bottom) that move it one step, fulfilling
@@ -533,7 +538,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...HEAD
+[0.22.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.1...v0.19.0
