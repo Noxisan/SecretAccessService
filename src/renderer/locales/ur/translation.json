@@ -240,6 +240,11 @@
     "importButton": "درآمد کریں",
     "importing": "درآمد ہو رہا ہے…",
     "importSuccess": "{{count}} آئٹم درآمد ہوئے۔",
-    "csvHint": "Chrome، Edge، Firefox، Bitwarden، LastPass، KeePass اور Dashlane سے CSV برآمدات معاون ہیں۔ کالم نام سے ملائے جاتے ہیں؛ صرف لاگ اِن آئٹمز درآمد کیے جاتے ہیں۔"
+    "csvHint": "Chrome، Edge، Firefox، Bitwarden، LastPass، KeePass اور Dashlane سے CSV برآمدات معاون ہیں۔ کالم نام سے ملائے جاتے ہیں؛ صرف لاگ اِن آئٹمز درآمد کیے جاتے ہیں۔",
+    "csvExportTitle": "لاگ اِن کو CSV کے طور پر برآمد کریں",
+    "csvExportDesc": "اپنی لاگ اِن انٹریز کو سادہ متن CSV فائل کے طور پر محفوظ کریں جسے آپ کسی دوسرے پاس ورڈ مینیجر میں درآمد کر سکتے ہیں۔",
+    "csvExportWarning": "یہ فائل خفیہ کردہ نہیں ہے - اسے کھولنے والا کوئی بھی آپ کے پاس ورڈ پڑھ سکتا ہے۔ اسے محفوظ رکھیں اور استعمال کے بعد حذف کر دیں۔ صرف لاگ اِن آئٹمز شامل ہیں۔",
+    "csvExportButton": "لاگ اِن کو CSV کے طور پر برآمد کریں",
+    "csvExportSuccess": "{{count}} لاگ اِن {{path}} پر برآمد کیے گئے"
   }
 }

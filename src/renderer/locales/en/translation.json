@@ -221,7 +221,12 @@
     "importButton": "Import",
     "importing": "Importing…",
     "importSuccess": "Imported {{count}} item(s) successfully.",
-    "csvHint": "CSV exports from Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass, and Dashlane are supported. Columns are matched by name; only login items are imported."
+    "csvHint": "CSV exports from Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass, and Dashlane are supported. Columns are matched by name; only login items are imported.",
+    "csvExportTitle": "Export logins as CSV",
+    "csvExportDesc": "Save your login entries as a plaintext CSV file you can import into another password manager.",
+    "csvExportWarning": "This file is not encrypted - anyone who opens it can read your passwords. Store it securely and delete it after use. Only login items are included.",
+    "csvExportButton": "Export logins as CSV",
+    "csvExportSuccess": "Exported {{count}} login(s) to {{path}}"
   },
   "health": {
     "title": "Password health",

@@ -240,6 +240,11 @@
     "importButton": "Importar",
     "importing": "Importando…",
     "importSuccess": "{{count}} item(ns) importado(s).",
-    "csvHint": "Exportações CSV do Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass e Dashlane são suportadas. As colunas são reconhecidas pelo nome; apenas itens de login são importados."
+    "csvHint": "Exportações CSV do Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass e Dashlane são suportadas. As colunas são reconhecidas pelo nome; apenas itens de login são importados.",
+    "csvExportTitle": "Exportar logins como CSV",
+    "csvExportDesc": "Salve suas entradas de login como um arquivo CSV de texto simples que você pode importar para outro gerenciador de senhas.",
+    "csvExportWarning": "Este arquivo não é criptografado - qualquer pessoa que o abra pode ler suas senhas. Guarde-o com segurança e exclua-o após o uso. Apenas itens de login são incluídos.",
+    "csvExportButton": "Exportar logins como CSV",
+    "csvExportSuccess": "{{count}} login(s) exportado(s) para {{path}}"
   }
 }

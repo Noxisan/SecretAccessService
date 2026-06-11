@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Plaintext CSV export of logins** — the Export tab can now save your login
+  entries to a CSV file for migrating to another password manager, complementing
+  the existing encrypted `.sasbak` backup. The output uses the same columns the
+  importer understands (name, username, password, url, totp, notes) and
+  round-trips through it. The file is unencrypted, so a clear warning is shown
+  before exporting. Only login items are included; use the encrypted backup for
+  full-fidelity export of all item types. Backed by a pure, RFC 4180-correct
+  `serializeLoginsCsv` with unit tests, and localized in all 11 languages.
+
 ### Changed
 - **Settings are now grouped into sections** — the settings panel was a single
   long list; it is now organized under "Appearance" (theme, accent, display size,
