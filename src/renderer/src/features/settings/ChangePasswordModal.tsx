@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, Eye, EyeOff, ShieldCheck } from 'lucide-react'
+import { Eye, EyeOff, ShieldCheck } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import SlidePanel from '../../components/SlidePanel'
 
@@ -69,18 +69,7 @@ export default function ChangePasswordModal(): JSX.Element | null {
     'w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 pr-10 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]'
 
   return (
-    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('changePw.title')} width="max-w-sm">
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="mb-5 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-[var(--text)]">{t('changePw.title')}</h2>
-          <button
-            onClick={() => setOpen(false)}
-            className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
-          >
-            <X size={18} />
-          </button>
-        </div>
-
+    <SlidePanel open={open} onClose={() => setOpen(false)} title={t('changePw.title')} width="max-w-sm" bodyClassName="p-6">
         {success ? (
           <div className="flex flex-col items-center gap-4 py-4 text-center">
             <ShieldCheck size={40} className="text-[var(--accent)]" />
@@ -195,7 +184,6 @@ export default function ChangePasswordModal(): JSX.Element | null {
             </div>
           </form>
         )}
-      </div>
     </SlidePanel>
   )
 }

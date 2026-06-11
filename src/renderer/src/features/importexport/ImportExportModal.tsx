@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, Download, Upload, Eye, EyeOff, AlertTriangle, CheckCircle2 } from 'lucide-react'
+import { Download, Upload, Eye, EyeOff, AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import SlidePanel from '../../components/SlidePanel'
 
@@ -90,19 +90,7 @@ export default function ImportExportModal(): JSX.Element | null {
   }
 
   return (
-    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('importExport.title')} width="max-w-lg">
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
-          <h2 className="font-semibold text-[var(--text)]">{t('importExport.title')}</h2>
-          <button
-            onClick={() => setOpen(false)}
-            className="grid h-8 w-8 place-items-center rounded-[var(--radius)] text-[var(--text-muted)] hover:bg-[var(--bg)] hover:text-[var(--text)]"
-            aria-label={t('common.close')}
-          >
-            <X size={18} />
-          </button>
-        </div>
-
+    <SlidePanel open={open} onClose={() => setOpen(false)} title={t('importExport.title')} width="max-w-lg" bodyClassName="">
         {/* Tab bar */}
         <div className="flex border-b border-[var(--border)]">
           {(['export', 'import'] as Tab[]).map((t2) => (
@@ -121,7 +109,7 @@ export default function ImportExportModal(): JSX.Element | null {
           ))}
         </div>
 
-        <div className="flex-1 overflow-auto p-5">
+        <div className="p-5">
           {tab === 'export' ? (
             <div className="flex flex-col gap-4">
               <p className="text-sm text-[var(--text-muted)]">{t('importExport.exportDesc')}</p>
