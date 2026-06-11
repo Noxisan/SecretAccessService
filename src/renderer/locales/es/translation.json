@@ -121,7 +121,11 @@
       "oldest": "Más antiguo primero",
       "kind": "Por tipo"
     },
-    "openUrl": "Abrir en el navegador"
+    "openUrl": "Abrir en el navegador",
+    "emptyVaultTitle": "Tu bóveda está vacía",
+    "emptyVaultHint": "Agrega un inicio de sesión, tarjeta, nota segura u otro elemento para empezar.",
+    "emptyVaultCta": "Agrega tu primer elemento",
+    "emptySearch": "Ningún elemento coincide con tu búsqueda"
   },
   "generator": {
     "title": "Generador de contraseñas",

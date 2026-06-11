@@ -139,7 +139,30 @@ export default function ItemList(): JSX.Element {
       </div>
 
       {items.length === 0 ? (
-        <div className="mt-16 text-center text-sm text-[var(--text-muted)]">{t('items.empty')}</div>
+        (vault?.items.length ?? 0) === 0 ? (
+          // Brand-new, completely empty vault: show an onboarding call to action.
+          <div className="mt-16 flex flex-col items-center gap-3 text-center">
+            <span className="grid h-14 w-14 place-items-center rounded-full bg-[var(--bg-elevated)] text-[var(--accent)]">
+              <KeyRound size={24} />
+            </span>
+            <div>
+              <p className="text-sm font-medium text-[var(--text)]">{t('items.emptyVaultTitle')}</p>
+              <p className="mt-1 max-w-xs text-xs text-[var(--text-muted)]">{t('items.emptyVaultHint')}</p>
+            </div>
+            <button
+              onClick={() => add('login')}
+              className="mt-1 flex items-center gap-1.5 rounded-[var(--radius)] px-3 py-1.5 text-sm text-[var(--accent-contrast)]"
+              style={{ background: 'var(--accent)' }}
+            >
+              <Plus size={16} />
+              {t('items.emptyVaultCta')}
+            </button>
+          </div>
+        ) : (
+          <div className="mt-16 text-center text-sm text-[var(--text-muted)]">
+            {search.trim() ? t('items.emptySearch') : t('items.empty')}
+          </div>
+        )
       ) : (
         <ul className="flex flex-col gap-1">
           {items.map((item) => {

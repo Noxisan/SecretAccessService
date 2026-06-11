@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Clearer empty states in the item list** — instead of a single generic "no
+  items" line, a brand-new empty vault now shows a friendly onboarding panel
+  with an "Add your first item" button, an empty search shows "no items match
+  your search", and an empty category/favorites view keeps the neutral message.
+  All three are localized in every language.
+
 ### Added
 - **Configurable password-history limit** — a new Security setting controls how
   many previous passwords are kept per login (0 disables history entirely; hard

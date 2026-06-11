@@ -121,7 +121,11 @@
       "oldest": "Älteste zuerst",
       "kind": "Nach Typ"
     },
-    "openUrl": "Im Browser öffnen"
+    "openUrl": "Im Browser öffnen",
+    "emptyVaultTitle": "Ihr Tresor ist leer",
+    "emptyVaultHint": "Fügen Sie einen Login, eine Karte, eine sichere Notiz oder ein anderes Element hinzu, um zu beginnen.",
+    "emptyVaultCta": "Erstes Element hinzufügen",
+    "emptySearch": "Keine Elemente entsprechen Ihrer Suche"
   },
   "generator": {
     "title": "Passwortgenerator",
