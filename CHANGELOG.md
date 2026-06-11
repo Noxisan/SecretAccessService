@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `quickCopyText`, and `quickCopyLabel` moved out of `ItemList` into a pure
   `itemDisplay.ts` module so they can be unit-tested. Consolidated two
   near-duplicate clipboard helpers into a single `copyValue`.
+- **HIBP hashing/parsing extracted** — the SHA-1 hashing, k-anonymity
+  prefix/suffix split, and breach-range response parsing moved out of the IPC
+  handler into a pure `hibp.ts` module (`hashPassword`, `parseRangeResponse`).
+  No behaviour change; the network call stays in the handler.
 
 ### Tests
 - Added 8 tests for the TOTP module, including the RFC 6238 SHA1 reference
@@ -23,7 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   boundaries.
 - Added 10 tests for the item display/search helpers, including a security
   guard asserting that search never matches secret material (passwords, card
-  numbers/CVV, TOTP/passkey secrets). Suite grows from 87 to 105 tests.
+  numbers/CVV, TOTP/passkey secrets).
+- Added 10 tests for the HIBP module, covering the known SHA-1 of `password`,
+  the privacy invariant that only a 5-char prefix is transmitted, and range
+  parsing across `\r\n`/`\n` endings, mixed case, whitespace, malformed lines,
+  and fail-closed non-numeric/non-positive counts. Suite grows from 87 to 115
+  tests.
 
 ## [0.18.1] - 2026-06-10
 
