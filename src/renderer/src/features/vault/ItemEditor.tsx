@@ -173,7 +173,7 @@ export default function ItemEditor(): JSX.Element | null {
       role="presentation"
     >
       <div
-        className="flex max-h-[90vh] w-full max-w-lg flex-col rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)]"
+        className="flex max-h-[90vh] w-full max-w-2xl flex-col rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)]"
         onMouseDown={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -199,7 +199,7 @@ export default function ItemEditor(): JSX.Element | null {
         </div>
 
         {/* Body */}
-        <div className="flex flex-col gap-4 overflow-auto p-5">
+        <div className="flex flex-col gap-4 overflow-x-hidden overflow-y-auto p-5">
           {/* Title — shared by all kinds */}
           <div>
             <label className={lbl} htmlFor="it-title">
@@ -717,7 +717,7 @@ export default function ItemEditor(): JSX.Element | null {
                 {draft.customFields.map((cf) => {
                   const revealed = revealedCfIds.has(cf.id)
                   return (
-                    <div key={cf.id} className="flex gap-1.5">
+                    <div key={cf.id} className="flex flex-wrap items-center gap-1.5">
                       <input
                         value={cf.label}
                         placeholder={t('items.field.fieldLabel')}
@@ -742,7 +742,7 @@ export default function ItemEditor(): JSX.Element | null {
                             )
                           })
                         }
-                        className={`${fld} min-w-0 flex-1 ${cf.secret ? 'font-mono' : ''}`}
+                        className={`${fld} min-w-[10rem] flex-1 ${cf.secret ? 'font-mono' : ''}`}
                       />
                       <button
                         type="button"
