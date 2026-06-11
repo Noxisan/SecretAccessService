@@ -3,6 +3,7 @@ import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, Eye, EyeOff, ShieldCheck } from 'lucide-react'
 import { useAppStore } from '../../store/app'
+import SlidePanel from '../../components/SlidePanel'
 
 type Field = 'current' | 'new' | 'confirm'
 
@@ -31,17 +32,6 @@ export default function ChangePasswordModal(): JSX.Element | null {
       setBusy(false)
     }
   }, [open])
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, setOpen])
-
-  if (!open) return null
 
   const toggleShow = (f: Field): void =>
     setShow((prev) => ({ ...prev, [f]: !prev[f] }))
@@ -79,14 +69,8 @@ export default function ChangePasswordModal(): JSX.Element | null {
     'w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 pr-10 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]'
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-      onClick={() => setOpen(false)}
-    >
-      <div
-        className="w-full max-w-sm rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-xl"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('changePw.title')} width="max-w-sm">
+      <div className="flex-1 overflow-y-auto p-6">
         <div className="mb-5 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-[var(--text)]">{t('changePw.title')}</h2>
           <button
@@ -212,6 +196,6 @@ export default function ChangePasswordModal(): JSX.Element | null {
           </form>
         )}
       </div>
-    </div>
+    </SlidePanel>
   )
 }

@@ -3,6 +3,7 @@ import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, Download, Upload, Eye, EyeOff, AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { useAppStore } from '../../store/app'
+import SlidePanel from '../../components/SlidePanel'
 
 type Tab = 'export' | 'import'
 type ImportFormat = 'sasbak' | 'csv' | 'json'
@@ -35,20 +36,11 @@ export default function ImportExportModal(): JSX.Element | null {
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent): void => { if (e.key === 'Escape') setOpen(false) }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, setOpen])
-
-  useEffect(() => {
     if (!open) {
       setExportPassword(''); setExportConfirm(''); setExportResult(null); setExportError(null)
       setImportFile(''); setImportPassword(''); setImportResult(null); setImportError(null)
     }
   }, [open])
-
-  if (!open) return null
 
   const exportMismatch = exportPassword !== exportConfirm && exportConfirm.length > 0
   const exportReady = exportPassword.length >= 1 && exportPassword === exportConfirm
@@ -98,18 +90,7 @@ export default function ImportExportModal(): JSX.Element | null {
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-      onMouseDown={() => setOpen(false)}
-      role="presentation"
-    >
-      <div
-        className="flex max-h-[85vh] w-full max-w-lg flex-col rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)]"
-        onMouseDown={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={t('importExport.title')}
-      >
+    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('importExport.title')} width="max-w-lg">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
           <h2 className="font-semibold text-[var(--text)]">{t('importExport.title')}</h2>
@@ -320,7 +301,6 @@ export default function ImportExportModal(): JSX.Element | null {
             </div>
           )}
         </div>
-      </div>
-    </div>
+    </SlidePanel>
   )
 }
