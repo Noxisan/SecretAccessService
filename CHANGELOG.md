@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.19.0] - 2026-06-11
+
+Adds the ability to open a login's website directly in your system browser, plus
+a round of internal refactors that put security-sensitive logic (TOTP, breach
+checking, item search) under unit test.
+
+### Added
+- **Open URL in system browser** — login entries with a website now show an
+  external-link button (in both the list and the editor) that opens the URL in
+  your default browser via `shell.openExternal`. Only `http`/`https` URLs are
+  allowed, validated by a zod schema in the main process to prevent
+  protocol-handler abuse. New `tools:openExternal` IPC channel and an
+  `items.openUrl` string localized across all 11 languages.
+
 ### Changed
 - **TOTP logic extracted from the UI** — `otpauth` parsing and code/countdown
   computation moved out of the `TotpCode` component into a pure, dependency-free
@@ -438,7 +452,11 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.16.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...HEAD
+[0.19.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.1...v0.19.0
+[0.18.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.0...v0.18.1
+[0.18.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.17.0...v0.18.0
+[0.17.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.15.0...v0.16.0
 [0.15.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.13.0...v0.14.0
