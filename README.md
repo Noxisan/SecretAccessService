@@ -136,6 +136,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.26.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.26.0) | 2026-06-11 | Search matches custom-field labels (values stay private); sidebar labels left-aligned |
 | [0.25.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.1) | 2026-06-11 | Fix: wider item editor so custom fields no longer overflow / force sideways scrolling |
 | [0.25.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.0) | 2026-06-11 | TOTP fields accept a bare base32 secret (spaces/case tolerated), not just an otpauth:// URI |
 | [0.24.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.24.0) | 2026-06-11 | Broader CSV import: Chrome/Edge, Firefox, KeePass(XC), and Dashlane layouts (URL-derived titles); in-dialog hint of supported sources |
