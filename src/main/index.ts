@@ -102,6 +102,11 @@ function createWindow(): void {
 
   mainWindow.once('ready-to-show', () => mainWindow?.show())
 
+  // Optionally lock the vault when the window is minimized (CLAUDE.md §3).
+  mainWindow.on('minimize', () => {
+    if (settings.get().lockOnMinimize) void lockNow()
+  })
+
   // Dev-only diagnostics: surface renderer console + load failures in the
   // terminal (the renderer must never log secrets, so this stays safe).
   if (isDev) {

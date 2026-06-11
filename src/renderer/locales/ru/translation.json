@@ -176,7 +176,8 @@
     "sectionAppearance": "Внешний вид",
     "sectionSecurity": "Безопасность",
     "passwordHistoryLimit": "Лимит истории паролей",
-    "passwordHistoryLimitHint": "Сколько прежних паролей хранить для каждого входа (0 — не хранить)."
+    "passwordHistoryLimitHint": "Сколько прежних паролей хранить для каждого входа (0 — не хранить).",
+    "lockOnMinimize": "Блокировать при сворачивании"
   },
   "changePw": {
     "title": "Изменить мастер-пароль",
