@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **TOTP fields accept a bare secret key, not just an `otpauth://` URI** — many
+  sites show only a base32 secret (e.g. "JBSW Y3DP EHPK 3PXP") rather than a QR
+  code. You can now paste that secret directly into a TOTP item or a login's
+  embedded 2FA field; spaces, hyphens, and lower case are tolerated and standard
+  defaults (SHA1, 6 digits, 30 s) are applied. Full `otpauth://` URIs still work.
+
+### Tests
+- Added 3 tests for bare-secret parsing (defaults, whitespace/case tolerance,
+  and rejection of non-base32 or too-short input). Suite grows to 178.
+
 ## [0.24.0] - 2026-06-11
 
 Makes importing from other password managers smoother: the CSV importer now

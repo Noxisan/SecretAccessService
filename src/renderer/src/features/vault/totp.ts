@@ -10,16 +10,35 @@ export interface TotpSnapshot {
   period: number
 }
 
+const BASE32_RE = /^[A-Z2-7]+=*$/
+
 /**
- * Safely parse an `otpauth://` URI into a TOTP credential.
+ * Parse a TOTP credential from either a full `otpauth://` URI or a bare base32
+ * secret (what many sites display instead of a QR code, e.g. "JBSW Y3DP EHPK").
  *
- * Returns `null` (never throws) for malformed input or for non-TOTP URIs such
- * as `otpauth://hotp/...`, so callers can treat a bad QR scan as "no code".
+ * Returns `null` (never throws) for malformed input or non-TOTP URIs such as
+ * `otpauth://hotp/...`, so callers can treat a bad scan/paste as "no code". A
+ * bare secret yields a TOTP with the standard defaults (SHA1, 6 digits, 30 s).
  */
-export function parseTotp(uri: string): OTPAuth.TOTP | null {
+export function parseTotp(input: string): OTPAuth.TOTP | null {
+  const value = input.trim()
+  if (!value) return null
+
+  if (/^otpauth:\/\//i.test(value)) {
+    try {
+      const parsed = OTPAuth.URI.parse(value)
+      return parsed instanceof OTPAuth.TOTP ? parsed : null
+    } catch {
+      return null
+    }
+  }
+
+  // Treat the input as a bare base32 secret. Strip the spaces/hyphens sites use
+  // for readability and normalise case before validating the alphabet.
+  const cleaned = value.replace(/[\s-]/g, '').toUpperCase()
+  if (cleaned.length < 8 || !BASE32_RE.test(cleaned)) return null
   try {
-    const parsed = OTPAuth.URI.parse(uri)
-    return parsed instanceof OTPAuth.TOTP ? parsed : null
+    return new OTPAuth.TOTP({ secret: OTPAuth.Secret.fromBase32(cleaned) })
   } catch {
     return null
   }
