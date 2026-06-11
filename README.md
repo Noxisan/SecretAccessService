@@ -136,6 +136,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.25.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.0) | 2026-06-11 | TOTP fields accept a bare base32 secret (spaces/case tolerated), not just an otpauth:// URI |
 | [0.24.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.24.0) | 2026-06-11 | Broader CSV import: Chrome/Edge, Firefox, KeePass(XC), and Dashlane layouts (URL-derived titles); in-dialog hint of supported sources |
 | [0.23.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.23.0) | 2026-06-11 | Generated passwords always include at least one character from every selected class (unbiased), satisfying site composition rules |
 | [0.22.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.1) | 2026-06-11 | Fix: inline password generator honours saved generator settings; theme-token cleanup; IPC validation-schema tests |
