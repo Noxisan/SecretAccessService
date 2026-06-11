@@ -1,5 +1,4 @@
 import { ipcMain, clipboard, dialog, app, safeStorage, type BrowserWindow } from 'electron'
-import { createHash } from 'node:crypto'
 import { get as httpsGet } from 'node:https'
 import { readFile, writeFile, unlink, access } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -9,6 +8,7 @@ import type { AppSettings, VaultData, VaultStatus, VaultItem } from '../../share
 import { parseCsv, parseBitwardenJson, isBitwardenJson } from '../tools/importParsers.js'
 import { VaultManager } from '../vault/vault.js'
 import { generatePassword } from '../tools/generator.js'
+import { hashPassword, parseRangeResponse } from '../tools/hibp.js'
 import {
   deriveKey, generateSalt, seal, open, memzero, DEFAULT_KDF_PARAMS
 } from '../crypto/index.js'
@@ -36,9 +36,7 @@ import type { SettingsStore } from '../settings.js'
  * Returns the breach count for the given password (0 = not found).
  */
 async function hibpRangeQuery(password: string): Promise<number> {
-  const sha1 = createHash('sha1').update(password).digest('hex').toUpperCase()
-  const prefix = sha1.slice(0, 5)
-  const suffix = sha1.slice(5)
+  const { prefix, suffix } = hashPassword(password)
 
   const body = await new Promise<string>((resolve, reject) => {
     const req = httpsGet(
@@ -55,11 +53,7 @@ async function hibpRangeQuery(password: string): Promise<number> {
     req.setTimeout(8000, () => { req.destroy(); reject(new Error('HIBP timeout')) })
   })
 
-  for (const line of body.split('\r\n')) {
-    const [s, count] = line.split(':')
-    if (s?.toUpperCase() === suffix) return parseInt(count ?? '0', 10)
-  }
-  return 0
+  return parseRangeResponse(body, suffix)
 }
 
 /** Encrypt vault data with a standalone password and write to a .sasbak file. */
