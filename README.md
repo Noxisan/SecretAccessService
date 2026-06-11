@@ -136,6 +136,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.22.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.0) | 2026-06-11 | Reorder sidebar categories with up/down controls; tests for the reorder and settings-persistence logic |
 | [0.21.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.21.0) | 2026-06-11 | Inline top-bar language switcher (all 11 languages, RTL-aware); vault format/migration test coverage; CI/release builds on Node 22 LTS |
 | [0.20.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.20.0) | 2026-06-11 | Passphrase generator upgraded to the full 7776-word EFF diceware list (~12.9 bits/word); added the GPL-3.0 LICENSE file |
 | [0.19.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.19.0) | 2026-06-11 | Open a login's website in the system browser (http/https only); internal extraction of TOTP, search, and breach logic into unit-tested modules |
