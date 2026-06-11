@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { KeyRound } from 'lucide-react'
@@ -31,6 +31,7 @@ export default function SettingsModal(): JSX.Element | null {
   const [draft, setDraft] = useState<AppSettings | null>(null)
   const [busy, setBusy] = useState(false)
   const [quickUnlockSaved, setQuickUnlockSaved] = useState(false)
+  const saveRef = useRef<() => void>(() => {})
 
   useEffect(() => {
     if (open && currentSettings) {
@@ -38,6 +39,19 @@ export default function SettingsModal(): JSX.Element | null {
       void window.sas.vault.quickUnlockStatus().then(({ available }) => setQuickUnlockSaved(available))
     }
   }, [open, currentSettings])
+
+  // Ctrl/Cmd+S saves and closes the settings panel; Escape is handled by SlidePanel.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent): void => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault()
+        saveRef.current()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   // draft is populated on open and kept afterwards, so gating on it (not `open`)
   // lets the panel animate its slide-out via the `open` prop.
@@ -56,6 +70,10 @@ export default function SettingsModal(): JSX.Element | null {
     } finally {
       setBusy(false)
     }
+  }
+  // Keep a stable ref to the latest handleSave for the keyboard-shortcut effect.
+  saveRef.current = () => {
+    if (!busy) void handleSave()
   }
 
   const fieldRow = 'flex flex-col gap-1.5'

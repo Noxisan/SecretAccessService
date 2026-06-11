@@ -82,7 +82,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | .sasbak encrypted import with merge or replace mode | Done |
 | Collapsible sidebar with left-aligned, RTL-aware labels | Done |
 | Slide-in side panels (no modal dialogs) for the editor, generator, settings, health, and import/export | Done |
-| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Escape (close panel / clear) | Done |
+| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Ctrl+S (save the open editor/settings panel; Ctrl+Enter also saves an item), Escape (close panel / clear) | Done |
 | 11 UI translations with an inline top-bar language switcher (RTL for Arabic & Urdu) | Done |
 | Panic lock / self-destruct after N failed unlock attempts | Done |
 | Passkeys / FIDO2 / WebAuthn storage — record credentials as reference entries | Done |
@@ -138,6 +138,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.34.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.34.0) | 2026-06-11 | Save keyboard shortcut (Ctrl/Cmd+S, plus Ctrl/Cmd+Enter in the item editor) |
 | [0.33.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.33.0) | 2026-06-11 | Passphrase generator: optional word capitalization and an appended random digit |
 | [0.32.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.32.0) | 2026-06-11 | Lock-on-minimize security setting; internal locale key-parity test guarding all 11 translations |
 | [0.31.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.31.0) | 2026-06-11 | Onboarding empty states (new vault / empty search / empty filter); configurable password-history limit setting |

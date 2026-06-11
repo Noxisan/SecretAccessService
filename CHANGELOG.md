@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.34.0] - 2026-06-11
+
+Adds a save keyboard shortcut to the editor and settings panels.
+
+### Added
+- **Save keyboard shortcut** — pressing Ctrl/Cmd+S now saves and closes the open
+  item editor or settings panel without reaching for the mouse; in the item
+  editor Ctrl/Cmd+Enter also saves. The shortcuts respect the same guards as the
+  buttons (an empty item title or an in-flight save is ignored). Escape continues
+  to close panels.
+
 ## [0.33.0] - 2026-06-11
 
 Enhances the passphrase generator with capitalization and an appended digit.
@@ -799,7 +810,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.33.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.34.0...HEAD
+[0.34.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.33.0...v0.34.0
 [0.33.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.32.0...v0.33.0
 [0.32.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.31.0...v0.32.0
 [0.31.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.30.0...v0.31.0

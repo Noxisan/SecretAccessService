@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, Trash2, Star, Eye, EyeOff, RefreshCw, Copy, Check, History, RotateCcw, ChevronDown, ChevronUp, Plus, Lock, Unlock, ShieldCheck, ExternalLink } from 'lucide-react'
@@ -53,6 +53,21 @@ export default function ItemEditor(): JSX.Element | null {
   const [showHistory, setShowHistory] = useState(false)
   const [revealedHistIdx, setRevealedHistIdx] = useState<number | null>(null)
   const [revealedCfIds, setRevealedCfIds] = useState<Set<string>>(new Set())
+  const saveRef = useRef<() => void>(() => {})
+
+  // Ctrl/Cmd+S or Ctrl/Cmd+Enter saves the item (save() itself ignores an empty
+  // title or an in-flight save). Escape is handled by SlidePanel.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent): void => {
+      if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 's' || e.key === 'Enter')) {
+        e.preventDefault()
+        saveRef.current()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   useEffect(() => {
     if (!open) return
@@ -81,7 +96,7 @@ export default function ItemEditor(): JSX.Element | null {
     setDraft((prev) => (prev.kind === 'passkey' ? { ...prev, ...p } : prev))
 
   async function save(): Promise<void> {
-    if (draft.title.trim().length === 0) return
+    if (busy || draft.title.trim().length === 0) return
     setBusy(true)
     try {
       const item = finalizeItem(editorItem, draft as VaultItem, passwordHistoryLimit ?? 50)
@@ -91,6 +106,8 @@ export default function ItemEditor(): JSX.Element | null {
       setBusy(false)
     }
   }
+  // Keep a stable ref to the latest save() for the keyboard-shortcut effect.
+  saveRef.current = save
 
   async function remove(): Promise<void> {
     if (!editorItem) return
