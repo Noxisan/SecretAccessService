@@ -120,7 +120,7 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
         <div className={card}>
           <div className="mb-4 flex items-center gap-3">
             <span
-              className="grid h-10 w-10 place-items-center rounded-[var(--radius)] text-white"
+              className="grid h-10 w-10 place-items-center rounded-[var(--radius)] text-[var(--danger-contrast)]"
               style={{ background: 'var(--danger)' }}
             >
               <AlertTriangle size={22} />
@@ -142,7 +142,7 @@ export default function UnlockScreen({ status, onUnlocked }: Props): JSX.Element
                 resetFields()
                 setResetFlow('form')
               }}
-              className="flex-1 rounded-[var(--radius)] px-3 py-2 text-sm font-medium text-white"
+              className="flex-1 rounded-[var(--radius)] px-3 py-2 text-sm font-medium text-[var(--danger-contrast)]"
               style={{ background: 'var(--danger)' }}
             >
               {t('unlock.resetContinue')}

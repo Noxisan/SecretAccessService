@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.22.1] - 2026-06-11
+
+Patch release: the inline password generator now respects your saved generator
+settings, plus internal theming and validation-test improvements.
+
+### Fixed
+- **Inline password generator now honours your saved generator settings** — the
+  refresh button next to a login password used hardcoded options (always 20-char,
+  all classes). It now uses the generator defaults you configured in the
+  generator modal (length, character classes, exclude-ambiguous, or passphrase
+  mode), matching the persistence added in 0.17.0.
+
+### Changed
+- Replaced the last hardcoded `text-white` usages (top-bar health badge,
+  destructive buttons in the editor, import/export, and vault-reset screens) with
+  themed CSS variables (`--accent-contrast`, new `--danger-contrast`), so every
+  color flows from the theme tokens per the design guidelines.
+
+### Tests
+- Added 19 tests for the IPC validation schemas — the trust boundary that checks
+  untrusted renderer payloads before they reach the vault/crypto layer. Covers
+  the `openExternal` scheme guard (rejecting `file:`/`javascript:`/`data:` and a
+  whitespace-prefixed bypass), `#rrggbb` color validation, the item discriminated
+  union (unknown kinds, missing fields, numeric bounds, customField caps), and
+  bounds on generator/settings/credential/import payloads. Suite grows to 166.
+
 ## [0.22.0] - 2026-06-11
 
 Lets you reorder sidebar categories, and adds coverage for the category-order
@@ -538,7 +564,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.1...HEAD
+[0.22.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...v0.22.1
 [0.22.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...v0.20.0
