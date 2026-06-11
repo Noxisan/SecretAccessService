@@ -7,7 +7,7 @@ import SlidePanel from '../../components/SlidePanel'
 
 type Field = 'current' | 'new' | 'confirm'
 
-export default function ChangePasswordModal(): JSX.Element | null {
+export default function ChangePasswordPanel(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.changePasswordOpen)
   const setOpen = useAppStore((s) => s.setChangePasswordOpen)
@@ -20,7 +20,7 @@ export default function ChangePasswordModal(): JSX.Element | null {
   const [success, setSuccess] = useState(false)
   const [busy, setBusy] = useState(false)
 
-  // Reset state when modal opens/closes.
+  // Reset state when the panel opens/closes.
   useEffect(() => {
     if (!open) {
       setCurrentPw('')

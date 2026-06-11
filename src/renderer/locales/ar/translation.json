@@ -179,7 +179,8 @@
     "sectionSecurity": "الأمان",
     "passwordHistoryLimit": "حد سجل كلمات المرور",
     "passwordHistoryLimitHint": "عدد كلمات المرور السابقة المحفوظة لكل تسجيل دخول (0 لا يحفظ أيًا منها).",
-    "lockOnMinimize": "القفل عند التصغير"
+    "lockOnMinimize": "القفل عند التصغير",
+    "minimizeToTrayOnClose": "التصغير إلى شريط النظام عند الإغلاق"
   },
   "changePw": {
     "title": "تغيير كلمة المرور الرئيسية",

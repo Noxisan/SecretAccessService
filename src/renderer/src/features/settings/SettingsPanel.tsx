@@ -21,7 +21,7 @@ const ACCENT_PRESETS = [
 /** Selectable UI scale factors (root font-size multipliers). */
 const UI_SCALES = [0.9, 1, 1.1, 1.25]
 
-export default function SettingsModal(): JSX.Element | null {
+export default function SettingsPanel(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.settingsOpen)
   const setOpen = useAppStore((s) => s.setSettingsOpen)
@@ -254,6 +254,17 @@ export default function SettingsModal(): JSX.Element | null {
               type="checkbox"
               checked={draft.lockOnMinimize}
               onChange={(e) => patch({ lockOnMinimize: e.target.checked })}
+              className="h-4 w-4 accent-[var(--accent)]"
+            />
+          </label>
+
+          {/* Minimize to tray on close */}
+          <label className="flex cursor-pointer items-center justify-between gap-3">
+            <span className={fieldLabel}>{t('settings.minimizeToTrayOnClose')}</span>
+            <input
+              type="checkbox"
+              checked={draft.minimizeToTrayOnClose}
+              onChange={(e) => patch({ minimizeToTrayOnClose: e.target.checked })}
               className="h-4 w-4 accent-[var(--accent)]"
             />
           </label>

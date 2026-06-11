@@ -8,7 +8,7 @@ import SlidePanel from '../../components/SlidePanel'
 type Tab = 'export' | 'import'
 type ImportFormat = 'sasbak' | 'csv' | 'json'
 
-export default function ImportExportModal(): JSX.Element | null {
+export default function ImportExportPanel(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.importExportOpen)
   const setOpen = useAppStore((s) => s.setImportExportOpen)

@@ -179,7 +179,8 @@
     "sectionSecurity": "নিরাপত্তা",
     "passwordHistoryLimit": "পাসওয়ার্ড ইতিহাসের সীমা",
     "passwordHistoryLimitHint": "প্রতি লগইনে কতগুলি পুরনো পাসওয়ার্ড রাখা হবে (0 মানে কোনোটিই নয়)।",
-    "lockOnMinimize": "মিনিমাইজ করলে লক করুন"
+    "lockOnMinimize": "মিনিমাইজ করলে লক করুন",
+    "minimizeToTrayOnClose": "বন্ধ করার সময় ট্রেতে মিনিমাইজ করুন"
   },
   "changePw": {
     "title": "মাস্টার পাসওয়ার্ড পরিবর্তন করুন",

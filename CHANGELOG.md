@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.35.0] - 2026-06-11
+
+Adds application, taskbar and system-tray icons, plus an option to minimize
+to the tray instead of quitting when the window is closed.
+
+### Added
+- **Application & tray icons** — square window/taskbar and system-tray icons are
+  generated from the source `icon.ico` (a 512px master, a multi-resolution `.ico`
+  for Windows, and 32/64px tray variants for HiDPI). They are wired into the
+  `BrowserWindow` and into electron-builder packaging for Windows and Linux.
+- **Minimize to tray on close** — a new setting (Settings → Security) that, when
+  enabled, hides the window to a system tray instead of quitting when it is
+  closed. The tray exposes a Show / Lock vault / Quit menu and is created or
+  removed live as the option is toggled. The idle auto-lock continues to run
+  while the window is hidden, so the vault still locks itself on inactivity.
+  Translated across all 11 shipped languages.
+
+### Refactored
+- Renamed the dialog component files from `*Modal.tsx` to `*Panel.tsx`
+  (Generator, Settings, ChangePassword, ImportExport) and updated their
+  component names, since they have rendered slide-in panels rather than centered
+  modals since 0.27.0. Resolves the naming inconsistency noted as a known
+  limitation in that release. No behaviour change; the history was preserved via
+  `git mv`.
+
 ## [0.34.0] - 2026-06-11
 
 Adds a save keyboard shortcut to the editor and settings panels.

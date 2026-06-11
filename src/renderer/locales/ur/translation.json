@@ -179,7 +179,8 @@
     "sectionSecurity": "سیکیورٹی",
     "passwordHistoryLimit": "پاس ورڈ ہسٹری کی حد",
     "passwordHistoryLimitHint": "ہر لاگ اِن کے لیے کتنے پرانے پاس ورڈ رکھے جائیں (0 کا مطلب کوئی نہیں)۔",
-    "lockOnMinimize": "کم سے کم کرنے پر لاک کریں"
+    "lockOnMinimize": "کم سے کم کرنے پر لاک کریں",
+    "minimizeToTrayOnClose": "بند کرنے پر ٹرے میں کم کریں"
   },
   "changePw": {
     "title": "ماسٹر پاسورڈ تبدیل کریں",
