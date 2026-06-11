@@ -135,6 +135,24 @@ describe('matches', () => {
   it('does not search the notes of non-note kinds', () => {
     expect(matches(login({ notes: 'sekrit memo' }), 'sekrit')).toBe(false)
   })
+
+  it('matches on custom-field labels (any kind)', () => {
+    const item = login({
+      customFields: [{ id: 'f1', label: 'Recovery email', value: 'r@example.com', secret: false }]
+    })
+    expect(matches(item, 'recovery')).toBe(true)
+  })
+
+  it('never matches custom-field values, secret or not', () => {
+    const secretField = login({
+      customFields: [{ id: 'f1', label: 'PIN', value: '8675309', secret: true }]
+    })
+    const plainField = login({
+      customFields: [{ id: 'f2', label: 'Member ID', value: 'ZZZ-9999', secret: false }]
+    })
+    expect(matches(secretField, '8675309')).toBe(false)
+    expect(matches(plainField, 'zzz-9999')).toBe(false)
+  })
 })
 
 describe('subtitle', () => {

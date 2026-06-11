@@ -42,9 +42,12 @@ export function quickCopyLabel(item: VaultItem, t: (k: string) => string): strin
  * `q` is expected to be already lower-cased and trimmed by the caller. Secret
  * material (login password, card number/CVV, TOTP/passkey secrets) is never
  * matched, so a query equal to a secret will not reveal which entry holds it.
+ * Custom-field *labels* are searched (they name the entry, e.g. "Recovery
+ * email") but their *values* are not — a value may hold a secret.
  */
 export function matches(item: VaultItem, q: string): boolean {
   if (item.title.toLowerCase().includes(q)) return true
+  if (item.customFields.some((f) => f.label.toLowerCase().includes(q))) return true
   switch (item.kind) {
     case 'login':
       return item.username.toLowerCase().includes(q) || item.url.toLowerCase().includes(q)

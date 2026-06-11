@@ -166,7 +166,7 @@ export default function Sidebar(): JSX.Element {
   }
 
   const row = (active: boolean): string =>
-    `flex w-full items-center gap-2.5 rounded-[var(--radius)] px-2.5 py-1.5 text-sm ${
+    `flex w-full items-center gap-2.5 rounded-[var(--radius)] px-2.5 py-1.5 text-start text-sm ${
       active
         ? 'bg-[var(--bg-elevated)] text-[var(--text)]'
         : 'text-[var(--text-muted)] hover:bg-[var(--bg-elevated)] hover:text-[var(--text)]'

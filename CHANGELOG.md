@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.26.0] - 2026-06-11
+
+Search now finds entries by their custom-field names, plus a sidebar alignment
+fix.
+
+### Added
+- **Search now matches custom-field labels** — an entry with a custom field
+  named, say, "Recovery email" or "Account number" is now found by searching
+  that label. Field *values* remain unsearched (a value may hold a secret), so
+  the guarantee that search never reveals secret material is preserved.
+
+### Fixed
+- **Sidebar category and navigation labels are left-aligned** — they were
+  centered because the rows are `<button>` elements (which default to centered
+  text); added a leading-edge alignment that also stays correct in right-to-left
+  layouts.
+
 ## [0.25.1] - 2026-06-11
 
 Patch release fixing the item editor's width when adding custom fields.
@@ -632,7 +649,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.1...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.26.0...HEAD
+[0.26.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.1...v0.26.0
 [0.25.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.25.0...v0.25.1
 [0.25.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.24.0...v0.25.0
 [0.24.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.23.0...v0.24.0
