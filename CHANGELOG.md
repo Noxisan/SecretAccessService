@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Dialogs are now slide-in side panels instead of centered modals** — the item
+  editor, password generator, settings, change-password, health dashboard, and
+  import/export all slide in from the right edge (and back out) over a dimmed
+  backdrop, via a shared `SlidePanel` component. Backdrop click and Escape close
+  them, the same as before. No more centered modal boxes.
+- Refreshed the README feature matrix (reorder categories, custom-field-label
+  search, bare-secret TOTP, slide-in panels, inline language switcher) and the
+  project logo.
+
 ## [0.26.0] - 2026-06-11
 
 Search now finds entries by their custom-field names, plus a sidebar alignment

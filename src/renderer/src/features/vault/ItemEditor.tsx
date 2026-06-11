@@ -16,6 +16,7 @@ import type {
 import { useAppStore } from '../../store/app'
 import { createBlankItem, finalizeItem } from './itemFactory'
 import PasswordStrengthBar from '../../components/PasswordStrengthBar'
+import SlidePanel from '../../components/SlidePanel'
 import TotpCode from './TotpCode'
 
 type Draft = LoginItem | SecureNoteItem | CardItem | IdentityItem | TotpItem | PasskeyItem
@@ -63,17 +64,6 @@ export default function ItemEditor(): JSX.Element | null {
     setRevealedHistIdx(null)
     setRevealedCfIds(new Set())
   }, [open, editorItem, createKind])
-
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') close()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, close])
-
-  if (!open) return null
 
   const isEdit = editorItem !== null
   const patchBase = (p: Partial<VaultItemBase>): void =>
@@ -167,18 +157,7 @@ export default function ItemEditor(): JSX.Element | null {
     'grid w-9 shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--accent)]'
 
   return (
-    <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-      onMouseDown={() => close()}
-      role="presentation"
-    >
-      <div
-        className="flex max-h-[90vh] w-full max-w-2xl flex-col rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)]"
-        onMouseDown={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={t(`items.kind.${draft.kind}`)}
-      >
+    <SlidePanel open={open} onClose={close} ariaLabel={t(`items.kind.${draft.kind}`)} width="max-w-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-3">
           <div className="flex items-center gap-2">
@@ -199,7 +178,7 @@ export default function ItemEditor(): JSX.Element | null {
         </div>
 
         {/* Body */}
-        <div className="flex flex-col gap-4 overflow-x-hidden overflow-y-auto p-5">
+        <div className="flex flex-1 flex-col gap-4 overflow-x-hidden overflow-y-auto p-5">
           {/* Title — shared by all kinds */}
           <div>
             <label className={lbl} htmlFor="it-title">
@@ -923,7 +902,6 @@ export default function ItemEditor(): JSX.Element | null {
             </button>
           </div>
         </div>
-      </div>
-    </div>
+    </SlidePanel>
   )
 }

@@ -3,6 +3,7 @@ import type { JSX } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X, KeyRound } from 'lucide-react'
 import { useAppStore } from '../../store/app'
+import SlidePanel from '../../components/SlidePanel'
 import type { AppSettings, ThemeMode } from '@shared/types'
 import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from '../../i18n'
 
@@ -35,16 +36,9 @@ export default function SettingsModal(): JSX.Element | null {
     }
   }, [open, currentSettings])
 
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, setOpen])
-
-  if (!open || !draft) return null
+  // draft is populated on open and kept afterwards, so gating on it (not `open`)
+  // lets the panel animate its slide-out via the `open` prop.
+  if (!draft) return null
 
   const patch = (p: Partial<AppSettings>): void =>
     setDraft((prev) => (prev ? { ...prev, ...p } : prev))
@@ -71,14 +65,8 @@ export default function SettingsModal(): JSX.Element | null {
     }`
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-      onClick={() => setOpen(false)}
-    >
-      <div
-        className="w-full max-w-md rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 shadow-xl"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <SlidePanel open={open} onClose={() => setOpen(false)} ariaLabel={t('settings.title')} width="max-w-md">
+      <div className="flex-1 overflow-y-auto p-6">
         <div className="mb-5 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-[var(--text)]">{t('settings.title')}</h2>
           <button
@@ -247,6 +235,6 @@ export default function SettingsModal(): JSX.Element | null {
           </button>
         </div>
       </div>
-    </div>
+    </SlidePanel>
   )
 }

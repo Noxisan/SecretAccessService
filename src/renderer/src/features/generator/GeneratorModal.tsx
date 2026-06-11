@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { RefreshCw, Copy, Check, X } from 'lucide-react'
 import type { GeneratePasswordOptions } from '@shared/types'
 import { useAppStore } from '../../store/app'
+import SlidePanel from '../../components/SlidePanel'
 import { estimateStrength, type StrengthLevel } from './entropy'
 
 const DEFAULTS: GeneratePasswordOptions = {
@@ -92,18 +93,6 @@ export default function GeneratorModal(): JSX.Element | null {
     void generate()
   }, [open, generate, noClass, t])
 
-  // Close on Escape — saves settings via handleClose.
-  useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') handleClose()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open, handleClose])
-
-  if (!open) return null
-
   const strength = estimateStrength(opts)
 
   async function copy(): Promise<void> {
@@ -133,18 +122,8 @@ export default function GeneratorModal(): JSX.Element | null {
   )
 
   return (
-    <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4"
-      onMouseDown={() => handleClose()}
-      role="presentation"
-    >
-      <div
-        className="w-full max-w-md rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg-elevated)] p-5"
-        onMouseDown={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-label={t('generator.title')}
-      >
+    <SlidePanel open={open} onClose={handleClose} ariaLabel={t('generator.title')} width="max-w-md">
+      <div className="flex-1 overflow-y-auto p-5">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-semibold text-[var(--text)]">{t('generator.title')}</h2>
           <button
@@ -272,6 +251,6 @@ export default function GeneratorModal(): JSX.Element | null {
 
         {error && <p className="mt-3 text-sm text-[var(--danger)]">{error}</p>}
       </div>
-    </div>
+    </SlidePanel>
   )
 }
