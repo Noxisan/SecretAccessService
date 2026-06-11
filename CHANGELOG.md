@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Tests
+- Added 14 tests for the vault format and migration layer. `headerAad` (the AEAD
+  associated data) is now guarded to be deterministic, canonical regardless of
+  input key order, to exclude the nonce, and to change whenever any
+  security-relevant field (version, salt, KDF ops/mem, cipher) changes — locking
+  in the header tamper-detection surface. `migrateVaultData` is covered for
+  passing current/older vaults through without dropping user data and rejecting
+  newer-schema vaults. Suite grows to 132 tests.
+
 ## [0.20.0] - 2026-06-11
 
 Hardens the passphrase generator with the full EFF diceware wordlist — a
