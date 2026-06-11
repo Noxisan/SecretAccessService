@@ -258,6 +258,17 @@ export default function SettingsPanel(): JSX.Element | null {
             />
           </label>
 
+          {/* Minimize to tray on close */}
+          <label className="flex cursor-pointer items-center justify-between gap-3">
+            <span className={fieldLabel}>{t('settings.minimizeToTrayOnClose')}</span>
+            <input
+              type="checkbox"
+              checked={draft.minimizeToTrayOnClose}
+              onChange={(e) => patch({ minimizeToTrayOnClose: e.target.checked })}
+              className="h-4 w-4 accent-[var(--accent)]"
+            />
+          </label>
+
           {/* Password history limit */}
           <div className={fieldRow}>
             <span className={fieldLabel}>{t('settings.passwordHistoryLimit')}</span>

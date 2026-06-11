@@ -179,7 +179,8 @@
     "sectionSecurity": "Безопасность",
     "passwordHistoryLimit": "Лимит истории паролей",
     "passwordHistoryLimitHint": "Сколько прежних паролей хранить для каждого входа (0 — не хранить).",
-    "lockOnMinimize": "Блокировать при сворачивании"
+    "lockOnMinimize": "Блокировать при сворачивании",
+    "minimizeToTrayOnClose": "Сворачивать в трей при закрытии"
   },
   "changePw": {
     "title": "Изменить мастер-пароль",

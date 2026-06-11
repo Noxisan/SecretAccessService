@@ -107,6 +107,8 @@ export function registerIpcHandlers(opts: {
   settings: SettingsStore
   getWindow: () => BrowserWindow | null
   onActivity: () => void
+  /** Notified after settings are persisted so the main process can react (e.g. tray). */
+  onSettingsChange?: (settings: AppSettings) => void
 }): void {
   const { vault, settings, onActivity } = opts
 
@@ -302,6 +304,7 @@ export function registerIpcHandlers(opts: {
   handle<AppSettings>(IPC.settingsSet, async (arg) => {
     const next = parse(settingsSchema, arg)
     await settings.set(next)
+    opts.onSettingsChange?.(settings.get())
     return settings.get()
   })
 
