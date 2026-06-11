@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.23.0] - 2026-06-11
+
+Strengthens generated passwords so they always include each selected character
+class, satisfying sites with composition requirements.
+
 ### Changed
 - **Generated passwords now include at least one character from every selected
   class** — previously each character was drawn uniformly from the combined
@@ -579,7 +584,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.1...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.23.0...HEAD
+[0.23.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.1...v0.23.0
 [0.22.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...v0.22.1
 [0.22.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...v0.21.0
