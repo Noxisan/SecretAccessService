@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Tests
+- Added a locale key-parity test that fails if any of the 11 languages is
+  missing a key that English defines (or has an extra/blank one). This guards
+  against the common bug where a new English string is added but a translation
+  is forgotten, silently falling back to English. All locales currently match
+  (218 keys each).
+
 ## [0.31.0] - 2026-06-11
 
 Friendlier first-run experience with onboarding empty states, plus a
