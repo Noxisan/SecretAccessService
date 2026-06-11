@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.22.1] - 2026-06-11
+
+Patch release: the inline password generator now respects your saved generator
+settings, plus internal theming and validation-test improvements.
+
 ### Fixed
 - **Inline password generator now honours your saved generator settings** — the
   refresh button next to a login password used hardcoded options (always 20-char,
@@ -559,7 +564,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.1...HEAD
+[0.22.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.22.0...v0.22.1
 [0.22.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.21.0...v0.22.0
 [0.21.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...v0.20.0
