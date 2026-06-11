@@ -9,7 +9,9 @@ import type { GeneratePasswordOptions } from '@shared/types'
 const CLASS_SIZE = { lowercase: 26, uppercase: 26, digits: 10, symbols: 26 } as const
 // How many members of each class are in the "ambiguous" exclusion set.
 const AMBIGUOUS_IN_CLASS = { lowercase: 2, uppercase: 5, digits: 5, symbols: 7 } as const
-const WORDLIST_SIZE = 40
+// Size of the engine's diceware list (EFF large list). A unit test in
+// generator.test.ts asserts the real list length, so the two cannot drift.
+const WORDLIST_SIZE = 7776
 
 export type StrengthLevel = 'veryWeak' | 'weak' | 'fair' | 'strong' | 'veryStrong'
 
