@@ -20,6 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Moved the native language-name map into the shared i18n module so the switcher
   and the Settings dropdown share one source of truth.
 
+### Build
+- CI and release workflows now build and test on Node 22 (current active LTS)
+  instead of Node 20, which has entered maintenance. Runtime support is
+  unchanged (`engines.node` stays `>=20`).
+
 ### Tests
 - Added 14 tests for the vault format and migration layer. `headerAad` (the AEAD
   associated data) is now guarded to be deterministic, canonical regardless of
