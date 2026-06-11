@@ -166,7 +166,8 @@
     "changePassword": "更改主密码",
     "deviceUnlockSaved": "设备凭据已保存到操作系统密钥链。",
     "deviceUnlockClear": "删除已保存的凭据",
-    "deviceUnlockNone": "未保存任何设备凭据。"
+    "deviceUnlockNone": "未保存任何设备凭据。",
+    "displaySize": "显示大小"
   },
   "changePw": {
     "title": "更改主密码",

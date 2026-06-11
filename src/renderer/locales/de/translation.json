@@ -166,7 +166,8 @@
     "changePassword": "Master-Passwort ändern",
     "deviceUnlockSaved": "Geräteanmeldedaten sind im OS-Schlüsselbund gespeichert.",
     "deviceUnlockClear": "Gespeicherte Anmeldedaten entfernen",
-    "deviceUnlockNone": "Keine Geräteanmeldedaten gespeichert."
+    "deviceUnlockNone": "Keine Geräteanmeldedaten gespeichert.",
+    "displaySize": "Anzeigegröße"
   },
   "changePw": {
     "title": "Master-Passwort ändern",

@@ -46,6 +46,8 @@ export default function App(): JSX.Element {
     const dark = settings.theme === 'dark' || (settings.theme === 'system' && prefersDark)
     root.setAttribute('data-theme', dark ? 'dark' : 'light')
     root.style.setProperty('--accent', settings.accent)
+    // Scale the whole rem-based UI by adjusting the root font size.
+    root.style.fontSize = settings.uiScale === 1 ? '' : `${Math.round(settings.uiScale * 100)}%`
     root.setAttribute('dir', RTL_LANGUAGES.has(settings.language) ? 'rtl' : 'ltr')
     root.setAttribute('lang', settings.language)
     void i18n.changeLanguage(settings.language)

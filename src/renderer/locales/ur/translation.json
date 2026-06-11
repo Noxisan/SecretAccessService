@@ -166,7 +166,8 @@
     "changePassword": "ماسٹر پاسورڈ تبدیل کریں",
     "deviceUnlockSaved": "ڈیوائس کی اسناد آپریٹنگ سسٹم کی کی چین میں محفوظ ہیں۔",
     "deviceUnlockClear": "محفوظ اسناد ہٹائیں",
-    "deviceUnlockNone": "کوئی ڈیوائس اسناد محفوظ نہیں۔"
+    "deviceUnlockNone": "کوئی ڈیوائس اسناد محفوظ نہیں۔",
+    "displaySize": "ڈسپلے سائز"
   },
   "changePw": {
     "title": "ماسٹر پاسورڈ تبدیل کریں",

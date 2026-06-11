@@ -18,6 +18,9 @@ const ACCENT_PRESETS = [
   '#db2777', // pink
 ]
 
+/** Selectable UI scale factors (root font-size multipliers). */
+const UI_SCALES = [0.9, 1, 1.1, 1.25]
+
 export default function SettingsModal(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.settingsOpen)
@@ -57,9 +60,10 @@ export default function SettingsModal(): JSX.Element | null {
 
   const fieldRow = 'flex flex-col gap-1.5'
   const fieldLabel = 'text-sm font-medium text-[var(--text)]'
-  const themeBtn = (mode: ThemeMode): string =>
+  // Shared segmented-button style (used by the theme and display-size pickers).
+  const segBtn = (active: boolean): string =>
     `flex-1 rounded-[var(--radius)] border py-1.5 text-sm transition-colors cursor-pointer ${
-      draft.theme === mode
+      active
         ? 'border-[var(--accent)] text-[var(--accent)]'
         : 'border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text)]'
     }`
@@ -98,7 +102,7 @@ export default function SettingsModal(): JSX.Element | null {
               {(['light', 'dark', 'system'] as ThemeMode[]).map((mode) => (
                 <button
                   key={mode}
-                  className={themeBtn(mode)}
+                  className={segBtn(draft.theme === mode)}
                   onClick={() => patch({ theme: mode })}
                 >
                   {t(`settings.${mode}`)}
@@ -139,6 +143,23 @@ export default function SettingsModal(): JSX.Element | null {
                   className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                 />
               </label>
+            </div>
+          </div>
+
+          {/* Display size */}
+          <div className={fieldRow}>
+            <span className={fieldLabel}>{t('settings.displaySize')}</span>
+            <div className="flex gap-2">
+              {UI_SCALES.map((scale) => (
+                <button
+                  key={scale}
+                  className={segBtn(scale === draft.uiScale)}
+                  onClick={() => patch({ uiScale: scale })}
+                  aria-pressed={scale === draft.uiScale}
+                >
+                  {Math.round(scale * 100)}%
+                </button>
+              ))}
             </div>
           </div>
 
