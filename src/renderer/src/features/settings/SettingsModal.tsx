@@ -94,7 +94,11 @@ export default function SettingsModal(): JSX.Element | null {
         </div>
       }
     >
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-6">
+        <section className="flex flex-col gap-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+            {t('settings.sectionAppearance')}
+          </h3>
           {/* Theme */}
           <div className={fieldRow}>
             <span className={fieldLabel}>{t('settings.theme')}</span>
@@ -178,7 +182,12 @@ export default function SettingsModal(): JSX.Element | null {
               ))}
             </select>
           </div>
+        </section>
 
+        <section className="flex flex-col gap-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+            {t('settings.sectionSecurity')}
+          </h3>
           {/* Auto-lock */}
           <div className={fieldRow}>
             <span className={fieldLabel}>{t('settings.autoLock')}</span>
@@ -235,10 +244,8 @@ export default function SettingsModal(): JSX.Element | null {
               className="w-32 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--bg)] px-3 py-1.5 text-sm text-[var(--text)] outline-none focus:border-[var(--accent)]"
             />
           </div>
-        </div>
-
-        {/* Security: device unlock + change master password */}
-        <div className="mt-2 space-y-3 border-t border-[var(--border)] pt-4">
+          {/* Device unlock + change master password */}
+          <div className="mt-1 space-y-3 border-t border-[var(--border)] pt-4">
           {quickUnlockSaved ? (
             <div className="flex items-center justify-between gap-4">
               <p className="text-xs text-[var(--text-muted)]">{t('settings.deviceUnlockSaved')}</p>
@@ -261,6 +268,8 @@ export default function SettingsModal(): JSX.Element | null {
             <KeyRound size={14} />
             {t('settings.changePassword')}
           </button>
+          </div>
+        </section>
         </div>
 
     </SlidePanel>

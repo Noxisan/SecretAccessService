@@ -168,7 +168,9 @@
     "deviceUnlockClear": "删除已保存的凭据",
     "deviceUnlockNone": "未保存任何设备凭据。",
     "displaySize": "显示大小",
-    "clearClipboardOnLock": "锁定时清除剪贴板"
+    "clearClipboardOnLock": "锁定时清除剪贴板",
+    "sectionAppearance": "外观",
+    "sectionSecurity": "安全"
   },
   "changePw": {
     "title": "更改主密码",

@@ -168,7 +168,9 @@
     "deviceUnlockClear": "Eliminar credenciales guardadas",
     "deviceUnlockNone": "No hay credenciales de dispositivo guardadas.",
     "displaySize": "Tamaño de visualización",
-    "clearClipboardOnLock": "Borrar portapapeles al bloquear"
+    "clearClipboardOnLock": "Borrar portapapeles al bloquear",
+    "sectionAppearance": "Apariencia",
+    "sectionSecurity": "Seguridad"
   },
   "changePw": {
     "title": "Cambiar contraseña maestra",
