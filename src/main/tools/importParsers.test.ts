@@ -109,6 +109,55 @@ C,p3`
   })
 })
 
+describe('parseCsv — cross-manager format coverage', () => {
+  it('parses a Chrome/Edge export including the singular "note" column', () => {
+    const csv = `name,url,username,password,note
+Example,https://example.com,alice,pw123,my chrome note`
+    const item = parseCsv(csv)[0] as LoginItem
+    expect(item.title).toBe('Example')
+    expect(item.username).toBe('alice')
+    expect(item.url).toBe('https://example.com')
+    expect(item.notes).toBe('my chrome note')
+  })
+
+  it('derives a title from the URL when there is no name column (Firefox)', () => {
+    const csv = `url,username,password,httpRealm,formActionOrigin,guid
+https://accounts.google.com/signin,bob,secret,,,{abc}`
+    const item = parseCsv(csv)[0] as LoginItem
+    expect(item.title).toBe('accounts.google.com')
+    expect(item.username).toBe('bob')
+    expect(item.password).toBe('secret')
+  })
+
+  it('handles classic KeePass columns (Account / Login Name / Web Site)', () => {
+    const csv = `"Account","Login Name","Password","Web Site","Comments"
+"Bank","carol","p@ss","https://bank.example","savings"`
+    const item = parseCsv(csv)[0] as LoginItem
+    expect(item.title).toBe('Bank')
+    expect(item.username).toBe('carol')
+    expect(item.url).toBe('https://bank.example')
+    expect(item.notes).toBe('savings')
+  })
+
+  it('captures a Dashlane otpSecret as the TOTP seed', () => {
+    const csv = `title,username,password,url,note,otpSecret
+Mail,dave,pw,https://mail.example,,JBSWY3DPEHPK3PXP`
+    const item = parseCsv(csv)[0] as LoginItem
+    expect(item.title).toBe('Mail')
+    expect(item.totp).toBe('JBSWY3DPEHPK3PXP')
+  })
+
+  it('still falls back to "Imported item" when neither name nor url is present', () => {
+    const item = parseCsv(`username,password\nalice,hunter2`)[0]!
+    expect(item.title).toBe('Imported item')
+  })
+
+  it('derives a title from a bare host URL without a scheme', () => {
+    const item = parseCsv(`url,username,password\nexample.org/login,x,y`)[0]!
+    expect(item.title).toBe('example.org')
+  })
+})
+
 // ---------------------------------------------------------------------------
 // isBitwardenJson
 // ---------------------------------------------------------------------------
