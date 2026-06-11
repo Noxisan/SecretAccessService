@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Reorder categories in the sidebar** — each category now shows up/down
+  controls on hover (disabled at the top/bottom) that move it one step, fulfilling
+  the create/rename/reorder spec. Reordering swaps the two categories' order
+  values via a pure, unit-tested helper. Added `sidebar.moveUp`/`sidebar.moveDown`
+  strings to all 11 locales.
+
+### Tests
+- Added 9 tests for the category reorder helper (swap math, boundary no-ops,
+  unknown id, immutability, display-order vs array-order). Suite grows to 141.
+
 ## [0.21.0] - 2026-06-11
 
 Adds a real inline language switcher to the top bar and shores up the test suite

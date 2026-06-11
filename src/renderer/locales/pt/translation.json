@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "Excluir?",
     "collapse": "Recolher barra lateral",
     "expand": "Expandir barra lateral",
-    "travelHide": "Ocultar no modo viagem"
+    "travelHide": "Ocultar no modo viagem",
+    "moveUp": "Mover para cima",
+    "moveDown": "Mover para baixo"
   },
   "topbar": {
     "search": "Pesquisar no cofre…",

@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "حذف؟",
     "collapse": "طي الشريط الجانبي",
     "expand": "توسيع الشريط الجانبي",
-    "travelHide": "إخفاء في وضع السفر"
+    "travelHide": "إخفاء في وضع السفر",
+    "moveUp": "تحريك لأعلى",
+    "moveDown": "تحريك لأسفل"
   },
   "topbar": {
     "search": "البحث في الخزينة…",

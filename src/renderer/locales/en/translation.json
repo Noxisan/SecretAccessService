@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "Delete?",
     "travelHide": "Hide in travel mode",
     "collapse": "Collapse sidebar",
-    "expand": "Expand sidebar"
+    "expand": "Expand sidebar",
+    "moveUp": "Move up",
+    "moveDown": "Move down"
   },
   "topbar": {
     "search": "Search vault…",

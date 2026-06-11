@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "মুছবেন?",
     "collapse": "সাইডবার সংকুচিত করুন",
     "expand": "সাইডবার প্রসারিত করুন",
-    "travelHide": "ভ্রমণ মোডে লুকান"
+    "travelHide": "ভ্রমণ মোডে লুকান",
+    "moveUp": "উপরে সরান",
+    "moveDown": "নিচে সরান"
   },
   "topbar": {
     "search": "ভল্টে খুঁজুন…",

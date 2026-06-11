@@ -38,7 +38,9 @@
     "deleteCategoryConfirm": "删除？",
     "collapse": "折叠侧边栏",
     "expand": "展开侧边栏",
-    "travelHide": "在旅行模式下隐藏"
+    "travelHide": "在旅行模式下隐藏",
+    "moveUp": "上移",
+    "moveDown": "下移"
   },
   "topbar": {
     "search": "搜索密码库…",
