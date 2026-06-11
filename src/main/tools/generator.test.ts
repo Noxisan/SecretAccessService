@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import { generatePassword } from './generator.js'
+import { EFF_LARGE_WORDLIST } from './wordlist.js'
 import type { GeneratePasswordOptions } from '../../shared/types.js'
+
+const WORDSET = new Set(EFF_LARGE_WORDLIST)
 
 const base: GeneratePasswordOptions = {
   length: 20,
@@ -60,25 +63,46 @@ describe('generatePassword — character mode', () => {
   })
 })
 
+describe('EFF diceware wordlist', () => {
+  // Drift guard: the renderer's entropy estimate hardcodes 7776 (see
+  // entropy.ts WORDLIST_SIZE); this keeps the two in lockstep.
+  it('is the full EFF large list of 7776 unique words', () => {
+    expect(EFF_LARGE_WORDLIST).toHaveLength(7776)
+    expect(WORDSET.size).toBe(7776)
+  })
+
+  it('contains only lowercase letters or internal hyphens', () => {
+    for (const word of EFF_LARGE_WORDLIST) expect(word).toMatch(/^[a-z]+(-[a-z]+)*$/)
+  })
+})
+
 describe('generatePassword — passphrase mode', () => {
+  // A space separator is used for counting so the list's few hyphenated words
+  // (e.g. "t-shirt") are not mis-split.
   it('produces the requested number of words', async () => {
-    const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 5, separator: '-' })
-    expect(phrase.split('-')).toHaveLength(5)
+    const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 5, separator: ' ' })
+    expect(phrase.split(' ')).toHaveLength(5)
   })
 
   it('honours a custom separator', async () => {
     const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 4, separator: '.' })
     expect(phrase.split('.')).toHaveLength(4)
-    expect(phrase).not.toContain('-')
   })
 
-  it('uses only dictionary words (lowercase letters)', async () => {
-    const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 6, separator: ' ' })
-    for (const word of phrase.split(' ')) expect(word).toMatch(/^[a-z]+$/)
+  it('draws every word from the EFF list', async () => {
+    const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 8, separator: ' ' })
+    for (const word of phrase.split(' ')) expect(WORDSET.has(word)).toBe(true)
   })
 
   it('defaults to 5 words when count is omitted', async () => {
-    const phrase = await generatePassword({ ...base, mode: 'passphrase' })
-    expect(phrase.split('-')).toHaveLength(5)
+    const phrase = await generatePassword({ ...base, mode: 'passphrase', separator: ' ' })
+    expect(phrase.split(' ')).toHaveLength(5)
+  })
+
+  it('samples the larger range without collapsing to a few words', async () => {
+    // Exercises the two-byte uniformIndex path many times; 200 draws from 7776
+    // words should yield well over 100 distinct words.
+    const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 200, separator: ' ' })
+    expect(new Set(phrase.split(' ')).size).toBeGreaterThan(100)
   })
 })

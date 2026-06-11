@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Stronger passphrases — full EFF diceware wordlist** — the passphrase
+  generator now draws from the standard 7776-word EFF large wordlist instead of
+  the previous 40-word placeholder. Each word now carries ~12.9 bits of entropy
+  instead of ~5.3, so a 5-word passphrase jumps from ~26 bits (which the meter
+  rated "very weak") to ~65 bits. The list is embedded for full offline use and
+  is verbatim from the published EFF source so the entropy is auditable.
+
+### Fixed
+- **Unbiased word selection across the larger list** — added a two-byte
+  rejection sampler (`uniformIndex`); the old single-byte `uniformByte` capped
+  at 256 and could not index a 7776-word list without bias.
+
+### Tests
+- Reworked the passphrase tests around the new list: a drift guard asserting the
+  list is exactly 7776 unique words (kept in lockstep with the renderer's
+  entropy estimate), word-membership checks, and a distribution check that
+  exercises the two-byte sampler. Suite grows to 118 tests.
+
 ## [0.19.0] - 2026-06-11
 
 Adds the ability to open a login's website directly in your system browser, plus

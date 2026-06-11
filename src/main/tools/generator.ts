@@ -1,5 +1,6 @@
 import { randomBytes } from '../crypto/index.js'
 import type { GeneratePasswordOptions } from '../../shared/types.js'
+import { EFF_LARGE_WORDLIST } from './wordlist.js'
 
 /**
  * Cryptographically secure password / passphrase generator. All randomness comes
@@ -21,6 +22,23 @@ async function uniformByte(max: number): Promise<number> {
   for (;;) {
     const [byte] = await randomBytes(1)
     if (byte !== undefined && byte < limit) return byte % max
+  }
+}
+
+/**
+ * Unbiased index in [0, max) for larger ranges (up to 65536) via rejection
+ * sampling on two bytes. Used for the 7776-word diceware list, which overflows
+ * the single-byte `uniformByte`.
+ */
+async function uniformIndex(max: number): Promise<number> {
+  if (max <= 0 || max > 65536) throw new Error('uniformIndex range must be 1..65536')
+  if (max <= 256) return uniformByte(max)
+  const limit = 65536 - (65536 % max) // largest multiple of max ≤ 65536
+  for (;;) {
+    const [hi, lo] = await randomBytes(2)
+    if (hi === undefined || lo === undefined) continue
+    const val = (hi << 8) | lo
+    if (val < limit) return val % max
   }
 }
 
@@ -53,27 +71,17 @@ export async function generatePassword(opts: GeneratePasswordOptions): Promise<s
   return out.join('')
 }
 
-// A compact EFF-style-ish embedded list keeps the generator fully offline. A
-// larger diceware list can be loaded later without changing this interface.
-const WORDLIST = [
-  'anchor', 'bishop', 'cactus', 'dapple', 'ember', 'fathom', 'gadget', 'harbor',
-  'igloo', 'jungle', 'kindle', 'lantern', 'meadow', 'nebula', 'orchard', 'pebble',
-  'quartz', 'ripple', 'saffron', 'timber', 'umbra', 'velvet', 'walnut', 'xenon',
-  'yonder', 'zephyr', 'amber', 'beacon', 'cinder', 'dynamo', 'echo', 'flint',
-  'granite', 'hollow', 'ivory', 'jasper', 'kelp', 'lumen', 'marble', 'nectar'
-]
-
 async function generatePassphrase(opts: GeneratePasswordOptions): Promise<string> {
   const count = opts.words ?? 5
   const sep = opts.separator ?? '-'
   const words: string[] = []
   for (let i = 0; i < count; i++) {
-    words.push(await pick2(WORDLIST))
+    words.push(await pick2(EFF_LARGE_WORDLIST))
   }
   return words.join(sep)
 }
 
 async function pick2(list: readonly string[]): Promise<string> {
-  const idx = await uniformByte(list.length)
+  const idx = await uniformIndex(list.length)
   return list[idx] as string
 }
