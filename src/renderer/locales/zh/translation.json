@@ -176,7 +176,8 @@
     "sectionAppearance": "外观",
     "sectionSecurity": "安全",
     "passwordHistoryLimit": "密码历史记录上限",
-    "passwordHistoryLimitHint": "每个登录保留多少个旧密码（0 表示不保留）。"
+    "passwordHistoryLimitHint": "每个登录保留多少个旧密码（0 表示不保留）。",
+    "lockOnMinimize": "最小化时锁定"
   },
   "changePw": {
     "title": "更改主密码",

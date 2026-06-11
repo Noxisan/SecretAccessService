@@ -176,7 +176,8 @@
     "sectionAppearance": "المظهر",
     "sectionSecurity": "الأمان",
     "passwordHistoryLimit": "حد سجل كلمات المرور",
-    "passwordHistoryLimitHint": "عدد كلمات المرور السابقة المحفوظة لكل تسجيل دخول (0 لا يحفظ أيًا منها)."
+    "passwordHistoryLimitHint": "عدد كلمات المرور السابقة المحفوظة لكل تسجيل دخول (0 لا يحفظ أيًا منها).",
+    "lockOnMinimize": "القفل عند التصغير"
   },
   "changePw": {
     "title": "تغيير كلمة المرور الرئيسية",

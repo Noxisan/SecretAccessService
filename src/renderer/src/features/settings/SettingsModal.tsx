@@ -229,6 +229,17 @@ export default function SettingsModal(): JSX.Element | null {
             />
           </label>
 
+          {/* Lock on minimize */}
+          <label className="flex cursor-pointer items-center justify-between gap-3">
+            <span className={fieldLabel}>{t('settings.lockOnMinimize')}</span>
+            <input
+              type="checkbox"
+              checked={draft.lockOnMinimize}
+              onChange={(e) => patch({ lockOnMinimize: e.target.checked })}
+              className="h-4 w-4 accent-[var(--accent)]"
+            />
+          </label>
+
           {/* Password history limit */}
           <div className={fieldRow}>
             <span className={fieldLabel}>{t('settings.passwordHistoryLimit')}</span>

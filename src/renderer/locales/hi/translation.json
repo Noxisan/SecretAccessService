@@ -176,7 +176,8 @@
     "sectionAppearance": "रूप",
     "sectionSecurity": "सुरक्षा",
     "passwordHistoryLimit": "पासवर्ड इतिहास सीमा",
-    "passwordHistoryLimitHint": "प्रति लॉगिन कितने पुराने पासवर्ड रखें (0 का अर्थ कोई नहीं)।"
+    "passwordHistoryLimitHint": "प्रति लॉगिन कितने पुराने पासवर्ड रखें (0 का अर्थ कोई नहीं)।",
+    "lockOnMinimize": "न्यूनतम करने पर लॉक करें"
   },
   "changePw": {
     "title": "मास्टर पासवर्ड बदलें",

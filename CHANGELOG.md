@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Lock on minimize** — a new Security setting (off by default) that locks the
+  vault whenever the application window is minimized, complementing the existing
+  idle-timeout and system-sleep auto-lock. Useful for quickly securing the vault
+  by minimizing the window.
+
 ### Tests
 - Added a locale key-parity test that fails if any of the 11 languages is
   missing a key that English defines (or has an extra/blank one). This guards
