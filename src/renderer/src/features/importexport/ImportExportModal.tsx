@@ -247,6 +247,11 @@ export default function ImportExportModal(): JSX.Element | null {
                 <p className="text-xs text-[var(--text-muted)]">{t('importExport.jsonHint')}</p>
               )}
 
+              {/* Format hint for CSV (supported managers) */}
+              {importFormat === 'csv' && (
+                <p className="text-xs text-[var(--text-muted)]">{t('importExport.csvHint')}</p>
+              )}
+
               {/* Password (only for .sasbak) */}
               {importFormat === 'sasbak' && (
                 <label className="flex flex-col gap-1">

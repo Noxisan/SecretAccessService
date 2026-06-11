@@ -235,6 +235,7 @@
     },
     "importButton": "আমদানি করুন",
     "importing": "আমদানি হচ্ছে…",
-    "importSuccess": "{{count}}টি আইটেম আমদানি হয়েছে।"
+    "importSuccess": "{{count}}টি আইটেম আমদানি হয়েছে।",
+    "csvHint": "Chrome, Edge, Firefox, Bitwarden, LastPass, KeePass এবং Dashlane থেকে CSV রপ্তানি সমর্থিত। কলামগুলি নাম অনুসারে মেলানো হয়; শুধুমাত্র লগইন আইটেম আমদানি করা হয়।"
   }
 }

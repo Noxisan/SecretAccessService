@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `otpSecret`/`otpauth` TOTP seeds (Dashlane). When an export has no name/title
   column (Firefox), the item title is now derived from the URL's hostname
   instead of falling back to a generic "Imported item".
+- A hint in the import dialog now lists the supported CSV sources (Chrome, Edge,
+  Firefox, Bitwarden, LastPass, KeePass, Dashlane), localized in all 11 languages.
 
 ### Tests
 - Added 6 tests covering Chrome, Firefox, classic KeePass, and Dashlane CSV
