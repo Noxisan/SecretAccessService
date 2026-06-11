@@ -82,7 +82,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | .sasbak encrypted import with merge or replace mode | Done |
 | Collapsible sidebar with left-aligned, RTL-aware labels | Done |
 | Slide-in side panels (no modal dialogs) for the editor, generator, settings, health, and import/export | Done |
-| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Escape (close panel / clear) | Done |
+| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Ctrl+S (save the open editor/settings panel; Ctrl+Enter also saves an item), Escape (close panel / clear) | Done |
 | 11 UI translations with an inline top-bar language switcher (RTL for Arabic & Urdu) | Done |
 | Panic lock / self-destruct after N failed unlock attempts | Done |
 | Passkeys / FIDO2 / WebAuthn storage — record credentials as reference entries | Done |
