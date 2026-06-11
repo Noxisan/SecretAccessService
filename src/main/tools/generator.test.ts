@@ -143,4 +143,30 @@ describe('generatePassword — passphrase mode', () => {
     const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 200, separator: ' ' })
     expect(new Set(phrase.split(' ')).size).toBeGreaterThan(100)
   })
+
+  it('capitalizes the first letter of every word when asked', async () => {
+    const phrase = await generatePassword({
+      ...base, mode: 'passphrase', words: 5, separator: ' ', capitalize: true
+    })
+    for (const word of phrase.split(' ')) expect(word[0]).toBe(word[0]?.toUpperCase())
+    // Each capitalized word still maps back to a list word when lower-cased.
+    for (const word of phrase.split(' ')) expect(WORDSET.has(word.toLowerCase())).toBe(true)
+  })
+
+  it('appends a trailing digit when wordNumber is set', async () => {
+    for (let i = 0; i < 30; i++) {
+      const phrase = await generatePassword({
+        ...base, mode: 'passphrase', words: 4, separator: '-', wordNumber: true
+      })
+      expect(phrase).toMatch(/[0-9]$/)
+      // The body before the digit is still four hyphen-joined words.
+      expect(phrase.replace(/[0-9]$/, '').split('-')).toHaveLength(4)
+    }
+  })
+
+  it('omits capitalization and digits by default', async () => {
+    const phrase = await generatePassword({ ...base, mode: 'passphrase', words: 5, separator: ' ' })
+    expect(phrase).not.toMatch(/[0-9]/)
+    expect(phrase).toBe(phrase.toLowerCase())
+  })
 })

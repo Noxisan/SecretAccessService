@@ -153,7 +153,9 @@
       "fair": "درمیانہ",
       "strong": "مضبوط",
       "veryStrong": "بہت مضبوط"
-    }
+    },
+    "capitalize": "الفاظ کو بڑا کریں",
+    "wordNumber": "ایک نمبر شامل کریں"
   },
   "settings": {
     "title": "ترتیبات",

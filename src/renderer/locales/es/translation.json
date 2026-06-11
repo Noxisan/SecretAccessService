@@ -153,7 +153,9 @@
       "fair": "Regular",
       "strong": "Fuerte",
       "veryStrong": "Muy fuerte"
-    }
+    },
+    "capitalize": "Capitalizar palabras",
+    "wordNumber": "Añadir un número"
   },
   "settings": {
     "title": "Configuración",

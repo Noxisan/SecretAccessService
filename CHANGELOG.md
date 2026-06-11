@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Passphrase capitalization and number options** — the password generator's
+  passphrase mode now has two optional toggles: capitalize the first letter of
+  every word, and append a random digit. These help satisfy sites that require
+  an uppercase letter or a number even in a passphrase. The strength estimate
+  accounts for the extra digit, and both options persist with the other
+  generator settings. Covered by new tests.
+
 ## [0.32.0] - 2026-06-11
 
 Adds a lock-on-minimize security option and an internal safeguard against

@@ -154,4 +154,8 @@ export interface GeneratePasswordOptions {
   mode: 'characters' | 'passphrase'
   words?: number | undefined
   separator?: string | undefined
+  /** Passphrase: capitalize the first letter of each word. */
+  capitalize?: boolean | undefined
+  /** Passphrase: append a random digit so the result contains a number. */
+  wordNumber?: boolean | undefined
 }
