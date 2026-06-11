@@ -176,7 +176,8 @@
     "sectionAppearance": "Apparence",
     "sectionSecurity": "Sécurité",
     "passwordHistoryLimit": "Limite de l historique des mots de passe",
-    "passwordHistoryLimitHint": "Nombre d anciens mots de passe à conserver par identifiant (0 n en conserve aucun)."
+    "passwordHistoryLimitHint": "Nombre d anciens mots de passe à conserver par identifiant (0 n en conserve aucun).",
+    "lockOnMinimize": "Verrouiller en cas de réduction"
   },
   "changePw": {
     "title": "Changer le mot de passe principal",

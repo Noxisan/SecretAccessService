@@ -65,11 +65,11 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Password history per login (view previous passwords; one-click restore) | Done |
 | Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word); CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
 | Global search across all item types, including custom-field labels (never secret values) | Done |
-| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, clear-clipboard-on-lock toggle, password-history limit, panic-lock threshold | Done |
+| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, clear-clipboard-on-lock toggle, lock-on-minimize toggle, password-history limit, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
 | Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
 | Category item-count badges in sidebar | Done |
-| Auto-lock on idle + OS sleep/lock-screen | Done |
+| Auto-lock on idle, OS sleep/lock-screen, and optionally on window minimize | Done |
 | Clipboard auto-clear (timed) plus optional immediate clear when the vault locks | Done |
 | Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring; accepts a full `otpauth://` URI or a bare base32 secret | Done |
 | Embedded 2FA — TOTP seed stored directly inside a login entry; live code visible in the editor | Done |
@@ -138,6 +138,7 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.32.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.32.0) | 2026-06-11 | Lock-on-minimize security setting; internal locale key-parity test guarding all 11 translations |
 | [0.31.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.31.0) | 2026-06-11 | Onboarding empty states (new vault / empty search / empty filter); configurable password-history limit setting |
 | [0.30.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.30.0) | 2026-06-11 | Plaintext CSV export of logins (migrate out); settings panel organized into Appearance and Security sections |
 | [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |

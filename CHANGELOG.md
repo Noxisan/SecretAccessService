@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.32.0] - 2026-06-11
+
+Adds a lock-on-minimize security option and an internal safeguard against
+missing translations.
+
+### Added
+- **Lock on minimize** — a new Security setting (off by default) that locks the
+  vault whenever the application window is minimized, complementing the existing
+  idle-timeout and system-sleep auto-lock. Useful for quickly securing the vault
+  by minimizing the window.
+
+### Tests
+- Added a locale key-parity test that fails if any of the 11 languages is
+  missing a key that English defines (or has an extra/blank one). This guards
+  against the common bug where a new English string is added but a translation
+  is forgotten, silently falling back to English. All locales currently match
+  (218 keys each).
+
 ## [0.31.0] - 2026-06-11
 
 Friendlier first-run experience with onboarding empty states, plus a
@@ -769,7 +787,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.31.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.32.0...HEAD
+[0.32.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.31.0...v0.32.0
 [0.31.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.30.0...v0.31.0
 [0.30.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.29.0...v0.30.0
 [0.29.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.28.0...v0.29.0
