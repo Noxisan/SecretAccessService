@@ -8,11 +8,11 @@ import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
 import ItemList from './features/vault/ItemList'
 import ItemEditor from './features/vault/ItemEditor'
-import GeneratorModal from './features/generator/GeneratorModal'
-import SettingsModal from './features/settings/SettingsModal'
-import ChangePasswordModal from './features/settings/ChangePasswordModal'
+import GeneratorPanel from './features/generator/GeneratorPanel'
+import SettingsPanel from './features/settings/SettingsPanel'
+import ChangePasswordPanel from './features/settings/ChangePasswordPanel'
 import HealthDashboard from './features/health/HealthDashboard'
-import ImportExportModal from './features/importexport/ImportExportModal'
+import ImportExportPanel from './features/importexport/ImportExportPanel'
 
 export default function App(): JSX.Element {
   const { i18n } = useTranslation()
@@ -38,7 +38,7 @@ export default function App(): JSX.Element {
   }, [setSettings, setStatus, clearSecrets])
 
   // Reapply theme/language/direction whenever settings change (initial load +
-  // every time the user saves from the Settings modal).
+  // every time the user saves from the Settings panel).
   useEffect(() => {
     if (!settings) return
     const root = document.documentElement
@@ -95,11 +95,11 @@ export default function App(): JSX.Element {
         </main>
       </div>
       <ItemEditor />
-      <GeneratorModal />
-      <SettingsModal />
-      <ChangePasswordModal />
+      <GeneratorPanel />
+      <SettingsPanel />
+      <ChangePasswordPanel />
       <HealthDashboard />
-      <ImportExportModal />
+      <ImportExportPanel />
     </div>
   )
 }

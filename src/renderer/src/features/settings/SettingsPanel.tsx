@@ -21,7 +21,7 @@ const ACCENT_PRESETS = [
 /** Selectable UI scale factors (root font-size multipliers). */
 const UI_SCALES = [0.9, 1, 1.1, 1.25]
 
-export default function SettingsModal(): JSX.Element | null {
+export default function SettingsPanel(): JSX.Element | null {
   const { t } = useTranslation()
   const open = useAppStore((s) => s.settingsOpen)
   const setOpen = useAppStore((s) => s.setSettingsOpen)
