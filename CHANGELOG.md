@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.20.0] - 2026-06-11
+
+Hardens the passphrase generator with the full EFF diceware wordlist — a
+meaningful security improvement — and adds the project's LICENSE file.
+
+### Added
+- **LICENSE file** — the canonical GPL-3.0 text, matching the
+  `GPL-3.0-or-later` declaration in `package.json` and the README badge.
+
+### Documentation
+- README: added the 0.19.0 release to the history table, corrected the source
+  download to GitHub's auto-attached "Source code (zip / tar.gz)", documented the
+  EFF diceware list in the generator row, cross-linked the LICENSE, and linked
+  Download to the release history and changelog.
+
+### Changed
+- **Stronger passphrases — full EFF diceware wordlist** — the passphrase
+  generator now draws from the standard 7776-word EFF large wordlist instead of
+  the previous 40-word placeholder. Each word now carries ~12.9 bits of entropy
+  instead of ~5.3, so a 5-word passphrase jumps from ~26 bits (which the meter
+  rated "very weak") to ~65 bits. The list is embedded for full offline use and
+  is verbatim from the published EFF source so the entropy is auditable.
+
+### Fixed
+- **Unbiased word selection across the larger list** — added a two-byte
+  rejection sampler (`uniformIndex`); the old single-byte `uniformByte` capped
+  at 256 and could not index a 7776-word list without bias.
+
+### Tests
+- Reworked the passphrase tests around the new list: a drift guard asserting the
+  list is exactly 7776 unique words (kept in lockstep with the renderer's
+  entropy estimate), word-membership checks, and a distribution check that
+  exercises the two-byte sampler. Suite grows to 118 tests.
+
 ## [0.19.0] - 2026-06-11
 
 Adds the ability to open a login's website directly in your system browser, plus
@@ -452,7 +486,8 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.20.0...HEAD
+[0.20.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.19.0...v0.20.0
 [0.19.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.1...v0.19.0
 [0.18.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.17.0...v0.18.0

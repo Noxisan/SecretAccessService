@@ -30,9 +30,11 @@ Download the latest build from the **[Releases](https://github.com/Noxisan/Secre
 | Windows | `S.A.S-<version>-portable.exe` | No install required; runs in place |
 | Linux | `S.A.S-<version>-x86_64.AppImage` | `chmod +x` then run directly |
 | Linux | `S.A.S-<version>-amd64.deb` | `sudo apt install ./<file>.deb` |
-| Source | `sas-<version>-source.zip` | Build from source (see below) |
+| Source | `Source code (zip / tar.gz)` | Auto-attached to every release; or [build from source](#build-from-source) |
 
-Prefer to build it yourself? See [Build from source](#build-from-source).
+Prefer to build it yourself? See [Build from source](#build-from-source). For
+past versions and what changed, see the [release history](#releases) below or
+the full [CHANGELOG](CHANGELOG.md).
 
 ---
 
@@ -61,7 +63,7 @@ See [Threat model](#threat-model) below for scope and assumptions.
 | Custom fields per entry (plain text or masked secret) | Done |
 | Duplicate entry — clone any item in one click from the editor | Done |
 | Password history per login (view previous passwords; one-click restore) | Done |
-| Password generator — character mode (length, classes, exclude-ambiguous) and passphrase/diceware mode; settings persist across sessions | Done |
+| Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word); CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
 | Global fuzzy search across all item types | Done |
 | Settings: theme (light/dark/system), accent color, language, auto-lock timer, clipboard-clear timer, panic-lock threshold | Done |
 | Change master password with current-password verification and immediate vault re-encryption | Done |
@@ -134,6 +136,8 @@ Each release is tagged on `main` and includes pre-built artifacts for Windows an
 
 | Version | Date | Highlights |
 |---|---|---|
+| [0.20.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.20.0) | 2026-06-11 | Passphrase generator upgraded to the full 7776-word EFF diceware list (~12.9 bits/word); added the GPL-3.0 LICENSE file |
+| [0.19.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.19.0) | 2026-06-11 | Open a login's website in the system browser (http/https only); internal extraction of TOTP, search, and breach logic into unit-tested modules |
 | [0.18.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.1) | 2026-06-10 | Fix: ItemList white-screen / infinite render loop from an unstable store selector |
 | [0.18.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.0) | 2026-06-10 | Health issue badge on top bar — weak, reused, and old passwords shown at a glance |
 | [0.17.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.17.0) | 2026-06-10 | Persistent generator settings — mode, length, and options restored on every open |
@@ -194,4 +198,7 @@ Commit format: `<type>(<scope>): <summary>` — e.g. `feat(vault): add emergency
 
 ## License
 
-GPL-3.0-or-later.
+Licensed under the **GNU General Public License v3.0 or later** (GPL-3.0-or-later).
+The full text is in [LICENSE](LICENSE). In short: you may use, study, share, and
+modify this software, provided derivative works are distributed under the same
+license and with source available.
