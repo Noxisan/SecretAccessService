@@ -4,21 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { X, KeyRound } from 'lucide-react'
 import { useAppStore } from '../../store/app'
 import type { AppSettings, ThemeMode } from '@shared/types'
-import { SUPPORTED_LANGUAGES } from '../../i18n'
-
-const LANGUAGE_NAMES: Record<string, string> = {
-  en: 'English',
-  zh: '中文',
-  hi: 'हिंदी',
-  es: 'Español',
-  fr: 'Français',
-  ar: 'العربية',
-  bn: 'বাংলা',
-  pt: 'Português',
-  ru: 'Русский',
-  ur: 'اردو',
-  de: 'Deutsch',
-}
+import { SUPPORTED_LANGUAGES, LANGUAGE_NAMES } from '../../i18n'
 
 const ACCENT_PRESETS = [
   '#7c3aed', // electric violet (default)
