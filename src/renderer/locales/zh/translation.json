@@ -118,7 +118,8 @@
       "newest": "最近修改",
       "oldest": "最早优先",
       "kind": "按类型"
-    }
+    },
+    "openUrl": "在浏览器中打开"
   },
   "generator": {
     "title": "密码生成器",

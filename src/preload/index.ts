@@ -64,7 +64,10 @@ const api = {
     ): Promise<{ imported: number; replaced: boolean }> =>
       ipcRenderer.invoke(IPC.vaultImport, { filePath, password, mode }),
     /** Notify the main process of user activity to reset the idle auto-lock timer. */
-    pingActivity: (): Promise<void> => ipcRenderer.invoke(IPC.activityPing)
+    pingActivity: (): Promise<void> => ipcRenderer.invoke(IPC.activityPing),
+    /** Open a URL in the system default browser (http/https only). */
+    openExternal: (url: string): Promise<void> =>
+      ipcRenderer.invoke(IPC.openExternal, { url })
   },
   settings: {
     get: (): Promise<AppSettings> => ipcRenderer.invoke(IPC.settingsGet),
