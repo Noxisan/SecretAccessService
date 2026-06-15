@@ -58,36 +58,34 @@ See [Threat model](#threat-model) below for scope and assumptions.
 
 | Feature | Status |
 |---|---|
-| Encrypted vault: logins, secure notes, credit cards, identities, TOTP authenticators | Done |
-| Categories, favorites, and color-dot markers — create, rename, reorder (up/down), delete | Done |
-| Custom fields per entry (plain text or masked secret) | Done |
-| Duplicate entry — clone any item in one click from the editor | Done |
-| Password history per login (view previous passwords; one-click restore) | Done |
-| Password generator — character mode (length, classes, exclude-ambiguous) and passphrase mode using the full 7776-word EFF diceware list (~12.9 bits per word), with optional capitalization and an appended digit; CSPRNG with rejection sampling for unbiased selection; settings persist across sessions | Done |
-| Global search across all item types, including custom-field labels (never secret values) | Done |
-| Settings: theme (light/dark/system), accent color (presets + custom), display size (UI scale 90-125%), language, auto-lock timer, clipboard-clear timer, clear-clipboard-on-lock toggle, lock-on-minimize toggle, password-history limit, panic-lock threshold | Done |
-| Change master password with current-password verification and immediate vault re-encryption | Done |
-| Item list sort (A→Z, Z→A, recently modified, oldest first, by type) | Done |
-| Category item-count badges in sidebar | Done |
-| Auto-lock on idle, OS sleep/lock-screen, and optionally on window minimize | Done |
-| Clipboard auto-clear (timed) plus optional immediate clear when the vault locks | Done |
-| Built-in TOTP authenticator — standalone TOTP items with live codes and SVG countdown ring; accepts a full `otpauth://` URI or a bare base32 secret | Done |
-| Embedded 2FA — TOTP seed stored directly inside a login entry; live code visible in the editor | Done |
-| Password health dashboard — flags weak, reused, old (>180 days), and breached passwords; top-bar badge shows issue count at a glance | Done |
-| HaveIBeenPwned breach check — k-anonymity range API; only the first 5 hex chars of the SHA-1 hash leave the process | Done |
-| Encrypted vault export (.sasbak) with independent Argon2id + XChaCha20-Poly1305 backup password | Done |
-| Plaintext CSV export of logins (for migrating to another manager; clearly warned, round-trips through the CSV importer) | Done |
-| CSV import — Bitwarden, LastPass, Chrome/Edge, Firefox, KeePass(XC), Dashlane, and generic exports (column names matched by alias; title derived from the URL when absent) | Done |
-| Bitwarden JSON import — all four item types, custom fields, TOTP seeds | Done |
-| .sasbak encrypted import with merge or replace mode | Done |
-| Collapsible sidebar with left-aligned, RTL-aware labels | Done |
-| Slide-in side panels (no modal dialogs) for the editor, generator, settings, health, and import/export | Done |
-| Keyboard shortcuts: Ctrl+F (search), Ctrl+L (lock), Ctrl+S (save the open editor/settings panel; Ctrl+Enter also saves an item), Escape (close panel / clear) | Done |
-| 11 UI translations with an inline top-bar language switcher (RTL for Arabic & Urdu) | Done |
-| Panic lock / self-destruct after N failed unlock attempts | Done |
-| Passkeys / FIDO2 / WebAuthn storage — record credentials as reference entries | Done |
-| Quick unlock — save master password to OS keychain (DPAPI / libsecret); unlock with one click | Done |
-| Travel mode — hide selected categories and their items with a single toggle | Done |
+| Encrypted vault — logins, secure notes, cards, identities, TOTP | Done |
+| Categories, favorites & color dots — create, rename, reorder, delete | Done |
+| Custom fields per entry (plain or masked) | Done |
+| Duplicate entry in one click | Done |
+| Password history per login (view & restore) | Done |
+| Password generator — character & EFF-diceware passphrase modes (CSPRNG, settings persisted) | Done |
+| Global search across all items and custom-field labels (never secret values) | Done |
+| Settings — theme, accent, UI scale, language, auto-lock & clipboard timers, history limit, panic threshold | Done |
+| Change master password (verified, immediate re-encryption) | Done |
+| Item sort (name, modified, created, type) with remembered order | Done |
+| Category item-count badges | Done |
+| Auto-lock — on idle, OS sleep/lock, and optionally on minimize | Done |
+| Clipboard auto-clear, with optional immediate clear on lock | Done |
+| Built-in TOTP authenticator — live codes with countdown ring (otpauth URI or base32) | Done |
+| Embedded 2FA — TOTP seed stored inside a login entry | Done |
+| Password health dashboard — weak, reused, old & breached, with top-bar badge | Done |
+| HaveIBeenPwned breach check — k-anonymity (only a 5-char SHA-1 prefix leaves the device) | Done |
+| Encrypted backup export (.sasbak) with independent backup password | Done |
+| Plaintext CSV export of logins (migrate out; clearly warned) | Done |
+| Import — .sasbak (merge/replace), Bitwarden JSON, and CSV from Bitwarden, LastPass, Chrome, Firefox, KeePassXC & Dashlane | Done |
+| Slide-in side panels (no modal dialogs) | Done |
+| Collapsible, RTL-aware sidebar | Done |
+| Keyboard shortcuts — Ctrl+F, Ctrl+L, Ctrl+S / Ctrl+Enter, Escape | Done |
+| 11 UI translations with inline switcher (RTL for Arabic & Urdu) | Done |
+| Panic lock / self-destruct after N failed attempts | Done |
+| Passkey / FIDO2 / WebAuthn storage (reference entries) | Done |
+| Quick unlock via OS keychain (DPAPI / libsecret) | Done |
+| Travel mode — hide selected categories | Done |
 | Emergency access with configurable wait period | Planned |
 | Auto-type / global hotkey | Planned |
 
@@ -134,49 +132,11 @@ Arabic and Urdu render right-to-left automatically. The selected language is sto
 
 ## Releases
 
-Each release is tagged on `main` and includes pre-built artifacts for Windows and Linux. Automated release notes and artifacts are published via GitHub Actions on every tag push.
+Each release is tagged on `main` with pre-built Windows and Linux artifacts, published automatically via GitHub Actions on every tag push.
 
-| Version | Date | Highlights |
-|---|---|---|
-| [0.34.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.34.0) | 2026-06-11 | Save keyboard shortcut (Ctrl/Cmd+S, plus Ctrl/Cmd+Enter in the item editor) |
-| [0.33.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.33.0) | 2026-06-11 | Passphrase generator: optional word capitalization and an appended random digit |
-| [0.32.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.32.0) | 2026-06-11 | Lock-on-minimize security setting; internal locale key-parity test guarding all 11 translations |
-| [0.31.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.31.0) | 2026-06-11 | Onboarding empty states (new vault / empty search / empty filter); configurable password-history limit setting |
-| [0.30.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.30.0) | 2026-06-11 | Plaintext CSV export of logins (migrate out); settings panel organized into Appearance and Security sections |
-| [0.29.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.29.0) | 2026-06-11 | Clear-clipboard-on-lock security setting (all lock paths); item-list sort order remembered across sessions |
-| [0.28.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.28.0) | 2026-06-11 | New display-size (UI scale) setting; consistent pinned headers/footers across all slide-in panels |
-| [0.27.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.27.0) | 2026-06-11 | UI overhaul: all dialogs are now right-side slide-in panels (shared SlidePanel), replacing centered modals |
-| [0.26.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.26.0) | 2026-06-11 | Search matches custom-field labels (values stay private); sidebar labels left-aligned |
-| [0.25.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.1) | 2026-06-11 | Fix: wider item editor so custom fields no longer overflow / force sideways scrolling |
-| [0.25.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.25.0) | 2026-06-11 | TOTP fields accept a bare base32 secret (spaces/case tolerated), not just an otpauth:// URI |
-| [0.24.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.24.0) | 2026-06-11 | Broader CSV import: Chrome/Edge, Firefox, KeePass(XC), and Dashlane layouts (URL-derived titles); in-dialog hint of supported sources |
-| [0.23.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.23.0) | 2026-06-11 | Generated passwords always include at least one character from every selected class (unbiased), satisfying site composition rules |
-| [0.22.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.1) | 2026-06-11 | Fix: inline password generator honours saved generator settings; theme-token cleanup; IPC validation-schema tests |
-| [0.22.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.22.0) | 2026-06-11 | Reorder sidebar categories with up/down controls; tests for the reorder and settings-persistence logic |
-| [0.21.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.21.0) | 2026-06-11 | Inline top-bar language switcher (all 11 languages, RTL-aware); vault format/migration test coverage; CI/release builds on Node 22 LTS |
-| [0.20.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.20.0) | 2026-06-11 | Passphrase generator upgraded to the full 7776-word EFF diceware list (~12.9 bits/word); added the GPL-3.0 LICENSE file |
-| [0.19.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.19.0) | 2026-06-11 | Open a login's website in the system browser (http/https only); internal extraction of TOTP, search, and breach logic into unit-tested modules |
-| [0.18.1](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.1) | 2026-06-10 | Fix: ItemList white-screen / infinite render loop from an unstable store selector |
-| [0.18.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.18.0) | 2026-06-10 | Health issue badge on top bar — weak, reused, and old passwords shown at a glance |
-| [0.17.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.17.0) | 2026-06-10 | Persistent generator settings — mode, length, and options restored on every open |
-| [0.16.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.16.0) | 2026-06-10 | Import parsers extracted; test suite grows from 40 to 75 tests |
-| [0.15.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.15.0) | 2026-06-10 | Duplicate entry button in item editor |
-| [0.14.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.14.0) | 2026-06-10 | Bitwarden JSON import — all four item types, custom fields, TOTP seeds |
-| [0.13.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.13.0) | 2026-06-10 | Passkey storage; full i18n coverage for travel mode, panic lock, and breach check |
-| [0.12.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.12.0) | 2026-06-10 | Quick unlock via OS keychain — unlock with saved credentials |
-| [0.11.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.11.0) | 2026-06-10 | Item sort options and category item-count badges |
-| [0.10.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.10.0) | 2026-06-10 | Change master password with current-password verification and immediate re-encryption |
-| [0.9.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.9.0) | 2026-06-10 | Travel mode — hide selected categories and their items on demand |
-| [0.8.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.8.0) | 2026-06-10 | Panic lock — vault self-destruct after N failed attempts |
-| [0.7.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.7.0) | 2026-06-10 | Embedded TOTP in login items; Ctrl+F / Ctrl+L keyboard shortcuts |
-| [0.6.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.6.0) | 2026-06-10 | Custom fields per entry |
-| [0.5.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.5.0) | 2026-06-10 | Collapsible sidebar; idle auto-lock heartbeat; password history viewer |
-| [0.4.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.4.0) | 2026-06-10 | Encrypted export (.sasbak); CSV import; merge / replace import modes |
-| [0.3.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.3.0) | 2026-06-10 | Full editor for all 5 item types; health dashboard; HIBP breach check; all 11 locales |
-| [0.2.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.2.0) | 2026-06-09 | Password generator; item create/edit/delete; vault reset escape hatch |
-| [0.1.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.1.0) | 2026-06-09 | Initial project scaffold: cryptography core, hardened Electron shell, i18n scaffolding |
+**Latest — [v0.35.0](https://github.com/Noxisan/SecretAccessService/releases/tag/v0.35.0)** (2026-06-11): application, taskbar, and system-tray icons, plus an option to minimize to the tray on window close.
 
-Full changelog: [CHANGELOG.md](CHANGELOG.md)
+Browse every version on the [Releases page](https://github.com/Noxisan/SecretAccessService/releases) · full history in [CHANGELOG.md](CHANGELOG.md).
 
 ---
 
