@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.35.1] - 2026-06-15
+
+Polishes the application, taskbar and tray icons so they no longer render
+undersized, and trims the README.
+
+### Fixed
+- **Taskbar & tray icon size** — the shield glyph occupied only ~32–37% of each
+  icon canvas (surrounded by transparent padding) and rendered tiny in the
+  taskbar and system tray. Regenerated `icon.png`, `icon.ico`, `tray.png` and
+  `tray@2x.png` from a tight crop so the glyph fills ~90–94% of the canvas.
+
+### Changed
+- **README** — collapsed the full Releases table down to the latest release plus
+  links to the Releases page and this changelog; condensed the feature matrix.
+
 ## [0.35.0] - 2026-06-11
 
 Adds application, taskbar and system-tray icons, plus an option to minimize
@@ -835,7 +850,9 @@ end to end — create it, add and manage entries, and generate strong passwords.
 - React renderer with CSS-variable theming (electric-violet accent), sidebar +
   top bar, and i18n scaffolding (English + German).
 
-[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.34.0...HEAD
+[Unreleased]: https://github.com/Noxisan/SecretAccessService/compare/v0.35.1...HEAD
+[0.35.1]: https://github.com/Noxisan/SecretAccessService/compare/v0.35.0...v0.35.1
+[0.35.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.34.0...v0.35.0
 [0.34.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.33.0...v0.34.0
 [0.33.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.32.0...v0.33.0
 [0.32.0]: https://github.com/Noxisan/SecretAccessService/compare/v0.31.0...v0.32.0
